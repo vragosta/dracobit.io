@@ -1,0 +1,32 @@
+{
+  "name": "dracobit",
+  "version": "1.0.0",
+  "devDependencies": {
+    "browserify": "^10.2.4",
+    "browserify-shim": "^3.8.9",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-csslint": "^0.1.5",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-jscs": "^1.6.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-phpcs": "^0.6.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-wp-pot": "^1.0.1",
+    "jshint-stylish": "^2.0.1"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery",
+    "underscore": "global:_",
+    "dracobit": "global:Dracobit"
+  }
+}
