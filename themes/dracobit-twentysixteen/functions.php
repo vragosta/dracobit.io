@@ -429,9 +429,6 @@ add_action( 'init', 'dracobit_register_posttype_tutorial' );
  * TODO
  */
 function dracobit_register_tutorial_content() {
-	global $post;
-	$tutorials = new WP_Query( array( 'post_type' => 'tutorial', 'order' => 'ASC' ) );
-
 	if ( $tutorials->have_posts() ) {
 		while ( $tutorials->have_posts() ) : $tutorials->the_post();
 			$post_tagline = get_post_meta( $post->ID, 'tagline', true );
