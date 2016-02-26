@@ -429,8 +429,8 @@ add_action( 'init', 'dracobit_register_posttype_tutorial' );
  * TODO
  */
 function dracobit_register_tutorial_content() {
-	$linux_id = 15; $css_id = 17; // work
-	// $linux_id = 25; $css_id = 29; // home
+	// $linux_id = 15; $css_id = 17; // work
+	$linux_id = 25; $css_id = 29; // home
 	$linux_tagline = get_post_meta( $linux_id, 'tagline', true );
 	$css_tagline   = get_post_meta( $css_id, 'tagline', true);
 
