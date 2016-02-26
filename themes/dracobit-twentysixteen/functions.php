@@ -429,33 +429,25 @@ add_action( 'init', 'dracobit_register_posttype_tutorial' );
  * TODO
  */
 function dracobit_register_tutorial_content() {
-	$linux_id = 15; $css_id = 17; // work
-	// $linux_id = 25; $css_id = 29; // home
-	$linux_tagline = get_post_meta( $linux_id, 'tagline', true );
-	$css_tagline   = get_post_meta( $css_id, 'tagline', true);
+	global $post;
+	$tutorials = new WP_Query( array( 'post_type' => 'tutorial', 'order' => 'ASC' ) );
 
-	ob_start();
-	include_once get_template_directory() . '/content/tutorials/linux-for-beginners/main.php';
-	$linux_content = ob_get_clean();
+	if ( $tutorials->have_posts() ) {
+		while ( $tutorials->have_posts() ) : $tutorials->the_post();
+			$post_tagline = get_post_meta( $post->ID, 'tagline', true );
 
-	ob_start();
-	include_once get_template_directory() . '/content/tutorials/tutorial-css.php';
-	$css_content = ob_get_clean();
+			ob_start();
+			include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/main.php';
+			$post_content = ob_get_clean();
 
-	wp_update_post( array(
-		'ID'           => $linux_id,
-		'post_content' => $linux_content
-		)
-	);
+			wp_update_post( array(
+				'ID'           => $post->ID,
+				'post_content' => $post_content,
+			) );
 
-	wp_update_post( array(
-		'ID'           => $css_id,
-		'post_content' => $css_content,
-		)
-	);
-
-	update_post_meta( $linux_id, 'tagline', $linux_tagline );
-	update_post_meta( $css_id, 'tagline', $css_tagline );
+			update_post_meta( $post->ID, 'tagline', $post_tagline );
+		endwhile;
+	}
 }
 add_action( 'init', 'dracobit_register_tutorial_content' );
 
