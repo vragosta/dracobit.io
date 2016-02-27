@@ -431,10 +431,11 @@ add_action( 'init', 'dracobit_register_posttype_tutorial' );
 function dracobit_register_tutorial_content() {
 	global $post;
 	$tutorials = new WP_Query( array( 'post_type' => 'tutorial', 'order' => 'ASC' ) );
-	
+
 	if ( $tutorials->have_posts() ) {
 		while ( $tutorials->have_posts() ) : $tutorials->the_post();
 			$post_tagline = get_post_meta( $post->ID, 'tagline', true );
+			$post_version = get_post_meta( $post->ID, 'version', true );
 
 			ob_start();
 			include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/main.php';
@@ -446,6 +447,8 @@ function dracobit_register_tutorial_content() {
 			) );
 
 			update_post_meta( $post->ID, 'tagline', $post_tagline );
+			update_post_meta( $post->ID, 'version', $post_version );
+
 		endwhile;
 	}
 }
