@@ -12,6 +12,7 @@
 	</head>
 
 	<body <?php body_class(); ?>>
+
     <nav class="navbar navbar-default navbar-fixed-top">
       <div id="header-outer-container" class="container">
 				<div id="header-inner-container" class="row">
@@ -34,8 +35,11 @@
 			            <li><a href="#">One more separated link</a></li>
 			          </ul>
 			        </li>
+							<li><a href="<?php echo admin_url(); ?>">WP-Admin</a></li>
 						</ul>
 					</div>
+
+
 					<div id="header-controls-mask" class="col-xs-4 col-sm-5 col-md-5 col-lg-5">
 						<div id="header-controls-container">
 							<?php if ( ! is_user_logged_in() ) { ?>
