@@ -265,6 +265,10 @@ a:hover {
 
 /***************************************************/
 
+#page-container {
+	margin-top: 40px;
+}
+
 #profile-avatar-container img {
 	width: 100%;
 	height: auto;
@@ -347,6 +351,28 @@ height: 565px;
 }
 
 /********************************************/
+
+#tutorials-page-container {
+	margin-top: 40px;
+}
+
+#tutorials-nav-menu {
+	padding-top: 20px;
+}
+
+#tutorials-nav-menu legend {
+	color: #333;
+	font-size: 22px;
+}
+
+#tutorials-version {
+	float: right;
+}
+
+#tutorials-content {
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
 
 .tutorials-container:first-child {
 	display: block;

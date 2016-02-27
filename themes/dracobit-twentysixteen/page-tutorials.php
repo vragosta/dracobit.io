@@ -5,10 +5,10 @@
 	$tutorials = new WP_Query( array( 'post_type' => 'tutorial', 'order' => 'ASC' ) );
 ?>
 
-<div class="container" style="margin-top: 40px;">
+<div id="tutorials-page-container" class="container">
 	<div class="row">
-		<nav id="tutorials-nav-menu" class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="padding-top: 20px;">
-			<legend style="color: #333; font-size: 22px;">Tutorials</legend>
+		<nav id="tutorials-nav-menu" class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+			<legend>Tutorials</legend>
 			<div class="list-group">
 			<?php if ( $tutorials->have_posts() ) {
 				while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
@@ -18,7 +18,7 @@
 								<h4 class="list-group-item-heading"><?php the_title(); ?></h4>
 							</div>
 							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-								<p class="list-group-item-text" style="float: right;">v<?php echo get_post_meta( $post->ID, 'version', true); ?></p>
+								<p id="tutorials-version" class="list-group-item-text">v<?php echo get_post_meta( $post->ID, 'version', true); ?></p>
 							</div>
 						</div>
 
@@ -33,7 +33,7 @@
 			?>
 			</div>
 		</nav>
-		<main id="tutorials-content" class="col-xs-12 col-sm-7 col-md-7 col-lg-7" style="padding-top: 20px; margin-bottom: 20px;">
+		<main id="tutorials-content" class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
 			<?php
 				if ( $tutorials->have_posts() ) {
 					while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
