@@ -13,8 +13,20 @@
 			<?php if ( $tutorials->have_posts() ) {
 				while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
 					<a href="#tutorial-<?php echo $post->post_name; ?>" class="list-group-item" name="<?php echo $post->post_name; ?>">
-						<h4 class="list-group-item-heading"><?php the_title(); ?></h4>
-						<p class="list-group-item-text"><?php echo get_post_meta( $post->ID, 'tagline', true ); ?></p>
+						<div class="row">
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<h4 class="list-group-item-heading"><?php the_title(); ?></h4>
+							</div>
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<p class="list-group-item-text" style="float: right;">v<?php echo get_post_meta( $post->ID, 'version', true); ?></p>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<p class="list-group-item-text"><?php echo get_post_meta( $post->ID, 'tagline', true ); ?></p>
+							</div>
+						</div>
 					</a>
 					<?php endwhile;
 				}
