@@ -7,7 +7,7 @@
 
 <div id="tutorials-page-container" class="container">
 	<div class="row">
-		<nav id="tutorials-nav-menu" class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+		<nav id="tutorials-nav-menu" class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
 			<legend>Tutorials</legend>
 			<div class="list-group">
 			<?php if ( $tutorials->have_posts() ) {
@@ -44,9 +44,7 @@
 				}
 			?>
 		</main>
-		<aside class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-			<?php //get_sidebar( 'tutorial' ); ?>
-		</aside>
+		<?php get_sidebar( 'tutorial' ); ?>
 	</div>
 </div>
 

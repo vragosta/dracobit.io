@@ -428,3 +428,8 @@ height: 565px;
 #tutorials-file-and-directory-permissions-explained i {
 	margin-left: 10px;
 }
+
+.widget-tutorials {
+	list-style: none;
+	position: fixed;
+}

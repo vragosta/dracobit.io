@@ -119,7 +119,7 @@ function dracobit_widgets_init() {
 		'name'          => __( 'Tutorials Sidebar', 'dracobit' ),
 		'id'            => 'tutorials-sidebar',
 		'description'   => __( 'Tutorial sidebar', 'dracobit' ),
-		'before_widget' => '<li id="%1$s" class="widget %2$s">',
+		'before_widget' => '<li id="%1$s" class="widget widget-tutorials %2$s">',
 		'after_widget'  => '</li>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
