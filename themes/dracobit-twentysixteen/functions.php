@@ -25,6 +25,7 @@ if ( function_exists( 'json_url' ) ) {
 }
 
 include_once get_template_directory() . '/inc/tutorials-metabox.php';
+include_once get_template_directory() . '/inc/class-dracobit-overview-widget.php';
 
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar( false );
@@ -115,6 +116,8 @@ add_action( 'wp_enqueue_scripts', 'dracobit_styles' );
  * @since 1.0.0
  */
 function dracobit_widgets_init() {
+	register_widget( 'Dracobit_Overview_Widget' );
+
 	register_sidebar( array(
 		'name'          => __( 'Tutorials Sidebar', 'dracobit' ),
 		'id'            => 'tutorials-sidebar',

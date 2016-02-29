@@ -10,13 +10,13 @@
 // Blocking direct access to this file.
 defined( 'ABSPATH' ) || exit;
 
-class Dracobit_Story_Widget extends WP_Widget {
+class Dracobit_Overview_Widget extends WP_Widget {
 	/**
 	 * Register widget with WordPress.
 	 */
 	function __construct() {
 		parent::__construct(
-			'story_widget',
+			'overview_widget',
 			__( 'Overview Widget', 'dracobit' ),
 			array( 'description' => __( 'A custom widget for displaying the overview of the current tutorial.', 'dracobit' ), )
 		);
@@ -101,3 +101,5 @@ class Dracobit_Story_Widget extends WP_Widget {
 		return $instance;
 	}
 }
+
+?>
