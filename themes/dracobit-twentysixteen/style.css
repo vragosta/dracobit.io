@@ -27,6 +27,7 @@ a:hover {
 
 #header-outer-container {
 	height: 100%;
+	width: 1400px;
 }
 
 #header-inner-container {
@@ -354,6 +355,7 @@ height: 565px;
 
 #tutorials-page-container {
 	margin-top: 40px;
+	width: 1400px;
 }
 
 #tutorials-nav-menu {
@@ -435,13 +437,7 @@ height: 565px;
 	position: fixed;
 }
 
-.list-group-item,
-.list-group-item h4 {
-	font-size: 14px;
-	text-align: center;
-}
-
 .list-group-item-heading {
 	margin-bottom: 0px;
-	text-align: center;
+	/*text-align: center;*/
 }
