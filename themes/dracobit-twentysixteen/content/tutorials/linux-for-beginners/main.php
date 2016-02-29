@@ -4,7 +4,6 @@
 </section>
 
 <?php
-	//include_once get_template_directory() . '/content/tutorials/linux-for-beginners/inc/overview.php';
 	include_once get_template_directory() . '/content/tutorials/linux-for-beginners/inc/preparing-and-installing-ubuntu.php';
 	include_once get_template_directory() . '/content/tutorials/linux-for-beginners/inc/installing-guest-additions.php';
 	include_once get_template_directory() . '/content/tutorials/linux-for-beginners/inc/getting-connected-via-ssh.php';
