@@ -35,10 +35,12 @@
 			            <li><a href="#">One more separated link</a></li>
 			          </ul>
 			        </li>
-							<li><a href="<?php echo admin_url(); ?>">WP-Admin</a></li>
+							<li>
+								<?php if( current_user_can( 'administrator' ) ) ?>
+									<a href="<?php echo admin_url(); ?>">WP-Admin</a>
+							</li>
 						</ul>
 					</div>
-
 
 					<div id="header-controls-mask" class="col-xs-4 col-sm-5 col-md-5 col-lg-5">
 						<div id="header-controls-container">

@@ -14,11 +14,11 @@
 				while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
 					<a href="#tutorial-<?php echo $post->post_name; ?>" class="list-group-item" name="<?php echo $post->post_name; ?>">
 						<div class="row">
-							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 								<h4 class="list-group-item-heading"><?php the_title(); ?></h4>
 							</div>
-							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-								<p id="tutorials-version" class="list-group-item-text">v<?php echo get_post_meta( $post->ID, 'version', true); ?></p>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<p id="tutorials-version">v<?php echo get_post_meta( $post->ID, 'version', true); ?></p>
 							</div>
 						</div>
 

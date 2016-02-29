@@ -366,7 +366,8 @@ height: 565px;
 }
 
 #tutorials-version {
-	float: right;
+	margin-bottom: 5px;
+	font-weight: bold;
 }
 
 #tutorials-content {
@@ -432,4 +433,15 @@ height: 565px;
 .widget-tutorials {
 	list-style: none;
 	position: fixed;
+}
+
+.list-group-item,
+.list-group-item h4 {
+	font-size: 14px;
+	text-align: center;
+}
+
+.list-group-item-heading {
+	margin-bottom: 0px;
+	text-align: center;
 }
