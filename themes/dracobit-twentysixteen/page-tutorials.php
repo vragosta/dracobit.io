@@ -10,9 +10,11 @@
 		<nav id="tutorials-nav-menu" class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 			<legend>Tutorials</legend>
 			<div class="list-group">
+
 			<?php if ( $tutorials->have_posts() ) {
 				while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
-					<a href="#tutorial-<?php echo $post->post_name; ?>" class="list-group-item" name="<?php echo $post->post_name; ?>">
+
+					<a href="#tutorial-<?php echo $post->post_name; ?>" class="list-group-item" name="<?php echo $post->post_name; ?>" data-tab="<?php echo $tutorials->current_post; ?>">
 						<div class="row">
 							<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
 								<h4 class="list-group-item-heading"><?php the_title(); ?></h4>
@@ -28,6 +30,7 @@
 							</div>
 						</div>
 					</a>
+
 					<?php endwhile;
 				}
 			?>

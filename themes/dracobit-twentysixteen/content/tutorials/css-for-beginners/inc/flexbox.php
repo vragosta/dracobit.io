@@ -1,9 +1,4 @@
-<div id="tutorials-header-container">
-	<legend style="color: #333; font-size: 22px;">CSS</legend>
-	<p>An introduction to Cascading Style Sheets and various other related techniques.</p>
-</div>
-
-<div id="tutorials-overview-container">
+<!-- <div id="tutorials-overview-container">
 	<legend style="color: #333; font-size: 22px">Overview</legend>
 	<ul style="padding-left: 0px; list-style: none;">
 		<li><i class="fa fa-long-arrow-right"></i><a href="#tutorials-flexbox-anchor" style="color: #333;"> Flexbox</a></li>
@@ -14,10 +9,10 @@
 				<li><a href="#tutorials-flexbox-notable-anchor" style="color: #333;">Flexbox Notable Properties</a></li>
 			</ul>
 	</ul>
-</div>
+</div> -->
 
 <a id="tutorials-flexbox-anchor" class="anchor"></a>
-<div id="tutorials-flexbox">
+<section id="tutorials-flexbox">
 		<a id="tutorials-why-flexbox-anchor" class="anchor"></a>
 		<div id="tutorials-why-flexbox">
 			<legend style="color: #333, font-size: 22px;">Flexbox</legend>
@@ -60,4 +55,4 @@
 	<p><code style="color: #00aeff;"></code></p>
 	<p><code style="color: #00aeff;"></code></p>
 	<p><code style="color: #00aeff;"></code></p> -->
-</div>
+</section>

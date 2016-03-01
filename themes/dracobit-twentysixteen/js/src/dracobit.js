@@ -4,11 +4,11 @@ $(function() {
 		$name = $( this ).attr( 'name' );
 
 		if ( 'linux-for-beginners' == $name ) {
-			$( '#tutorials-css-container' ).hide();
+			$( '#tutorials-css-for-beginners-container' ).hide();
 			$( '#tutorials-linux-for-beginners-container' ).show();
-		} else if ( 'css' == $name ) {
+		} else if ( 'css-for-beginners' == $name ) {
 			$( '#tutorials-linux-for-beginners-container' ).hide();
-			$( '#tutorials-css-container' ).show();
+			$( '#tutorials-css-for-beginners-container' ).show();
 		}
 	});
 
