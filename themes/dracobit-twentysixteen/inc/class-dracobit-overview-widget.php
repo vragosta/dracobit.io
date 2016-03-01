@@ -55,15 +55,12 @@ class Dracobit_Overview_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		global $post;
 
-		$args = array();
-		$args['post_type'] = array( 'tutorial' );
+		$args                   = array();
+		$args['post_type']      = array( 'tutorial' );
 		$args['posts_per_page'] = 1;
-		$audio_shortcode = '[audio id="%s"]';
 
-		if ( $instance['title'] ) {
-
-		} else if ( $instance['id'] ) {
-			$args['p'] = $instance['id'];
+		if ( $instance['id'] ) {
+			$args['p']        = $instance['id'];
 			$args['post__in'] = $instance['id'];
 		}
 
@@ -74,10 +71,8 @@ class Dracobit_Overview_Widget extends WP_Widget {
 				$query->the_post();
 
 			$before = '<li class="widget story_widget"><h2>%s</h2>';
-			$after = '<p class="story_content">%s</p></li>';
-			echo sprintf( $before,get_the_title() );
-			echo do_shortcode( sprintf( $audio_shortcode, $post->ID ) );
-
+			$after  = '<p class="story_content">%s</p></li>';
+			echo sprintf( $before, get_the_title() );
 			echo sprintf( $after, get_the_content() );
 			}
 		}
