@@ -24,8 +24,9 @@ function dracobit_tutorials_meta_box_callback( $post ) {
 	 * Use get_post_meta() to retrieve an existing value
 	 * from the database and use the value for the form.
 	 */
-	$tagline = get_post_meta( $post->ID, 'tagline', true );
-	$version = get_post_meta( $post->ID, 'version', true ); ?>
+	$tagline  = get_post_meta( $post->ID, 'tagline', true );
+	$version  = get_post_meta( $post->ID, 'version', true );
+	$overview = get_post_meta( $post->ID, 'overview', true ); ?>
 
 	<table style="width: 100%;">
 		<tr>
@@ -42,6 +43,20 @@ function dracobit_tutorials_meta_box_callback( $post ) {
 			</td>
 			<td>
 				<input type="text" id="version" name="version" value="<?php echo esc_attr( $version ); ?>" style="width: 100%;">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="overview"><?php echo esc_html( __( 'Overview:', 'dracobit' ) ); ?></label>
+			</td>
+			<td>
+				<?php
+					wp_editor( $overview, 'overview', array(
+						'media_buttons' => false,
+						'editor_height' => 200,
+						'textarea_name' => 'overview',
+					) );
+				?>
 			</td>
 		</tr>
 	</table>
@@ -85,10 +100,12 @@ function dracobit_save_tutorials_meta_box_data( $post_id ) {
 	// Sanitize user input.
 	$tagline  = sanitize_text_field( $_POST['tagline'] );
 	$version  = sanitize_text_field( $_POST['version'] );
+	$overview = $_POST['overview'];
 
 	// Update the meta field in the database.
 	update_post_meta( $post_id, 'tagline', $tagline );
 	update_post_meta( $post_id, 'version', $version );
+	update_post_meta( $post_id, 'overview', $overview );
 
 }
 add_action( 'save_post', 'dracobit_save_tutorials_meta_box_data' );

@@ -23,28 +23,6 @@ class Dracobit_Overview_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Back-end widget form.
-	 *
-	 * @see WP_Widget::form()
-	 *
-	 * @param array $instance Previously saved values from database.
-	 */
-	public function form( $instance ) {
-		$title         = ( ! empty( $instance['title'] ) )         ? $instance['title']           : '';
-		$id            = ( ! empty( $instance['id'] ) )            ? $instance['id']              : '';
-		?>
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php echo esc_html( __( 'Title:', 'dracobit' ) ); ?></label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $id ); ?>">
-		</p>
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'id' ) ); ?>"><?php echo esc_html( __( 'ID:', 'dracobit' ) ); ?></label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'id' ) ); ?>" type="text" value="<?php echo esc_attr( $id ); ?>">
-		</p>
-		<?php
-	}
-
-	/**
 	 * Front-end display of widget.
 	 *
 	 * @see WP_Widget::widget()
@@ -54,46 +32,23 @@ class Dracobit_Overview_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		global $post;
-
 		$args                   = array();
 		$args['post_type']      = array( 'tutorial' );
 		$args['posts_per_page'] = 1;
-
-		if ( $instance['id'] ) {
-			$args['p']        = $instance['id'];
-			$args['post__in'] = $instance['id'];
-		}
-
+		$args['p']              = $post->ID;
 		$query = new WP_Query( $args );
 
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
 
-			$before = '<li class="widget story_widget"><h2>%s</h2>';
-			$after  = '<p class="story_content">%s</p></li>';
-			echo sprintf( $before, get_the_title() );
-			echo sprintf( $after, get_the_content() );
+				$before = '<li class="widget dracobit-overview-widget"><h2>%s</h2>';
+				$after  = '<p class="dracobit-overview-content">%s</p></li>';
+				echo sprintf( $before, 'Overview' );
+				$overview = apply_filters( 'the_content', get_post_meta( $post->ID, 'overview', true ) );
+				echo sprintf( $after, $overview );
 			}
 		}
-	}
-
-	/**
-	 * Sanitize widget form values as they are saved.
-	 *
-	 * @see WP_Widget::update()
-	 *
-	 * @param array $new_instance Values just sent to be saved.
-	 * @param array $old_instance Previously saved values from database.
-	 *
-	 * @return array Updated safe values to be saved.
-	 */
-	public function update( $new_instance, $old_instance ) {
-		$instance                   = array();
-		$instance['title']          = ( ! empty( $new_instance['title'] ) )          ? strip_tags( $new_instance['title'] )      : '';
-		$instance['id']             = ( ! empty( $new_instance['id'] ) )             ? strip_tags( $new_instance['id'] )         : '';
-
-		return $instance;
 	}
 }
 
