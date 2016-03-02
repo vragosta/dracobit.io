@@ -410,6 +410,13 @@ height: 565px;
 	padding-top: 20px;
 }
 
+#tutorials-overview-container {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 10px;
+	box-shadow: -10px 10px 0px 0px rgba(0,0,0,0.05);
+}
+
 #tutorials-overview-container a {
 	color: #333;
 }
