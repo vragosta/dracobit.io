@@ -42,11 +42,8 @@ class Dracobit_Overview_Widget extends WP_Widget {
 			while ( $query->have_posts() ) {
 				$query->the_post();
 
-				$before = '<li class="widget dracobit-overview-widget"><h2>%s</h2>';
-				$after  = '<p class="dracobit-overview-content">%s</p></li>';
-				echo sprintf( $before, 'Overview' );
 				$overview = apply_filters( 'the_content', get_post_meta( $post->ID, 'overview', true ) );
-				echo sprintf( $after, $overview );
+				echo $overview;
 			}
 		}
 	}

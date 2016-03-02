@@ -406,6 +406,10 @@ height: 565px;
 	font-weight: 500;
 }
 
+#tutorials-sidebar {
+	padding-top: 20px;
+}
+
 #tutorials-overview-container a {
 	color: #333;
 }
@@ -433,7 +437,7 @@ height: 565px;
 
 .widget-tutorials {
 	list-style: none;
-	position: fixed;
+	/*position: fixed;*/
 }
 
 .list-group-item-heading {

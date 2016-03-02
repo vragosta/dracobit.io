@@ -455,7 +455,10 @@ function dracobit_register_tutorial_content() {
 
 			update_post_meta( $post->ID, 'tagline', $post_tagline );
 			update_post_meta( $post->ID, 'version', $post_version );
-			update_post_meta( $post->ID, 'overview', $post_overview );
+
+			if ( $post_overview ) {
+				update_post_meta( $post->ID, 'overview', $post_overview );
+			}
 
 		endwhile;
 	}
