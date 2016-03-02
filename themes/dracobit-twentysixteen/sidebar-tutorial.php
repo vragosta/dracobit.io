@@ -10,7 +10,7 @@
 $tutorials = new WP_Query( array( 'post_type' => 'tutorial', 'order' => 'ASC' ) );
 
 if ( is_active_sidebar( 'tutorials-sidebar' ) ) : ?>
-	<aside id="tutorials-sidebar" class="col-xs-12 col-sm-3 col-md-3 col-lg-3" role="complementary">
+	<aside id="tutorials-sidebar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4" role="complementary">
 		<section id="tutorials-nav-container">
 			<legend>Tutorials</legend>
 			<div class="list-group">

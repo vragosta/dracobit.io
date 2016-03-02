@@ -7,7 +7,7 @@
 
 <div id="tutorials-page-container" class="container">
 	<div class="row">
-		<main id="tutorials-content" class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+		<main id="tutorials-content" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 			<?php
 				if ( $tutorials->have_posts() ) {
 					while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
