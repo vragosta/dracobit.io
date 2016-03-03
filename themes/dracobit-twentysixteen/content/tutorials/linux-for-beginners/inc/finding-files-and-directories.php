@@ -13,7 +13,7 @@
 
 		<div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Recursively finds files in path that match <strong>expression</strong>. If no arguments are supplied it finds <strong>all</strong> files in the current directory.</p>
@@ -30,7 +30,7 @@
 				<p><code>-name pattern</code></p>
 			</div>
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-				<i class="fa fa-long-arrow-right"></i>
+				<p><i class="fa fa-long-arrow-right"></i></p>
 			</div>
 			<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 				<p>Find files and directories that match pattern.</p>
@@ -42,7 +42,7 @@
 				<p><code>-iname pattern</code></p>
 			</div>
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-				<i class="fa fa-long-arrow-right"></i>
+				<p><i class="fa fa-long-arrow-right"></i></p>
 			</div>
 			<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 				<p>Like -name, but ignores case.</p>
@@ -54,7 +54,7 @@
 				<p><code>-ls</code></p>
 			</div>
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-				<i class="fa fa-long-arrow-right"></i>
+				<p><i class="fa fa-long-arrow-right"></i></p>
 			</div>
 			<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 				<p>Performs an <code>ls</code> on each of the found items.</p>

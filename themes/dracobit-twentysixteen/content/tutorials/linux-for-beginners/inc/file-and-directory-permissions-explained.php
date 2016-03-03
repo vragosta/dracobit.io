@@ -14,7 +14,7 @@
         <p><code>-</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Regular File</p>
@@ -26,7 +26,7 @@
         <p><code>d</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Directory</p>
@@ -38,7 +38,7 @@
         <p><code>l</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Symbolic Link</p>
@@ -50,7 +50,7 @@
         <p><code>r</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Read</p>
@@ -62,7 +62,7 @@
         <p><code>w</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Write</p>
@@ -74,7 +74,7 @@
         <p><code>x</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Execute</p>
@@ -153,7 +153,7 @@
         <p><code>u</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>User</p>
@@ -165,7 +165,7 @@
         <p><code>g</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Group</p>
@@ -177,7 +177,7 @@
         <p><code>o</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Other</p>
@@ -189,7 +189,7 @@
         <p><code>a</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>All</p>
@@ -203,7 +203,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Every user is in at least one group.</p>
@@ -212,7 +212,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Users can belong to many groups.</p>
@@ -221,7 +221,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Groups are used to organize users.</p>
@@ -230,7 +230,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>The <code>groups</code> command displays a users groups.</p>
@@ -239,7 +239,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>You can also use <code>id -Gn</code>.</p>
@@ -276,7 +276,7 @@
         <p><code>chmod</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Change mode command.</p>
@@ -288,7 +288,7 @@
         <p><code>ugoa</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>User category: user, group, other all</p>
@@ -300,7 +300,7 @@
         <p><code>+-=</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Add subtract or set permissions</p>
@@ -312,7 +312,7 @@
         <p><code>rwx</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Read, Write, Execute</p>
@@ -655,7 +655,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>New files belong to your <strong>primary</strong> group.</p>
@@ -664,7 +664,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>The <code>chgrp</code> command changes the group.</p>
@@ -678,7 +678,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Permissions on a directory can effect the files in the directory.</p>
@@ -687,7 +687,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>If the file permissions look correct, start checking directory permissions.</p>
@@ -696,7 +696,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Work your way up to the root.</p>
@@ -710,7 +710,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>File creation mask determines default permissions.</p>
@@ -719,7 +719,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>If no mask were used, permissions would be <strong>777</strong> for directories, and <strong>666</strong> for files.</p>
@@ -739,7 +739,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Sets the file creation mask to <strong>mode</strong>, if given.</p>
@@ -748,7 +748,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Use <code>-S</code> for symbolic notation.</p>
@@ -757,7 +757,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p><strong>Common modes:</strong> 022, 002, 077, 007</p>
@@ -766,7 +766,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p><strong>Special modes:</strong> setuid, setgid, sticky</p>

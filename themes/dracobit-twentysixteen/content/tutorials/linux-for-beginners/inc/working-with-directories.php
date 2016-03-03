@@ -10,7 +10,7 @@
         <p><code>.</code></p>
       </div>
       <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
         <p>This directory.</p>
@@ -22,7 +22,7 @@
         <p><code>..</code></p>
       </div>
       <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
         <p>The parent directory.</p>
@@ -34,7 +34,7 @@
         <p><code>cd -</code></p>
       </div>
       <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
         <p>Change to the previous directory.</p>
@@ -46,7 +46,7 @@
         <p><code>cd ~</code></p>
       </div>
       <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
         <p>Change to the root directory.</p>
@@ -58,7 +58,7 @@
         <p><code>/</code></p>
       </div>
       <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
         <p>Directory separator.</p>
@@ -75,7 +75,7 @@
         <p><code>mkdir [-p] directory</code></p>
       </div>
       <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <p>Create directory.</p>
@@ -87,7 +87,7 @@
         <p><code>rmdir [-p] directory</code></p>
       </div>
       <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <p>Remove a directory.</p>
@@ -99,7 +99,7 @@
         <p><code>rm -rf directory</code></p>
       </div>
       <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <p>Recursively removes directory.</p>
@@ -107,7 +107,7 @@
     </div>
 
     <p class="key">*[-p] parent directorys included</p>
-    
+
   </article>
 
 </section>

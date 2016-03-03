@@ -7,7 +7,7 @@
       <p><code>ls</code></p>
     </div>
     <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-      <i class="fa fa-long-arrow-right"></i>
+      <p><i class="fa fa-long-arrow-right"></i></p>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <p>Lists directory contents.</p>
@@ -19,7 +19,7 @@
       <p><code>cd</code></p>
     </div>
     <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-      <i class="fa fa-long-arrow-right"></i>
+      <p><i class="fa fa-long-arrow-right"></i></p>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <p>Changes the current directory.</p>
@@ -31,7 +31,7 @@
       <p><code>pwd</code></p>
     </div>
     <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-      <i class="fa fa-long-arrow-right"></i>
+      <p><i class="fa fa-long-arrow-right"></i></p>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <p>Displays the present working directory.</p>
@@ -43,7 +43,7 @@
       <p><code>cat</code></p>
     </div>
     <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-      <i class="fa fa-long-arrow-right"></i>
+      <p><i class="fa fa-long-arrow-right"></i></p>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <p>Concatenates and displays files.</p>
@@ -55,7 +55,7 @@
       <p><code>echo</code></p>
     </div>
     <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-      <i class="fa fa-long-arrow-right"></i>
+      <p><i class="fa fa-long-arrow-right"></i></p>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <p>Displays arguments to the screen.</p>
@@ -67,7 +67,7 @@
       <p><code>man</code></p>
     </div>
     <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-      <i class="fa fa-long-arrow-right"></i>
+      <p><i class="fa fa-long-arrow-right"></i></p>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <p>Displays the online manual.</p>
@@ -79,7 +79,7 @@
       <p><code>exit</code></p>
     </div>
     <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-      <i class="fa fa-long-arrow-right"></i>
+      <p><i class="fa fa-long-arrow-right"></i></p>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <p>Exits the shell or your current session.</p>
@@ -91,7 +91,7 @@
       <p><code>clear</code></p>
     </div>
     <div class="col-xs-1 xol-sm-1 col-md-1 col-lg-1">
-      <i class="fa fa-long-arrow-right"></i>
+      <p><i class="fa fa-long-arrow-right"></i></p>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
       <p>Clears the screen.</p>
