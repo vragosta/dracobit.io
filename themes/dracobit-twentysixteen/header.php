@@ -36,8 +36,9 @@
 			          </ul>
 			        </li>
 							<li>
-								<?php if( current_user_can( 'administrator' ) ) ?>
+								<?php if( current_user_can( 'edit_posts' ) ) : ?>
 									<a href="<?php echo admin_url(); ?>">WP-Admin</a>
+								<?php endif; ?>
 							</li>
 						</ul>
 					</div>
