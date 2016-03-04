@@ -1,8 +1,8 @@
-<a id="tutorials-github-basics-anchor" class="anchor"></a>
-<section id="tutorials-github-basics">
+<a id="tutorial-github-basics-anchor" class="anchor"></a>
+<section id="tutorial-github-basics">
   <legend>Purpose and Basics of GitHub</legend>
 
-  <article id="tutorials-about-github">
+  <article id="tutorial-about-github">
     <h4>GitHub on the Command Line (<a href="http://gitref.org/basic/#add" target="_blank">Good resource here</a>)</h4>
 
     <div class="row">
@@ -103,7 +103,7 @@
 
   </article>
 
-  <article id="tutorials-github-wikis">
+  <article id="tutorial-github-wikis">
     <h4>Using GitHub Wikis for Documentation</h4>
 
     <div class="row">

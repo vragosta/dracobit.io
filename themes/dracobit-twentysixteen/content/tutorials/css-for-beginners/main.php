@@ -1,4 +1,4 @@
-<section id="tutorials-header-container">
+<section id="tutorial-header-container">
 	<legend>CSS for Beginners</legend>
 	<p>An extensive overview of the power behind CSS.</p>
 </section>

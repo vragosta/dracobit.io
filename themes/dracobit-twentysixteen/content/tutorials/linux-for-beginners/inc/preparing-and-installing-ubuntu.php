@@ -1,8 +1,8 @@
-<a id="tutorials-preparing-and-installing-ubuntu-anchor" class="anchor"></a>
-<section id="tutorials-preparing-and-installing-ubuntu">
+<a id="tutorial-preparing-and-installing-ubuntu-anchor" class="anchor"></a>
+<section id="tutorial-preparing-and-installing-ubuntu">
   <legend>Preparing and Installing Ubuntu on Virtualbox</legend>
 
-  <article id="tutorials-preparing-ubuntu">
+  <article id="tutorial-preparing-ubuntu">
     <h4>Preparing to install Ubuntu on Virtualbox</h4>
 
     <div class="row">
@@ -70,7 +70,7 @@
 
   </article>
 
-  <article id="tutorials-installing-ubuntu">
+  <article id="tutorial-installing-ubuntu">
     <h4>Installing Ubuntu on Virtualbox</h4>
 
     <div class="row">

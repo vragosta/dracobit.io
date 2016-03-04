@@ -1,8 +1,8 @@
-<a id="tutorials-finding-files-and-directories-anchor" class="anchor"></a>
-<section id="tutorials-finding-files-and-directories">
+<a id="tutorial-finding-files-and-directories-anchor" class="anchor"></a>
+<section id="tutorial-finding-files-and-directories">
 	<legend>Finding Files and Directories</legend>
 
-	<article id="tutorials-the-find-command">
+	<article id="tutorial-the-find-command">
 		<h4>The find Command</h4>
 
 		<div class="row">
@@ -22,7 +22,7 @@
 
 	</article>
 
-	<article id="tutorials-common-find-options">
+	<article id="tutorial-common-find-options">
 		<h4>Common Find Options</h4>
 
 		<div class="row">

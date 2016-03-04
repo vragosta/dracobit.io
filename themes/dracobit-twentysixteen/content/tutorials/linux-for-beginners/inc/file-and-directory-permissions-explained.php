@@ -1,11 +1,11 @@
-<a id="tutorials-file-and-directory-permissions-explained-anchor" class="anchor"></a>
-<section id="tutorials-file-and-directory-permissions-explained">
+<a id="tutorial-file-and-directory-permissions-explained-anchor" class="anchor"></a>
+<section id="tutorial-file-and-directory-permissions-explained">
   <legend>File and Directory Permissions Explained</legend>
 
-	<article id="tutorials-permissions">
+	<article id="tutorial-permissions">
 		<h4>Permissions</h4>
 
-		<div id="tutorials-ls-output">
+		<div id="tutorial-ls-output">
       <p><code>-rw-rw-r--</code></p>
     </div>
 
@@ -83,7 +83,7 @@
 
 	</article>
 
-	<article id="tutorials-files-vs-directories">
+	<article id="tutorial-files-vs-directories">
 		<h4>Files vs. Directories</h4>
 
 		<div class="row">
@@ -136,7 +136,7 @@
 
 	</article>
 
-	<article id="tutorials-permission-categories">
+	<article id="tutorial-permission-categories">
 		<h4>Permission Categories</h4>
 
     <div class="row">
@@ -198,7 +198,7 @@
 
 	</article>
 
-  <article id="tutorials-groups">
+  <article id="tutorial-groups">
     <h4>Groups</h4>
 
     <div class="row">
@@ -248,7 +248,7 @@
 
   </article>
 
-  <article id="tutorials-secret-decoder-ring">
+  <article id="tutorial-secret-decoder-ring">
     <h4>Secret Decoder Ring</h4>
 
     <div class="row">
@@ -259,7 +259,7 @@
 
   </article>
 
-  <article id="tutorials-changing-permissions">
+  <article id="tutorial-changing-permissions">
     <h4>Changing Permissions</h4>
 
     <div class="row">
@@ -321,7 +321,7 @@
 
   </article>
 
-  <article id="tutorials-numeric-based-permissions">
+  <article id="tutorial-numeric-based-permissions">
     <h4>Numeric Based Permissions</h4>
 
     <div class="row">
@@ -386,7 +386,7 @@
 
   </article>
 
-  <article id="tutorials-In-depth-numeric-based-permissions">
+  <article id="tutorial-In-depth-numeric-based-permissions">
     <h4>In Depth Numeric Based Permissions</h4>
 
   <div class="row">
@@ -526,7 +526,7 @@
 
   </article>
 
-  <article id="tutorials-order-has-meaning">
+  <article id="tutorial-order-has-meaning">
     <h4>Order Has Meaning</h4>
 
     <div class="row">
@@ -591,7 +591,7 @@
 
   </article>
 
-  <article id="tutorials-commonly-used-permissions">
+  <article id="tutorial-commonly-used-permissions">
     <h4>Commonly Used Permissions</h4>
 
     <div class="row">
@@ -650,7 +650,7 @@
 
   </article>
 
-  <article id="tutorials-working-with-groups">
+  <article id="tutorial-working-with-groups">
     <h4>Working with Groups</h4>
 
     <div class="row">
@@ -673,7 +673,7 @@
 
   </article>
 
-  <article id="tutorials-direcoty-permissions-revisited">
+  <article id="tutorial-direcoty-permissions-revisited">
     <h4>Directory Permissions Revisited</h4>
 
     <div class="row">
@@ -705,7 +705,7 @@
 
   </article>
 
-  <article id="tutorials-file-creation-mask">
+  <article id="tutorial-file-creation-mask">
     <h4>File Creation Mask</h4>
 
     <div class="row">
@@ -728,7 +728,7 @@
 
   </article>
 
-  <article id="tutorials-the-umask-command">
+  <article id="tutorial-the-umask-command">
     <h4>The umask Command</h4>
 
     <div class="row">

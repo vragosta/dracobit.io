@@ -22,7 +22,7 @@
 					<div id="header-menu-container" class="col-xs-5 col-sm-4 col-md-5 col-lg-5">
 			      <ul class="nav navbar-nav">
 			        <li><a href="<?php echo home_url( 'home' ); ?>">Home</a></li>
-							<li><a href="/tutorials">Tutorials</a></li>
+							<li><a href="/tutorial">Tutorials</a></li>
 							<li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
 			          <ul class="dropdown-menu">

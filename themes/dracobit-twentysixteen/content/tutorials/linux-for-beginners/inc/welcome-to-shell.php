@@ -1,8 +1,8 @@
-<a id="tutorials-welcome-to-shell-anchor" class="anchor"></a>
-<section id="tutorials-welcome-to-shell">
+<a id="tutorial-welcome-to-shell-anchor" class="anchor"></a>
+<section id="tutorial-welcome-to-shell">
   <legend>Welcome to Shell</legend>
 
-  <article id="tutorials-what-is-the-shell">
+  <article id="tutorial-what-is-the-shell">
     <h4>What is the shell?</h4>
 
     <div class="row">
@@ -34,7 +34,7 @@
 
   </article>
 
-  <div id="tutorials-command-line-interface-vs-gui">
+  <div id="tutorial-command-line-interface-vs-gui">
     <h4>Command Line Interface vs. GUI</h4>
 
     <div class="row">
@@ -75,7 +75,7 @@
 
   </article>
 
-  <article id="tutorials-root-the-superuser">
+  <article id="tutorial-root-the-superuser">
     <h4>Root, the Superuser</h4>
 
     <div class="row">

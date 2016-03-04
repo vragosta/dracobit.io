@@ -1,5 +1,5 @@
-<a id="tutorials-getting-connected-via-ssh-anchor" class="anchor"></a>
-<section id="tutorials-getting-connected-via-ssh">
+<a id="tutorial-getting-connected-via-ssh-anchor" class="anchor"></a>
+<section id="tutorial-getting-connected-via-ssh">
   <legend>Getting Connected via SSH</legend>
 
   <div class="row">

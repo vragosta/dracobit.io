@@ -24,7 +24,7 @@ if ( function_exists( 'json_url' ) ) {
 	define( 'DRACOBIT_API_URL', json_url() );
 }
 
-include_once get_template_directory() . '/inc/tutorials-metabox.php';
+include_once get_template_directory() . '/inc/tutorial-metabox.php';
 include_once get_template_directory() . '/inc/class-dracobit-overview-widget.php';
 
 /* Disable WordPress Admin Bar for all users but admins. */
@@ -119,10 +119,10 @@ function dracobit_widgets_init() {
 	register_widget( 'Dracobit_Overview_Widget' );
 
 	register_sidebar( array(
-		'name'          => __( 'Tutorials Sidebar', 'dracobit' ),
-		'id'            => 'tutorials-sidebar',
+		'name'          => __( 'Tutorial Sidebar', 'dracobit' ),
+		'id'            => 'tutorial-sidebar',
 		'description'   => __( 'Tutorial sidebar', 'dracobit' ),
-		'before_widget' => '<li id="%1$s" class="widget widget-tutorials %2$s">',
+		'before_widget' => '<li id="%1$s" class="widget widget-tutorial %2$s">',
 		'after_widget'  => '</li>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',

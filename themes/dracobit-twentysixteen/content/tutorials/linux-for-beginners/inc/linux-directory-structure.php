@@ -1,8 +1,8 @@
-<a id="tutorials-linux-directory-structure-anchor" class="anchor"></a>
-<section id="tutorials-linux-directory-structure">
+<a id="tutorial-linux-directory-structure-anchor" class="anchor"></a>
+<section id="tutorial-linux-directory-structure">
   <legend>The Linux Directory Structure</legend>
 
-  <article id="tutorials-common-directories">
+  <article id="tutorial-common-directories">
     <h4>Common Directories</h4>
 
     <div class="row">
@@ -24,7 +24,7 @@
 
   </article>
 
-  <article id="tutorials-comprehensive-directory-listing">
+  <article id="tutorial-comprehensive-directory-listing">
     <h4>Comprehensive Directory Listing.</h4>
 
     <div class="row">

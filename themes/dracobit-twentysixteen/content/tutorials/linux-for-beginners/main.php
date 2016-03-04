@@ -1,4 +1,4 @@
-<section id="tutorials-header-container">
+<section id="tutorial-header-container">
   <legend>Linux for Beginners</legend>
   <p>An introduction to the Linux Operating System and the Command Line Interface.</p>
 </section>

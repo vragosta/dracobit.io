@@ -1,8 +1,8 @@
-<a id="tutorials-flexbox-anchor" class="anchor"></a>
-<section id="tutorials-flexbox">
+<a id="tutorial-flexbox-anchor" class="anchor"></a>
+<section id="tutorial-flexbox">
 	<legend>Flexbox</legend>
 
-	<article id="tutorials-why-flexbox">
+	<article id="tutorial-why-flexbox">
 			<h4>What is Flexbox and why is it useful?</h4>
 
 			<div class="row">
@@ -15,7 +15,7 @@
 
 	</article>
 
-	<article id="tutorials-flexbox-compatibility">
+	<article id="tutorial-flexbox-compatibility">
 		<h4>Is Flexbox compatible to my web browser?</h4>
 
 		<div class="row">
@@ -26,7 +26,7 @@
 
 	</article>
 
-	<article id="tutorials-flexbox-basics">
+	<article id="tutorial-flexbox-basics">
 		<h4>Flexbox Basics</h4>
 
 		<div class="row">

@@ -1,8 +1,8 @@
-<a id="tutorials-listing-files-and-understanding-ls-output-anchor" class="anchor"></a>
-<section id="tutorials-listing-files-and-understanding-ls-output">
+<a id="tutorial-listing-files-and-understanding-ls-output-anchor" class="anchor"></a>
+<section id="tutorial-listing-files-and-understanding-ls-output">
   <legend>Listing Files and Understanding ls Output</legend>
 
-  <article id="tutorials-common-ls-options">
+  <article id="tutorial-common-ls-options">
     <h4>Common ls Options</h4>
 
     <div class="row">
@@ -115,7 +115,7 @@
 
   </article>
 
-  <article id="tutorials-decoding-ls-output">
+  <article id="tutorial-decoding-ls-output">
     <h4>Decoding ls -l Output</h4>
 
     <div id="row">
@@ -208,7 +208,7 @@
 
   </article>
 
-  <article id="tutorials-tree-command">
+  <article id="tutorial-tree-command">
     <h4>The Tree Command</h4>
 
     <div class="row">
@@ -240,7 +240,7 @@
 
   </article>
 
-  <article id="tutorials-symbolic-links">
+  <article id="tutorial-symbolic-links">
     <h4>Symbolic Links</h4>
 
     <div class="row">
@@ -281,7 +281,7 @@
 
   </article>
 
-  <article id="tutorials-working-with-spaces-in-names">
+  <article id="tutorial-working-with-spaces-in-names">
     <h4>Working with Spaces in Names</h4>
 
     <div class="row">

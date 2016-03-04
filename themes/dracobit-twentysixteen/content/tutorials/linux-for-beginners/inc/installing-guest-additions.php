@@ -1,5 +1,5 @@
-<a id="tutorials-installing-guest-additions-anchor" class="anchor"></a>
-<section id="tutorials-installing-guest-additions">
+<a id="tutorial-installing-guest-additions-anchor" class="anchor"></a>
+<section id="tutorial-installing-guest-additions">
   <legend>Installing Guest Additions on Ubuntu</legend>
 
   <div class="row">

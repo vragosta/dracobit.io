@@ -353,96 +353,96 @@ height: 565px;
 
 /********************************************/
 
-#tutorials-page-container {
-	margin-top: 40px;
+.tutorial-page-container {
+	margin-top: 60px;
 	/*width: 1400px;*/
 }
 
-#tutorials-nav-menu {
+#tutorial-nav-menu {
 	padding-top: 20px;
 }
 
-#tutorials-nav-menu legend {
+#tutorial-nav-menu legend {
 	color: #333;
 	font-size: 22px;
 }
 
-#tutorials-version {
+#tutorial-version {
 	margin-bottom: 5px;
 }
 
-#tutorials-content {
+#tutorial-content {
 	padding-top: 20px;
 	margin-bottom: 20px;
 }
 
-.tutorials-container:first-child {
+.tutorial-container:first-child {
 	display: block;
 }
 
-.tutorials-container {
+.tutorial-container {
 	display: none;
 }
 
-.tutorials-container legend {
+.tutorial-container legend {
 	color: #333;
 	font-size: 22px
 }
 
-.tutorials-container h4 {
+.tutorial-container h4 {
 	font-weight: 500;
 }
 
-.tutorials-container > div {
+.tutorial-container > div {
 	margin-top: 20px;
 }
 
-.tutorials-container code {
+.tutorial-container code {
 	color: #00aeff;
 }
 
-.tutorials-container p.key {
+.tutorial-container p.key {
 	margin-top: 10px;
 	font-weight: 500;
 }
 
-#tutorials-sidebar {
+#tutorial-sidebar {
 	padding-top: 20px;
 }
 
-#tutorials-overview-container {
+#tutorial-overview-container {
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	padding: 10px;
 	box-shadow: -10px 10px 0px 0px rgba(0,0,0,0.05);
 }
 
-#tutorials-overview-container a {
+#tutorial-overview-container a {
 	color: #333;
 }
 
-#tutorials-overview-container ul {
+#tutorial-overview-container ul {
 	padding-left: 0px;
 	list-style: none;
 }
 
-#tutorials-overview-container li {
+#tutorial-overview-container li {
 	list-style: none;
 }
 
-#tutorials-overview-container i,
-#tutorials-preparing-and-installing-ubuntu i,
-#tutorials-installing-ubuntu i,
-#tutorials-installing-guest-additions i,
-#tutorials-getting-connected-via-ssh i,
-#tutorials-welcome-to-shell i,
-#tutorials-command-line-interface i,
-#tutorials-listing-files-and-understanding-ls-output i,
-#tutorials-file-and-directory-permissions-explained i {
+#tutorial-overview-container i,
+#tutorial-preparing-and-installing-ubuntu i,
+#tutorial-installing-ubuntu i,
+#tutorial-installing-guest-additions i,
+#tutorial-getting-connected-via-ssh i,
+#tutorial-welcome-to-shell i,
+#tutorial-command-line-interface i,
+#tutorial-listing-files-and-understanding-ls-output i,
+#tutorial-file-and-directory-permissions-explained i {
 	margin-left: 10px;
 }
 
-.widget-tutorials {
+.widget-tutorial {
 	list-style: none;
 	/*position: fixed;*/
 }

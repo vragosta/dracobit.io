@@ -1,5 +1,5 @@
-<a id="tutorials-basic-linux-commands-anchor" class="anchor"></a>
-<section id="tutorials-basic-linux-commands">
+<a id="tutorial-basic-linux-commands-anchor" class="anchor"></a>
+<section id="tutorial-basic-linux-commands">
   <legend>Basic Linux Commands</legend>
 
   <div class="row">

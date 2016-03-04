@@ -1,8 +1,8 @@
-<a id="tutorials-working-with-directories-anchor" class="anchor"></a>
-<section id="tutorials-working-with-directories">
+<a id="tutorial-working-with-directories-anchor" class="anchor"></a>
+<section id="tutorial-working-with-directories">
   <legend>Working with Directories</legend>
 
-  <article id="tutorials-directory-shortcuts">
+  <article id="tutorial-directory-shortcuts">
     <h4>Directory Shortcuts</h4>
 
     <div class="row">
@@ -67,7 +67,7 @@
 
   </article>
 
-  <article id="tutorials-creating-and-removing-directories">
+  <article id="tutorial-creating-and-removing-directories">
     <h4>Creating and Removing Directories</h4>
 
     <div class="row">
