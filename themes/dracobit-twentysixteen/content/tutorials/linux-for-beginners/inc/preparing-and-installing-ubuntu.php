@@ -10,7 +10,7 @@
         <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-        <p>Download a virtualization software such as <a href="https://www.virtualbox.org/wiki/Downloads">Oracle Virtualbox</a>.</p>
+        <p>Download a virtualization software such as <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Oracle Virtualbox</a>.</p>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
         <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-        <p>Download the latest version of <a href="http://www.ubuntu.com/download">Ubuntu Desktop</a>.</p>
+        <p>Download the latest version of <a href="http://www.ubuntu.com/download" target="_blank">Ubuntu Desktop</a>.</p>
       </div>
     </div>
 
