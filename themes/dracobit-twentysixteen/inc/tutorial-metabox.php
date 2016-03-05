@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TODO
+ * Register the widget into the theme
  */
 function dracobit_add_tutorials_meta_box() {
 	add_meta_box(
@@ -14,7 +14,7 @@ function dracobit_add_tutorials_meta_box() {
 add_action( 'add_meta_boxes', 'dracobit_add_tutorials_meta_box' );
 
 /**
- * TODO
+ * Callback when registering widget that displays content in backend
  */
 function dracobit_tutorials_meta_box_callback( $post ) {
 	// Add a nonce field so we can check for it later.
@@ -65,7 +65,7 @@ function dracobit_tutorials_meta_box_callback( $post ) {
 }
 
 /**
- * TODO
+ * Saves the meta box data for the tutorials post type
  */
 function dracobit_save_tutorials_meta_box_data( $post_id ) {
 	/**

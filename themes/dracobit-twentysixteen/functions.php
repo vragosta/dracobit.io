@@ -389,7 +389,7 @@ function dracobit_show_error_messages() {
 }
 
 /**
- * TODO
+ * Registers custom tutorial post type
  */
 function dracobit_register_posttype_tutorial() {
 	register_post_type( 'tutorial', array(
@@ -429,7 +429,8 @@ function dracobit_register_posttype_tutorial() {
 add_action( 'init', 'dracobit_register_posttype_tutorial' );
 
 /*
- * TODO
+ * Writes the tutorial content to wp-admin backend of tutorials
+ * Writes the tutorial overview to wp-admin backend of tutorials
  */
 function dracobit_register_tutorial_content() {
 	global $post;
