@@ -8,9 +8,9 @@
 			<div id="tutorial-<?php echo $post->post_name; ?>-container" class="tutorial-container">
 				<?php echo $post->post_content; ?>
 			</div>
-		</main>
+		</div>
 		<?php get_sidebar( 'tutorial' ); ?>
 	</section>
-</div>
+</main>
 
 <?php get_footer(); ?>
