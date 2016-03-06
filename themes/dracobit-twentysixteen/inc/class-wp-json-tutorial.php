@@ -1,0 +1,109 @@
+<?php
+/**
+ * TODO
+ *
+ * @package    WordPress
+ * @subpackage StoryCorps
+ * @since      2.0.0
+ */
+
+// Blocking direct access to this file.
+defined( 'ABSPATH' ) || exit;
+
+class WP_JSON_Tutorial {
+	/**
+	 * Register custom endpoints.
+	 *
+	 * @param  array $routes
+	 * @return array
+	 */
+	public function register_routes( $routes ) {
+		$routes['/tutorial'] = array(
+			array( array( $this, 'get_tutorials' ), WP_JSON_Server::READABLE ),
+		);
+
+		$routes['/tutorial/(?P<id>\d+)'] = array(
+			array( array( $this, 'get_tutorial' ), WP_JSON_Server::READABLE ),
+		);
+
+		return $routes;
+	}
+
+	/**
+	 *
+	 * @param  array  $data
+	 * @param  array  $post
+	 * @param  string $context
+	 * @return array
+	 */
+	function data( $data, $post, $context ) {
+		if ( 'tutorial' === $post['post_type'] ) {
+			$output = array(
+				'ID'                    => $data['ID'],
+				'classes'               => implode( ' ', get_post_class( '', $post['ID'] ) ),
+				'content'               => $data['content'],
+				'date'                  => date("F j, Y", strtotime($data['date'] ) ),
+				'date_gmt'              => $data['date_gmt'],
+				'date_tz'               => $data['date_tz'],
+				'featured_image'        => $data['featured_image'],
+				'link'                  => $data['link'],
+				'meta'                  => $data['meta'],
+				'short_description'     => strip_tags( get_post_meta( $post['ID'], 'short_description', true ) ),
+				'slug'                  => $data['slug'],
+				'terms'                 => $data['terms'],
+				'title'                 => $data['title'],
+				'type'                  => $data['type'],
+				'credits'               => array(
+					'author'       => get_post_meta( $post['ID'], 'credit_author', true ),
+					'team'         => get_post_meta( $post['ID'], 'credit_team', true ),
+					'contributors' => get_post_meta( $post['ID'], 'credit_contributors', true ),
+				),
+			);
+
+			return $output;
+		}
+
+		return $data;
+	}
+
+	/**
+	 *
+	 * @param  array $filter
+	 * @param  int   $page
+	 * @return WP_JSON_Response
+	 */
+	public function get_tutorials( $filter = array(), $page = 1 ) {
+		global $wp_json_posts;
+
+		// $identifier = md5( maybe_serialize( func_get_args() ) );
+		// $cache_key  = 'tutorials-' . $identifier . storycorps_get_incrementor( 'tutorials' );
+		// $output     = wp_cache_get( $cache_key );
+
+		// if ( false === $output ) {
+			$output = $wp_json_posts->get_posts( $filter, 'view', 'tutorial', $page );
+			// wp_cache_set( $cache_key, $output );
+		// }
+
+		return $output;
+	}
+
+	/**
+	 *
+	 * @param  int $id
+	 * @return WP_JSON_Response
+	 */
+	public function get_tutorial( $id ) {
+		global $wp_json_posts;
+
+		// $identifier = md5( maybe_serialize( func_get_args() ) );
+		// $cache_key  = 'stories-' . $identifier . storycorps_get_incrementor( 'tutorials' );
+		// $output     = wp_cache_get( $cache_key );
+
+		// if ( false === $output ) {
+			$output = $wp_json_posts->get_post( $id, 'view' );
+			// wp_cache_set( $cache_key, $output );
+		// }
+
+		return $output;
+	}
+}
