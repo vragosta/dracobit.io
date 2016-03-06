@@ -369,6 +369,7 @@ height: 565px;
 
 #tutorial-version {
 	margin-bottom: 5px;
+	float: right;
 }
 
 #tutorial-content {
