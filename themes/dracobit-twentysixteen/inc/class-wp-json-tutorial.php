@@ -53,6 +53,8 @@ class WP_JSON_Tutorial {
 				'terms'                 => $data['terms'],
 				'title'                 => $data['title'],
 				'type'                  => $data['type'],
+				'tagline'               => get_post_meta( $post['ID'], 'tagline', true ),
+				'version'               => get_post_meta( $post['ID'], 'version', true ),
 				'credits'               => array(
 					'author'       => get_post_meta( $post['ID'], 'credit_author', true ),
 					'team'         => get_post_meta( $post['ID'], 'credit_team', true ),
