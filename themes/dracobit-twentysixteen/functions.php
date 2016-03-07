@@ -26,6 +26,7 @@ if ( function_exists( 'json_url' ) ) {
 
 include_once get_template_directory() . '/inc/tutorial-metabox.php';
 include_once get_template_directory() . '/inc/class-dracobit-overview-widget.php';
+include_once get_template_directory() . '/inc/class-wp-json-tutorial.php';
 
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar( false );
@@ -90,7 +91,7 @@ function dracobit_scripts() {
 		'currentPost' => $post->ID,
 		'options'     => array(
 			'search'  => home_url( '/?s=' ),
-			// 'apiUrl'  => json_url(),
+			'apiUrl'  => json_url(),
 			'nonce'   => wp_create_nonce( 'wp_json' ),
 			'homeUrl' => home_url(),
 		),
@@ -109,6 +110,19 @@ function dracobit_styles() {
 	wp_enqueue_style( 'dracobit', get_template_directory_uri() . '/style.min.css', array( 'vendors' ), DRACOBIT_VERSION, 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'dracobit_styles' );
+
+/**
+ * Establishes the endpoints for each of the post types,
+ * to be used by the backbone framework
+ *
+ * @since 1.0.0
+ */
+function dracobit_endpoints_init() {
+	$tutorial_endpoint = new WP_JSON_Tutorial();
+	add_filter( 'json_endpoints', array( $tutorial_endpoint, 'register_routes' ) );
+	add_filter( 'json_prepare_post', array( $tutorial_endpoint, 'data' ), 10, 3 );
+}
+add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
 
 /**
  * Registers the various sidebars

@@ -74,16 +74,7 @@ class WP_JSON_Tutorial {
 	 */
 	public function get_tutorials( $filter = array(), $page = 1 ) {
 		global $wp_json_posts;
-
-		// $identifier = md5( maybe_serialize( func_get_args() ) );
-		// $cache_key  = 'tutorials-' . $identifier . storycorps_get_incrementor( 'tutorials' );
-		// $output     = wp_cache_get( $cache_key );
-
-		// if ( false === $output ) {
 			$output = $wp_json_posts->get_posts( $filter, 'view', 'tutorial', $page );
-			// wp_cache_set( $cache_key, $output );
-		// }
-
 		return $output;
 	}
 
@@ -94,16 +85,7 @@ class WP_JSON_Tutorial {
 	 */
 	public function get_tutorial( $id ) {
 		global $wp_json_posts;
-
-		// $identifier = md5( maybe_serialize( func_get_args() ) );
-		// $cache_key  = 'stories-' . $identifier . storycorps_get_incrementor( 'tutorials' );
-		// $output     = wp_cache_get( $cache_key );
-
-		// if ( false === $output ) {
 			$output = $wp_json_posts->get_post( $id, 'view' );
-			// wp_cache_set( $cache_key, $output );
-		// }
-
 		return $output;
 	}
 }
