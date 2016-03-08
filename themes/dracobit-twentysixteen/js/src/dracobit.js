@@ -9,7 +9,7 @@ var Router = Backbone.Router.extend({
 
 	singleTutorial: function() {
 		this.view = new Tutorial({
-			el: $( '#tutorial' )
+			el: $( '.tutorial-page-container' )
 		});
 		this.view.render();
 	}
@@ -17,9 +17,6 @@ var Router = Backbone.Router.extend({
 });
 
 window.router = new Router();
-window.navigation = new Navigation({
-	el: $( '#navigation' )
-});
 
 Backbone.history.start({
 	pushState: true

@@ -1,10 +1,10 @@
 var $ = require( 'jquery' );
-var Story = require( '../models/story' );
+var Tutorial = require( '../models/tutorial' );
 
 module.exports = Backbone.View.extend({
 	initialize: function() {
-		this.model = new Story({
-			'ID': StoryCorps.currentPost
+		this.model = new Tutorial({
+			'ID': Dracobit.currentPost
 		});
 		this.template = _.template( $( 'script.tutorial' ).html() );
 	},

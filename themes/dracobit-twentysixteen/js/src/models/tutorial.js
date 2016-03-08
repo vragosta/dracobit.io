@@ -9,6 +9,7 @@ module.exports = Backbone.Model.extend({
 	},
 
 	url: function() {
+		console.log( 'ID: ' + this.get( 'ID' ) );
 		return Dracobit.options.apiUrl + '/tutorial/' + this.get( 'ID' );
 	}
 });
