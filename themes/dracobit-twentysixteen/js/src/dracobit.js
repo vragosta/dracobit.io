@@ -1,7 +1,7 @@
-var $ = require( 'jquery' );
-var Tutorial = require( './views/tutorial' );
+var $                   = require( 'jquery' );
+var Tutorial            = require( './views/tutorial' );
 var TutorialsCollection = require( './collections/tutorials' );
-var Related = require( './views/related' );
+var Related             = require( './views/related' );
 
 var Router = Backbone.Router.extend({
 	routes: {
@@ -11,7 +11,7 @@ var Router = Backbone.Router.extend({
 
 	archiveTutorials: function() {
 		this.view = new Related({
-			el: $( '.tutorial-page-container' ),
+			el: $( '.tutorial-section' ),
 			collection: new TutorialsCollection(),
 			template: _.template( $( 'script.tutorials' ).html() ),
 			type: 'tutorials'
@@ -21,7 +21,7 @@ var Router = Backbone.Router.extend({
 
 	singleTutorial: function() {
 		this.view = new Tutorial({
-			el: $( '.tutorial-page-container' )
+			el: $( '.tutorial-section' )
 		});
 		this.view.render();
 	}

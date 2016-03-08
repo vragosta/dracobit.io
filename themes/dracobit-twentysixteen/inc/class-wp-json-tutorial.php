@@ -3,8 +3,8 @@
  * TODO
  *
  * @package    WordPress
- * @subpackage StoryCorps
- * @since      2.0.0
+ * @subpackage Dracobit
+ * @since      1.0.0
  */
 
 // Blocking direct access to this file.

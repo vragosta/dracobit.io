@@ -2,7 +2,7 @@ var $ = require( 'jquery' );
 
 module.exports = Backbone.View.extend({
 	initialize: function( options ) {
-		this.collectionEl = $( '.tutorial-page-container' );
+		this.collectionEl = $( '.tutorial-section' );
 		this.options = options;
 	},
 
