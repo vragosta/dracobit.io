@@ -3,7 +3,7 @@ var Tutorial      = require( '../models/tutorial' );
 module.exports = Backbone.Collection.extend({
 	model: Tutorial,
 	page: 1,
-	order: 'desc',
+	order: 'asc',
 
 	url: function() {
 		var query = [];
