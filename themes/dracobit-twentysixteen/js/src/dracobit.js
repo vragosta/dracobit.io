@@ -1,6 +1,6 @@
 var $                   = require( 'jquery' );
 var Post                = require( './views/post' );
-var PostsCollection     = require( './collections/posts' );
+var Posts               = require( './views/posts' );
 var Tutorial            = require( './views/tutorial' );
 var TutorialsCollection = require( './collections/tutorials' );
 var Related             = require( './views/related' );
@@ -14,8 +14,8 @@ var Router = Backbone.Router.extend({
 	},
 
 	archivePosts: function() {
-		this.view = new Post({
-			el: $( '#main' )
+		this.view = new Posts({
+			el: $( '.page-section' )
 		});
 		this.view.render();
 	},

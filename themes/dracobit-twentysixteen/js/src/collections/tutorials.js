@@ -1,4 +1,4 @@
-var Tutorial      = require( '../models/tutorial' );
+var Tutorial   = require( '../models/tutorial' );
 
 module.exports = Backbone.Collection.extend({
 	model: Tutorial,

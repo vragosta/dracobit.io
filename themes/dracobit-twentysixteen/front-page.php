@@ -1,4 +1,12 @@
-<?php get_header(); ?>
+<?php
+
+/**
+ * Template Name: Front-page
+ *
+ * @package WordPress
+ */
+
+get_header(); ?>
 
 <div class="container" style="height: 750px; width: 100%; background-color:#e3e3e3; color: black">
   <div class="row">
