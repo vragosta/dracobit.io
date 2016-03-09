@@ -191,47 +191,42 @@ add_shortcode( 'login_form', 'dracobit_login_form' );
 function dracobit_signup_form_fields() {
 
 	ob_start(); ?>
-		<h3 class="dracobit_header"><?php _e( 'Register New Account' ); ?></h3>
-		<?php dracobit_show_error_messages(); ?>
-		<form id="dracobit_signup_form" class="dracobit_form" action="" method="POST">
-			<fieldset>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-username-icon"><i class="fa fa-user"></i></span>
+
+	<h3 class="dracobit_header"><?php _e( 'Sign Up' ); ?></h3>
+	<?php dracobit_show_error_messages(); ?>
+	<form id="dracobit_signup_form" class="dracobit_form" action="" method="POST">
+		<fieldset>
+			<div class="signup-form-container" style="width: 410px;">
+				<div class="form-group">
 					<input type="text" name="signup-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
+					<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" style="width: 100%; height: 35px; font-size: 20px; padding: 20px 10px;" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
 				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-email-icon"><i id="signup-email-icon" class="fa fa-envelope-o"></i></span>
+				<div class="form-group">
 					<input type="text" name="signup-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_email" id="dracobit_user_email" class="form-control" placeholder="Email" type="email" aria-describedby="signup-email-icon" required />
+					<input name="dracobit_user_email" id="dracobit_user_email" class="form-control" style="width: 100%; height: 35px; font-size: 20px; padding: 20px 10px;" placeholder="Email" type="email" aria-describedby="signup-email-icon" required />
 				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-name-icon"><i class="fa fa-server"></i></span>
+				<div class="input-group" style="margin-bottom: 15px;">
 					<input type="text" name="signup-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_first" id="dracobit_user_first" class="form-control" placeholder="First name" type="text" aria-describedby="signup-name-icon" required />
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-name-icon"><i class="fa fa-server"></i></span>
+					<input name="dracobit_user_first" id="dracobit_user_first" class="form-control" style="width: 49%; height: 35px; font-size: 20px; padding: 20px 10px; margin-right: 8px;" placeholder="First name" type="text" aria-describedby="signup-name-icon" required />
+
 					<input type="text" name="signup-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_last" id="dracobit_user_last" class="form-control" placeholder="Last name" type="text" aria-describedby="signup-name-icon" required />
+					<input name="dracobit_user_last" id="dracobit_user_last" class="form-control" style="width: 49%; height: 35px; font-size: 20px; padding: 20px 10px;" placeholder="Last name" type="text" aria-describedby="signup-name-icon" required />
 				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-password-icon"><i class="fa fa-lock signup-password-icon"></i></span>
+				<div class="form-group">
 					<input type="text" name="signup-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="signup-password-icon" required />
+					<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" style="width: 100%; height: 35px; font-size: 20px; padding: 20px 10px;" placeholder="Password" type="password" aria-describedby="signup-password-icon" required />
 				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-password-icon"><i class="fa fa-lock signup-password-icon"></i></span>
+				<div class="form-group">
 					<input type="text" name="login-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_pass_confirm" id="password_again" class="form-control" placeholder="Confirm password" type="password" aria-describedby="signup-password-icon" required />
-				</div>
-				<p>
-					<input type="hidden" name="dracobit_register_nonce" value="<?php echo wp_create_nonce('dracobit-register-nonce'); ?>"/>
-					<input id="dracobit_signup_submit" type="submit" value="<?php _e('Register Your Account'); ?>"/>
-				</p>
-			</fieldset>
-		</form>
-	<?php
+					<input name="dracobit_user_pass_confirm" id="password_again" class="form-control" style="width: 100%; height: 35px; font-size: 20px; padding: 20px 10px;" placeholder="Confirm password" type="password" aria-describedby="signup-password-icon" required />
+			</div>
+			<p>
+				<input type="hidden" name="dracobit_register_nonce" value="<?php echo wp_create_nonce('dracobit-register-nonce'); ?>"/>
+				<input id="dracobit_signup_submit" type="submit" value="<?php _e('Register Your Account'); ?>"/>
+			</p>
+		</fieldset>
+	</form>
+<?php
 	return ob_get_clean();
 }
 
