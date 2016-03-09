@@ -24,7 +24,9 @@ if ( function_exists( 'json_url' ) ) {
 	define( 'DRACOBIT_API_URL', json_url() );
 }
 
-include_once get_template_directory() . '/inc/tutorials-metabox.php';
+include_once get_template_directory() . '/inc/tutorial-metabox.php';
+include_once get_template_directory() . '/inc/class-dracobit-overview-widget.php';
+include_once get_template_directory() . '/inc/class-wp-json-tutorial.php';
 
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar( false );
@@ -83,13 +85,13 @@ function dracobit_scripts() {
 	global $post;
 
 	wp_enqueue_script( 'vendors', get_template_directory_uri() . '/js/vendors.min.js', array( 'jquery' ), DRACOBIT_VERSION, true );
-	wp_enqueue_script( 'dracobit', get_template_directory_uri() . '/js/dracobit.min.js', array( 'jquery', 'vendors' ), DRACOBIT_VERSION, true );
+	wp_enqueue_script( 'dracobit', get_template_directory_uri() . '/js/dracobit.min.js', array( 'backbone', 'jquery', 'underscore', 'vendors' ), DRACOBIT_VERSION, true );
 
 	wp_localize_script( 'dracobit', 'Dracobit', array(
 		'currentPost' => $post->ID,
 		'options'     => array(
 			'search'  => home_url( '/?s=' ),
-			// 'apiUrl'  => json_url(),
+			'apiUrl'  => json_url(),
 			'nonce'   => wp_create_nonce( 'wp_json' ),
 			'homeUrl' => home_url(),
 		),
@@ -110,20 +112,38 @@ function dracobit_styles() {
 add_action( 'wp_enqueue_scripts', 'dracobit_styles' );
 
 /**
+ * Establishes the endpoints for each of the post types,
+ * to be used by the backbone framework
+ *
+ * @since 1.0.0
+ */
+function dracobit_endpoints_init() {
+	$tutorial_endpoint = new WP_JSON_Tutorial();
+	add_filter( 'json_endpoints', array( $tutorial_endpoint, 'register_routes' ) );
+	add_filter( 'json_prepare_post', array( $tutorial_endpoint, 'data' ), 10, 3 );
+}
+add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
+
+/**
  * Registers the various sidebars
  *
  * @since 1.0.0
  */
 function dracobit_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Tutorials Sidebar', 'dracobit' ),
-		'id'            => 'tutorials-sidebar',
-		'description'   => __( 'Tutorial sidebar', 'dracobit' ),
-		'before_widget' => '<li id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</li>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	register_widget( 'Dracobit_Overview_Widget' );
+
+	$sidebars = array( 'page', 'tutorial' );
+	foreach ( $sidebars as $post_type ) {
+		register_sidebar( array(
+			'name'          => sprintf( __( 'Sidebar for post type: %s', 'dracobit' ), $post_type ),
+			'id'            => $post_type . '-sidebar',
+			'description'   => sprintf( __( 'Sidebar for post type: %s', 'dracobit' ), $post_type ),
+			'before_widget' => '<li id="%1$s" class="widget widget-' . $post_type . ' %2$s">',
+			'after_widget'  => '</li>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		) );
+	}
 }
 add_action( 'widgets_init', 'dracobit_widgets_init' );
 
@@ -220,32 +240,31 @@ function dracobit_signup_form_fields() {
  *
  * @since 1.0.0
  */
-function dracobit_login_form_fields() {
+ function dracobit_login_form_fields() {
 
-	ob_start(); ?>
-		<h3 class="dracobit_header"><?php _e( 'Login' ); ?></h3>
-		<?php dracobit_show_error_messages(); ?>
-		<form id="dracobit_login_form" class="dracobit_form" action="" method="post">
-			<fieldset>
-				<div class="input-group">
-					<span class="input-group-addon" id="login-username-icon"><i class="fa fa-user"></i></span>
-					<input type="text" name="login-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="login-password-icon"><i class="fa fa-lock"></i></span>
-					<input type="text" name="login-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
-				</div>
-				<div class="input-group">
-					<input type="hidden" name="dracobit_login_nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
-					<input id="dracobit_login_submit" class="btn btn-default" type="submit" value="Login"/>
-				</div>
-			</fieldset>
-		</form>
-	<?php
-	return ob_get_clean();
-}
+ 	ob_start(); ?>
+
+ 	<form id="dracobit_login_form" class="form-inline dracobit_form" action="" method="post">
+ 		<fieldset>
+ 			<div class="form-group">
+ 				<input type="text" name="login-autocomplete-fix" style="display: none" />
+ 				<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
+ 			</div>
+ 			<div class="form-group">
+ 				<input type="text" name="login-autocomplete-fix" style="display: none" />
+ 				<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
+ 			</div>
+ 			<div class="form-group">
+ 				<input type="hidden" name="dracobit_login_nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
+ 				<input id="dracobit_login_submit" class="btn btn-default" type="submit" value="Login"/>
+ 			</div>
+ 		</fieldset>
+ 	</form>
+
+ 	<?php
+ 	return ob_get_clean();
+
+ }
 
 /**
  * Logs user in after submitting a form
@@ -386,7 +405,7 @@ function dracobit_show_error_messages() {
 }
 
 /**
- * TODO
+ * Registers custom tutorial post type
  */
 function dracobit_register_posttype_tutorial() {
 	register_post_type( 'tutorial', array(
@@ -426,36 +445,40 @@ function dracobit_register_posttype_tutorial() {
 add_action( 'init', 'dracobit_register_posttype_tutorial' );
 
 /*
- * TODO
+ * Writes the tutorial content to wp-admin backend of tutorials
+ * Writes the tutorial overview to wp-admin backend of tutorials
  */
 function dracobit_register_tutorial_content() {
-	// $linux_id = 15; $css_id = 17; // work
-	$linux_id = 25; $css_id = 29; // home
-	$linux_tagline = get_post_meta( $linux_id, 'tagline', true );
-	$css_tagline   = get_post_meta( $css_id, 'tagline', true);
+	global $post;
+	$tutorials = new WP_Query( array( 'post_type' => 'tutorial', 'order' => 'ASC' ) );
 
-	ob_start();
-	include_once get_template_directory() . '/content/tutorials/linux-for-beginners/main.php';
-	$linux_content = ob_get_clean();
+	if ( $tutorials->have_posts() ) {
+		while ( $tutorials->have_posts() ) : $tutorials->the_post();
+			$post_tagline  = get_post_meta( $post->ID, 'tagline', true );
+			$post_version  = get_post_meta( $post->ID, 'version', true );
 
-	ob_start();
-	include_once get_template_directory() . '/content/tutorials/tutorial-css.php';
-	$css_content = ob_get_clean();
+			ob_start();
+			include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/main.php';
+			$post_content = ob_get_clean();
 
-	wp_update_post( array(
-		'ID'           => $linux_id,
-		'post_content' => $linux_content
-		)
-	);
+			ob_start();
+			include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/overview.php';
+			$post_overview = ob_get_clean();
 
-	wp_update_post( array(
-		'ID'           => $css_id,
-		'post_content' => $css_content,
-		)
-	);
+			wp_update_post( array(
+				'ID'           => $post->ID,
+				'post_content' => $post_content,
+			) );
 
-	update_post_meta( $linux_id, 'tagline', $linux_tagline );
-	update_post_meta( $css_id, 'tagline', $css_tagline );
+			update_post_meta( $post->ID, 'tagline', $post_tagline );
+			update_post_meta( $post->ID, 'version', $post_version );
+
+			if ( $post_overview ) {
+				update_post_meta( $post->ID, 'overview', $post_overview );
+			}
+
+		endwhile;
+	}
 }
 add_action( 'init', 'dracobit_register_tutorial_content' );
 

@@ -1,11 +1,11 @@
-<a id="tutorials-file-and-directory-permissions-explained-anchor" class="anchor"></a>
-<section id="tutorials-file-and-directory-permissions-explained">
+<a id="tutorial-file-and-directory-permissions-explained-anchor" class="anchor"></a>
+<section id="tutorial-file-and-directory-permissions-explained">
   <legend>File and Directory Permissions Explained</legend>
 
-	<article id="tutorials-permissions">
+	<article id="tutorial-permissions">
 		<h4>Permissions</h4>
 
-		<div id="tutorials-ls-output">
+		<div id="tutorial-ls-output">
       <p><code>-rw-rw-r--</code></p>
     </div>
 
@@ -14,7 +14,7 @@
         <p><code>-</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Regular File</p>
@@ -26,7 +26,7 @@
         <p><code>d</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Directory</p>
@@ -38,7 +38,7 @@
         <p><code>l</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Symbolic Link</p>
@@ -50,7 +50,7 @@
         <p><code>r</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Read</p>
@@ -62,7 +62,7 @@
         <p><code>w</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Write</p>
@@ -74,7 +74,7 @@
         <p><code>x</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Execute</p>
@@ -83,7 +83,7 @@
 
 	</article>
 
-	<article id="tutorials-files-vs-directories">
+	<article id="tutorial-files-vs-directories">
 		<h4>Files vs. Directories</h4>
 
 		<div class="row">
@@ -136,7 +136,7 @@
 
 	</article>
 
-	<article id="tutorials-permission-categories">
+	<article id="tutorial-permission-categories">
 		<h4>Permission Categories</h4>
 
     <div class="row">
@@ -153,7 +153,7 @@
         <p><code>u</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>User</p>
@@ -165,7 +165,7 @@
         <p><code>g</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Group</p>
@@ -177,7 +177,7 @@
         <p><code>o</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Other</p>
@@ -189,7 +189,7 @@
         <p><code>a</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>All</p>
@@ -198,12 +198,12 @@
 
 	</article>
 
-  <article id="tutorials-groups">
+  <article id="tutorial-groups">
     <h4>Groups</h4>
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Every user is in at least one group.</p>
@@ -212,7 +212,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Users can belong to many groups.</p>
@@ -221,7 +221,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Groups are used to organize users.</p>
@@ -230,7 +230,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>The <code>groups</code> command displays a users groups.</p>
@@ -239,7 +239,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>You can also use <code>id -Gn</code>.</p>
@@ -248,7 +248,7 @@
 
   </article>
 
-  <article id="tutorials-secret-decoder-ring">
+  <article id="tutorial-secret-decoder-ring">
     <h4>Secret Decoder Ring</h4>
 
     <div class="row">
@@ -259,7 +259,7 @@
 
   </article>
 
-  <article id="tutorials-changing-permissions">
+  <article id="tutorial-changing-permissions">
     <h4>Changing Permissions</h4>
 
     <div class="row">
@@ -276,7 +276,7 @@
         <p><code>chmod</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Change mode command.</p>
@@ -288,7 +288,7 @@
         <p><code>ugoa</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>User category: user, group, other all</p>
@@ -300,7 +300,7 @@
         <p><code>+-=</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Add subtract or set permissions</p>
@@ -312,7 +312,7 @@
         <p><code>rwx</code></p>
       </div>
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-long-arrow-right"></i>
+        <p><i class="fa fa-long-arrow-right"></i></p>
       </div>
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
         <p>Read, Write, Execute</p>
@@ -321,7 +321,7 @@
 
   </article>
 
-  <article id="tutorials-numeric-based-permissions">
+  <article id="tutorial-numeric-based-permissions">
     <h4>Numeric Based Permissions</h4>
 
     <div class="row">
@@ -386,7 +386,7 @@
 
   </article>
 
-  <article id="tutorials-In-depth-numeric-based-permissions">
+  <article id="tutorial-In-depth-numeric-based-permissions">
     <h4>In Depth Numeric Based Permissions</h4>
 
   <div class="row">
@@ -526,7 +526,7 @@
 
   </article>
 
-  <article id="tutorials-order-has-meaning">
+  <article id="tutorial-order-has-meaning">
     <h4>Order Has Meaning</h4>
 
     <div class="row">
@@ -591,7 +591,7 @@
 
   </article>
 
-  <article id="tutorials-commonly-used-permissions">
+  <article id="tutorial-commonly-used-permissions">
     <h4>Commonly Used Permissions</h4>
 
     <div class="row">
@@ -650,12 +650,12 @@
 
   </article>
 
-  <article id="tutorials-working-with-groups">
+  <article id="tutorial-working-with-groups">
     <h4>Working with Groups</h4>
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>New files belong to your <strong>primary</strong> group.</p>
@@ -664,7 +664,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>The <code>chgrp</code> command changes the group.</p>
@@ -673,12 +673,12 @@
 
   </article>
 
-  <article id="tutorials-direcoty-permissions-revisited">
+  <article id="tutorial-direcoty-permissions-revisited">
     <h4>Directory Permissions Revisited</h4>
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Permissions on a directory can effect the files in the directory.</p>
@@ -687,7 +687,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>If the file permissions look correct, start checking directory permissions.</p>
@@ -696,7 +696,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Work your way up to the root.</p>
@@ -705,12 +705,12 @@
 
   </article>
 
-  <article id="tutorials-file-creation-mask">
+  <article id="tutorial-file-creation-mask">
     <h4>File Creation Mask</h4>
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>File creation mask determines default permissions.</p>
@@ -719,7 +719,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>If no mask were used, permissions would be <strong>777</strong> for directories, and <strong>666</strong> for files.</p>
@@ -728,7 +728,7 @@
 
   </article>
 
-  <article id="tutorials-the-umask-command">
+  <article id="tutorial-the-umask-command">
     <h4>The umask Command</h4>
 
     <div class="row">
@@ -739,7 +739,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Sets the file creation mask to <strong>mode</strong>, if given.</p>
@@ -748,7 +748,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p>Use <code>-S</code> for symbolic notation.</p>
@@ -757,7 +757,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p><strong>Common modes:</strong> 022, 002, 077, 007</p>
@@ -766,7 +766,7 @@
 
     <div class="row">
       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <i class="fa fa-arrow-right"></i>
+        <p><i class="fa fa-arrow-right"></i></p>
       </div>
       <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
         <p><strong>Special modes:</strong> setuid, setgid, sticky</p>

@@ -1,15 +1,39 @@
+var $                   = require( 'jquery' );
+var Tutorial            = require( './views/tutorial' );
+var TutorialsCollection = require( './collections/tutorials' );
+var Related             = require( './views/related' );
+
+var Router = Backbone.Router.extend({
+	routes: {
+		'tutorial(/)': 'archiveTutorials',
+		'tutorial/:slug(/)': 'singleTutorial'
+	},
+
+	archiveTutorials: function() {
+		this.view = new Related({
+			el: $( '.tutorial-section' ),
+			collection: new TutorialsCollection(),
+			template: _.template( $( 'script.tutorials' ).html() ),
+			type: 'tutorials'
+		});
+		this.view.render();
+	},
+
+	singleTutorial: function() {
+		this.view = new Tutorial({
+			el: $( '.tutorial-section' )
+		});
+		this.view.render();
+	}
+
+});
+
+window.router = new Router();
+
+Backbone.history.start({
+	pushState: true
+});
+
 $(function() {
-
-	$( 'a.list-group-item' ).click(function() {
-		$name = $( this ).attr( 'name' );
-
-		if ( 'linux-for-beginners' == $name ) {
-			$( '#tutorials-css-container' ).hide();
-			$( '#tutorials-linux-for-beginners-container' ).show();
-		} else if ( 'css' == $name ) {
-			$( '#tutorials-linux-for-beginners-container' ).hide();
-			$( '#tutorials-css-container' ).show();
-		}
-	});
 
 });

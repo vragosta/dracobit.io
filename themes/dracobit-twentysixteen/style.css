@@ -21,12 +21,13 @@ a:hover {
 
 .navbar-fixed-top {
 	background-color: #383838;
-	height: 50px;
+	height: 65px;
 	box-shadow: 0 0 2px 0 #232323;
 }
 
 #header-outer-container {
 	height: 100%;
+	/*width: 1400px;*/
 }
 
 #header-inner-container {
@@ -35,17 +36,23 @@ a:hover {
 
 #header-logo-container {
 	height: 100%;
-	padding-top: 10px;
+	padding-top: 15px;
 }
 
 #header-logo {
 	margin: 0;
 	color: #fff;
+	font-size: 35px;
 }
 
 #header-logo a {
 	text-decoration: none;
 	color: #fff;
+}
+
+#header-menu-container {
+	font-size: 17px;
+	padding-top: 12px;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -144,6 +151,15 @@ a:hover {
 
 #signup-form-container .input-group:nth-child(-n+6) {
 	margin-bottom: 20px;
+}
+
+#dracobit_login_form {
+	padding-top: 15px;
+}
+
+#dracobit_user_login,
+#dracobit_user_pass {
+	height: 30px;
 }
 
 #login-password-icon,
@@ -265,6 +281,10 @@ a:hover {
 
 /***************************************************/
 
+#page-container {
+	margin-top: 40px;
+}
+
 #profile-avatar-container img {
 	width: 100%;
 	height: auto;
@@ -348,57 +368,104 @@ height: 565px;
 
 /********************************************/
 
-.tutorials-container:first-child {
+.tutorial-page-container {
+	margin-top: 60px;
+}
+
+.tutorial-page-container aside {
+	padding-top: 10px;
+}
+
+#tutorial-nav-menu {
+	padding-top: 20px;
+}
+
+#tutorial-nav-menu legend {
+	color: #333;
+	font-size: 22px;
+}
+
+#tutorial-version {
+	margin-bottom: 5px;
+	float: right;
+}
+
+#tutorial-content {
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+
+.tutorial-container:first-child {
 	display: block;
 }
 
-.tutorials-container {
+.tutorial-container {
 	display: none;
 }
 
-.tutorials-container legend {
+.tutorial-container legend {
 	color: #333;
 	font-size: 22px
 }
 
-.tutorials-container h4 {
+.tutorial-container h4 {
 	font-weight: 500;
 }
 
-.tutorials-container > div {
+.tutorial-container > div {
 	margin-top: 20px;
 }
 
-.tutorials-container code {
+.tutorial-container code {
 	color: #00aeff;
 }
 
-.tutorials-container p.key {
+.tutorial-container p.key {
 	margin-top: 10px;
 	font-weight: 500;
 }
 
-#tutorials-overview-container a {
+#tutorial-sidebar {
+	padding-top: 20px;
+}
+
+#tutorial-overview-container {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 10px;
+	box-shadow: -10px 10px 0px 0px rgba(0,0,0,0.05);
+}
+
+#tutorial-overview-container a {
 	color: #333;
 }
 
-#tutorials-overview-container ul {
+#tutorial-overview-container ul {
 	padding-left: 0px;
 	list-style: none;
 }
 
-#tutorials-overview-container li {
+#tutorial-overview-container li {
 	list-style: none;
 }
 
-#tutorials-overview-container i,
-#tutorials-preparing-and-installing-ubuntu i,
-#tutorials-installing-ubuntu i,
-#tutorials-installing-guest-additions i,
-#tutorials-getting-connected-via-ssh i,
-#tutorials-welcome-to-shell i,
-#tutorials-command-line-interface i,
-#tutorials-listing-files-and-understanding-ls-output i,
-#tutorials-file-and-directory-permissions-explained i {
+#tutorial-overview-container i,
+#tutorial-preparing-and-installing-ubuntu i,
+#tutorial-installing-ubuntu i,
+#tutorial-installing-guest-additions i,
+#tutorial-getting-connected-via-ssh i,
+#tutorial-welcome-to-shell i,
+#tutorial-command-line-interface i,
+#tutorial-listing-files-and-understanding-ls-output i,
+#tutorial-file-and-directory-permissions-explained i {
 	margin-left: 10px;
+}
+
+.widget-tutorial {
+	list-style: none;
+	/*position: fixed;*/
+}
+
+.list-group-item-heading {
+	margin-bottom: 0px;
 }
