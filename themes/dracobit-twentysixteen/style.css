@@ -21,12 +21,13 @@ a:hover {
 
 .navbar-fixed-top {
 	background-color: #383838;
-	height: 50px;
+	height: 65px;
 	box-shadow: 0 0 2px 0 #232323;
 }
 
 #header-outer-container {
 	height: 100%;
+	/*width: 1400px;*/
 }
 
 #header-inner-container {
@@ -35,17 +36,23 @@ a:hover {
 
 #header-logo-container {
 	height: 100%;
-	padding-top: 10px;
+	padding-top: 15px;
 }
 
 #header-logo {
 	margin: 0;
 	color: #fff;
+	font-size: 35px;
 }
 
 #header-logo a {
 	text-decoration: none;
 	color: #fff;
+}
+
+#header-menu-container {
+	font-size: 17px;
+	padding-top: 12px;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -144,6 +151,15 @@ a:hover {
 
 #signup-form-container .input-group:nth-child(-n+6) {
 	margin-bottom: 20px;
+}
+
+#dracobit_login_form {
+	padding-top: 15px;
+}
+
+#dracobit_user_login,
+#dracobit_user_pass {
+	height: 30px;
 }
 
 #login-password-icon,

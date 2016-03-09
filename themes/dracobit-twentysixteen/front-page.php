@@ -20,7 +20,7 @@
   </div>
 </div> -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 charizard-background">
     <img src="https://s-media-cache-ak0.pinimg.com/736x/f2/bd/80/f2bd804e7dc6c4641e978d9b2b1ae16f.jpg" alt="charizard" />
   </div>
@@ -88,7 +88,7 @@
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 fp-quote-content">
-                  <p><em>"He who goes to sleep with itchy butt, wakes up with smelly finger"</em></p>
+                  <p><em>"Insert quote here"</em></p>
                   <h4><strong>Confucius</strong></h4>
                 </div>
               </div>
@@ -99,6 +99,6 @@
 
     </div>
   </div>
-</div>
+</div> -->
 
 <?php get_footer(); ?>

@@ -240,32 +240,31 @@ function dracobit_signup_form_fields() {
  *
  * @since 1.0.0
  */
-function dracobit_login_form_fields() {
+ function dracobit_login_form_fields() {
 
-	ob_start(); ?>
-		<h3 class="dracobit_header"><?php _e( 'Login' ); ?></h3>
-		<?php dracobit_show_error_messages(); ?>
-		<form id="dracobit_login_form" class="dracobit_form" action="" method="post">
-			<fieldset>
-				<div class="input-group">
-					<span class="input-group-addon" id="login-username-icon"><i class="fa fa-user"></i></span>
-					<input type="text" name="login-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="login-password-icon"><i class="fa fa-lock"></i></span>
-					<input type="text" name="login-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
-				</div>
-				<div class="input-group">
-					<input type="hidden" name="dracobit_login_nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
-					<input id="dracobit_login_submit" class="btn btn-default" type="submit" value="Login"/>
-				</div>
-			</fieldset>
-		</form>
-	<?php
-	return ob_get_clean();
-}
+ 	ob_start(); ?>
+
+ 	<form id="dracobit_login_form" class="form-inline dracobit_form" action="" method="post">
+ 		<fieldset>
+ 			<div class="form-group">
+ 				<input type="text" name="login-autocomplete-fix" style="display: none" />
+ 				<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
+ 			</div>
+ 			<div class="form-group">
+ 				<input type="text" name="login-autocomplete-fix" style="display: none" />
+ 				<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
+ 			</div>
+ 			<div class="form-group">
+ 				<input type="hidden" name="dracobit_login_nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
+ 				<input id="dracobit_login_submit" class="btn btn-default" type="submit" value="Login"/>
+ 			</div>
+ 		</fieldset>
+ 	</form>
+
+ 	<?php
+ 	return ob_get_clean();
+
+ }
 
 /**
  * Logs user in after submitting a form
