@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Template Name: Blog
- *
- * @package WordPress
- */
-
 get_header(); ?>
 
 <div class="dracobit-container">

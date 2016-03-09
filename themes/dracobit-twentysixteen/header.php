@@ -21,7 +21,7 @@
 					</div>
 					<div id="header-menu-container" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			      <ul class="nav navbar-nav">
-			        <li><a href="<?php echo home_url( 'home' ); ?>">Home</a></li>
+			        <li><a href="/blog">Home</a></li>
 							<li><a href="/tutorial">Tutorials</a></li>
 							<!-- -->
 							<li>

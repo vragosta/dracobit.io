@@ -4,7 +4,7 @@ var Posts    = require( '../collections/posts' );
 module.exports = Backbone.View.extend({
 	initialize: function() {
 		this.collection   = new Posts();
-		this.collectionEl = $( '.page-section' );
+		this.collectionEl = $( '.post-section' );
 		this.template     = _.template( $( 'script.posts' ).html() );
 	},
 

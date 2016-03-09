@@ -15,7 +15,7 @@ var Router = Backbone.Router.extend({
 
 	archivePosts: function() {
 		this.view = new Posts({
-			el: $( '.page-section' )
+			el: $( '.post-section' )
 		});
 		this.view.render();
 	},
