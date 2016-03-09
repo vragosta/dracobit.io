@@ -1,17 +1,28 @@
 var $                   = require( 'jquery' );
+var Post                = require( './views/post' );
+var PostsCollection     = require( './collections/posts' );
 var Tutorial            = require( './views/tutorial' );
 var TutorialsCollection = require( './collections/tutorials' );
 var Related             = require( './views/related' );
 
 var Router = Backbone.Router.extend({
 	routes: {
-		'tutorial(/)': 'archiveTutorials',
-		'tutorial/:slug(/)': 'singleTutorial'
+		'blog(/)'              : 'archivePosts',
+		'blog/:slug(/)'        : 'singlePost',
+		'tutorial(/)'          : 'archiveTutorials',
+		'tutorial/:slug(/)'    : 'singleTutorial'
+	},
+
+	archivePosts: function() {
+		this.view = new Post({
+			el: $( '#main' )
+		});
+		this.view.render();
 	},
 
 	archiveTutorials: function() {
 		this.view = new Related({
-			el: $( '.tutorial-section' ),
+			el: $( '.dracobit-section' ),
 			collection: new TutorialsCollection(),
 			template: _.template( $( 'script.tutorials' ).html() ),
 			type: 'tutorials'
@@ -21,7 +32,7 @@ var Router = Backbone.Router.extend({
 
 	singleTutorial: function() {
 		this.view = new Tutorial({
-			el: $( '.tutorial-section' )
+			el: $( '.dracobit-section' )
 		});
 		this.view.render();
 	}

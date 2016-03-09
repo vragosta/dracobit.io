@@ -25,7 +25,7 @@ module.exports = Backbone.View.extend({
 		this.collection.fetch().done(function( collection, response, options ) {
 			var args = {};
 			args[self.options.type] = self.collection.toJSON();
-			var content = self.options.template(args);
+			var content = self.options.template( args );
 			self.collectionEl.append( content );
 		});
 	}

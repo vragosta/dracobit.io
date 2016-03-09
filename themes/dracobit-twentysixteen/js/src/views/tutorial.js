@@ -13,10 +13,8 @@ module.exports = Backbone.View.extend({
 		var self = this;
 
 		this.model.fetch().done( function() {
-			var content        = self.template({
-					'tutorial': self.model.toJSON()
-				}),
-				singlePost     = self.$el.html( content );
+			var content       = self.template({ 'tutorial': self.model.toJSON() }),
+					self.$el.html( content );
 		} );
 	}
 });
