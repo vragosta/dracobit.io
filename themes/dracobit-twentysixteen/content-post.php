@@ -8,7 +8,7 @@
 	</section>
 </script>
 
-<!-- <script class="posts" type="html/template">
+<script class="posts" type="html/template">
 	<% _.each( posts, function( post ) { %>
 		<div class="list-group">
 			<a href="/<%= post.slug %>" class="list-group-item" name="<%= post.slug %>">
@@ -26,4 +26,4 @@
 			</a>
 		</div>
 	<% } ); %>
-</script> -->
+</script>
