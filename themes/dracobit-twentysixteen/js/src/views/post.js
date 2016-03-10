@@ -1,5 +1,5 @@
-var $          = require( 'jquery' );
-var Post       = require( '../models/post' );
+var $ = require( 'jquery' );
+var Post = require( '../models/post' );
 
 module.exports = Backbone.View.extend({
 	initialize: function() {

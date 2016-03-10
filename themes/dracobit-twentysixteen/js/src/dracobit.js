@@ -1,42 +1,35 @@
-var $                   = require( 'jquery' );
-var Post                = require( './views/post' );
-var Posts               = require( './views/posts' );
-var Tutorial            = require( './views/tutorial' );
-var TutorialsCollection = require( './collections/tutorials' );
-var Related             = require( './views/related' );
+var $ = require( 'jquery' );
+var Post = require( './views/post' );
+var Tutorials = require( './views/tutorials' );
+var Tutorial = require( './views/tutorial' );
 
 var Router = Backbone.Router.extend({
 	routes: {
-		'blog(/)'              : 'archivePosts',
-		'blog/:slug(/)'        : 'singlePost',
-		'tutorial(/)'          : 'archiveTutorials',
-		'tutorial/:slug(/)'    : 'singleTutorial'
+		'blog/:slug(/)' : 'singlePost',
+		'tutorial(/)' : 'archiveTutorial',
+		'tutorial/:slug(/)' : 'singleTutorial'
 	},
 
-	archivePosts: function() {
-		this.view = new Posts({
+	singlePost: function() {
+		this.view = new Post({
 			el: $( '.post-section' )
 		});
 		this.view.render();
 	},
 
-	archiveTutorials: function() {
-		this.view = new Related({
-			el: $( '.dracobit-section' ),
-			collection: new TutorialsCollection(),
-			template: _.template( $( 'script.tutorials' ).html() ),
-			type: 'tutorials'
+	archiveTutorial: function() {
+		this.view = new Tutorials({
+			el: $( '.tutorial-section' )
 		});
 		this.view.render();
 	},
 
 	singleTutorial: function() {
 		this.view = new Tutorial({
-			el: $( '.dracobit-section' )
+			el: $( '.tutorial-section' )
 		});
 		this.view.render();
 	}
-
 });
 
 window.router = new Router();
@@ -46,5 +39,5 @@ Backbone.history.start({
 });
 
 $(function() {
-
+	console.log( 'beginning the entire process again' );
 });
