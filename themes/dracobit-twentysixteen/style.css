@@ -533,7 +533,7 @@ height: 565px;
 	padding: 10px;
 	border: 1px solid #ddd;
 	border-radius: 0 !important;
-	/*box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );*/
+	cursor: pointer;
 }
 
 .widget-title {
@@ -556,6 +556,25 @@ height: 565px;
 	color: #bf3939 !important;
 }
 
-.archive-item-date {
+.archive-item-date,
+.single-date {
 	font-weight: 500;
+}
+
+.single-container {
+	margin-top: 60px;
+	border-radius: 0;
+	padding: 10px 15px;
+	border: 1px solid #ddd;
+	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
+}
+
+.single-featured-image {
+	display: flex;
+	justify-content: center;
+}
+
+.single-title {
+	font-size: 28px;
+	color: #bf3939;
 }

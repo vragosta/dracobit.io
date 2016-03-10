@@ -1,11 +1,26 @@
 <script class="post" type="html/template">
-	<section id="single-container" class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			<div class="single-title">
-				<%= ( post.title ) ? post.title : '' %>
+	<section class="single-container">
+		<% if ( post.featured_image ) { %>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="single-featured-image">
+						<img src="<%= post.featured_image.source %>" />
+					</div>
+				</div>
 			</div>
-			<div class="single-content">
-				<%= ( post.content ) ? post.content : '' %>
+		<% } %>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h4 class="single-title">
+					<%= ( post.title ) ? post.title : '' %>
+				</h4>
+				<p class="single-date">
+					<% date = moment( post.date ) %>
+					<%= date.format( 'dddd, MMMM Do YYYY, h:mm a' ) %>
+				</p>
+				<div class="single-content">
+					<%= ( post.content ) ? post.content : '' %>
+				</div>
 			</div>
 		</div>
 	</section>
