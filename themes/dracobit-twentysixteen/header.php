@@ -23,7 +23,6 @@
 			      <ul class="nav navbar-nav">
 			        <li><a href="/blog">Home</a></li>
 							<li><a href="/tutorial">Tutorials</a></li>
-							<!-- -->
 							<li>
 								<?php if( current_user_can( 'edit_posts' ) ) : ?>
 									<a href="<?php echo admin_url(); ?>">WP-Admin</a>
@@ -45,7 +44,13 @@
 						</ul>
 					</div>
 					<div id="header-login-container" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<?php echo dracobit_login_form_fields(); ?>
+						<?php if ( ! is_user_logged_in() ) { ?>
+							<?php echo dracobit_login_form_fields(); ?>
+						<?php } ?>
+						<?php if ( is_user_logged_in() ) { ?>
+							<span class="pull-right" id="header-logout-container"><?php wp_loginout( home_url( '/' ) ); ?></span>
+							<a class="pull-right" id="header-display-name" href="/profile"><?php echo $current_user->display_name; ?></a>
+						<?php } ?>
 					</div>
 				</div>
       </div>
