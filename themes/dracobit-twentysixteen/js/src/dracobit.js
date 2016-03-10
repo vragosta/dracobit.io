@@ -14,28 +14,28 @@ var Router = Backbone.Router.extend({
 
 	archivePosts: function() {
 		this.view = new Posts({
-			el: $( '.post-section' )
+			el: $( '.dracobit-section' )
 		});
 		this.view.render();
 	},
 
 	singlePost: function() {
 		this.view = new Post({
-			el: $( '.post-section' )
+			el: $( '.dracobit-section' )
 		});
 		this.view.render();
 	},
 
 	archiveTutorial: function() {
 		this.view = new Tutorials({
-			el: $( '.tutorial-section' )
+			el: $( '.dracobit-section' )
 		});
 		this.view.render();
 	},
 
 	singleTutorial: function() {
 		this.view = new Tutorial({
-			el: $( '.tutorial-section' )
+			el: $( '.dracobit-section' )
 		});
 		this.view.render();
 	}

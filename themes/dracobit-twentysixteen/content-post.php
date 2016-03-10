@@ -1,8 +1,11 @@
 <script class="post" type="html/template">
-	<section id="post-content" class="row">
+	<section id="single-container" class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			<div class="post-container">
-				<%= post.content %>
+			<div class="single-title">
+				<%= ( post.title ) ? post.title : '' %>
+			</div>
+			<div class="single-content">
+				<%= ( post.content ) ? post.content : '' %>
 			</div>
 		</div>
 	</section>
@@ -15,9 +18,7 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<h4 class="list-group-item-heading archive-item-title">
-							<% if ( post.title ) { %>
-								<%= post.title %>
-							<% } %>
+							<%= ( post.title ) ? post.title : '' %>
 						</h4>
 					</div>
 				</div>
@@ -32,7 +33,7 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<p class="archive-item-content">
-							<%= post.content %>
+							<%= ( post.content ) ? post.content : '' %>
 						</p>
 					</div>
 				</div>

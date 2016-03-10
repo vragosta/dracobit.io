@@ -524,14 +524,16 @@ height: 565px;
 }
 
 .dracobit-sidebar {
-	padding-top: 60px;
+	margin-top: 60px;
+	border-left: 1px solid #ddd;
+	min-height: 500px;
 }
 
 .widget {
 	padding: 10px;
 	border: 1px solid #ddd;
 	border-radius: 0 !important;
-	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
+	/*box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );*/
 }
 
 .widget-title {
