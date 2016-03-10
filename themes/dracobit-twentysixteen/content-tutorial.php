@@ -11,7 +11,7 @@
 <script class="tutorials" type="html/template">
 	<% _.each( tutorials, function( tutorial ) { %>
 		<div class="list-group">
-			<a href="/<%= tutorial.slug %>" class="list-group-item" name="<%= tutorial.slug %>">
+			<a href="/tutorial/<%= tutorial.slug %>" class="list-group-item" name="<%= tutorial.slug %>">
 				<div class="row">
 					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
 						<h4 class="list-group-item-heading">
