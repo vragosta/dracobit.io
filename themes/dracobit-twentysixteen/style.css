@@ -27,7 +27,6 @@ a:hover {
 
 #header-outer-container {
 	height: 100%;
-	/*width: 1400px;*/
 }
 
 #header-inner-container {
@@ -435,8 +434,8 @@ height: 565px;
 	margin-top: 70px;
 }
 
-.dracobit-container aside {
-	padding-top: 10px;
+.dracobit-container legend {
+	font-size: 28px;
 }
 
 #tutorial-nav-menu {
@@ -524,11 +523,37 @@ height: 565px;
 	margin-left: 10px;
 }
 
-.widget-tutorial {
-	list-style: none;
-	/*position: fixed;*/
+.dracobit-sidebar {
+	padding-top: 60px;
 }
 
-.list-group-item-heading {
+.widget {
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 0 !important;
+	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
+}
+
+.widget-title {
+	margin: 0;
+	color: #bf3939;
+}
+
+.widget-tutorial {
+	list-style: none;
+}
+
+.archive-item {
+	border-radius: 0 !important;
+	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
+}
+
+.archive-item-title {
 	margin-bottom: 0px;
+	font-size: 22px;
+	color: #bf3939 !important;
+}
+
+.archive-item-date {
+	font-weight: 500;
 }

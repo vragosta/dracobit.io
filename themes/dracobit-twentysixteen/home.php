@@ -1,6 +1,4 @@
-<?php
-
-get_header(); ?>
+<?php get_header(); ?>
 
 <div class="dracobit-container container">
 	<main class="row">
@@ -10,8 +8,8 @@ get_header(); ?>
 				<?php get_template_part( 'content', get_post_type() ); ?>
 			</div>
 		</section>
+		<?php get_sidebar( get_post_type() ); ?>
   </main>
-  <?php get_sidebar( get_post_type() ); ?>
 </div>
 
 <?php get_footer(); ?>

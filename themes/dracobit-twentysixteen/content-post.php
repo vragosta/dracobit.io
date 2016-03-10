@@ -11,16 +11,29 @@
 <script class="posts" type="html/template">
 	<% _.each( posts, function( post ) { %>
 		<div class="list-group">
-			<a href="/blog/<%= post.slug %>" class="list-group-item" name="<%= post.slug %>">
+			<a href="/blog/<%= post.slug %>" class="list-group-item archive-item" name="<%= post.slug %>">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<h4 class="list-group-item-heading">
+						<h4 class="list-group-item-heading archive-item-title">
 							<% if ( post.title ) { %>
 								<%= post.title %>
-							<% } else { %>
-								<%= 'Post Title' %>
 							<% } %>
 						</h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<p class="archive-item-date">
+							<% date = moment( post.date ) %>
+							<%= date.format( 'dddd, MMMM Do YYYY, h:mm a' ) %>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<p class="archive-item-content">
+							<%= post.content %>
+						</p>
 					</div>
 				</div>
 			</a>

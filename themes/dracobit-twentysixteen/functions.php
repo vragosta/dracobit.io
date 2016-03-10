@@ -132,14 +132,14 @@ add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
 function dracobit_widgets_init() {
 	register_widget( 'Dracobit_Overview_Widget' );
 
-	$sidebars = array( 'page', 'tutorial' );
+	$sidebars = array( 'post', 'page', 'tutorial' );
 	foreach ( $sidebars as $post_type ) {
 		register_sidebar( array(
 			'name'          => sprintf( __( 'Sidebar for post type: %s', 'dracobit' ), $post_type ),
 			'id'            => $post_type . '-sidebar',
 			'description'   => sprintf( __( 'Sidebar for post type: %s', 'dracobit' ), $post_type ),
-			'before_widget' => '<li id="%1$s" class="widget widget-' . $post_type . ' %2$s">',
-			'after_widget'  => '</li>',
+			'before_widget' => '<div class="list-group"><a id="%1$s" class="widget widget-' . $post_type . ' %2$s list-group-item">',
+			'after_widget'  => '</a></div>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		) );
