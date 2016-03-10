@@ -1,6 +1,6 @@
 var gulp         = require( 'gulp' );
 var autoprefixer = require( 'gulp-autoprefixer' );
-var browserify   = require( 'gulp-browserify' );
+// var browserify   = require( 'gulp-browserify' );
 var concat       = require( 'gulp-concat' );
 var cssmin       = require( 'gulp-cssmin' );
 var jscs         = require( 'gulp-jscs' );
@@ -44,7 +44,7 @@ gulp.task( 'scripts', function( done ) {
 	    .pipe( jshint() )
 	    .pipe( jshint.reporter( 'jshint-stylish' ) )
 	    .pipe( jscs() )
-	    .pipe( browserify() )
+	    // .pipe( browserify() )
 	    .pipe( uglify() )
 	    .pipe( rename({ suffix: '.min' }) )
 	    .pipe( gulp.dest( 'js' ) )

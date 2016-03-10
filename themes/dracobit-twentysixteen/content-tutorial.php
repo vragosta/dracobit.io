@@ -1,11 +1,11 @@
 <script class="tutorial" type="html/template">
-<section id="tutorial-content" class="row">
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<div id="tutorial-<%= tutorial.slug %>-container" class="tutorial-container">
-			<%= tutorial.content %>
+	<section id="tutorial-content" class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div id="tutorial-<%= tutorial.slug %>-container" class="tutorial-container">
+				<%= tutorial.content %>
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
 </script>
 
 <script class="tutorials" type="html/template">
