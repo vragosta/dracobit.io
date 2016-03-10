@@ -1,13 +1,22 @@
 var $ = require( 'jquery' );
 var Post = require( './views/post' );
+var Posts = require( './views/posts' );
 var Tutorials = require( './views/tutorials' );
 var Tutorial = require( './views/tutorial' );
 
 var Router = Backbone.Router.extend({
 	routes: {
+		'blog(/)' : 'archivePosts',
 		'blog/:slug(/)' : 'singlePost',
 		'tutorial(/)' : 'archiveTutorial',
 		'tutorial/:slug(/)' : 'singleTutorial'
+	},
+
+	archivePosts: function() {
+		this.view = new Posts({
+			el: $( '.post-section' )
+		});
+		this.view.render();
 	},
 
 	singlePost: function() {
