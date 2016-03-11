@@ -508,10 +508,9 @@ height: 565px;
 }
 
 #tutorial-overview-container {
-	border: 1px solid #ccc;
+	/*border: 1px solid #ccc;*/
 	border-radius: 4px;
 	padding: 10px;
-	box-shadow: -10px 10px 0px 0px rgba(0,0,0,0.05);
 }
 
 #tutorial-overview-container a {

@@ -130,7 +130,7 @@ add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
  * @since 1.0.0
  */
 function dracobit_widgets_init() {
-	register_widget( 'Dracobit_Overview_Widget' );
+	// register_widget( 'Dracobit_Overview_Widget' );
 
 	$sidebars = array( 'post', 'page', 'tutorial' );
 	foreach ( $sidebars as $post_type ) {
