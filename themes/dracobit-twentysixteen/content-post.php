@@ -2,7 +2,7 @@
 	<section class="single-container">
 		<% if ( post.featured_image ) { %>
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 single-featured-image-container">
 					<div class="single-featured-image">
 						<img src="<%= post.featured_image.source %>" />
 					</div>

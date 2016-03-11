@@ -42,7 +42,7 @@
 						</h4>
 					</div>
 					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-						<p class="tutorial-version">
+						<p class="list-group-item-text tutorial-version">
 							<% if ( tutorial.version ) { %>
 								<%= 'v' + tutorial.version %>
 							<% } else { %>
@@ -53,14 +53,29 @@
 				</div>
 
 				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<p class="list-group-item-text">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+						<p class="list-group-item-text tutorial-tagline">
 							<% if ( tutorial.tagline ) { %>
 								<%= tutorial.tagline %>
 							<% } else { %>
 								<%= 'Enter tagline here.' %>
 							<% } %>
 						</p>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 tutorial-likes-container">
+								<i class="fa fa-gratipay"></i>
+								<p class="list-group-item-text tutorial-likes">
+									<%= Math.floor((Math.random() * 100) + 1) %>
+								</p>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+								<p class="list-group-item-text tutorial-type">
+									<%= tutorial.type.toUpperCase() %>
+								</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</a>

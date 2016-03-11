@@ -455,9 +455,26 @@ height: 565px;
 	float: right;
 }
 
-.tutorial-tagline {
+.tutorial-container .tutorial-tagline {
 	font-size: 18px;
-    margin-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+.tutorial-type {
+	color: #bf3939;
+	font-weight: 500;
+	float: right;
+}
+
+.tutorial-likes-container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.tutorial-likes-container i {
+	float: left;
+  font-size: 18px;
+  margin-right: 5px;
 }
 
 .tutorial-container:first-child {
@@ -567,9 +584,19 @@ height: 565px;
 	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
 }
 
+.single-featured-image-container {
+	border-bottom: 4px solid #294F82;
+}
+
 .single-featured-image {
 	display: flex;
 	justify-content: center;
+}
+
+.single-featured-image img {
+	min-height: 325px;
+	max-height: 400px;
+	height: auto;
 }
 
 .single-title {
