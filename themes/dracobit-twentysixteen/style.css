@@ -606,3 +606,34 @@ height: 565px;
 	font-size: 28px;
 	color: #bf3939;
 }
+
+.post-menu {
+	border: 1px solid #ddd;
+	margin: 0;
+}
+
+.post-menu-item {
+	display: flex;
+  align-items: center;
+	justify-content: center;
+	height: 25px;
+	cursor: pointer;
+}
+
+.post-menu i {
+	margin-right: 5px;
+}
+
+.post-menu p {
+	margin: 0;
+}
+
+.post-comment #reply-title {
+	display: none;
+}
+
+.post-comment textarea {
+	width: 100%;
+	resize: none;
+	height: 75px;
+}

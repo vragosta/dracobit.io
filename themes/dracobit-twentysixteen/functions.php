@@ -477,7 +477,7 @@ function dracobit_register_tutorial_content() {
 }
 add_action( 'init', 'dracobit_register_tutorial_content' );
 
-function mytheme_comment($comment, $args, $depth) {
+function mytheme_comment( $comment, $args, $depth ) {
   if ( 'div' === $args['style'] ) {
       $tag       = 'div';
       $add_below = 'comment';
