@@ -12,6 +12,12 @@
 							<p>Post</p>
 						</a>
 					</div>
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<a class="post-menu-item">
+							<i class="fa fa-picture-o"></i>
+							<p>Photo/Video</p>
+						</a>
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -39,7 +45,7 @@
 				</div>
 			</div>
 
-			<div class="comments">
+			<div class="comments-container">
 				<?php $comments = get_comments( array( 'post_id' => $post->ID ) ); ?>
 				<?php wp_list_comments( array( 'callback' => 'mytheme_comment' ), $comments ); ?>
 			</div>

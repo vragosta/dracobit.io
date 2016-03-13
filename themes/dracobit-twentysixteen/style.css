@@ -628,6 +628,11 @@ height: 565px;
 	justify-content: center;
 	height: 100%;
 	cursor: pointer;
+	color: #333;
+}
+
+.post-menu-item:hover{
+	color: #333;
 }
 
 .post-menu-item i {
@@ -670,4 +675,8 @@ height: 565px;
 
 .post-comment input#submit {
 	float: right;
+}
+
+.comments-container {
+	margin-top: 50px;
 }
