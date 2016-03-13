@@ -9,7 +9,7 @@
 					<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
 						<a class="post-menu-item">
 							<i class="fa fa-pencil-square"></i>
-							<p style="float: left">Post</p>
+							<p>Post</p>
 						</a>
 					</div>
 				</div>
@@ -29,7 +29,8 @@
 								'title_reply_to' => '',
 								'title_reply'    => '',
 								'logged_in_as'   => '',
-								'comment_field'  => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>'
+								'comment_field'  => '<p class="comment-form-comment"><textarea id="comment" placeholder="Write something..." name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+								'class_submit'   => 'btn btn-info'
 							);
 
 							comment_form( $args );
