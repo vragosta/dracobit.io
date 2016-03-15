@@ -1,2 +1,4 @@
 themes/dracobit-twentysixteen/node_modules
 themes/dracobit-twentysixteen/bower_components
+themes/dracobit-twentysixteen/.*
+uploads

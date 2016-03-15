@@ -88,7 +88,6 @@ gulp.task( 'vendors', function( done ) {
 	gulp.src([
 		'vendors/js/jquery-2.1.4.min.js',
 		'vendors/js/bootstrap.min.js',
-		'vendors/js/jquery.flip.min.js',
 		'vendors/js/jquery-ui.min.js',
 		'vendors/js/moment.js'
 	]).pipe( concat( 'vendors.js' ) )

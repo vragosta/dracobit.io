@@ -27,7 +27,6 @@ a:hover {
 
 #header-outer-container {
 	height: 100%;
-	/*width: 1400px;*/
 }
 
 #header-inner-container {
@@ -55,6 +54,14 @@ a:hover {
 	padding-top: 12px;
 }
 
+#header-login-container {
+	font-size: 17px;
+}
+
+#header-logout-container {
+	padding-top: 23px;
+}
+
 .navbar-default .navbar-nav > li > a {
 	color: #fff;
 }
@@ -63,6 +70,53 @@ a:hover {
 .navbar-default .navbar-nav > li > a:hover {
 	color: #00aeff;
 }
+
+/*********************** Updated Login and Signup forms ***********************/
+
+.dracobit_header {
+	margin-bottom: 20px;
+	margin-left: 140px;
+}
+
+.signup-form-container {
+	width: 410px;
+	margin-left: 140px;
+}
+
+input[name="signup-autocomplete-fix"] {
+	display: none;
+}
+
+input[name="dracobit_signup_input"] {
+	width: 100%;
+	height: 35px;
+	font-size: 20px;
+	padding: 20px 10px;
+	border-radius: 0 !important;
+}
+
+#signup-name-container {
+	margin-bottom: 15px;
+}
+
+#signup-name-container input[name="dracobit_signup_first"] {
+	width: 49%;
+	height: 35px;
+	font-size: 20px;
+	padding: 20px 10px;
+	margin-right: 8px;
+	border-radius: 0 !important;
+}
+
+#signup-name-container input[name="dracobit_signup_last"] {
+	width: 49%;
+	height: 35px;
+	font-size: 20px;
+	padding: 20px 10px;
+	border-radius: 0 !important;
+}
+
+/******************************************************************************/
 
 #header-controls-mask {
 	height: 100%;
@@ -81,7 +135,7 @@ a:hover {
 	background-color: #fff;
 	color: #383838;
 	border: 1px solid #fff;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 #header-login-button:hover,
@@ -96,6 +150,7 @@ a:hover {
 	text-decoration: none;
 	color: #fff;
 	margin-right: 10px;
+	padding-top: 25px;
 }
 
 #login-container,
@@ -125,7 +180,7 @@ a:hover {
 
 #signup-form-container {
 	margin: 0 auto;
-	max-width: 400px;
+	max-width: 410px;
   width: 100%;
 	padding: 25px;
 	border: 1px solid #383838;
@@ -157,9 +212,18 @@ a:hover {
 	padding-top: 15px;
 }
 
+#dracobit_login_form input[name="login-autocomplete-fix"] {
+	display: none;
+}
+
+#dracobit_login_form input[id="dracobit_login_submit"] {
+	margin-left: 5px;
+}
+
 #dracobit_user_login,
 #dracobit_user_pass {
 	height: 30px;
+	border-radius: 0 !important;
 }
 
 #login-password-icon,
@@ -173,6 +237,7 @@ a:hover {
 	color: #383838;
 	background-color: #fff;
 	border: 1px solid #ccc;
+	border-radius: 0 !important;
 }
 
 #dracobit_login_submit:hover,
@@ -337,6 +402,7 @@ height: 565px;
 
 .fp-quotes-container {
 	height: 300px;
+	margin-top: 150px;
 }
 
 .carousel-control.left, .carousel-control.right {
@@ -368,12 +434,12 @@ height: 565px;
 
 /********************************************/
 
-.tutorial-page-container {
-	margin-top: 60px;
+.dracobit-container {
+	margin-top: 70px;
 }
 
-.tutorial-page-container aside {
-	padding-top: 10px;
+.dracobit-container legend {
+	font-size: 28px;
 }
 
 #tutorial-nav-menu {
@@ -385,22 +451,38 @@ height: 565px;
 	font-size: 22px;
 }
 
-#tutorial-version {
-	margin-bottom: 5px;
+#tutorial-container {
+	margin-bottom: 20px;
+}
+
+.tutorial-version {
 	float: right;
 }
 
-#tutorial-content {
-	padding-top: 20px;
-	margin-bottom: 20px;
+.tutorial-container .tutorial-tagline {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.tutorial-type {
+	color: #bf3939;
+	font-weight: 500;
+	float: right;
+}
+
+.tutorial-likes-container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.tutorial-likes-container i {
+	float: left;
+  font-size: 18px;
+  margin-right: 5px;
 }
 
 .tutorial-container:first-child {
 	display: block;
-}
-
-.tutorial-container {
-	display: none;
 }
 
 .tutorial-container legend {
@@ -412,9 +494,9 @@ height: 565px;
 	font-weight: 500;
 }
 
-.tutorial-container > div {
+/*.tutorial-container > div {
 	margin-top: 20px;
-}
+}*/
 
 .tutorial-container code {
 	color: #00aeff;
@@ -430,10 +512,9 @@ height: 565px;
 }
 
 #tutorial-overview-container {
-	border: 1px solid #ccc;
+	/*border: 1px solid #ccc;*/
 	border-radius: 4px;
 	padding: 10px;
-	box-shadow: -10px 10px 0px 0px rgba(0,0,0,0.05);
 }
 
 #tutorial-overview-container a {
@@ -461,11 +542,141 @@ height: 565px;
 	margin-left: 10px;
 }
 
-.widget-tutorial {
-	list-style: none;
-	/*position: fixed;*/
+.dracobit-sidebar {
+	margin-top: 60px;
+	border-left: 1px solid #ddd;
+	min-height: 500px;
 }
 
-.list-group-item-heading {
+.widget {
+	border: 1px solid #ddd;
+	border-radius: 0 !important;
+	cursor: pointer;
+}
+
+.widget-title {
+	margin: 0;
+	color: #bf3939;
+}
+
+.widget-tutorial {
+	list-style: none;
+}
+
+.archive-item {
+	border-radius: 0 !important;
+	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
+}
+
+.archive-item-title {
 	margin-bottom: 0px;
+	font-size: 22px;
+	color: #bf3939 !important;
+}
+
+.archive-item-date,
+.single-date {
+	font-weight: 500;
+}
+
+.single-container {
+	margin-top: 60px;
+	border-radius: 0;
+	padding: 10px 15px;
+	border: 1px solid #ddd;
+	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
+}
+
+.single-featured-image-container {
+	border-bottom: 4px solid #294F82;
+}
+
+.single-featured-image {
+	display: flex;
+	justify-content: center;
+}
+
+.single-featured-image img {
+	min-height: 325px;
+	max-height: 400px;
+	height: auto;
+}
+
+.single-title {
+	font-size: 28px;
+	color: #bf3939;
+}
+
+.post-comment {
+	border: 1px solid #ccc;
+}
+
+.post-menu {
+	border-bottom: 1px solid #ccc;
+	border: none;
+	margin: 0;
+	height: 40px;
+}
+
+.post-menu > div {
+	height: 100%;
+}
+
+.post-menu-item {
+	display: flex;
+  align-items: center;
+	justify-content: center;
+	height: 100%;
+	cursor: pointer;
+	color: #333;
+}
+
+.post-menu-item:hover{
+	color: #333;
+}
+
+.post-menu-item i {
+	margin-right: 5px;
+}
+
+.post-menu-item p {
+	margin: 0;
+}
+
+.post-comment #reply-title {
+	display: none;
+}
+
+.post-comment textarea {
+	width: 100%;
+	resize: none;
+	height: 75px;
+	border: none;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+}
+
+.post-comment textarea:focus {
+	outline: none;
+}
+
+.post-comment .comment-form-comment {
+	margin: 0;
+}
+
+.post-comment .form-submit {
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	margin: 0;
+}
+
+.post-comment input#submit {
+	float: right;
+}
+
+.comments-container {
+	margin-top: 50px;
 }

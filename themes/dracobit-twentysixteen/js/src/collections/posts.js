@@ -1,7 +1,7 @@
-var Tutorial = require( '../models/tutorial' );
+var Post = require( '../models/post' );
 
 module.exports = Backbone.Collection.extend({
-	model: Tutorial,
+	model: Post,
 	page: 1,
 	order: 'asc',
 
@@ -14,6 +14,6 @@ module.exports = Backbone.Collection.extend({
 
 		query.push( 'filter[order]=' + this.order );
 
-		return Dracobit.options.apiUrl + '/tutorial?' + query.join( '&' );
+		return Dracobit.options.apiUrl + '/posts?' + query.join( '&' );
 	}
 });

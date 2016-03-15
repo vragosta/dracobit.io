@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "bootstrap": "3.3.5",
-    "datatables": "1.10.9",
-    "fancybox": "2.1.5",
     "font-awesome": "4.4.0",
-    "jquery-cookie": "1.4.1",
-    "jquery-serialize-object": "2.5.0",
     "moment": "2.10.6"
   }
 }

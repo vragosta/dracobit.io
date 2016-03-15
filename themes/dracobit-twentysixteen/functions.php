@@ -85,7 +85,7 @@ function dracobit_scripts() {
 	global $post;
 
 	wp_enqueue_script( 'vendors', get_template_directory_uri() . '/js/vendors.min.js', array( 'jquery' ), DRACOBIT_VERSION, true );
-	wp_enqueue_script( 'dracobit', get_template_directory_uri() . '/js/dracobit.min.js', array( 'backbone', 'jquery', 'underscore', 'vendors' ), DRACOBIT_VERSION, true );
+	wp_enqueue_script( 'dracobit', get_template_directory_uri() . '/js/dracobit.min.js', array( 'jquery', 'backbone', 'underscore', 'vendors' ), DRACOBIT_VERSION, true );
 
 	wp_localize_script( 'dracobit', 'Dracobit', array(
 		'currentPost' => $post->ID,
@@ -130,16 +130,16 @@ add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
  * @since 1.0.0
  */
 function dracobit_widgets_init() {
-	register_widget( 'Dracobit_Overview_Widget' );
+	// register_widget( 'Dracobit_Overview_Widget' );
 
-	$sidebars = array( 'page', 'tutorial' );
+	$sidebars = array( 'post', 'page', 'tutorial' );
 	foreach ( $sidebars as $post_type ) {
 		register_sidebar( array(
 			'name'          => sprintf( __( 'Sidebar for post type: %s', 'dracobit' ), $post_type ),
 			'id'            => $post_type . '-sidebar',
 			'description'   => sprintf( __( 'Sidebar for post type: %s', 'dracobit' ), $post_type ),
-			'before_widget' => '<li id="%1$s" class="widget widget-' . $post_type . ' %2$s">',
-			'after_widget'  => '</li>',
+			'before_widget' => '<div class="list-group"><a id="%1$s" class="widget widget-' . $post_type . ' %2$s list-group-item">',
+			'after_widget'  => '</a></div>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		) );
@@ -188,52 +188,47 @@ add_shortcode( 'login_form', 'dracobit_login_form' );
  *
  * @since 1.0.0
  */
-function dracobit_signup_form_fields() {
+ function dracobit_signup_form_fields() {
 
-	ob_start(); ?>
-		<h3 class="dracobit_header"><?php _e( 'Register New Account' ); ?></h3>
-		<?php dracobit_show_error_messages(); ?>
-		<form id="dracobit_signup_form" class="dracobit_form" action="" method="POST">
-			<fieldset>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-username-icon"><i class="fa fa-user"></i></span>
-					<input type="text" name="signup-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-email-icon"><i id="signup-email-icon" class="fa fa-envelope-o"></i></span>
-					<input type="text" name="signup-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_email" id="dracobit_user_email" class="form-control" placeholder="Email" type="email" aria-describedby="signup-email-icon" required />
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-name-icon"><i class="fa fa-server"></i></span>
-					<input type="text" name="signup-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_first" id="dracobit_user_first" class="form-control" placeholder="First name" type="text" aria-describedby="signup-name-icon" required />
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-name-icon"><i class="fa fa-server"></i></span>
-					<input type="text" name="signup-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_last" id="dracobit_user_last" class="form-control" placeholder="Last name" type="text" aria-describedby="signup-name-icon" required />
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-password-icon"><i class="fa fa-lock signup-password-icon"></i></span>
-					<input type="text" name="signup-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="signup-password-icon" required />
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="signup-password-icon"><i class="fa fa-lock signup-password-icon"></i></span>
-					<input type="text" name="login-autocomplete-fix" style="display: none" />
-					<input name="dracobit_user_pass_confirm" id="password_again" class="form-control" placeholder="Confirm password" type="password" aria-describedby="signup-password-icon" required />
-				</div>
-				<p>
-					<input type="hidden" name="dracobit_register_nonce" value="<?php echo wp_create_nonce('dracobit-register-nonce'); ?>"/>
-					<input id="dracobit_signup_submit" type="submit" value="<?php _e('Register Your Account'); ?>"/>
-				</p>
-			</fieldset>
-		</form>
-	<?php
-	return ob_get_clean();
-}
+ 	ob_start(); ?>
+
+ 	<h1 class="dracobit_header"><?php _e( 'Sign Up' ); ?></h1>
+ 	<?php dracobit_show_error_messages(); ?>
+ 	<form id="dracobit_signup_form" class="dracobit_form" action="" method="POST">
+ 		<fieldset>
+ 			<div class="signup-form-container">
+ 				<div class="form-group">
+ 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input name="dracobit_signup_input" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
+ 				</div>
+ 				<div class="form-group">
+ 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input name="dracobit_signup_input" id="dracobit_user_email" class="form-control" placeholder="Email" type="email" aria-describedby="signup-email-icon" required />
+ 				</div>
+ 				<div class="input-group" id="signup-name-container">
+ 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input name="dracobit_signup_first" id="dracobit_user_first" class="form-control" placeholder="First name" type="text" aria-describedby="signup-name-icon" required />
+
+ 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input name="dracobit_signup_last" id="dracobit_user_last" class="form-control" placeholder="Last name" type="text" aria-describedby="signup-name-icon" required />
+ 				</div>
+ 				<div class="form-group">
+ 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input name="dracobit_signup_input" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="signup-password-icon" required />
+ 				</div>
+ 				<div class="form-group">
+ 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input name="dracobit_signup_input" id="password_again" class="form-control" placeholder="Confirm password" type="password" aria-describedby="signup-password-icon" required />
+ 			</div>
+ 			<p>
+ 				<input type="hidden" name="dracobit_register_nonce" value="<?php echo wp_create_nonce('dracobit-register-nonce'); ?>"/>
+ 				<input id="dracobit_signup_submit" type="submit" value="<?php _e('Register Your Account'); ?>"/>
+ 			</p>
+ 		</fieldset>
+ 	</form>
+ <?php
+ 	return ob_get_clean();
+ }
 
 /**
  * User login form fields
@@ -244,14 +239,14 @@ function dracobit_signup_form_fields() {
 
  	ob_start(); ?>
 
- 	<form id="dracobit_login_form" class="form-inline dracobit_form" action="" method="post">
+ 	<form id="dracobit_login_form" class="form-inline pull-right" action="" method="post">
  		<fieldset>
  			<div class="form-group">
- 				<input type="text" name="login-autocomplete-fix" style="display: none" />
+ 				<input type="text" name="login-autocomplete-fix" />
  				<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
  			</div>
  			<div class="form-group">
- 				<input type="text" name="login-autocomplete-fix" style="display: none" />
+ 				<input type="text" name="login-autocomplete-fix" />
  				<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
  			</div>
  			<div class="form-group">
@@ -481,5 +476,45 @@ function dracobit_register_tutorial_content() {
 	}
 }
 add_action( 'init', 'dracobit_register_tutorial_content' );
+
+function mytheme_comment( $comment, $args, $depth ) {
+  if ( 'div' === $args['style'] ) {
+      $tag       = 'div';
+      $add_below = 'comment';
+  } else {
+      $tag       = 'li';
+      $add_below = 'div-comment';
+  }
+  ?>
+  <<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+  <?php if ( 'div' != $args['style'] ) : ?>
+      <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
+  <?php endif; ?>
+  <div class="comment-author vcard">
+      <?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+      <?php printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
+  </div>
+  <?php if ( $comment->comment_approved == '0' ) : ?>
+       <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
+        <br />
+  <?php endif; ?>
+
+  <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+      <?php
+      /* translators: 1: date, 2: time */
+      printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)' ), '  ', '' );
+      ?>
+  </div>
+
+  <?php comment_text(); ?>
+
+  <div class="reply">
+      <?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+  </div>
+  <?php if ( 'div' != $args['style'] ) : ?>
+  </div>
+  <?php endif; ?>
+  <?php
+}
 
 ?>
