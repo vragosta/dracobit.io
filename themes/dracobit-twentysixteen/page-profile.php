@@ -22,32 +22,46 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<?php
-							$post_author = get_user_by( 'id', $post->post_author );
 
-							if ( $post_author == $current_user ) {
-								$post_label = 'Update Status';
+							// put this logic in the header?
+							if ( is_user_logged_in() ) {
+
+								$post_author = get_user_by( 'id', $post->post_author );
+
+								if ( $post_author == $current_user ) {
+									$post_label = 'Update Status';
+								} else {
+									$post_label = 'Post';
+								}
+
+								$args = array(
+									'id_form'        => 'commentform-test',
+  								'class_form'     => 'comment-form-test',
+									'label_submit'   => $post_label,
+									'title_reply_to' => '',
+									'title_reply'    => '',
+									'logged_in_as'   => '',
+									'comment_field'  => '<p class="comment-form-comment"><textarea id="comment" placeholder="Write something..." name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+									'class_submit'   => 'btn btn-info'
+								);
+
+								comment_form( $args );
+
 							} else {
-								$post_label = 'Post';
+								// create a DOM element here
+								echo 'Please Login.';
 							}
 
-							$args =  array(
-								'label_submit'   => $post_label,
-								'title_reply_to' => '',
-								'title_reply'    => '',
-								'logged_in_as'   => '',
-								'comment_field'  => '<p class="comment-form-comment"><textarea id="comment" placeholder="Write something..." name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
-								'class_submit'   => 'btn btn-info'
-							);
-
-							comment_form( $args );
 						?>
 					</div>
 				</div>
 			</div>
 
-			<div class="comments-container">
-				<?php $comments = get_comments( array( 'post_id' => $post->ID ) ); ?>
-				<?php wp_list_comments( array( 'callback' => 'mytheme_comment' ), $comments ); ?>
+			<div class="row comments-container">
+				<div class="col-xs-offset-6 col-sm-offset-6 col-md-offset-6 col-lg-offset-6 col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<?php $comments = get_comments( array( 'post_id' => $post->ID ) ); ?>
+					<?php wp_list_comments( array( 'callback' => 'dracobit_profile_template' ), $comments ); ?>
+				</div>
 			</div>
     </section>
     <?php get_sidebar( get_post_type() ); ?>

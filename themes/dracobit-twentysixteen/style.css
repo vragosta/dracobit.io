@@ -680,3 +680,7 @@ height: 565px;
 .comments-container {
 	margin-top: 50px;
 }
+
+.comments-container li {
+	list-style: none;
+}

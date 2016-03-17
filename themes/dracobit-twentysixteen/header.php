@@ -6,6 +6,7 @@
 		<title><?php bloginfo(); wp_title( '|', true ); ?></title>
 
 		<?php
+			if ( is_singular() || is_page( 'profile' ) ) wp_enqueue_script( 'comment-reply' );
 			wp_head();
 			$current_user = wp_get_current_user();
 		?>
