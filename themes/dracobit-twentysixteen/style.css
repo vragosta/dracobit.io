@@ -677,10 +677,24 @@ height: 565px;
 	float: right;
 }
 
-.comments-container {
+/*.comments-container {
 	margin-top: 50px;
-}
+}*/
 
 .comments-container li {
 	list-style: none;
+}
+
+.vcard img {
+	border: 1px solid #ccc;
+  border-radius: 15px;
+}
+
+.comment-body {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.comment .children {
+	margin-top: 10px;
 }
