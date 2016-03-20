@@ -251,7 +251,7 @@ add_shortcode( 'login_form', 'dracobit_login_form' );
  			</div>
  			<div class="form-group">
  				<input type="hidden" name="dracobit_login_nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
- 				<input id="dracobit_login_submit" class="btn btn-default" type="submit" value="Login"/>
+ 				<input id="dracobit_login_submit" class="btn btn-secondary" type="submit" value="Login"/>
  			</div>
  		</fieldset>
  	</form>
