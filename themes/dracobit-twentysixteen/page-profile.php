@@ -9,7 +9,7 @@
 					<?php $comments = get_comments( array( 'post_id' => $post->ID ) ); ?>
 					<?php wp_list_comments( array( 'callback' => 'dracobit_profile_template' ), $comments ); ?>
 				</div>
-				<div id="comment-form-hide" style="display: none;">
+				<div id="comment-form-hide">
 					<?php
 						$args = array(
 							'id_form'        => 'commentform-test',

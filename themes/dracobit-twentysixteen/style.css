@@ -227,22 +227,12 @@ input[name="dracobit_signup_input"] {
 #dracobit_user_login,
 #dracobit_user_pass {
 	height: 30px;
-	/*border-radius: 0 !important;*/
 }
 
 #login-password-icon,
 .signup-password-icon {
 	font-size: 1.2em;
 }
-
-/*#dracobit_login_submit,
-#dracobit_signup_submit {
-	padding: 10px;
-	color: #383838;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	border-radius: 0 !important;
-}*/
 
 #dracobit_login_submit:hover,
 #dracobit_signup_submit:hover {
@@ -305,114 +295,104 @@ input[name="dracobit_signup_input"] {
 }
 
 @media (max-width: 991px) and (min-width: 768px) {
-	/*#header-logo {
-		margin-top: 3px;
+
+}
+
+@media (max-width: 768px) {
+	#header-outer-container {
+		margin-right: 0;
+	}
+
+	.navbar-header {
+		float: none;
+		padding: 0!important;
+	}
+
+	#header-logo {
+		margin-top: 12px;
 		margin-left: 25px;
 		font-size: 35px;
 	}
 
+	.navbar-toggle {
+		display: block;
+		float: right;
+		color: white;
+		height: 64px;
+		font-size: 30px;
+		width: 60px;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-right: 0;
+	}
+
+	.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+		background-color: #606060;
+	}
+
+	.navbar-collapse {
+		background-color: #606060;
+		border: #606060;
+	}
+
+	.navbar-collapse .nav > li > a:hover, .nav-collapse .nav > li > a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus {
+		background-color: #383838;
+		color: white;
+	}
+
+	.navbar-collapse.collapse {
+		display: none!important;
+	}
+
 	.navbar-nav {
-		font-size: 15px;
-    padding-top: 11px;
-	}*/
+		float: none!important;
+		margin: 0;
+		font-size: 18px;
+	}
+
+	.navbar-nav>li {
+		float: none;
+		padding: 5px 0;
+		margin-right: 0;
+	}
+
+	.navbar-nav>li>a {
+		padding: 15px 22px;
+	}
+
+	.navbar-text {
+		float: none;
+		margin: 15px 0;
+	}
+
+	.navbar-collapse.collapse.in {
+		display: block!important;
+	}
+
+	.collapsing {
+		overflow: hidden!important;
+	}
+
+	#dracobit_login_form {
+		float: left!important;
+		padding-top: 10px;
+		margin-left: 20px;
+	}
+
+	#dracobit_login_form input[id="dracobit_login_submit"] {
+		margin-left: 0;
+		padding: 5px;
+	}
+
+	.form-control {
+		width: 300px;
+		padding: 6px 6px;
+	}
 }
 
-@media (max-width: 768px) {
-		#header-outer-container {
-			margin-right: 0;
-		}
-
-		.navbar-header {
-				float: none;
-				padding: 0!important;
-		}
-
-		#header-logo {
-			margin-top: 12px;
-    	margin-left: 25px;
-			font-size: 35px;
-		}
-
-		.navbar-toggle {
-				display: block;
-				float: right;
-				color: white;
-				height: 64px;
-				font-size: 30px;
-				width: 60px;
-				border: none;
-				border-radius: 0;
-				box-shadow: none;
-				margin-top: 0;
-				margin-bottom: 0;
-				margin-right: 0;
-		}
-
-		.navbar-toggle > i {
-			/*font-size: 30px!important;*/
-		}
-
-		.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-    	background-color: #606060;
-		}
-
-		.navbar-collapse {
-			background-color: #606060;
-			border: #606060;
-			/*padding-left: 50px;*/
-		}
-
-		.navbar-collapse .nav>li>a:hover, .nav-collapse .nav>li>a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus {
-				background-color: #383838;
-				color: white;
-		}
-		.navbar-collapse.collapse {
-				display: none!important;
-		}
-		.navbar-nav {
-				float: none!important;
-				margin: 0;
-				font-size: 18px;
-		}
-		.navbar-nav>li {
-				float: none;
-				padding: 5px 0;
-				margin-right: 0;
-		}
-		.navbar-nav>li>a {
-			padding: 15px 22px;
-		}
-		.navbar-text {
-				float: none;
-				margin: 15px 0;
-		}
-		/* since 3.1.0 */
-		.navbar-collapse.collapse.in {
-				display: block!important;
-		}
-		.collapsing {
-				overflow: hidden!important;
-		}
-
-		#dracobit_login_form {
-			float: left!important;
-			padding-top: 10px;
-			margin-left: 20px;
-		}
-
-		#dracobit_login_form input[id="dracobit_login_submit"] {
-			margin-left: 0;
-			padding: 5px;
-		}
-
-		.form-control {
-			width: 300px;
-			padding: 6px 6px;
-		}
-
-
-
-	}
 /***************************************************/
 
 #page-container {
@@ -454,9 +434,9 @@ margin-bottom: 0;
 }
 
 .charizard-background img {
-margin-top: 50px;
-width: 100%;
-height: 565px;
+	margin-top: 50px;
+	width: 100%;
+	height: 565px;
 }
 
 /**************************************************/
@@ -505,10 +485,15 @@ height: 565px;
 
 .dracobit-container {
 	margin-top: 70px;
+	margin-bottom: 25px;
 }
 
 .dracobit-container legend {
 	font-size: 28px;
+}
+
+.dracobit-section {
+	margin-bottom: 25px;
 }
 
 #tutorial-nav-menu {
@@ -563,10 +548,6 @@ height: 565px;
 	font-weight: 500;
 }
 
-/*.tutorial-container > div {
-	margin-top: 20px;
-}*/
-
 .tutorial-container code {
 	color: #00aeff;
 }
@@ -581,9 +562,7 @@ height: 565px;
 }
 
 #tutorial-overview-container {
-	/*border: 1px solid #ccc;*/
 	border-radius: 4px;
-	padding: 10px;
 }
 
 #tutorial-overview-container a {
@@ -607,7 +586,8 @@ height: 565px;
 #tutorial-welcome-to-shell i,
 #tutorial-command-line-interface i,
 #tutorial-listing-files-and-understanding-ls-output i,
-#tutorial-file-and-directory-permissions-explained i {
+#tutorial-file-and-directory-permissions-explained i,
+#tutorial-finding-files-and-directories i {
 	margin-left: 10px;
 }
 
@@ -741,6 +721,10 @@ height: 565px;
 	float: right;
 }
 
+.comments-container legend {
+	color: #bf3939;
+}
+
 .comments-container li {
 	list-style: none;
 }
@@ -759,6 +743,10 @@ height: 565px;
 	margin-top: 10px;
 }
 
+.comment .children li {
+	margin-bottom: 10px;
+}
+
 #respond {
 	border: 1px solid #ccc;
 	padding: 0 10px;
@@ -772,4 +760,9 @@ height: 565px;
 	resize: none;
 	width: 100%;
 	height: 50px;
+	outline: none;
+}
+
+#comment-form-hide {
+	display: none;
 }
