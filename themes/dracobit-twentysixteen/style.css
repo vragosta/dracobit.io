@@ -741,10 +741,6 @@ height: 565px;
 	float: right;
 }
 
-/*.comments-container {
-	margin-top: 50px;
-}*/
-
 .comments-container li {
 	list-style: none;
 }
@@ -761,4 +757,19 @@ height: 565px;
 
 .comment .children {
 	margin-top: 10px;
+}
+
+#respond {
+	border: 1px solid #ccc;
+	padding: 0 10px;
+}
+
+#reply-title {
+	margin-top: 0;
+}
+
+#comment {
+	resize: none;
+	width: 100%;
+	height: 50px;
 }
