@@ -41,7 +41,7 @@ a:hover {
 #header-logo {
 	margin: 0;
 	color: #fff;
-	font-size: 35px;
+	font-size: 40px;
 }
 
 #header-logo a {
@@ -62,13 +62,17 @@ a:hover {
 	padding-top: 23px;
 }
 
+.navbar-nav>li {
+	margin-right: 10px;
+}
+
 .navbar-default .navbar-nav > li > a {
 	color: #fff;
 }
 
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:hover {
-	color: #00aeff;
+	color: white;
 }
 
 /*********************** Updated Login and Signup forms ***********************/
@@ -209,7 +213,7 @@ input[name="dracobit_signup_input"] {
 }
 
 #dracobit_login_form {
-	padding-top: 15px;
+	padding-top: 19px;
 }
 
 #dracobit_login_form input[name="login-autocomplete-fix"] {
@@ -223,7 +227,7 @@ input[name="dracobit_signup_input"] {
 #dracobit_user_login,
 #dracobit_user_pass {
 	height: 30px;
-	border-radius: 0 !important;
+	/*border-radius: 0 !important;*/
 }
 
 #login-password-icon,
@@ -231,14 +235,14 @@ input[name="dracobit_signup_input"] {
 	font-size: 1.2em;
 }
 
-#dracobit_login_submit,
+/*#dracobit_login_submit,
 #dracobit_signup_submit {
 	padding: 10px;
 	color: #383838;
 	background-color: #fff;
 	border: 1px solid #ccc;
 	border-radius: 0 !important;
-}
+}*/
 
 #dracobit_login_submit:hover,
 #dracobit_signup_submit:hover {
@@ -253,61 +257,6 @@ input[name="dracobit_signup_input"] {
 
 #signup-name-icon {
 	font-size: .75em;
-}
-
-@media ( max-width: 768px ) {
-	.nav > li {
-		display: inline-block;
-	}
-
-	.navbar-nav {
-		margin: 0;
-	}
-
-	.navbar-nav > li > a {
-		padding-top: 15px;
-		padding-bottom: 15px;
-	}
-}
-
-@media ( max-width: 684px ) and ( min-width: 610px ) {
-	#header-logo {
-		font-size: 28px;
-	}
-}
-
-@media ( max-width: 609px ) and ( min-width: 530px ) {
-	.navbar-fixed-top {
-		height: 40px;
-		min-height: 0;
-	}
-
-	.navbar-nav > li > a {
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
-
-	#header-logo {
-		font-size: 24px;
-	}
-
-	#header-controls-mask {
-		padding-top: 8px;
-	}
-
-	#header-login-button,
-	#header-signup-button {
-		font-size: 10px;
-	}
-
-}
-
-@media ( max-width: 529px ) and ( min-width: 450px ) {
-
-}
-
-@media ( max-width: 449px ) and ( min-width: 375px ) {
-
 }
 
 /**************************************************/
@@ -344,6 +293,126 @@ input[name="dracobit_signup_input"] {
 	margin-bottom: 0;
 }
 
+@media (min-width: 1200px) {
+	.navbar-nav {
+		font-size: 16px;
+		padding-top: 12px;
+	}
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+	/*#header-logo {
+		margin-top: 3px;
+		margin-left: 25px;
+		font-size: 35px;
+	}
+
+	.navbar-nav {
+		font-size: 15px;
+    padding-top: 11px;
+	}*/
+}
+
+@media (max-width: 768px) {
+		#header-outer-container {
+			margin-right: 0;
+		}
+
+		.navbar-header {
+				float: none;
+				padding: 0!important;
+		}
+
+		#header-logo {
+			margin-top: 12px;
+    	margin-left: 25px;
+			font-size: 35px;
+		}
+
+		.navbar-toggle {
+				display: block;
+				float: right;
+				color: white;
+				height: 64px;
+				font-size: 30px;
+				width: 60px;
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
+				margin-top: 0;
+				margin-bottom: 0;
+				margin-right: 0;
+		}
+
+		.navbar-toggle > i {
+			/*font-size: 30px!important;*/
+		}
+
+		.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    	background-color: #606060;
+		}
+
+		.navbar-collapse {
+			background-color: #606060;
+			border: #606060;
+			/*padding-left: 50px;*/
+		}
+
+		.navbar-collapse .nav>li>a:hover, .nav-collapse .nav>li>a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus {
+				background-color: #383838;
+				color: white;
+		}
+		.navbar-collapse.collapse {
+				display: none!important;
+		}
+		.navbar-nav {
+				float: none!important;
+				margin: 0;
+				font-size: 18px;
+		}
+		.navbar-nav>li {
+				float: none;
+				padding: 5px 0;
+				margin-right: 0;
+		}
+		.navbar-nav>li>a {
+			padding: 15px 22px;
+		}
+		.navbar-text {
+				float: none;
+				margin: 15px 0;
+		}
+		/* since 3.1.0 */
+		.navbar-collapse.collapse.in {
+				display: block!important;
+		}
+		.collapsing {
+				overflow: hidden!important;
+		}
+
+		#dracobit_login_form {
+			float: left!important;
+			padding-top: 10px;
+			margin-left: 20px;
+		}
+
+		#dracobit_login_form input[id="dracobit_login_submit"] {
+			margin-left: 0;
+			padding: 5px;
+		}
+
+		.form-control {
+			width: 300px;
+			padding: 6px 6px;
+		}
+
+
+
+	}
 /***************************************************/
 
 #page-container {
@@ -628,11 +697,6 @@ height: 565px;
 	justify-content: center;
 	height: 100%;
 	cursor: pointer;
-	color: #333;
-}
-
-.post-menu-item:hover{
-	color: #333;
 }
 
 .post-menu-item i {
