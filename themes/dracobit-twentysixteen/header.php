@@ -6,6 +6,7 @@
 		<title><?php bloginfo(); wp_title( '|', true ); ?></title>
 
 		<?php
+			if ( is_singular() || is_page( 'profile' ) ) wp_enqueue_script( 'comment-reply' );
 			wp_head();
 			$current_user = wp_get_current_user();
 		?>
@@ -13,45 +14,42 @@
 
 	<body <?php body_class(); ?>>
 
-		<nav class="navbar navbar-default navbar-fixed-top">
-      <div id="header-outer-container" class="container">
+		<nav class="navbar navbar-default navbar-fixed-top" style="border-color: #383838;">
+			<div id="header-outer-container" class="container">
 				<div id="header-inner-container" class="row">
-					<div id="header-logo-container" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<div class="navbar-header" style="padding-top: 11px; padding-right: 15px;">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-navbar-collapse">
+						 	<i class="fa fa-bars"></i>
+						</button>
+
 						<h2 id="header-logo"><a href="<?php echo home_url(); ?>">dracobit.io</a></h2>
-					</div>
-					<div id="header-menu-container" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			      <ul class="nav navbar-nav">
-			        <li><a href="/blog">Home</a></li>
+		 		  </div>
+
+					<div class="collapse navbar-collapse" id="header-navbar-collapse">
+						<ul class="nav navbar-nav" style="">
+							<li><a href="/blog">Home</a></li>
 							<li><a href="/tutorial">Tutorials</a></li>
-							<li>
+
+						 	<li>
 								<?php if( current_user_can( 'edit_posts' ) ) : ?>
 									<a href="<?php echo admin_url(); ?>">WP-Admin</a>
 								<?php else : ?>
-									<li class="dropdown">
-					          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
-					          <ul class="dropdown-menu">
-					            <li><a href="#">Action</a></li>
-					            <li><a href="#">Another action</a></li>
-					            <li><a href="#">Something else here</a></li>
-					            <li role="separator" class="divider"></li>
-					            <li><a href="#">Separated link</a></li>
-					            <li role="separator" class="divider"></li>
-					            <li><a href="#">One more separated link</a></li>
-					          </ul>
-					        </li>
+									<a href="">More</a>
 								<?php endif; ?>
 							</li>
 						</ul>
-					</div>
-					<div id="header-login-container" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<?php if ( ! is_user_logged_in() ) { ?>
-							<?php echo dracobit_login_form_fields(); ?>
-						<?php } ?>
+
+						<?php
+							if ( ! is_user_logged_in() ) {
+								echo dracobit_login_form_fields();
+							}
+						?>
+
 						<?php if ( is_user_logged_in() ) { ?>
 							<span class="pull-right" id="header-logout-container"><?php wp_loginout( home_url( '/' ) ); ?></span>
 							<a class="pull-right" id="header-display-name" href="/profile"><?php echo $current_user->display_name; ?></a>
 						<?php } ?>
 					</div>
 				</div>
-      </div>
+			</div>
 		</nav>

@@ -2,9 +2,9 @@
 
 get_header(); ?>
 
-<div id="fp-outer-container" class="container" style="height: 750px; width: 100%; background-color:#e3e3e3; color: black">
+<div id="fp-outer-container" class="container" style="height: 750px; width: 100%; color: black">
   <div id="fp-inner-container" class="row" style="margin-top: 65px; margin-left: auto; margin-right: auto;">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center" style="margin-left: 100px">
+    <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center" style="margin-left: 100px">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carousel-example-generic" data-slide-to="0" data-pause="hover" class="active"></li>
@@ -36,7 +36,7 @@ get_header(); ?>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-top: 150px;">
       <?php //echo dracobit_signup_form_fields(); ?>
     </div>  -->
