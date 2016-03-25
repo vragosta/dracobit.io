@@ -11,5 +11,6 @@
   	include_once get_template_directory() . '/content/tutorials/linux-for-beginners/inc/listing-files-and-understanding-ls-output.php';
     include_once get_template_directory() . '/content/tutorials/linux-for-beginners/inc/file-and-directory-permissions-explained.php';
     include_once get_template_directory() . '/content/tutorials/linux-for-beginners/inc/finding-files-and-directories.php';
+    include_once get_template_directory() . '/content/tutorials/linux-for-beginners/inc/deleting-copying-moving-and-renaming-files.php';
   ?>
 </section>
