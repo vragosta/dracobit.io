@@ -58,8 +58,9 @@ a:hover {
 	font-size: 17px;
 }
 
-#header-logout-container {
-	padding-top: 23px;
+#header-logout {
+	margin-top: 25px;
+	font-size: 16px;
 }
 
 .navbar-nav>li {
@@ -133,7 +134,7 @@ input[name="dracobit_signup_input"] {
 
 #header-login-button,
 #header-signup-button,
-#header-logout-container a {
+#header-logout a {
 	text-decoration: none;
 	padding: 10px;
 	background-color: #fff;
@@ -144,7 +145,7 @@ input[name="dracobit_signup_input"] {
 
 #header-login-button:hover,
 #header-signup-button:hover,
-#header-logout-container:hover a {
+#header-logout:hover a {
 	background-color: #383838;
 	color: #fff;
 	border: 1px dashed #fff;
@@ -155,6 +156,7 @@ input[name="dracobit_signup_input"] {
 	color: #fff;
 	margin-right: 10px;
 	padding-top: 25px;
+	font-size: 16px;
 }
 
 #login-container,
@@ -213,7 +215,7 @@ input[name="dracobit_signup_input"] {
 }
 
 #dracobit_login_form {
-	padding-top: 19px;
+	padding-top: 20px;
 }
 
 #dracobit_login_form input[name="login-autocomplete-fix"] {
@@ -303,9 +305,9 @@ input[name="dracobit_signup_input"] {
 		font-size: 30px;
 	}
 
-	#header-logo {
-		margin-top: 8px;
-		font-size: 30px;
+	#header-display-name {
+		font-size: 14px;
+		padding-top: 27px;
 	}
 
 	.navbar-nav {
@@ -329,6 +331,10 @@ input[name="dracobit_signup_input"] {
 
 	#dracobit_login_form input[id="dracobit_login_submit"] {
 		padding: 3px 6px;
+	}
+
+	#header-logout a {
+		padding: 5px;
 	}
 }
 
@@ -423,24 +429,28 @@ input[name="dracobit_signup_input"] {
 	}
 
 	.form-control {
-		width: 300px;
+		width: 100%;
 		padding: 6px 6px;
 	}
 
-	#header-display-name,
-	#header-logout-container {
-		float: left!important;
+	.header-logout-container {
+		float: left;
 	}
 
 	#header-display-name {
 		font-size: 18px;
-		margin-left: 15px;
+		margin-left: 20px;
 	  padding-top: 20px;
 	  padding-bottom: 15px;
 	}
 
-	#header-logout-container {
-		margin-left: 20px;
+  #header-logout {
+		margin-left: 5px;
+		margin-top: 20px;
+	}
+
+	#header-logout a {
+		padding: 5px;
 	}
 }
 
@@ -468,7 +478,7 @@ input[name="dracobit_signup_input"] {
 a.anchor {
   display: block;
   position: relative;
-  top: -65px;
+  top: -55px;
   visibility: hidden;
 }
 

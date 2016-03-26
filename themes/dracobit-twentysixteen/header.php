@@ -46,8 +46,10 @@
 						?>
 
 						<?php if ( is_user_logged_in() ) { ?>
-							<span class="pull-right" id="header-logout-container"><?php wp_loginout( home_url( '/' ) ); ?></span>
-							<a class="pull-right" id="header-display-name" href="/profile"><?php echo $current_user->display_name; ?></a>
+							<div class="header-logout-container">
+								<span class="pull-right" id="header-logout"><?php wp_loginout( home_url( '/' ) ); ?></span>
+								<a class="pull-right" id="header-display-name" href="/profile"><?php echo $current_user->display_name; ?></a>
+							</div>
 						<?php } ?>
 					</div>
 				</div>
