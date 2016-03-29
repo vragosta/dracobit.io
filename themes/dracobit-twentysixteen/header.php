@@ -27,10 +27,25 @@
 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-		        <li><a href="#">Link</a></li>
-		        <li><a href="#">Link</a></li>
+						<li class="active"><a href="/blog">Home</a></li>
+						<li><a href="/tutorial">Tutorials</a></li>
+						<?php if ( current_user_can( 'edit_posts' ) ) { ?>
+							<li><a href="<?php echo admin_url(); ?>">WP-Admin</a></li>
+						<?php } ?>
 		      </ul>
 		    </div>
+
+				<?php
+					if ( ! is_user_logged_in() ) {
+						echo dracobit_login_form_fields();
+					}
+				?>
+
+				<?php if ( is_user_logged_in() ) { ?>
+					<div class="header-logout-container">
+						<span class="pull-right" id="header-logout"><?php wp_loginout( home_url( '/' ) ); ?></span>
+						<a class="pull-right" id="header-display-name" href="/profile"><?php echo $current_user->display_name; ?></a>
+					</div>
+				<?php } ?>
 		  </div>
 		</nav>
