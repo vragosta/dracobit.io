@@ -198,30 +198,30 @@ add_shortcode( 'login_form', 'dracobit_login_form' );
  		<fieldset>
  			<div class="signup-form-container">
  				<div class="form-group">
- 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input type="text" class="autocomplete-fix" />
  					<input name="dracobit_signup_input" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
  				</div>
  				<div class="form-group">
- 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input type="text" class="autocomplete-fix" />
  					<input name="dracobit_signup_input" id="dracobit_user_email" class="form-control" placeholder="Email" type="email" aria-describedby="signup-email-icon" required />
  				</div>
  				<div class="input-group" id="signup-name-container">
- 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input type="text" class="autocomplete-fix" />
  					<input name="dracobit_signup_first" id="dracobit_user_first" class="form-control" placeholder="First name" type="text" aria-describedby="signup-name-icon" required />
 
- 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input type="text" class="autocomplete-fix" />
  					<input name="dracobit_signup_last" id="dracobit_user_last" class="form-control" placeholder="Last name" type="text" aria-describedby="signup-name-icon" required />
  				</div>
  				<div class="form-group">
- 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input type="text" class="autocomplete-fix" />
  					<input name="dracobit_signup_input" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="signup-password-icon" required />
  				</div>
  				<div class="form-group">
- 					<input type="text" name="signup-autocomplete-fix" />
+ 					<input type="text" class="autocomplete-fix" />
  					<input name="dracobit_signup_input" id="password_again" class="form-control" placeholder="Confirm password" type="password" aria-describedby="signup-password-icon" required />
  			</div>
  			<p>
- 				<input type="hidden" name="dracobit_register_nonce" value="<?php echo wp_create_nonce('dracobit-register-nonce'); ?>"/>
+ 				<input type="hidden" class="dracobit_register_nonce" value="<?php echo wp_create_nonce('dracobit-register-nonce'); ?>"/>
  				<input id="dracobit_signup_submit" type="submit" value="<?php _e('Register Your Account'); ?>"/>
  			</p>
  		</fieldset>
@@ -239,22 +239,20 @@ add_shortcode( 'login_form', 'dracobit_login_form' );
 
  	ob_start(); ?>
 
- 	<form id="dracobit_login_form" class="form-inline pull-right" action="" method="post">
- 		<fieldset>
- 			<div class="form-group">
- 				<input type="text" name="login-autocomplete-fix" />
- 				<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
- 			</div>
- 			<div class="form-group">
- 				<input type="text" name="login-autocomplete-fix" />
- 				<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
- 			</div>
- 			<div class="form-group">
- 				<input type="hidden" name="dracobit_login_nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
- 				<input id="dracobit_login_submit" class="btn btn-secondary" type="submit" value="Login"/>
- 			</div>
- 		</fieldset>
- 	</form>
+	<form id="dracobit_login_form" class="form-inline" action="" method="post">
+		<fieldset>
+			<div class="form-group">
+				<input type="text" class="autocomplete-fix" />
+				<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
+			</div>
+			<div class="form-group">
+				<input type="text" class="autocomplete-fix" />
+				<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
+			</div>
+				<input type="hidden" name="dracobit_login_nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
+				<input id="dracobit_login_submit" class="btn btn-secondary" type="submit" value="Login"/>
+		</fieldset>
+	</form>
 
  	<?php
  	return ob_get_clean();

@@ -19,6 +19,31 @@ a:hover {
 	text-decoration: none;
 }
 
+input.autocomplete-fix {
+	display: none;
+}
+
+@media ( min-width: 768px ) {
+	.dracobit-login {
+		min-height: 50px;
+	  display: flex !important;
+	  align-items: center;
+	  justify-content: center;
+	}
+}
+
+@media ( max-width: 767px ) {
+	.dracobit-login {
+		display: flex !important;
+	  justify-content: center;
+	}
+
+	#dracobit_login_form {
+		width: 100%;
+		padding: 0 10px;
+	}
+}
+
 /***************************************************/
 
 #page-container {
