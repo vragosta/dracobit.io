@@ -451,6 +451,7 @@ function dracobit_register_tutorial_content() {
 		while ( $tutorials->have_posts() ) : $tutorials->the_post();
 			$post_tagline  = get_post_meta( $post->ID, 'tagline', true );
 			$post_version  = get_post_meta( $post->ID, 'version', true );
+			$post_short_description  = get_post_meta( $post->ID, 'short_description', true );
 
 			ob_start();
 			include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/main.php';
@@ -467,6 +468,7 @@ function dracobit_register_tutorial_content() {
 
 			update_post_meta( $post->ID, 'tagline', $post_tagline );
 			update_post_meta( $post->ID, 'version', $post_version );
+			update_post_meta( $post->ID, 'short_description', $post_short_description );
 
 			if ( $post_overview ) {
 				update_post_meta( $post->ID, 'overview', $post_overview );
