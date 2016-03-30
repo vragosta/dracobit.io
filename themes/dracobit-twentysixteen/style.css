@@ -365,3 +365,9 @@ a.anchor {
 #comment-form-hide {
 	display: none;
 }
+
+/**************************************************/
+
+.tutorial-short-description {
+	margin-bottom: 10px;
+}
