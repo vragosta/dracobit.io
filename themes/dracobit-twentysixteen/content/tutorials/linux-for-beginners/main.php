@@ -1,4 +1,4 @@
-<section id="tutorial-header-container">
+<div class="tutorial-main-container">
   <?php
     include_once get_template_directory() . '/content/tutorials/linux-for-beginners/overview.php';
   	include_once get_template_directory() . '/content/tutorials/linux-for-beginners/inc/preparing-and-installing-ubuntu.php';
@@ -14,4 +14,4 @@
     include_once get_template_directory() . '/content/tutorials/linux-for-beginners/inc/deleting-copying-moving-and-renaming-files.php';
     include_once get_template_directory() . '/content/tutorials/linux-for-beginners/inc/wildcards.php';
   ?>
-</section>
+</div>

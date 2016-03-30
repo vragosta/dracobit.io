@@ -160,8 +160,13 @@ a.anchor {
 	padding-top: 20px;
 }
 
+.tutorial-main-container section {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+
 #tutorial-overview-container {
-	border-radius: 4px;
+	margin-bottom: 20px;
 }
 
 #tutorial-overview-container a {
