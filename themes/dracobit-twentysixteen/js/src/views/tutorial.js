@@ -2,6 +2,10 @@ var $          = require( 'jquery' );
 var Tutorial   = require( '../models/tutorial' );
 
 module.exports = Backbone.View.extend({
+	events: {
+		'click a' : 'getSection'
+	},
+
 	initialize: function() {
 		this.model = new Tutorial({ 'ID': Dracobit.currentPost });
 		this.template = _.template( $( 'script.tutorial' ).html() );
@@ -14,5 +18,9 @@ module.exports = Backbone.View.extend({
 			var content = self.template({ 'tutorial': self.model.toJSON() });
 			self.$el.html( content );
 		});
+	},
+
+	getSection: function() {
+		console.log( 'clicked' );
 	}
 });
