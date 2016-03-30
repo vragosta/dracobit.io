@@ -1,4 +1,4 @@
-<a id="tutorial-linux-directory-structure-anchor" class="anchor"></a>
+<!-- <a id="tutorial-linux-directory-structure-anchor" class="anchor"></a> -->
 <section id="tutorial-linux-directory-structure">
   <legend>The Linux Directory Structure</legend>
 

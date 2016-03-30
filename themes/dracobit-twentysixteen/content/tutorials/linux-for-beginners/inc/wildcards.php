@@ -1,4 +1,4 @@
-<a id="tutorial-wildcards-anchor" class="anchor"></a>
+<!-- <a id="tutorial-wildcards-anchor" class="anchor"></a> -->
 <section id="tutorial-wildcards">
 	<legend>Wildcards</legend>
 

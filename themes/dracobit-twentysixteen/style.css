@@ -163,14 +163,17 @@ a.anchor {
 .tutorial-main-container section {
 	border: 1px solid #ddd;
 	padding: 10px;
+	display: none;
 }
 
 #tutorial-overview-container {
+	display: block;
 	margin-bottom: 20px;
 }
 
 #tutorial-overview-container a {
 	color: #333;
+	cursor: pointer;
 }
 
 #tutorial-overview-container ul {

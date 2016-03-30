@@ -48,5 +48,15 @@ Backbone.history.start({
 });
 
 $(function() {
-	console.log( 'beginning the entire process again' );
+
+	console.log( 'testing' );
+
+	// $( '.tutorial-main-content' ).on( 'click', '#tutorial-overview-container', function() {
+	$( '.tutorial-anchor-container' ).click(function() {
+		console.log( 'clicked' );
+		// $name = $( this ).attr( 'name' );
+		// console.log( $name );
+		// $( '.tutorial-main-container section[id=' + $name + ']' ).show();
+	});
+
 });

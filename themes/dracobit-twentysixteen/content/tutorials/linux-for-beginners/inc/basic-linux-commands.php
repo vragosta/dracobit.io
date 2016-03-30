@@ -1,4 +1,4 @@
-<a id="tutorial-basic-linux-commands-anchor" class="anchor"></a>
+<!-- <a id="tutorial-basic-linux-commands-anchor" class="anchor"></a> -->
 <section id="tutorial-basic-linux-commands">
   <legend>Basic Linux Commands</legend>
 

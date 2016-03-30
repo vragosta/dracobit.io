@@ -1,4 +1,4 @@
-<a id="tutorial-preparing-and-installing-ubuntu-anchor" class="anchor"></a>
+<!-- <a id="tutorial-preparing-and-installing-ubuntu-anchor" class="anchor"></a> -->
 <section id="tutorial-preparing-and-installing-ubuntu">
   <legend>Preparing and Installing Ubuntu on Virtualbox</legend>
 

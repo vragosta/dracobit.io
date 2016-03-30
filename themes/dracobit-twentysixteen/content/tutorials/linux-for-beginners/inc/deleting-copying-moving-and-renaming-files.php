@@ -1,4 +1,4 @@
-<a id="tutorial-deleting-copying-moving-and-renaming-files-anchor" class="anchor"></a>
+<!-- <a id="tutorial-deleting-copying-moving-and-renaming-files-anchor" class="anchor"></a> -->
 <section id="tutorial-deleting-copying-moving-and-renaming-files">
 	<legend>Deleting, Copying, Moving and Renaming Files</legend>
 

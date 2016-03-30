@@ -1,4 +1,4 @@
-<a id="tutorial-file-and-directory-permissions-explained-anchor" class="anchor"></a>
+<!-- <a id="tutorial-file-and-directory-permissions-explained-anchor" class="anchor"></a> -->
 <section id="tutorial-file-and-directory-permissions-explained">
   <legend>File and Directory Permissions Explained</legend>
 
