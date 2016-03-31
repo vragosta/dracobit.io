@@ -10,7 +10,7 @@
 // Blocking direct access to this file.
 defined( 'ABSPATH' ) || exit;
 
-class WP_JSON_Tutorial {
+class WP_JSON_Tutorial_Blob {
 	/**
 	 * Register custom endpoints.
 	 *
@@ -18,12 +18,12 @@ class WP_JSON_Tutorial {
 	 * @return array
 	 */
 	public function register_routes( $routes ) {
-		$routes['/tutorial'] = array(
-			array( array( $this, 'get_tutorials' ), WP_JSON_Server::READABLE ),
+		$routes['/tutorial-blob'] = array(
+			array( array( $this, 'get_tutorial_blobs' ), WP_JSON_Server::READABLE ),
 		);
 
-		$routes['/tutorial/(?P<id>\d+)'] = array(
-			array( array( $this, 'get_tutorial' ), WP_JSON_Server::READABLE ),
+		$routes['/tutorial-blob/(?P<id>\d+)'] = array(
+			array( array( $this, 'get_tutorial_blob' ), WP_JSON_Server::READABLE ),
 		);
 
 		return $routes;
@@ -37,7 +37,7 @@ class WP_JSON_Tutorial {
 	 * @return array
 	 */
 	function data( $data, $post, $context ) {
-		if ( 'tutorial' === $post['post_type'] ) {
+		if ( 'tutorial-blob' === $post['post_type'] ) {
 			$output = array(
 				'ID'                    => $data['ID'],
 				'classes'               => implode( ' ', get_post_class( '', $post['ID'] ) ),
@@ -48,15 +48,10 @@ class WP_JSON_Tutorial {
 				'featured_image'        => $data['featured_image'],
 				'link'                  => $data['link'],
 				'meta'                  => $data['meta'],
-				'overview'              => get_post_meta( $post['ID'], 'overview', true ),
-				'short_description'     => strip_tags( get_post_meta( $post['ID'], 'short_description', true ) ),
-				// 'section'              => get_post_meta( $post['ID'], 'section', true ),
 				'slug'                  => $data['slug'],
 				'terms'                 => $data['terms'],
 				'title'                 => $data['title'],
 				'type'                  => $data['type'],
-				'tagline'               => get_post_meta( $post['ID'], 'tagline', true ),
-				'version'               => get_post_meta( $post['ID'], 'version', true ),
 				'credits'               => array(
 					'author'       => get_post_meta( $post['ID'], 'credit_author', true ),
 					'team'         => get_post_meta( $post['ID'], 'credit_team', true ),
@@ -76,9 +71,9 @@ class WP_JSON_Tutorial {
 	 * @param  int   $page
 	 * @return WP_JSON_Response
 	 */
-	public function get_tutorials( $filter = array(), $page = 1 ) {
+	public function get_tutorial_blobs( $filter = array(), $page = 1 ) {
 		global $wp_json_posts;
-			$output = $wp_json_posts->get_posts( $filter, 'view', 'tutorial', $page );
+			$output = $wp_json_posts->get_posts( $filter, 'view', 'tutorial-blob', $page );
 		return $output;
 	}
 
@@ -87,7 +82,7 @@ class WP_JSON_Tutorial {
 	 * @param  int $id
 	 * @return WP_JSON_Response
 	 */
-	public function get_tutorial( $id ) {
+	public function get_tutorial_blob( $id ) {
 		global $wp_json_posts;
 			$output = $wp_json_posts->get_post( $id, 'view' );
 		return $output;

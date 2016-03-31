@@ -400,7 +400,7 @@ function dracobit_show_error_messages() {
 /**
  * Registers custom tutorial post type
  */
-function dracobit_register_posttype_tutorial() {
+function dracobit_register_posttypes() {
 	register_post_type( 'tutorial', array(
 			'label' => 'Tutorials',
 			'description' => '',
@@ -410,13 +410,13 @@ function dracobit_register_posttype_tutorial() {
 			'capability_type' => 'post',
 			'map_meta_cap' => true,
 			'hierarchical' => false,
-			'rewrite' => array('slug' => 'tutorial', 'with_front' => false),
+			'rewrite' => array( 'slug' => 'tutorial', 'with_front' => false ),
 			'query_var' => true,
 			'has_archive' => true,
 			'menu_position' => 41,
 			'menu_icon' => 'dashicons-edit',
-			'supports' => array('title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author'),
-			'labels' => array (
+			'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
+			'labels' => array(
 					'name' => 'Tutorials',
 					'singular_name' => 'Tutorial',
 					'menu_name' => 'Tutorials',
@@ -434,8 +434,42 @@ function dracobit_register_posttype_tutorial() {
 			)
 		)
 	);
+
+	register_post_type( 'tutorial-blob', array(
+			'label' => 'Tutorial Blobs',
+			'description' => '',
+			'public' => true,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'capability_type' => 'post',
+			'map_meta_cap' => true,
+			'hierarchical' => false,
+			'rewrite' => array( 'slug' => 'tutorial-blob', 'with_front' => false ),
+			'query_var' => true,
+			'has_archive' => true,
+			'menu_position' => 41,
+			'menu_icon' => 'dashicons-edit',
+			'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
+			'labels' => array(
+					'name' => 'Tutorial Blobs',
+					'singular_name' => 'Tutorial Blob',
+					'menu_name' => 'Tutorial Blobs',
+					'add_new' => 'Add Tutorial Blob',
+					'add_new_item' => 'Add New Tutorial Blob',
+					'edit' => 'Edit',
+					'edit_item' => 'Edit Tutorial Blob',
+					'new_item' => 'New Tutorial Blob',
+					'view' => 'View Tutorial Blob',
+					'view_item' => 'View Tutorial Blob',
+					'search_items' => 'Search Tutorial Blobs',
+					'not_found' => 'No Tutorial Blobs Found',
+					'not_found_in_trash' => 'No Tutorial Blobs Found in Trash',
+					'parent' => 'Parent Tutorial Blob',
+			)
+		)
+	);
 }
-add_action( 'init', 'dracobit_register_posttype_tutorial' );
+add_action( 'init', 'dracobit_register_posttypes' );
 
 /*
  * Writes the tutorial content to wp-admin backend of tutorials
@@ -451,18 +485,18 @@ function dracobit_register_tutorial_content() {
 			$post_version  = get_post_meta( $post->ID, 'version', true );
 			$post_short_description  = get_post_meta( $post->ID, 'short_description', true );
 
-			ob_start();
-			include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/main.php';
-			$post_content = ob_get_clean();
+			// ob_start();
+			// include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/main.php';
+			// $post_content = ob_get_clean();
 
 			ob_start();
 			include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/overview.php';
 			$post_overview = ob_get_clean();
 
-			wp_update_post( array(
-				'ID'           => $post->ID,
-				'post_content' => $post_content,
-			) );
+			// wp_update_post( array(
+			// 	'ID'           => $post->ID,
+			// 	'post_content' => $post_content,
+			// ) );
 
 			update_post_meta( $post->ID, 'tagline', $post_tagline );
 			update_post_meta( $post->ID, 'version', $post_version );
