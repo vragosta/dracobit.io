@@ -27,6 +27,7 @@ if ( function_exists( 'json_url' ) ) {
 include_once get_template_directory() . '/inc/tutorial-metabox.php';
 include_once get_template_directory() . '/inc/class-dracobit-overview-widget.php';
 include_once get_template_directory() . '/inc/class-wp-json-tutorial.php';
+include_once get_template_directory() . '/inc/class-wp-json-tutorial-blob.php';
 
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar( false );
@@ -119,8 +120,13 @@ add_action( 'wp_enqueue_scripts', 'dracobit_styles' );
  */
 function dracobit_endpoints_init() {
 	$tutorial_endpoint = new WP_JSON_Tutorial();
+	$tutorial_blob_endpoint = new WP_JSON_Tutorial_Blob();
+
 	add_filter( 'json_endpoints', array( $tutorial_endpoint, 'register_routes' ) );
 	add_filter( 'json_prepare_post', array( $tutorial_endpoint, 'data' ), 10, 3 );
+
+	add_filter( 'json_endpoints', array( $tutorial_blob_endpoint, 'register_routes' ) );
+	add_filter( 'json_prepare_post', array( $tutorial_blob_endpoint, 'data' ), 10, 3 );
 }
 add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
 
