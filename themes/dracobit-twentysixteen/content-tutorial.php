@@ -27,6 +27,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="tutorial-content">
+					<%= ( tutorial.overview ) ? tutorial.overview : '' %>
 					<%= ( tutorial.content ) ? tutorial.content : '' %>
 				</div>
 			</div>

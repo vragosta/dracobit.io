@@ -48,6 +48,7 @@ class WP_JSON_Tutorial {
 				'featured_image'        => $data['featured_image'],
 				'link'                  => $data['link'],
 				'meta'                  => $data['meta'],
+				'overview'              => get_post_meta( $post['ID'], 'overview', true ),
 				'short_description'     => strip_tags( get_post_meta( $post['ID'], 'short_description', true ) ),
 				'slug'                  => $data['slug'],
 				'terms'                 => $data['terms'],
