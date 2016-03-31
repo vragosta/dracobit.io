@@ -76,10 +76,10 @@ function dracobit_tutorials_meta_box_callback( $post ) {
 			<td>
 				<?php
 					//wp_editor( $section, 'section', array(
-						'media_buttons' => false,
-						'editor_height' => 200,
-						'textarea_name' => 'section',
-					) );
+						// 'media_buttons' => false,
+						// 'editor_height' => 200,
+						// 'textarea_name' => 'section',
+					//) );
 				?>
 			</td>
 		</tr> -->

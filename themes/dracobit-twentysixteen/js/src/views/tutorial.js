@@ -3,7 +3,7 @@ var Tutorial   = require( '../models/tutorial' );
 
 module.exports = Backbone.View.extend({
 	events: {
-		'click a' : 'getBlob'
+		'click a' : 'getTutorialBlob'
 	},
 
 	initialize: function() {
@@ -20,7 +20,7 @@ module.exports = Backbone.View.extend({
 		});
 	},
 
-	getBlob: function() {
+	getTutorialBlob: function() {
 		console.log( 'clicked' );
 	}
 });
