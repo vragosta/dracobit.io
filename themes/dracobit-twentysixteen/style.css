@@ -376,3 +376,133 @@ a.anchor {
 .tutorial-short-description {
 	margin-bottom: 10px;
 }
+
+/**************************************************/
+
+#fp-container {
+	margin-top: 55px;
+	padding: 0 20px;
+}
+
+.fp-left-image {
+	height: 400px;
+	width: 400px;
+	position: absolute;
+  margin: auto;
+  top: 450px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.dracobit_signup_header {
+	font-size: 40px;
+}
+
+.dracobit_signup_subheader {
+	margin-bottom: 20px;
+}
+
+input[name="dracobit_signup_input"] {
+	border-radius: 0;
+	width: 410px;
+	height: 35px;
+	font-size: 18px;
+}
+
+#signup-name-container {
+	margin-bottom: 15px;
+}
+
+input[name="dracobit_signup_first"],
+input[name="dracobit_signup_last"] {
+	border-radius: 0;
+	width: 200px !important;
+	height: 35px;
+	font-size: 18px;
+}
+
+input[name="dracobit_signup_first"] {
+	margin-right: 10px;
+}
+
+input[id="dracobit_signup_submit"] {
+	margin-top: 10px;
+  font-size: 17px;
+	padding: 5px;
+}
+
+@media ( max-width: 1199px ) and ( min-width: 992px ) {
+
+}
+
+@media ( max-width: 991px ) and ( min-width: 768px ) {
+	.fp-left-image {
+		height: 300px;
+		width: 300px;
+		position: absolute;
+	  margin: auto;
+	  top: 350px;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	}
+
+	input[name="dracobit_signup_input"] {
+		width: 370px;
+		height: 30px;
+		font-size: 15px;
+	}
+
+	input[name="dracobit_signup_first"],
+	input[name="dracobit_signup_last"] {
+		width: 180px !important;
+		font-size: 15px;
+	}
+
+	input[id="dracobit_signup_submit"] {
+		margin-top: 10px;
+	  font-size: 14px;
+		padding: 5px;
+	}
+
+}
+
+@media ( max-width: 768px ) {
+	.fp-left-image {
+		height: 200px;
+		width: 200px;
+		position: absolute;
+	  margin: auto;
+	  top: 250px;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	}
+
+	.dracobit_signup_header {
+		font-size: 30px;
+	}
+
+	input[name="dracobit_signup_input"] {
+		width: 270px;
+		height: 25px;
+		font-size: 14px;
+	}
+
+	input[name="dracobit_signup_first"],
+	input[name="dracobit_signup_last"] {
+		width: 130px !important;
+		height: 25px;
+		font-size: 14px;
+		margin-right: 10px;
+	}
+
+	input[id="dracobit_signup_submit"] {
+		margin-top: 10px;
+	  font-size: 13px;
+		padding: 5px;
+	}
+}
+
+/**************************************************/
