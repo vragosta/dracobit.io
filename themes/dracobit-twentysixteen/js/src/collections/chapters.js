@@ -1,7 +1,7 @@
-var Tutorial_Blob = require( '../models/tutorial-blob' );
+var Chapter = require( '../models/chapter' );
 
 module.exports = Backbone.Collection.extend({
-	model: Tutorial_Blob,
+	model: Chapter,
 	page: 1,
 	order: 'asc',
 
@@ -14,6 +14,6 @@ module.exports = Backbone.Collection.extend({
 
 		query.push( 'filter[order]=' + this.order );
 
-		return Dracobit.options.apiUrl + '/tutorial-blob?' + query.join( '&' );
+		return Dracobit.options.apiUrl + '/chapter?' + query.join( '&' );
 	}
 });

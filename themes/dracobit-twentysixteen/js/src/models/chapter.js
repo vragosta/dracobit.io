@@ -8,6 +8,6 @@ module.exports = Backbone.Model.extend({
 	},
 
 	url: function() {
-		return Dracobit.options.apiUrl + '/tutorial-blob/' + this.get( 'ID' );
+		return Dracobit.options.apiUrl + '/chapter/' + this.get( 'ID' );
 	}
 });

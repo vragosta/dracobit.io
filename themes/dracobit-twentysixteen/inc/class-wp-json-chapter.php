@@ -10,7 +10,7 @@
 // Blocking direct access to this file.
 defined( 'ABSPATH' ) || exit;
 
-class WP_JSON_Tutorial_Blob {
+class WP_JSON_Chapter {
 	/**
 	 * Register custom endpoints.
 	 *
@@ -18,12 +18,12 @@ class WP_JSON_Tutorial_Blob {
 	 * @return array
 	 */
 	public function register_routes( $routes ) {
-		$routes['/tutorial-blob'] = array(
-			array( array( $this, 'get_tutorial_blobs' ), WP_JSON_Server::READABLE ),
+		$routes['/chapter'] = array(
+			array( array( $this, 'get_chapters' ), WP_JSON_Server::READABLE ),
 		);
 
-		$routes['/tutorial-blob/(?P<id>\d+)'] = array(
-			array( array( $this, 'get_tutorial_blob' ), WP_JSON_Server::READABLE ),
+		$routes['/chapter/(?P<id>\d+)'] = array(
+			array( array( $this, 'get_chapter' ), WP_JSON_Server::READABLE ),
 		);
 
 		return $routes;
@@ -37,7 +37,7 @@ class WP_JSON_Tutorial_Blob {
 	 * @return array
 	 */
 	function data( $data, $post, $context ) {
-		if ( 'tutorial-blob' === $post['post_type'] ) {
+		if ( 'chapter' === $post['post_type'] ) {
 			$output = array(
 				'ID'                    => $data['ID'],
 				'classes'               => implode( ' ', get_post_class( '', $post['ID'] ) ),
@@ -71,9 +71,9 @@ class WP_JSON_Tutorial_Blob {
 	 * @param  int   $page
 	 * @return WP_JSON_Response
 	 */
-	public function get_tutorial_blobs( $filter = array(), $page = 1 ) {
+	public function get_chapters( $filter = array(), $page = 1 ) {
 		global $wp_json_posts;
-			$output = $wp_json_posts->get_posts( $filter, 'view', 'tutorial-blob', $page );
+			$output = $wp_json_posts->get_posts( $filter, 'view', 'chapter', $page );
 		return $output;
 	}
 
@@ -82,7 +82,7 @@ class WP_JSON_Tutorial_Blob {
 	 * @param  int $id
 	 * @return WP_JSON_Response
 	 */
-	public function get_tutorial_blob( $id ) {
+	public function get_chapter( $id ) {
 		global $wp_json_posts;
 			$output = $wp_json_posts->get_post( $id, 'view' );
 		return $output;

@@ -3,8 +3,8 @@ var Post = require( './views/post' );
 var Posts = require( './views/posts' );
 var Tutorials = require( './views/tutorials' );
 var Tutorial = require( './views/tutorial' );
-var Tutorial_Blobs = require( './views/tutorial-blobs' );
-var Tutorial_Blob = require( './views/tutorial-blob' );
+var Chapters = require( './views/chapters' );
+var Chapter = require( './views/chapter' );
 
 var Router = Backbone.Router.extend({
 	routes: {
@@ -12,8 +12,8 @@ var Router = Backbone.Router.extend({
 		'blog/:slug(/)' : 'singlePost',
 		'tutorial(/)' : 'archiveTutorials',
 		'tutorial/:slug(/)' : 'singleTutorial',
-		'tutorial-blob(/)' : 'archiveTutorialBlobs',
-		'tutorial-blob/:slug(/)' : 'singleTutorialBlob'
+		'chapter(/)' : 'archiveChapters',
+		'chapter/:slug(/)' : 'singleChapter'
 	},
 
 	archivePosts: function() {
@@ -28,6 +28,11 @@ var Router = Backbone.Router.extend({
 			el: $( '.dracobit-section' )
 		});
 		this.view.render();
+
+		// this.subview = new Chapters({
+		// 	el: $( '.dracobit-section-chapter' )
+		// });
+		// this.subview.render();
 	},
 
 	archiveTutorials: function() {
@@ -44,16 +49,16 @@ var Router = Backbone.Router.extend({
 		this.view.render();
 	},
 
-	archiveTutorialBlobs: function() {
-		this.view = new Tutorial_Blobs({
-			el: $( '.dracobit-section-blob' )
+	archiveChapters: function() {
+		this.view = new Chapters({
+			el: $( '.dracobit-section' )
 		});
 		this.view.render();
 	},
 
-	singleTutorialBlob: function() {
-		this.view = new Tutorial_Blob({
-			el: $( '.dracobit-section-blob' )
+	singleChapter: function() {
+		this.view = new Chapter({
+			el: $( '.dracobit-section' )
 		});
 		this.view.render();
 	}

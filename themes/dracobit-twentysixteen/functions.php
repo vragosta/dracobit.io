@@ -27,7 +27,7 @@ if ( function_exists( 'json_url' ) ) {
 include_once get_template_directory() . '/inc/tutorial-metabox.php';
 include_once get_template_directory() . '/inc/class-dracobit-overview-widget.php';
 include_once get_template_directory() . '/inc/class-wp-json-tutorial.php';
-include_once get_template_directory() . '/inc/class-wp-json-tutorial-blob.php';
+include_once get_template_directory() . '/inc/class-wp-json-chapter.php';
 
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar( false );
@@ -120,13 +120,13 @@ add_action( 'wp_enqueue_scripts', 'dracobit_styles' );
  */
 function dracobit_endpoints_init() {
 	$tutorial_endpoint = new WP_JSON_Tutorial();
-	$tutorial_blob_endpoint = new WP_JSON_Tutorial_Blob();
+	$chapter_endpoint = new WP_JSON_Chapter();
 
 	add_filter( 'json_endpoints', array( $tutorial_endpoint, 'register_routes' ) );
 	add_filter( 'json_prepare_post', array( $tutorial_endpoint, 'data' ), 10, 3 );
 
-	add_filter( 'json_endpoints', array( $tutorial_blob_endpoint, 'register_routes' ) );
-	add_filter( 'json_prepare_post', array( $tutorial_blob_endpoint, 'data' ), 10, 3 );
+	add_filter( 'json_endpoints', array( $chapter_endpoint, 'register_routes' ) );
+	add_filter( 'json_prepare_post', array( $chapter_endpoint, 'data' ), 10, 3 );
 }
 add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
 
@@ -441,8 +441,8 @@ function dracobit_register_posttypes() {
 		)
 	);
 
-	register_post_type( 'tutorial-blob', array(
-			'label' => 'Tutorial Blobs',
+	register_post_type( 'chapter', array(
+			'label' => 'Chapter',
 			'description' => '',
 			'public' => true,
 			'show_ui' => true,
@@ -450,27 +450,27 @@ function dracobit_register_posttypes() {
 			'capability_type' => 'post',
 			'map_meta_cap' => true,
 			'hierarchical' => false,
-			'rewrite' => array( 'slug' => 'tutorial-blob', 'with_front' => false ),
+			'rewrite' => array( 'slug' => 'chapter', 'with_front' => false ),
 			'query_var' => true,
 			'has_archive' => true,
 			'menu_position' => 41,
 			'menu_icon' => 'dashicons-edit',
 			'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
 			'labels' => array(
-					'name' => 'Tutorial Blobs',
-					'singular_name' => 'Tutorial Blob',
-					'menu_name' => 'Tutorial Blobs',
-					'add_new' => 'Add Tutorial Blob',
-					'add_new_item' => 'Add New Tutorial Blob',
+					'name' => 'Chapters',
+					'singular_name' => 'Chapter',
+					'menu_name' => 'Chapters',
+					'add_new' => 'Add Chapter',
+					'add_new_item' => 'Add New Chapter',
 					'edit' => 'Edit',
-					'edit_item' => 'Edit Tutorial Blob',
-					'new_item' => 'New Tutorial Blob',
-					'view' => 'View Tutorial Blob',
-					'view_item' => 'View Tutorial Blob',
-					'search_items' => 'Search Tutorial Blobs',
-					'not_found' => 'No Tutorial Blobs Found',
-					'not_found_in_trash' => 'No Tutorial Blobs Found in Trash',
-					'parent' => 'Parent Tutorial Blob',
+					'edit_item' => 'Edit Chapter',
+					'new_item' => 'New Chapter',
+					'view' => 'View Chapter',
+					'view_item' => 'View Chapter',
+					'search_items' => 'Search Chapters',
+					'not_found' => 'No Chapters Found',
+					'not_found_in_trash' => 'No Chapters Found in Trash',
+					'parent' => 'Parent Chapter',
 			)
 		)
 	);
