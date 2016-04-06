@@ -480,31 +480,30 @@ add_action( 'init', 'dracobit_register_posttypes' );
 
 /* Languages Taxonomy */
 function dracobit_register_taxonomies() {
-		register_taxonomy( 'languages', array (
-		  0 => 'chapter'
-		),
-		array( 'hierarchical' => true,
-			'label' => 'Languages',
-			'show_ui' => true,
-			'query_var' => true,
-			'show_admin_column' => false,
-			'rewrite' => array('slug' => 'language', 'with_front' => false ),
-			'labels' => array (
-				  'search_items' => 'Language',
-				  'popular_items' => '',
-				  'all_items' => 'All',
-				  'parent_item' => '',
-				  'parent_item_colon' => '',
-				  'edit_item' => '',
-				  'update_item' => '',
-				  'add_new_item' => 'Add New Langauge',
-				  'new_item_name' => '',
-				  'separate_items_with_commas' => '',
-				  'add_or_remove_items' => '',
-				  'choose_from_most_used' => '',
-			)
+	register_taxonomy( 'languages', array (
+	  0 => 'chapter'
+	),
+	array( 'hierarchical' => true,
+		'label' => 'Languages',
+		'show_ui' => true,
+		'query_var' => true,
+		'show_admin_column' => false,
+		'rewrite' => array('slug' => 'language', 'with_front' => false ),
+		'labels' => array (
+			  'search_items' => 'Language',
+			  'popular_items' => '',
+			  'all_items' => 'All',
+			  'parent_item' => '',
+			  'parent_item_colon' => '',
+			  'edit_item' => '',
+			  'update_item' => '',
+			  'add_new_item' => 'Add New Langauge',
+			  'new_item_name' => '',
+			  'separate_items_with_commas' => '',
+			  'add_or_remove_items' => '',
+			  'choose_from_most_used' => '',
 		)
-	);
+	) );
 }
 add_action( 'init', 'dracobit_register_taxonomies' );
 

@@ -8,7 +8,7 @@
           <p><i class="fa fa-long-arrow-right"></i></p>
         </div>
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 tutorial-anchor-container">
-          <p><a name="tutorial-preparing-and-installing-ubuntu-on-virtualbox">Preparing and Installing Ubuntu on Virtualbox</a></p>
+          <p><a name="tutorial-preparing-and-installing-ubuntu-on-virtualbox" data-chapter-id="202">Preparing and Installing Ubuntu on Virtualbox</a></p>
         </div>
       </div>
     </div>

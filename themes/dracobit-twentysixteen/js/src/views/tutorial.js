@@ -1,9 +1,10 @@
 var $          = require( 'jquery' );
 var Tutorial   = require( '../models/tutorial' );
+var Chapter    = require( '../models/chapter' );
 
 module.exports = Backbone.View.extend({
 	events: {
-		'click a' : 'getTutorialBlob'
+		'click a' : 'getChapter'
 	},
 
 	initialize: function() {
@@ -13,14 +14,18 @@ module.exports = Backbone.View.extend({
 
 	render: function() {
 		var self = this;
-
 		this.model.fetch().done(function() {
 			var content = self.template({ 'tutorial': self.model.toJSON() });
 			self.$el.html( content );
 		});
 	},
 
-	getTutorialBlob: function() {
-		console.log( 'clicked' );
+	getChapter: function( e ) {
+		var self = this;
+		chapter = new Chapter({ 'ID': e.currentTarget.dataset.chapterId });
+		chapter.fetch().done(function( e ) {
+			self.$el = $( '.dracobit-section-chapter' );
+			self.$el.html( e.content );
+		});
 	}
 });
