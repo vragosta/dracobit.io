@@ -28,11 +28,6 @@ var Router = Backbone.Router.extend({
 			el: $( '.dracobit-section' )
 		});
 		this.view.render();
-
-		// this.subview = new Chapters({
-		// 	el: $( '.dracobit-section-chapter' )
-		// });
-		// this.subview.render();
 	},
 
 	archiveTutorials: function() {

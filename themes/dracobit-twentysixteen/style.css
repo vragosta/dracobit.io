@@ -108,16 +108,20 @@ a.anchor {
 	margin-bottom: 20px;
 }
 
-.tutorial-version {
+.tutorial-version,
+.chapter-version {
+	margin: 0;
 	float: right;
 }
 
-.tutorial-container .tutorial-tagline {
+.tutorial-container .tutorial-tagline,
+.chapter-container .chapter-tagline {
 	font-size: 18px;
 	margin-bottom: 10px;
 }
 
-.tutorial-type {
+.tutorial-type,
+.chapter-type {
 	color: #bf3939;
 	font-weight: 500;
 	float: right;

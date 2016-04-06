@@ -5,7 +5,9 @@
 				<div class="tutorial-title">
 					<legend>
 						<%= ( tutorial.title ) ? tutorial.title : '' %>
-						<span class="tutorial-version"><%= ( tutorial.version ) ? 'v' + tutorial.version : 'v1.0' %></span>
+						<span class="tutorial-version">
+							<%= 'v' + tutorial.version %>
+						</span>
 					</legend>
 				</div>
 			</div>

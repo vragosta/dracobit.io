@@ -48,6 +48,8 @@ class WP_JSON_Chapter {
 				'featured_image'        => $data['featured_image'],
 				'link'                  => $data['link'],
 				'meta'                  => $data['meta'],
+				'tagline'               => get_post_meta( $post['ID'], 'tagline', true ),
+				'version'               => ( get_post_meta( $post['ID'], 'version', true ) ) ? get_post_meta( $post['ID'], 'version', true ) : '1.0',
 				'slug'                  => $data['slug'],
 				'terms'                 => $data['terms'],
 				'title'                 => $data['title'],
