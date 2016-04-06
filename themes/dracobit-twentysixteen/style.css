@@ -125,6 +125,7 @@ a.anchor {
 	color: #bf3939;
 	font-weight: 500;
 	float: right;
+	text-transform: uppercase;
 }
 
 .tutorial-likes-container {

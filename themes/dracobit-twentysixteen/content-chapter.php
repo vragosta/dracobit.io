@@ -27,7 +27,7 @@
 							<% if ( chapter.title ) { %>
 								<%= chapter.title %>
 							<% } else { %>
-								<%= 'Chapter Title' %>
+								<%= 'Enter title here' %>
 							<% } %>
 						</h4>
 					</div>
@@ -53,7 +53,10 @@
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 								<p class="list-group-item-text chapter-type">
-									<%= chapter.type.toUpperCase() %>
+									<% if ( chapter.type ) { %>
+										<%= chapter.type %>
+										<%= ( chapter.terms.languages[0].name ) ? ' : ' + chapter.terms.languages[0].name : '' %>
+									<% } %>
 								</p>
 							</div>
 						</div>

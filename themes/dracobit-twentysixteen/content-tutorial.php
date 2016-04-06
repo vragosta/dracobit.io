@@ -77,12 +77,12 @@
 							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 tutorial-likes-container">
 								<i class="fa fa-gratipay"></i>
 								<p class="list-group-item-text tutorial-likes">
-									<%= Math.floor((Math.random() * 100) + 1) %>
+									<%= Math.floor( ( Math.random() * 100 ) + 1 ) %>
 								</p>
 							</div>
 							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 								<p class="list-group-item-text tutorial-type">
-									<%= tutorial.type.toUpperCase() %>
+									<%= tutorial.type %>
 								</p>
 							</div>
 						</div>
