@@ -53,6 +53,7 @@ class WP_JSON_Tutorial {
 				'chapters'              => get_posts( array(
 					'post_type' => 'chapter',
 					'order'     => 'asc',
+					'numberposts' => 20,
 					'turorial'  => $data['terms']['tutorial']
 				) ),
 				'slug'                  => $data['slug'],
