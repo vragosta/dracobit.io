@@ -7,7 +7,7 @@
 			<div class="row comments-container">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<?php $comments = get_comments( array( 'post_id' => $post->ID ) ); ?>
-					<?php wp_list_comments( array( 'callback' => 'dracobit_profile_template' ), $comments ); ?>
+					<?php wp_list_comments( array( 'callback' => 'dracobit_comment_template' ), $comments ); ?>
 				</div>
 				<div id="comment-form-hide">
 					<?php

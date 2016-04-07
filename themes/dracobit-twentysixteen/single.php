@@ -14,7 +14,7 @@
 			<div class="comments-container">
 				<legend>Comments</legend>
 				<?php $comments = get_comments( array( 'post_id' => $post->ID ) ); ?>
-				<?php wp_list_comments( array( 'callback' => 'dracobit_profile_template' ), $comments ); ?>
+				<?php wp_list_comments( array( 'callback' => 'dracobit_comment_template' ), $comments ); ?>
 			</div>
 		</section>
 		<?php get_sidebar( get_post_type() ); ?>
