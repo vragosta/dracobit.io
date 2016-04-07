@@ -67,4 +67,11 @@ Backbone.history.start({
 
 $(function() {
 
+	$( 'ul.nav li' ).click(function() {
+		if ( ! $( this ).hasClass( 'active' ) ) {
+			$( 'ul.nav li' ).removeClass( 'active' );
+			$( this ).addClass( 'active' );
+		}
+	});
+
 });
