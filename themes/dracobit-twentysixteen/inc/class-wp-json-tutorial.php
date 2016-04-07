@@ -50,8 +50,10 @@ class WP_JSON_Tutorial {
 				'meta'                  => $data['meta'],
 				'tagline'               => get_post_meta( $post['ID'], 'tagline', true ),
 				'version'               => ( get_post_meta( $post['ID'], 'version', true ) ) ? get_post_meta( $post['ID'], 'version', true ) : '1.0',
-				'overview'              => get_post_meta( $post['ID'], 'overview', true ),
-				'short_description'     => strip_tags( get_post_meta( $post['ID'], 'short_description', true ) ),
+				'chapters'              => get_posts( array(
+					'post_type' => 'chapter',
+					'turorial'  => $data['terms']['tutorial']
+				) ),
 				'slug'                  => $data['slug'],
 				'terms'                 => $data['terms'],
 				'title'                 => $data['title'],

@@ -546,26 +546,9 @@ function dracobit_register_tutorial_content() {
 			$post_version  = get_post_meta( $post->ID, 'version', true );
 			$post_short_description  = get_post_meta( $post->ID, 'short_description', true );
 
-			// ob_start();
-			// include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/main.php';
-			// $post_content = ob_get_clean();
-
-			ob_start();
-			include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/overview.php';
-			$post_overview = ob_get_clean();
-
-			// wp_update_post( array(
-			// 	'ID'           => $post->ID,
-			// 	'post_content' => $post_content,
-			// ) );
-
 			update_post_meta( $post->ID, 'tagline', $post_tagline );
 			update_post_meta( $post->ID, 'version', $post_version );
 			update_post_meta( $post->ID, 'short_description', $post_short_description );
-
-			if ( $post_overview ) {
-				update_post_meta( $post->ID, 'overview', $post_overview );
-			}
 
 		endwhile;
 	}

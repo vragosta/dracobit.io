@@ -25,9 +25,7 @@ function dracobit_tutorials_meta_box_callback( $post ) {
 	 * from the database and use the value for the form.
 	 */
 	$tagline  = get_post_meta( $post->ID, 'tagline', true );
-	$version  = get_post_meta( $post->ID, 'version', true );
-	$short_description = get_post_meta( $post->ID, 'short_description', true );
-	$overview = get_post_meta( $post->ID, 'overview', true ); ?>
+	$version  = get_post_meta( $post->ID, 'version', true ); ?>
 
 	<table style="width: 100%;">
 		<tr>
@@ -44,28 +42,6 @@ function dracobit_tutorials_meta_box_callback( $post ) {
 			</td>
 			<td>
 				<input type="text" id="version" name="version" value="<?php echo esc_attr( $version ); ?>" style="width: 100%;">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label for="short_description"><?php echo esc_html( __( 'Description:', 'dracobit' ) ); ?></label>
-			</td>
-			<td>
-				<input type="text" id="short_description" name="short_description" value="<?php echo esc_attr( $short_description ); ?>" style="width: 100%;">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label for="overview"><?php echo esc_html( __( 'Overview:', 'dracobit' ) ); ?></label>
-			</td>
-			<td>
-				<?php
-					wp_editor( $overview, 'overview', array(
-						'media_buttons' => false,
-						'editor_height' => 200,
-						'textarea_name' => 'overview',
-					) );
-				?>
 			</td>
 		</tr>
 	</table>
@@ -107,14 +83,10 @@ function dracobit_save_tutorials_meta_box_data( $post_id ) {
 	// Sanitize user input.
 	$tagline  = sanitize_text_field( $_POST['tagline'] );
 	$version  = sanitize_text_field( $_POST['version'] );
-	$short_description  = sanitize_text_field( $_POST['short_description'] );
-	$overview = $_POST['overview'];
 
 	// Update the meta field in the database.
 	update_post_meta( $post_id, 'tagline', $tagline );
 	update_post_meta( $post_id, 'version', $version );
-	update_post_meta( $post_id, 'short_description', $short_description );
-	update_post_meta( $post_id, 'overview', $overview );
 
 }
 add_action( 'save_post', 'dracobit_save_tutorials_meta_box_data' );

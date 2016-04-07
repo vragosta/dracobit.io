@@ -21,6 +21,7 @@ module.exports = Backbone.View.extend({
 	},
 
 	getChapter: function( e ) {
+		console.log( true );
 		var self = this;
 		chapter = new Chapter({ 'ID': e.currentTarget.dataset.chapterId });
 		chapter.fetch().done(function( e ) {

@@ -19,17 +19,26 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="tutorial-short-description">
-					<%= ( tutorial.short_description ) ? tutorial.short_description : '' %>
-				</div>
-			</div>
+		<div class="tutorial-overview-container">
+			<h4 class="tutorial-overview">Overview</h4>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<% _.each( tutorial.chapters, function( chapter ) { %>
+						<div class="row">
+							<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+								<p><i class="fa fa-file-text-o"></i></p>
+							</div>
+							<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 tutorial-anchor-container">
+								<a name="<%= chapter.post_name %>" data-chapter-id="<%= chapter.ID %>"><%= chapter.post_title %></a>
+							</div>
+						</div>
+						<% } ); %>
+        </div>
+      </div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="tutorial-content">
-					<%= ( tutorial.overview ) ? tutorial.overview : '' %>
 					<%= ( tutorial.content ) ? tutorial.content : '' %>
 				</div>
 			</div>
