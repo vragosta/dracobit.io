@@ -55,7 +55,7 @@
 								<p class="list-group-item-text chapter-type">
 									<% if ( chapter.type ) { %>
 										<%= chapter.type %>
-										<%= ( chapter.terms.languages[0].name ) ? ' : ' + chapter.terms.languages[0].name : '' %>
+										<%= ( chapter.terms.language[0].name ) ? ' : ' + chapter.terms.language[0].name : '' %>
 									<% } %>
 								</p>
 							</div>
