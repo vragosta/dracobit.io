@@ -1,4 +1,3 @@
-<!-- <a id="tutorial-listing-files-and-understanding-ls-output-anchor" class="anchor"></a> -->
 <section id="tutorial-listing-files-and-understanding-ls-output">
   <legend>Listing Files and Understanding ls Output</legend>
 

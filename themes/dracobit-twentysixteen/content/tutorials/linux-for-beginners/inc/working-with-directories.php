@@ -1,4 +1,3 @@
-<!-- <a id="tutorial-working-with-directories-anchor" class="anchor"></a> -->
 <section id="tutorial-working-with-directories">
   <legend>Working with Directories</legend>
 
