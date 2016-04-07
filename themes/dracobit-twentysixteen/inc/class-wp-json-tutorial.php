@@ -52,6 +52,7 @@ class WP_JSON_Tutorial {
 				'version'               => ( get_post_meta( $post['ID'], 'version', true ) ) ? get_post_meta( $post['ID'], 'version', true ) : '1.0',
 				'chapters'              => get_posts( array(
 					'post_type' => 'chapter',
+					'order'     => 'ASC',
 					'turorial'  => $data['terms']['tutorial']
 				) ),
 				'slug'                  => $data['slug'],
