@@ -2,7 +2,7 @@
 /**
  * Dracobit functions and definitions
  *
- * Set up the theme and provides some helper functions, which are used in the
+ * Set up the theme and provide some helper functions, which are used in the
  * theme as custom template tags. Others are attached to action and filter
  * hooks in WordPress to change core functionality.
  *
@@ -26,7 +26,6 @@ if ( function_exists( 'json_url' ) ) {
 
 include_once get_template_directory() . '/inc/tutorial-metabox.php';
 include_once get_template_directory() . '/inc/chapter-metabox.php';
-include_once get_template_directory() . '/inc/class-dracobit-overview-widget.php';
 include_once get_template_directory() . '/inc/class-wp-json-tutorial.php';
 include_once get_template_directory() . '/inc/class-wp-json-chapter.php';
 
@@ -83,7 +82,6 @@ add_action( 'after_setup_theme', 'dracobit_setup' );
  * @since 1.0.0
  */
 function dracobit_scripts() {
-
 	global $post;
 
 	wp_enqueue_script( 'vendors', get_template_directory_uri() . '/js/vendors.min.js', array( 'jquery' ), DRACOBIT_VERSION, true );
@@ -137,8 +135,6 @@ add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
  * @since 1.0.0
  */
 function dracobit_widgets_init() {
-	// register_widget( 'Dracobit_Overview_Widget' );
-
 	$sidebars = array( 'post', 'page', 'tutorial' );
 	foreach ( $sidebars as $post_type ) {
 		register_sidebar( array(
@@ -153,120 +149,6 @@ function dracobit_widgets_init() {
 	}
 }
 add_action( 'widgets_init', 'dracobit_widgets_init' );
-
-/**
- * User signup form
- *
- * @since 1.0.0
- */
-function dracobit_signup_form() {
-	if( ! is_user_logged_in() ) {
-		$signup_enabled = get_option( 'users_can_register' );
-
-		if ( $signup_enabled ) {
-			$output = dracobit_signup_form_fields();
-		} else {
-			$output = 'User signup is not enabled';
-		}
-		return $output;
-	}
-}
-add_shortcode( 'register_form', 'dracobit_signup_form' );
-
-/**
- * User login form
- *
- * @since 1.0.0
- */
-function dracobit_login_form() {
-
-	if( !is_user_logged_in() ) {
-		$output = dracobit_login_form_fields();
-	} else {
-		// could show some logged in user info here
-		$output = 'user info here';
-	}
-	return $output;
-}
-add_shortcode( 'login_form', 'dracobit_login_form' );
-
-/**
- * User signup form fields
- *
- * @since 1.0.0
- */
- function dracobit_signup_form_fields() {
-
- 	ob_start(); ?>
-
-	<div class="signup-form-container">
-	 	<h1 class="dracobit_signup_header"><strong><?php _e( 'Sign Up' ); ?></strong></h1>
-		<h4 class="dracobit_signup_subheader"><?php _e( 'There&#39;s a little Draco in everyone.' ) ?></h4>
-	 	<?php dracobit_show_error_messages(); ?>
-	 	<form id="dracobit_signup_form" class="dracobit_form" action="" method="POST">
-	 		<fieldset>
-				<div class="form-group">
-					<input type="text" class="autocomplete-fix" />
-					<input name="dracobit_signup_input" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
-				</div>
-				<div class="form-group">
-					<input type="text" class="autocomplete-fix" />
-					<input name="dracobit_signup_input" id="dracobit_user_email" class="form-control" placeholder="Email" type="email" aria-describedby="signup-email-icon" required />
-				</div>
-				<div class="input-group" id="signup-name-container">
-					<input type="text" class="autocomplete-fix" />
-					<input name="dracobit_signup_first" id="dracobit_user_first" class="form-control" placeholder="First name" type="text" aria-describedby="signup-name-icon" required />
-
-					<input type="text" class="autocomplete-fix" />
-					<input name="dracobit_signup_last" id="dracobit_user_last" class="form-control" placeholder="Last name" type="text" aria-describedby="signup-name-icon" required />
-				</div>
-				<div class="form-group">
-					<input type="text" class="autocomplete-fix" />
-					<input name="dracobit_signup_input" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="signup-password-icon" required />
-				</div>
-				<div class="form-group">
-					<input type="text" class="autocomplete-fix" />
-					<input name="dracobit_signup_input" id="password_again" class="form-control" placeholder="Confirm password" type="password" aria-describedby="signup-password-icon" required />
-	 			</div>
-	 			<p>
-	 				<input type="hidden" class="dracobit_register_nonce" value="<?php echo wp_create_nonce('dracobit-register-nonce'); ?>"/>
-	 				<input id="dracobit_signup_submit" type="submit" value="<?php _e('Register Your Account'); ?>"/>
-	 			</p>
-	 		</fieldset>
-	 	</form>
-	</div>
- <?php
- 	return ob_get_clean();
- }
-
-/**
- * User login form fields
- *
- * @since 1.0.0
- */
- function dracobit_login_form_fields() {
-
- 	ob_start(); ?>
-
-	<form id="dracobit_login_form" class="form-inline" action="" method="post">
-		<fieldset>
-			<div class="form-group">
-				<input type="text" class="autocomplete-fix" />
-				<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
-			</div>
-			<div class="form-group">
-				<input type="text" class="autocomplete-fix" />
-				<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
-			</div>
-				<input type="hidden" name="dracobit_login_nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
-				<input id="dracobit_login_submit" class="btn btn-secondary" type="submit" value="Login"/>
-		</fieldset>
-	</form>
-
- 	<?php
- 	return ob_get_clean();
-
- }
 
 /**
  * Logs user in after submitting a form
@@ -385,29 +267,17 @@ add_action( 'init', 'dracobit_add_new_member' );
  *
  * @since 1.0.0
  */
-function dracobit_errors() {
-  static $wp_error;
-  return isset( $wp_error ) ? $wp_error : ( $wp_error = new WP_Error( null, null, null ) );
-}
-
-/**
- * Displays error messages from form submissions
- *
- * @since 1.0.0
- */
-function dracobit_show_error_messages() {
-	if ( $codes = dracobit_errors()->get_error_codes() ) {
-		echo '<div class="dracobit_errors">';
-		foreach( $codes as $code ) {
-			$message = dracobit_errors()->get_error_message( $code );
-			echo '<span class="error"><strong>' . __( 'Error' ) . '</strong>: ' . $message . '</span><br/>';
-		}
-		echo '</div>';
+if ( ! function_exists( 'dracobit_errors' ) ) {
+	function dracobit_errors() {
+	  static $wp_error;
+	  return isset( $wp_error ) ? $wp_error : ( $wp_error = new WP_Error( null, null, null ) );
 	}
 }
 
 /**
- * Registers custom tutorial post type
+ * Registers custom post types
+ *
+ * @since 1.0.0
  */
 function dracobit_register_posttypes() {
 	register_post_type( 'tutorial', array(
@@ -480,7 +350,11 @@ function dracobit_register_posttypes() {
 }
 add_action( 'init', 'dracobit_register_posttypes' );
 
-/* Languages Taxonomy */
+/**
+ * Registers custom taxonomies
+ *
+ * @since 1.0.0
+ */
 function dracobit_register_taxonomies() {
 	register_taxonomy( 'language', array (
 	  0 => 'chapter'
@@ -534,67 +408,51 @@ function dracobit_register_taxonomies() {
 }
 add_action( 'init', 'dracobit_register_taxonomies' );
 
-/*
- * Writes the tutorial content to wp-admin backend of tutorials
- * Writes the tutorial overview to wp-admin backend of tutorials
+/**
+ * Custom comment template
+ *
+ * @since 1.0.0
  */
-function dracobit_register_tutorial_content() {
-	global $post;
-	$tutorials = new WP_Query( array( 'post_type' => 'tutorial', 'order' => 'ASC' ) );
+if ( ! function_exists( 'dracobit_comment_template' ) ) {
+	function dracobit_comment_template( $comment, $args, $depth ) {
+	  if ( 'div' === $args['style'] ) {
+	      $tag       = 'div';
+	      $add_below = 'comment';
+	  } else {
+	      $tag       = 'li';
+	      $add_below = 'div-comment';
+	  }
+	  ?>
 
-	if ( $tutorials->have_posts() ) {
-		while ( $tutorials->have_posts() ) : $tutorials->the_post();
-			$post_tagline  = get_post_meta( $post->ID, 'tagline', true );
-			$post_version  = get_post_meta( $post->ID, 'version', true );
-			$post_short_description  = get_post_meta( $post->ID, 'short_description', true );
+	  <<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+	  <?php if ( 'div' != $args['style'] ) : ?>
+	    <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
+	  <?php endif; ?>
+	  <div class="comment-author vcard">
+	    <?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+	    <?php printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
+	  </div>
+	  <?php if ( $comment->comment_approved == '0' ) : ?>
+	    <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
+	    <br />
+	  <?php endif; ?>
 
-			update_post_meta( $post->ID, 'tagline', $post_tagline );
-			update_post_meta( $post->ID, 'version', $post_version );
-			update_post_meta( $post->ID, 'short_description', $post_short_description );
+	  <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+	    <?php
+	    	printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)' ), '  ', '' );
+	    ?>
+	  </div>
 
-		endwhile;
+	  <?php comment_text(); ?>
+
+	  <div class="reply">
+	    <?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+	  </div>
+	  <?php if ( 'div' != $args['style'] ) : ?>
+	  </div>
+	  <?php endif; ?>
+	  <?php
 	}
-}
-add_action( 'init', 'dracobit_register_tutorial_content' );
-
-function dracobit_profile_template( $comment, $args, $depth ) {
-  if ( 'div' === $args['style'] ) {
-      $tag       = 'div';
-      $add_below = 'comment';
-  } else {
-      $tag       = 'li';
-      $add_below = 'div-comment';
-  }
-  ?>
-
-  <<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
-  <?php if ( 'div' != $args['style'] ) : ?>
-    <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
-  <?php endif; ?>
-  <div class="comment-author vcard">
-    <?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
-    <?php printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
-  </div>
-  <?php if ( $comment->comment_approved == '0' ) : ?>
-    <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
-    <br />
-  <?php endif; ?>
-
-  <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
-    <?php
-    	printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)' ), '  ', '' );
-    ?>
-  </div>
-
-  <?php comment_text(); ?>
-
-  <div class="reply">
-    <?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-  </div>
-  <?php if ( 'div' != $args['style'] ) : ?>
-  </div>
-  <?php endif; ?>
-  <?php
 }
 
 ?>
