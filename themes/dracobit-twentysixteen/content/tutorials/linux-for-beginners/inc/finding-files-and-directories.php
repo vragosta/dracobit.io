@@ -1,4 +1,3 @@
-<a id="tutorial-finding-files-and-directories-anchor" class="anchor"></a>
 <section id="tutorial-finding-files-and-directories">
 	<legend>Finding Files and Directories</legend>
 

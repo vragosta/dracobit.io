@@ -25,8 +25,10 @@ if ( function_exists( 'json_url' ) ) {
 }
 
 include_once get_template_directory() . '/inc/tutorial-metabox.php';
+include_once get_template_directory() . '/inc/chapter-metabox.php';
 include_once get_template_directory() . '/inc/class-dracobit-overview-widget.php';
 include_once get_template_directory() . '/inc/class-wp-json-tutorial.php';
+include_once get_template_directory() . '/inc/class-wp-json-chapter.php';
 
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar( false );
@@ -119,8 +121,13 @@ add_action( 'wp_enqueue_scripts', 'dracobit_styles' );
  */
 function dracobit_endpoints_init() {
 	$tutorial_endpoint = new WP_JSON_Tutorial();
+	$chapter_endpoint = new WP_JSON_Chapter();
+
 	add_filter( 'json_endpoints', array( $tutorial_endpoint, 'register_routes' ) );
 	add_filter( 'json_prepare_post', array( $tutorial_endpoint, 'data' ), 10, 3 );
+
+	add_filter( 'json_endpoints', array( $chapter_endpoint, 'register_routes' ) );
+	add_filter( 'json_prepare_post', array( $chapter_endpoint, 'data' ), 10, 3 );
 }
 add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
 
@@ -402,7 +409,7 @@ function dracobit_show_error_messages() {
 /**
  * Registers custom tutorial post type
  */
-function dracobit_register_posttype_tutorial() {
+function dracobit_register_posttypes() {
 	register_post_type( 'tutorial', array(
 			'label' => 'Tutorials',
 			'description' => '',
@@ -412,13 +419,13 @@ function dracobit_register_posttype_tutorial() {
 			'capability_type' => 'post',
 			'map_meta_cap' => true,
 			'hierarchical' => false,
-			'rewrite' => array('slug' => 'tutorial', 'with_front' => false),
+			'rewrite' => array( 'slug' => 'tutorial', 'with_front' => false ),
 			'query_var' => true,
 			'has_archive' => true,
 			'menu_position' => 41,
 			'menu_icon' => 'dashicons-edit',
-			'supports' => array('title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author'),
-			'labels' => array (
+			'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
+			'labels' => array(
 					'name' => 'Tutorials',
 					'singular_name' => 'Tutorial',
 					'menu_name' => 'Tutorials',
@@ -436,8 +443,96 @@ function dracobit_register_posttype_tutorial() {
 			)
 		)
 	);
+
+	register_post_type( 'chapter', array(
+			'label' => 'Chapter',
+			'description' => '',
+			'public' => true,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'capability_type' => 'post',
+			'map_meta_cap' => true,
+			'hierarchical' => false,
+			'rewrite' => array( 'slug' => 'chapter', 'with_front' => false ),
+			'query_var' => true,
+			'has_archive' => true,
+			'menu_position' => 41,
+			'menu_icon' => 'dashicons-edit',
+			'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
+			'labels' => array(
+					'name' => 'Chapters',
+					'singular_name' => 'Chapter',
+					'menu_name' => 'Chapters',
+					'add_new' => 'Add Chapter',
+					'add_new_item' => 'Add New Chapter',
+					'edit' => 'Edit',
+					'edit_item' => 'Edit Chapter',
+					'new_item' => 'New Chapter',
+					'view' => 'View Chapter',
+					'view_item' => 'View Chapter',
+					'search_items' => 'Search Chapters',
+					'not_found' => 'No Chapters Found',
+					'not_found_in_trash' => 'No Chapters Found in Trash',
+					'parent' => 'Parent Chapter',
+			)
+		)
+	);
 }
-add_action( 'init', 'dracobit_register_posttype_tutorial' );
+add_action( 'init', 'dracobit_register_posttypes' );
+
+/* Languages Taxonomy */
+function dracobit_register_taxonomies() {
+	register_taxonomy( 'language', array (
+	  0 => 'chapter'
+	),
+	array( 'hierarchical' => true,
+		'label' => 'Languages',
+		'show_ui' => true,
+		'query_var' => true,
+		'show_admin_column' => false,
+		'rewrite' => array('slug' => 'language', 'with_front' => false ),
+		'labels' => array (
+			  'search_items' => 'Language',
+			  'popular_items' => '',
+			  'all_items' => 'All',
+			  'parent_item' => '',
+			  'parent_item_colon' => '',
+			  'edit_item' => '',
+			  'update_item' => '',
+			  'add_new_item' => 'Add New Langauge',
+			  'new_item_name' => '',
+			  'separate_items_with_commas' => '',
+			  'add_or_remove_items' => '',
+			  'choose_from_most_used' => '',
+		)
+	) );
+
+	register_taxonomy( 'tutorial', array (
+		0 => 'chapter'
+	),
+	array( 'hierarchical' => true,
+		'label' => 'Tutorial',
+		'show_ui' => true,
+		'query_var' => true,
+		'show_admin_column' => false,
+		'rewrite' => array('slug' => 'tutorial', 'with_front' => false ),
+		'labels' => array (
+				'search_items' => 'Tutorial',
+				'popular_items' => '',
+				'all_items' => 'All',
+				'parent_item' => '',
+				'parent_item_colon' => '',
+				'edit_item' => '',
+				'update_item' => '',
+				'add_new_item' => 'Add New Tutorial',
+				'new_item_name' => '',
+				'separate_items_with_commas' => '',
+				'add_or_remove_items' => '',
+				'choose_from_most_used' => '',
+		)
+	) );
+}
+add_action( 'init', 'dracobit_register_taxonomies' );
 
 /*
  * Writes the tutorial content to wp-admin backend of tutorials
@@ -453,26 +548,9 @@ function dracobit_register_tutorial_content() {
 			$post_version  = get_post_meta( $post->ID, 'version', true );
 			$post_short_description  = get_post_meta( $post->ID, 'short_description', true );
 
-			ob_start();
-			include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/main.php';
-			$post_content = ob_get_clean();
-
-			ob_start();
-			include_once get_template_directory() . '/content/tutorials/' . $post->post_name . '/overview.php';
-			$post_overview = ob_get_clean();
-
-			wp_update_post( array(
-				'ID'           => $post->ID,
-				'post_content' => $post_content,
-			) );
-
 			update_post_meta( $post->ID, 'tagline', $post_tagline );
 			update_post_meta( $post->ID, 'version', $post_version );
 			update_post_meta( $post->ID, 'short_description', $post_short_description );
-
-			if ( $post_overview ) {
-				update_post_meta( $post->ID, 'overview', $post_overview );
-			}
 
 		endwhile;
 	}

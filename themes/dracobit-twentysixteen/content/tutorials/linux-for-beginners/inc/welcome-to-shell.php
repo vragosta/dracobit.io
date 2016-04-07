@@ -1,4 +1,3 @@
-<a id="tutorial-welcome-to-shell-anchor" class="anchor"></a>
 <section id="tutorial-welcome-to-shell">
   <legend>Welcome to Shell</legend>
 

@@ -1,142 +1,37 @@
 <section id="tutorial-overview-container">
   <legend>Overview</legend>
+  <?php
+    global $post;
+    $original_post_type = get_post_type();
+    $original_post_id = $post->ID;
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-preparing-and-installing-ubuntu-anchor">Preparing and Installing Ubuntu on Virtualbox</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-installing-guest-additions-anchor">Installing Guest Additions on Ubuntu</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
+    $args = array(
+      'post_type' => 'chapter',
+      'tax_query' => array(
+      array(
+        'taxonomy' => 'tutorial',
+        'field'    => 'slug',
+        'terms'    => 'linux-for-beginners',
+      ) ),
+    );
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-getting-connected-via-ssh-anchor">Getting Connected via SSH</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-linux-directory-structure-anchor">The Linux Directory Structure</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
+    $query = new WP_Query( $args );
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-welcome-to-shell-anchor">Welcome to Shell</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-basic-linux-commands-anchor">Basic Linux Commands</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-working-with-directories-anchor">Working with Directories</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-listing-files-and-understanding-ls-output-anchor">Listing Files and Understanding ls Output</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-file-and-directory-permissions-explained-anchor">File and Directory Permissions Explained</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-finding-files-and-directories-anchor">Finding Files and Directories</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-deleting-copying-moving-and-renaming-files-anchor">Deleting, Copying, Moving, and Renaming Files</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <p><i class="fa fa-long-arrow-right"></i></p>
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <p><a href="#tutorial-wildcards-anchor">Wildcards</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
+    if ( $query->have_posts() ) {
+      while ( $query->have_posts() ) : $query->the_post(); ?>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
+              <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                <p><i class="fa fa-file-text-o"></i></p>
+              </div>
+              <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 tutorial-anchor-container">
+                <a name="<?php echo $post->post_name; ?>" data-chapter-id="<?php echo $post->ID; ?>"><?php echo $post->post_title; ?></a>
+              </div>
+            </div>
+          </div>
+        </div><?php
+      endwhile;
+    }
+  ?>
 </section>

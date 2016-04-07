@@ -10,7 +10,7 @@
 // Blocking direct access to this file.
 defined( 'ABSPATH' ) || exit;
 
-class WP_JSON_Tutorial {
+class WP_JSON_Chapter {
 	/**
 	 * Register custom endpoints.
 	 *
@@ -18,12 +18,12 @@ class WP_JSON_Tutorial {
 	 * @return array
 	 */
 	public function register_routes( $routes ) {
-		$routes['/tutorial'] = array(
-			array( array( $this, 'get_tutorials' ), WP_JSON_Server::READABLE ),
+		$routes['/chapter'] = array(
+			array( array( $this, 'get_chapters' ), WP_JSON_Server::READABLE ),
 		);
 
-		$routes['/tutorial/(?P<id>\d+)'] = array(
-			array( array( $this, 'get_tutorial' ), WP_JSON_Server::READABLE ),
+		$routes['/chapter/(?P<id>\d+)'] = array(
+			array( array( $this, 'get_chapter' ), WP_JSON_Server::READABLE ),
 		);
 
 		return $routes;
@@ -37,7 +37,7 @@ class WP_JSON_Tutorial {
 	 * @return array
 	 */
 	function data( $data, $post, $context ) {
-		if ( 'tutorial' === $post['post_type'] ) {
+		if ( 'chapter' === $post['post_type'] ) {
 			$output = array(
 				'ID'                    => $data['ID'],
 				'classes'               => implode( ' ', get_post_class( '', $post['ID'] ) ),
@@ -50,12 +50,6 @@ class WP_JSON_Tutorial {
 				'meta'                  => $data['meta'],
 				'tagline'               => get_post_meta( $post['ID'], 'tagline', true ),
 				'version'               => ( get_post_meta( $post['ID'], 'version', true ) ) ? get_post_meta( $post['ID'], 'version', true ) : '1.0',
-				'chapters'              => get_posts( array(
-					'post_type' => 'chapter',
-					'order'     => 'asc',
-					'numberposts' => 20,
-					'turorial'  => $data['terms']['tutorial']
-				) ),
 				'slug'                  => $data['slug'],
 				'terms'                 => $data['terms'],
 				'title'                 => $data['title'],
@@ -79,9 +73,9 @@ class WP_JSON_Tutorial {
 	 * @param  int   $page
 	 * @return WP_JSON_Response
 	 */
-	public function get_tutorials( $filter = array(), $page = 1 ) {
+	public function get_chapters( $filter = array(), $page = 1 ) {
 		global $wp_json_posts;
-			$output = $wp_json_posts->get_posts( $filter, 'view', 'tutorial', $page );
+			$output = $wp_json_posts->get_posts( $filter, 'view', 'chapter', $page );
 		return $output;
 	}
 
@@ -90,7 +84,7 @@ class WP_JSON_Tutorial {
 	 * @param  int $id
 	 * @return WP_JSON_Response
 	 */
-	public function get_tutorial( $id ) {
+	public function get_chapter( $id ) {
 		global $wp_json_posts;
 			$output = $wp_json_posts->get_post( $id, 'view' );
 		return $output;

@@ -28,6 +28,7 @@
 		      <ul class="nav navbar-nav">
 						<li class="active"><a href="/blog">Home</a></li>
 						<li><a href="/tutorial">Tutorials</a></li>
+						<li><a href="/chapter">Chapters</a></li>
 						<?php
 							if ( current_user_can( 'edit_posts' ) ) { ?>
 								<li><a href="<?php echo admin_url(); ?>">WP-Admin</a></li><?php

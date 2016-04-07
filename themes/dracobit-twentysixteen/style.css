@@ -75,12 +75,12 @@ input.autocomplete-fix {
 
 /**************************************************/
 
-a.anchor {
+/*a.anchor {
   display: block;
   position: relative;
   top: -55px;
   visibility: hidden;
-}
+}*/
 
 .dracobit-container {
 	margin-top: 60px;
@@ -108,19 +108,24 @@ a.anchor {
 	margin-bottom: 20px;
 }
 
-.tutorial-version {
+.tutorial-version,
+.chapter-version {
+	margin: 0;
 	float: right;
 }
 
-.tutorial-container .tutorial-tagline {
+.tutorial-container .tutorial-tagline,
+.chapter-container .chapter-tagline {
 	font-size: 18px;
 	margin-bottom: 10px;
 }
 
-.tutorial-type {
+.tutorial-type,
+.chapter-type {
 	color: #bf3939;
 	font-weight: 500;
 	float: right;
+	text-transform: uppercase;
 }
 
 .tutorial-likes-container {
@@ -160,17 +165,20 @@ a.anchor {
 	padding-top: 20px;
 }
 
-.tutorial-main-container section {
+.tutorial-content section {
 	border: 1px solid #ddd;
 	padding: 10px;
+	display: none;
 }
 
 #tutorial-overview-container {
+	display: block;
 	margin-bottom: 20px;
 }
 
-#tutorial-overview-container a {
+.tutorial-overview-container a {
 	color: #333;
+	cursor: pointer;
 }
 
 #tutorial-overview-container ul {
