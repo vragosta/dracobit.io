@@ -2,13 +2,6 @@
 	<section class="chapter-container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="chapter-title">
-					<legend><%= ( chapter.title ) ? chapter.title : '' %></legend>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="chapter-content">
 					<%= ( chapter.content ) ? chapter.content : '' %>
 				</div>
