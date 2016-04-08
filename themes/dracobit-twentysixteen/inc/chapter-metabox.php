@@ -3,22 +3,22 @@
 /**
  * Register the widget into the theme
  */
-function dracobit_add_tutorials_meta_box() {
+function dracobit_add_chapters_meta_box() {
 	add_meta_box(
-		'tutorials',
-		__( 'Tutorials', 'dracobit' ),
-		'dracobit_tutorials_meta_box_callback',
-		'tutorial'
+		'chapters',
+		__( 'Chapters', 'dracobit' ),
+		'dracobit_chapters_meta_box_callback',
+		'chapter'
 	);
 }
-add_action( 'add_meta_boxes', 'dracobit_add_tutorials_meta_box' );
+add_action( 'add_meta_boxes', 'dracobit_add_chapters_meta_box' );
 
 /**
  * Callback when registering widget that displays content in backend
  */
-function dracobit_tutorials_meta_box_callback( $post ) {
+function dracobit_chapters_meta_box_callback( $post ) {
 	// Add a nonce field so we can check for it later.
-	wp_nonce_field( 'dracobit_save_tutorials_meta_box_data', 'dracobit_meta_box_nonce' );
+	wp_nonce_field( 'dracobit_save_chapters_meta_box_data', 'dracobit_meta_box_nonce' );
 
 	/**
 	 * Use get_post_meta() to retrieve an existing value
@@ -50,9 +50,9 @@ function dracobit_tutorials_meta_box_callback( $post ) {
 }
 
 /**
- * Saves the meta box data for the tutorial post type
+ * Saves the meta box data for the chapter post type
  */
-function dracobit_save_tutorials_meta_box_data( $post_id ) {
+function dracobit_save_chapters_meta_box_data( $post_id ) {
 	/**
 	 * We need to verify this came from our screen and with proper authorization,
 	 * because the save_post action can be triggered at other times.
@@ -64,7 +64,7 @@ function dracobit_save_tutorials_meta_box_data( $post_id ) {
 	}
 
 	// Verify that the nonce is valid.
-	if ( ! wp_verify_nonce( $_POST['dracobit_meta_box_nonce'], 'dracobit_save_tutorials_meta_box_data' ) ) {
+	if ( ! wp_verify_nonce( $_POST['dracobit_meta_box_nonce'], 'dracobit_save_chapters_meta_box_data' ) ) {
 		return;
 	}
 
@@ -74,7 +74,7 @@ function dracobit_save_tutorials_meta_box_data( $post_id ) {
 	}
 
 	// Check the user's permissions.
-	if ( isset( $_POST['post_type'] ) && 'tutorial' == $_POST['post_type'] ) {
+	if ( isset( $_POST['post_type'] ) && 'chapter' == $_POST['post_type'] ) {
 		if ( ! current_user_can( 'edit_page', $post_id ) ) {
 			return;
 		}
@@ -89,4 +89,4 @@ function dracobit_save_tutorials_meta_box_data( $post_id ) {
 	update_post_meta( $post_id, 'version', $version );
 
 }
-add_action( 'save_post', 'dracobit_save_tutorials_meta_box_data' );
+add_action( 'save_post', 'dracobit_save_chapters_meta_box_data' );

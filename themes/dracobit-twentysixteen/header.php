@@ -26,19 +26,35 @@
 
 		    <div class="collapse navbar-collapse" id="dracobit-header">
 		      <ul class="nav navbar-nav">
-						<li class="active"><a href="/blog">Home</a></li>
-						<li><a href="/tutorial">Tutorials</a></li>
+						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/blog/' ) ? 'active' : '' ; ?>"><a href="/blog">Home</a></li>
+						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/tutorial/' ) ? 'active' : '' ; ?>"><a href="/tutorial">Tutorials</a></li>
+						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/chapter/' ) ? 'active' : '' ; ?>"><a href="/chapter">Chapters</a></li>
 						<?php
 							if ( current_user_can( 'edit_posts' ) ) { ?>
 								<li><a href="<?php echo admin_url(); ?>">WP-Admin</a></li><?php
 							}
 
-							if ( ! is_user_logged_in() ) {
-								echo '<li class="dracobit-login">' . dracobit_login_form_fields() . '</li>';
-							}
+							if ( ! is_user_logged_in() ) { ?>
+								<li class="dracobit-login">
+									<form id="dracobit_login_form" class="form-inline" action="" method="post">
+										<fieldset>
+											<div class="form-group">
+												<input type="text" class="autocomplete-fix" />
+												<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
+											</div>
+											<div class="form-group">
+												<input type="text" class="autocomplete-fix" />
+												<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
+											</div>
+												<input type="hidden" name="dracobit_login_nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
+												<input id="dracobit_login_submit" class="btn btn-secondary" type="submit" value="Login"/>
+										</fieldset>
+									</form>
+								</li>
+							<?php }
 
 							if ( is_user_logged_in() ) { ?>
-								<li><a href="/profile"><?php echo $current_user->display_name; ?></a></li>
+								<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/profile/' ) ? 'active' : '' ; ?>"><a href="/profile"><?php echo $current_user->display_name; ?></a></li>
 								<li><?php wp_loginout( home_url( '/' ) ); ?></li><?php
 							}
 						?>

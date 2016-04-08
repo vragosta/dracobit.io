@@ -23,64 +23,9 @@ input.autocomplete-fix {
 	display: none;
 }
 
-@media ( min-width: 768px ) {
-	.dracobit-login {
-		min-height: 50px;
-	  display: flex !important;
-	  align-items: center;
-	  justify-content: center;
-	}
-}
-
-@media ( max-width: 767px ) {
-	.dracobit-login {
-		display: flex !important;
-	  justify-content: center;
-	}
-
-	#dracobit_login_form {
-		width: 100%;
-		padding: 0 10px;
-	}
-}
-
-/***************************************************/
-
-#page-container {
-	margin-top: 40px;
-}
-
-#profile-avatar-container img {
-	width: 100%;
-	height: auto;
-	min-height: 100px;
-	border-radius: 20%;
-	border: 2px solid #ccc;
-}
-
-#profile-rank-display {
-	width: 100%;
-	height: auto;
-	min-height: 100px;
-	border-radius: 20%;
-}
-
-/**************************************************/
-
-/* removing bullet points from custom widget menus */
-.menu {
-	list-style: none;
-	padding: 0;
-}
-
-/**************************************************/
-
-a.anchor {
-  display: block;
-  position: relative;
-  top: -55px;
-  visibility: hidden;
-}
+/*
+ * Backbone Templates
+ */
 
 .dracobit-container {
 	margin-top: 60px;
@@ -95,32 +40,28 @@ a.anchor {
 	margin-bottom: 25px;
 }
 
-#tutorial-nav-menu {
-	padding-top: 20px;
-}
-
-#tutorial-nav-menu legend {
-	color: #333;
-	font-size: 22px;
-}
-
 #tutorial-container {
 	margin-bottom: 20px;
 }
 
-.tutorial-version {
+.tutorial-version,
+.chapter-version {
+	margin: 0;
 	float: right;
 }
 
-.tutorial-container .tutorial-tagline {
+.tutorial-container .tutorial-tagline,
+.chapter-container .chapter-tagline {
 	font-size: 18px;
 	margin-bottom: 10px;
 }
 
-.tutorial-type {
+.tutorial-type,
+.chapter-type {
 	color: #bf3939;
 	font-weight: 500;
 	float: right;
+	text-transform: uppercase;
 }
 
 .tutorial-likes-container {
@@ -160,35 +101,25 @@ a.anchor {
 	padding-top: 20px;
 }
 
+.tutorial-content section {
+	border: 1px solid #ddd;
+	padding: 10px;
+	display: none;
+}
+
 #tutorial-overview-container {
-	border-radius: 4px;
+	display: block;
+	margin-bottom: 20px;
 }
 
-#tutorial-overview-container a {
+.chapter-anchor-container a {
 	color: #333;
+	cursor: pointer;
 }
 
-#tutorial-overview-container ul {
-	padding-left: 0px;
-	list-style: none;
-}
-
-#tutorial-overview-container li {
-	list-style: none;
-}
-
-#tutorial-overview-container i,
-#tutorial-preparing-and-installing-ubuntu i,
-#tutorial-installing-ubuntu i,
-#tutorial-installing-guest-additions i,
-#tutorial-getting-connected-via-ssh i,
-#tutorial-welcome-to-shell i,
-#tutorial-command-line-interface i,
-#tutorial-listing-files-and-understanding-ls-output i,
-#tutorial-file-and-directory-permissions-explained i,
-#tutorial-finding-files-and-directories i {
-	margin-left: 10px;
-}
+/*
+ * Sidebar/Widgets
+ */
 
 .dracobit-sidebar {
 	margin-top: 60px;
@@ -211,6 +142,10 @@ a.anchor {
 	list-style: none;
 }
 
+/*
+ * Archive Template
+ */
+
 .archive-item {
 	border-radius: 0 !important;
 	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
@@ -226,6 +161,10 @@ a.anchor {
 .single-date {
 	font-weight: 500;
 }
+
+/*
+ * Single Templates
+ */
 
 .single-container {
 	margin-top: 60px;
@@ -254,6 +193,10 @@ a.anchor {
 	font-size: 28px;
 	color: #bf3939;
 }
+
+/*
+ * Comment Templates
+ */
 
 .post-comment {
 	border: 1px solid #ccc;
@@ -364,4 +307,73 @@ a.anchor {
 
 #comment-form-hide {
 	display: none;
+}
+
+/*
+ * Front-page Templates
+ */
+
+#fp-container {
+	display: flex;
+	align-items: center;
+	height: 800px;
+}
+
+.fp-left,
+.fp-right {
+	display: flex;
+	justify-content: center;
+}
+
+.dracobit_signup_header {
+	font-size: 40px;
+}
+
+.dracobit_signup_subheader {
+	margin-bottom: 20px;
+}
+
+input[name="dracobit_signup_input"] {
+	border-radius: 0;
+	width: 410px;
+	height: 35px;
+	font-size: 18px;
+}
+
+#signup-name-container {
+	margin-bottom: 15px;
+}
+
+input[name="dracobit_signup_first"],
+input[name="dracobit_signup_last"] {
+	border-radius: 0;
+	width: 200px !important;
+	height: 35px;
+	font-size: 18px;
+}
+
+input[name="dracobit_signup_first"] {
+	margin-right: 10px;
+}
+
+#dracobit_signup_submit {
+	margin-top: 10px;
+  font-size: 17px;
+	padding: 5px;
+}
+
+/*
+ * Media Queries
+ */
+
+@media ( max-width: 1199px ) and ( min-width: 992px ) {
+
+}
+
+@media ( max-width: 991px ) and ( min-width: 768px ) {
+
+}
+
+@media ( max-width: 768px ) {
+
 }
