@@ -13,7 +13,8 @@ var Router = Backbone.Router.extend({
 		'tutorial(/)' : 'archiveTutorials',
 		'tutorial/:slug(/)' : 'singleTutorial',
 		'chapter(/)' : 'archiveChapters',
-		'chapter/:slug(/)' : 'singleChapter'
+		'chapter/:slug(/)' : 'singleChapter',
+		':slug(/)' : 'singlePost'
 	},
 
 	archivePosts: function() {
