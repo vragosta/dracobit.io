@@ -8,7 +8,15 @@ Tags:
 Text Domain: dracobit
 */
 
+/*
+ * Imports
+ */
+
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700);
+
+/*
+ * General DOM Elements
+ */
 
 body {
 	font-family: 'Ubuntu', sans-serif;
@@ -374,6 +382,10 @@ input[name="dracobit_signup_first"] {
 
 }
 
-@media ( max-width: 768px ) {
+@media ( max-width: 767px ) and ( min-width: 480px ) {
+
+}
+
+@media ( max-width: 767px ) {
 
 }
