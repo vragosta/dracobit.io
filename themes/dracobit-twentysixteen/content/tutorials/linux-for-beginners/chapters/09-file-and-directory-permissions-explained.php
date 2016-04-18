@@ -4,8 +4,10 @@
 	<article id="tutorial-permissions">
 		<h4>Permissions</h4>
 
-		<div id="tutorial-ls-output">
-      <p><code>-rw-rw-r--</code></p>
+		<div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p><code>-rw-rw-r--</code></p>
+      </div>
     </div>
 
 		<div class="row">
