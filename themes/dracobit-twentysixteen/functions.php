@@ -191,7 +191,6 @@ add_action( 'init', 'dracobit_login_member' );
  * @since 1.0.0
  */
 function dracobit_add_new_member() {
-	var_dump( wp_verify_nonce( $_POST['dracobit_register_nonce'], 'dracobit-register-nonce' ) );
   if ( isset( $_POST['dracobit_signup_username'] ) && wp_verify_nonce( $_POST['dracobit_register_nonce'], 'dracobit-register-nonce' ) ) {
 		$user_login   = $_POST['dracobit_signup_username'];
 		$user_email   = $_POST['dracobit_signup_email'];
