@@ -387,5 +387,25 @@ input[name="dracobit_signup_first"] {
 }
 
 @media ( max-width: 767px ) {
+	.dracobit-login {
+		padding: 0 10px;
+	}
+}
 
+@media ( min-width: 768px ) {
+	.dracobit-login {
+		height: 50px;
+		display: flex !important;
+		align-items: center;
+	}
+
+	.dracobit-login .form-group input {
+		width: 150px;
+		height: 30px;
+	}
+
+	#dracobit_login_submit {
+		height: 30px;
+		padding: 0 10px;
+	}
 }
