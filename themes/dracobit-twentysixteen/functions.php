@@ -77,13 +77,15 @@ if ( ! function_exists( 'dracobit_setup' ) ) {
 add_action( 'after_setup_theme', 'dracobit_setup' );
 
 /**
- * Allows for wordpress to recognize all the javascript files
+ * Allows for wordpress to recognize all the css/js files
  *
  * @since 1.0.0
  */
 function dracobit_scripts() {
 	global $post;
 
+	wp_enqueue_style( 'vendors', get_template_directory_uri() . '/css/vendors.min.css', array(), DRACOBIT_VERSION, 'all' );
+	wp_enqueue_style( 'dracobit', get_template_directory_uri() . '/style.min.css', array( 'vendors' ), DRACOBIT_VERSION, 'all' );
 	wp_enqueue_script( 'vendors', get_template_directory_uri() . '/js/vendors.min.js', array( 'jquery' ), DRACOBIT_VERSION, true );
 	wp_enqueue_script( 'dracobit', get_template_directory_uri() . '/js/dracobit.min.js', array( 'jquery', 'backbone', 'underscore', 'vendors' ), DRACOBIT_VERSION, true );
 
@@ -98,18 +100,6 @@ function dracobit_scripts() {
 	) );
 }
 add_action( 'wp_enqueue_scripts', 'dracobit_scripts' );
-
-/**
- * Allows for wordpress to recognize all of the stylesheet files
- *
- * @since 1.0.0
- */
-function dracobit_styles() {
-
-	wp_enqueue_style( 'vendors', get_template_directory_uri() . '/css/vendors.min.css', array(), DRACOBIT_VERSION, 'all' );
-	wp_enqueue_style( 'dracobit', get_template_directory_uri() . '/style.min.css', array( 'vendors' ), DRACOBIT_VERSION, 'all' );
-}
-add_action( 'wp_enqueue_scripts', 'dracobit_styles' );
 
 /**
  * Establishes the endpoints for each of the post types,
@@ -151,11 +141,11 @@ function dracobit_widgets_init() {
 add_action( 'widgets_init', 'dracobit_widgets_init' );
 
 /**
- * Logs user in after submitting a form
+ * Logs user in
  *
  * @since 1.0.0
  */
-function dracobit_login_member() {
+function dracobit_login() {
 	if ( isset( $_POST['dracobit_login_username'] ) && wp_verify_nonce( $_POST['dracobit_login_nonce'], 'dracobit-login-nonce' ) ) {
 		$user = get_userdatabylogin( $_POST['dracobit_login_username'] );
 
@@ -183,14 +173,14 @@ function dracobit_login_member() {
 		}
 	}
 }
-add_action( 'init', 'dracobit_login_member' );
+add_action( 'init', 'dracobit_login' );
 
 /**
  * Register a new user
  *
  * @since 1.0.0
  */
-function dracobit_add_new_member() {
+function dracobit_signup() {
   if ( isset( $_POST['dracobit_signup_username'] ) && wp_verify_nonce( $_POST['dracobit_register_nonce'], 'dracobit-register-nonce' ) ) {
 		$user_login   = $_POST['dracobit_signup_username'];
 		$user_email   = $_POST['dracobit_signup_email'];
@@ -260,7 +250,7 @@ function dracobit_add_new_member() {
 		}
 	}
 }
-add_action( 'init', 'dracobit_add_new_member' );
+add_action( 'init', 'dracobit_signup' );
 
 /**
  * Used for tracking error messages
