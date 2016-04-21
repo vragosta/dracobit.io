@@ -40,11 +40,11 @@
 										<fieldset>
 											<div class="form-group">
 												<input type="text" class="autocomplete-fix" />
-												<input name="dracobit_user_login" id="dracobit_user_login" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
+												<input name="dracobit_login_username" id="dracobit_login_username" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
 											</div>
 											<div class="form-group">
 												<input type="text" class="autocomplete-fix" />
-												<input name="dracobit_user_pass" id="dracobit_user_pass" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
+												<input name="dracobit_login_password" id="dracobit_login_password" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
 											</div>
 												<input type="hidden" name="dracobit_login_nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
 												<input id="dracobit_login_submit" class="btn btn-secondary" type="submit" value="Login"/>

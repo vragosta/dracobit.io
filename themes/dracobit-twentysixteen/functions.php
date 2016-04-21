@@ -156,18 +156,18 @@ add_action( 'widgets_init', 'dracobit_widgets_init' );
  * @since 1.0.0
  */
 function dracobit_login_member() {
-	if ( isset( $_POST['dracobit_user_login'] ) && wp_verify_nonce( $_POST['dracobit_login_nonce'], 'dracobit-login-nonce' ) ) {
-		$user = get_userdatabylogin( $_POST['dracobit_user_login'] );
+	if ( isset( $_POST['dracobit_login_username'] ) && wp_verify_nonce( $_POST['dracobit_login_nonce'], 'dracobit-login-nonce' ) ) {
+		$user = get_userdatabylogin( $_POST['dracobit_login_username'] );
 
 		if ( ! $user ) {
 			dracobit_errors()->add( 'empty_username', __( 'Invalid username' ) );
 		}
 
-		if ( ! isset( $_POST['dracobit_user_pass'] ) || $_POST['dracobit_user_pass'] == '' ) {
+		if ( ! isset( $_POST['dracobit_login_password'] ) || $_POST['dracobit_login_password'] == '' ) {
 			dracobit_errors()->add( 'empty_password', __( 'Please enter a password' ) );
 		}
 
-		if ( ! wp_check_password( $_POST['dracobit_user_pass'], $user->user_pass, $user->ID ) ) {
+		if ( ! wp_check_password( $_POST['dracobit_login_password'], $user->user_pass, $user->ID ) ) {
 			dracobit_errors()->add( 'empty_password', __( 'Incorrect password' ) );
 		}
 
@@ -175,9 +175,9 @@ function dracobit_login_member() {
 
 		if ( empty( $errors ) ) {
 
-			wp_setcookie( $_POST['dracobit_user_login'], $_POST['dracobit_user_pass'], true );
-			wp_set_current_user( $user->ID, $_POST['dracobit_user_login'] );
-			do_action( 'wp_login', $_POST['dracobit_user_login'] );
+			wp_setcookie( $_POST['dracobit_login_username'], $_POST['dracobit_login_password'], true );
+			wp_set_current_user( $user->ID, $_POST['dracobit_login_username'] );
+			do_action( 'wp_login', $_POST['dracobit_login_username'] );
 
 			wp_redirect( home_url( 'profile' ) ); exit;
 		}
@@ -191,13 +191,14 @@ add_action( 'init', 'dracobit_login_member' );
  * @since 1.0.0
  */
 function dracobit_add_new_member() {
-  if ( isset( $_POST['dracobit_user_login'] ) && wp_verify_nonce( $_POST['dracobit_register_nonce'], 'dracobit-register-nonce' ) ) {
-		$user_login   = $_POST['dracobit_user_login'];
-		$user_email   = $_POST['dracobit_user_email'];
-		$user_first   = $_POST['dracobit_user_first'];
-		$user_last    = $_POST['dracobit_user_last'];
-		$user_pass    = $_POST['dracobit_user_pass'];
-		$pass_confirm = $_POST['dracobit_user_pass_confirm'];
+	var_dump( wp_verify_nonce( $_POST['dracobit_register_nonce'], 'dracobit-register-nonce' ) );
+  if ( isset( $_POST['dracobit_signup_username'] ) && wp_verify_nonce( $_POST['dracobit_register_nonce'], 'dracobit-register-nonce' ) ) {
+		$user_login   = $_POST['dracobit_signup_username'];
+		$user_email   = $_POST['dracobit_signup_email'];
+		$user_first   = $_POST['dracobit_signup_firstname'];
+		$user_last    = $_POST['dracobit_signup_lastname'];
+		$user_pass    = $_POST['dracobit_signup_password'];
+		$pass_confirm = $_POST['dracobit_signup_password_confirm'];
 
 		// this is required for username checks
 		require_once( ABSPATH . WPINC . '/registration.php' );
