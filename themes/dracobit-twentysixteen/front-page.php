@@ -19,35 +19,48 @@
         	}
         ?>
 
-        <form id="dracobit-signup-form" class="dracobit-form" action="" method="POST">
+        <form id="dracobit-signup-form" class="dracobit-signup-form" action="" method="POST">
           <fieldset>
             <div class="form-group">
               <input type="text" class="autocomplete-fix" />
               <input name="dracobit-signup-username" id="dracobit-signup-username" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
             </div>
+          </fieldset>
+          <fieldset>
             <div class="form-group">
               <input type="text" class="autocomplete-fix" />
               <input name="dracobit-signup-email" id="dracobit-signup-email" class="form-control" placeholder="Email" type="email" aria-describedby="signup-email-icon" required />
             </div>
-            <div class="input-group" id="signup-name-container">
+          </fieldset>
+          <fieldset>
+            <div class="form-group">
               <input type="text" class="autocomplete-fix" />
               <input name="dracobit-signup-firstname" id="dracobit-signup-firstname" class="form-control" placeholder="First name" type="text" aria-describedby="signup-name-icon" required />
-
+            </div>
+          </fieldset>
+          <fieldset>
+            <div class="form-group">
               <input type="text" class="autocomplete-fix" />
               <input name="dracobit-signup-lastname" id="dracobit-signup-lastname" class="form-control" placeholder="Last name" type="text" aria-describedby="signup-name-icon" required />
             </div>
+          </fieldset>
+          <fieldset>
             <div class="form-group">
               <input type="text" class="autocomplete-fix" />
               <input name="dracobit-signup-password" id="dracobit-signup-password" class="form-control" placeholder="Password" type="password" aria-describedby="signup-password-icon" required />
             </div>
+          </fieldset>
+          <fieldset>
             <div class="form-group">
               <input type="text" class="autocomplete-fix" />
               <input name="dracobit-signup-password-confirm" id="dracobit-signup-password-confirm" class="form-control" placeholder="Confirm password" type="password" aria-describedby="signup-password-icon" required />
             </div>
-            <p>
+          </fieldset>
+          <fieldset>
+            <div class="form-group">
               <input type="hidden" name="dracobit-signup-nonce" value="<?php echo wp_create_nonce('dracobit-signup-nonce'); ?>"/>
-              <input id="dracobit-signup-submit" type="submit" value="<?php _e('Sign Up'); ?>"/>
-            </p>
+              <input id="dracobit-signup-submit" class="btn btn-info" type="submit" value="<?php _e('Sign Up'); ?>"/>
+            </div>
           </fieldset>
         </form>
       </div>

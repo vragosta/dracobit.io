@@ -333,41 +333,31 @@ input.autocomplete-fix {
 	justify-content: center;
 }
 
-.dracobit_signup_header {
-	font-size: 40px;
+.dracobit-signup-header {
+	margin: 0;
 }
 
-.dracobit_signup_subheader {
-	margin-bottom: 20px;
+.dracobit-signup-subheader {
+	font-size: 12px;
 }
 
-input[name="dracobit_signup_input"] {
-	border-radius: 0;
-	width: 410px;
-	height: 35px;
-	font-size: 18px;
+.dracobit-signup-form {
+	width: 250px;
 }
 
-#signup-name-container {
-	margin-bottom: 15px;
+.signup-form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 25px 50px;
+	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
+	background: #fff;
 }
 
-input[name="dracobit_signup_first"],
-input[name="dracobit_signup_last"] {
-	border-radius: 0;
-	width: 200px !important;
-	height: 35px;
-	font-size: 18px;
-}
-
-input[name="dracobit_signup_first"] {
-	margin-right: 10px;
-}
-
-#dracobit_signup_submit {
-	margin-top: 10px;
-  font-size: 17px;
-	padding: 5px;
+#dracobit-signup-submit {
+	width: 100%;
 }
 
 /*
