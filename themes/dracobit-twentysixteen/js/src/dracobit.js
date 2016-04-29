@@ -8,13 +8,13 @@ var Chapter = require( './views/chapter' );
 
 var Router = Backbone.Router.extend({
 	routes: {
-		'blog(/)' : 'archivePosts',
-		'blog/:slug(/)' : 'singlePost',
-		'tutorial(/)' : 'archiveTutorials',
-		'tutorial/:slug(/)' : 'singleTutorial',
-		'chapter(/)' : 'archiveChapters',
-		'chapter/:slug(/)' : 'singleChapter',
-		':slug(/)' : 'singlePost'
+		'blog(/)': 'archivePosts',
+		'blog/:slug(/)': 'singlePost',
+		'tutorial(/)': 'archiveTutorials',
+		'tutorial/:slug(/)': 'singleTutorial',
+		'chapter(/)': 'archiveChapters',
+		'chapter/:slug(/)': 'singleChapter',
+		':slug(/)': 'singlePost'
 	},
 
 	archivePosts: function() {
@@ -73,6 +73,29 @@ $(function() {
 			$( 'ul.nav li' ).removeClass( 'active' );
 			$( this ).addClass( 'active' );
 		}
+	});
+
+	console.log( Dracobit.options.nonce );
+
+	// $.ajax({
+	// 	type: 'get',
+	// 	url: Dracobit.options.apiUrl + '/chapter'
+	// }).then(function( response ) {
+	// 	console.log( response );
+	// });
+
+	$.ajax({
+		type: 'post',
+		url: Dracobit.options.apiUrl + '/chapter/819',
+		data: { title: 'something!' },
+		headers: {
+			'X-WP-Nonce': Dracobit.options.nonce
+		},
+		// dataType: 'json',
+		// cache: false,
+		// contentType: false
+	}).then(function( response ) {
+		console.log( response );
 	});
 
 });

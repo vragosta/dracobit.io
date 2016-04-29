@@ -24,6 +24,7 @@ class WP_JSON_Chapter {
 
 		$routes['/chapter/(?P<id>\d+)'] = array(
 			array( array( $this, 'get_chapter' ), WP_JSON_Server::READABLE ),
+			array( array( $this, 'edit_chapter' ), WP_JSON_Server::EDITABLE | WP_JSON_Server::ACCEPT_JSON )
 		);
 
 		return $routes;
@@ -88,6 +89,19 @@ class WP_JSON_Chapter {
 		global $wp_json_posts;
 			$output = $wp_json_posts->get_post( $id, 'view' );
 		return $output;
+	}
+
+	/**
+	 * Edit a chapter.
+	 *
+	 * @param int $id
+	 * @param array $data
+	 * @param array $_header
+	 * @return WP_JSON_Response
+	 */
+	function edit_chapter( $id, $data, $_headers = array() ) {
+		global $wp_json_posts;
+		return $wp_json_posts->edit_post( $id, $data, $_headers );
 	}
 
 }
