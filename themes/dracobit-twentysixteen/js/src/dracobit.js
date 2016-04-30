@@ -75,7 +75,7 @@ $(function() {
 		}
 	});
 
-	console.log( Dracobit.options.nonce );
+	// console.log( Dracobit.options.nonce );
 
 	// $.ajax({
 	// 	type: 'get',
@@ -84,18 +84,15 @@ $(function() {
 	// 	console.log( response );
 	// });
 
-	$.ajax({
-		type: 'post',
-		url: Dracobit.options.apiUrl + '/chapter/819',
-		data: { title: 'something!' },
-		headers: {
-			'X-WP-Nonce': Dracobit.options.nonce
-		},
-		// dataType: 'json',
-		// cache: false,
-		// contentType: false
-	}).then(function( response ) {
-		console.log( response );
-	});
+	// $.ajax({
+	// 	type: 'post',
+	// 	url: Dracobit.options.apiUrl + '/chapter/819',
+	// 	data: { title: 'something!' },
+	// 	headers: {
+	// 		'X-WP-Nonce': Dracobit.options.nonce
+	// 	},
+	// }).then(function( response ) {
+	// 	console.log( response );
+	// });
 
 });

@@ -26,9 +26,9 @@
 
 		    <div class="collapse navbar-collapse" id="dracobit-header">
 		      <ul class="nav navbar-nav">
-						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/blog/' ) ? 'active' : '' ; ?>"><a href="/blog">Home</a></li>
-						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/tutorial/' ) ? 'active' : '' ; ?>"><a href="/tutorial">Tutorials</a></li>
-						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/chapter/' ) ? 'active' : '' ; ?>"><a href="/chapter">Chapters</a></li>
+						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/blog/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">Home</a></li>
+						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/tutorial/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/tutorial' ) ); ?>">Tutorials</a></li>
+						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/chapter/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/chapter' ) ); ?>">Chapters</a></li>
 						<?php
 							if ( current_user_can( 'edit_posts' ) ) { ?>
 								<li><a href="<?php echo admin_url(); ?>">WP-Admin</a></li><?php
@@ -54,7 +54,7 @@
 							<?php }
 
 							if ( is_user_logged_in() ) { ?>
-								<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/profile/' ) ? 'active' : '' ; ?>"><a href="/profile"><?php echo $current_user->display_name; ?></a></li>
+								<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/profile/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/profile' ) ); ?>"><?php echo $current_user->display_name; ?></a></li>
 								<li><?php wp_loginout( home_url( '/' ) ); ?></li><?php
 							}
 						?>
