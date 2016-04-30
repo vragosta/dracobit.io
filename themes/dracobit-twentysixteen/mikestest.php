@@ -1,5 +1,0 @@
-<?php
-
-echo "Ghost Pepper";
-
-?>
