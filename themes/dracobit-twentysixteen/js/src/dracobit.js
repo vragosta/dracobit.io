@@ -84,15 +84,15 @@ $(function() {
 	// 	console.log( response );
 	// });
 
-	// $.ajax({
-	// 	type: 'post',
-	// 	url: Dracobit.options.apiUrl + '/chapter/819',
-	// 	data: { title: 'something!' },
-	// 	headers: {
-	// 		'X-WP-Nonce': Dracobit.options.nonce
-	// 	},
-	// }).then(function( response ) {
-	// 	console.log( response );
-	// });
+	$.ajax({
+		type: 'post',
+		url: Dracobit.options.apiUrl + '/chapter/252',
+		data: { tagline: 'testing' },
+		headers: {
+			'X-WP-Nonce': Dracobit.options.nonce
+		},
+	}).then(function( response ) {
+		console.log( response );
+	});
 
 });

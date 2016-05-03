@@ -104,4 +104,20 @@ class WP_JSON_Chapter {
 		return $wp_json_posts->edit_post( $id, $data, $_headers );
 	}
 
+	function update_post_meta( $post, $data, $update ) {
+		if ( $update == true ) {
+			if ( isset( $data['post_content'] ) ) {
+				update_post_meta( $post['ID'], 'post_content', $data['post_content'] );
+			}
+
+			if ( isset( $data['tagline'] ) ) {
+				update_post_meta( $post['ID'], 'tagline', $data['tagline'] );
+			}
+
+			if ( isset( $data['version'] ) ) {
+				update_post_meta( $post['ID'], 'version', $data['version'] );
+			}
+		}
+	}
+
 }
