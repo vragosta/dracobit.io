@@ -62,6 +62,8 @@
               <input id="dracobit-signup-submit" class="btn btn-info" type="submit" value="<?php _e('Sign Up'); ?>"/>
             </div>
           </fieldset>
+          <!-- Test 12 testing -->
+          <!-- More test comments -->
         </form>
       </div>
       <?php } ?>
