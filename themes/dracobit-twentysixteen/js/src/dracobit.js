@@ -14,6 +14,7 @@ var Router = Backbone.Router.extend({
 		'tutorial/:slug(/)': 'singleTutorial',
 		'chapter(/)': 'archiveChapters',
 		'chapter/:slug(/)': 'singleChapter',
+		'profile(/)': 'archiveChapters',
 		':slug(/)': 'singlePost'
 	},
 
@@ -84,15 +85,15 @@ $(function() {
 	// 	console.log( response );
 	// });
 
-	$.ajax({
-		type: 'post',
-		url: Dracobit.options.apiUrl + '/chapter/252',
-		data: { tagline: 'testing' },
-		headers: {
-			'X-WP-Nonce': Dracobit.options.nonce
-		},
-	}).then(function( response ) {
-		console.log( response );
-	});
+	// $.ajax({
+	// 	type: 'post',
+	// 	url: Dracobit.options.apiUrl + '/chapter/252',
+	// 	data: { tagline: 'testing' },
+	// 	headers: {
+	// 		'X-WP-Nonce': Dracobit.options.nonce
+	// 	},
+	// }).then(function( response ) {
+	// 	console.log( response );
+	// });
 
 });
