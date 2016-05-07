@@ -6,8 +6,8 @@
 			<legend>Profile</legend>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<div class="dracobit-section">
-						<?php get_template_part( 'content', 'profile-chapter' ); ?>
+					<div class="row-fluid add-chapter-container">
+						<a href="<?php echo home_url('upload'); ?>" class="btn btn-info">Add Chapter <i class="fa fa-plus" aria-hidden="true"></i></a>
 					</div>
 				</div>
 			</div>

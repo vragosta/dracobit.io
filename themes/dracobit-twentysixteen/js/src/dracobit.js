@@ -14,7 +14,7 @@ var Router = Backbone.Router.extend({
 		'tutorial/:slug(/)': 'singleTutorial',
 		'chapter(/)': 'archiveChapters',
 		'chapter/:slug(/)': 'singleChapter',
-		'profile(/)': 'archiveChapters',
+		// 'profile(/)': 'archiveChapters',
 		':slug(/)': 'singlePost'
 	},
 

@@ -361,6 +361,15 @@ input.autocomplete-fix {
 }
 
 /*
+ * Profile
+ */
+
+.add-chapter-container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+/*
  * Media Queries
  */
 
@@ -383,6 +392,11 @@ input.autocomplete-fix {
 }
 
 @media ( min-width: 768px ) {
+	.navbar .container-fluid {
+		width: 1170px;
+		margin: 0 auto;
+	}
+
 	.dracobit-login {
 		height: 50px;
 		display: flex !important;
