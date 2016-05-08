@@ -369,6 +369,21 @@ input.autocomplete-fix {
 	justify-content: flex-end;
 }
 
+
+.upload-step {
+	background: #ccc;
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	float: left;
+}
+
 /*
  * Media Queries
  */
