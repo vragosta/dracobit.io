@@ -27,7 +27,7 @@ get_header(); ?>
 				</div>
 				<div class="row">
 					<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding: 0;">
-						<textarea type="text" class="form-control" style="border-radius: 0; resize: none; height: 70px;" /></textarea>
+						<textarea type="text" class="form-control upload-chapter-title" style="border-radius: 0; resize: none; height: 70px;" /></textarea>
 					</div>
 				</div>
 			</div>
@@ -43,7 +43,7 @@ get_header(); ?>
 				</div>
 				<div class="row">
 					<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding: 0;">
-						<textarea type="text" class="form-control" style="border-radius: 0; resize: none; height: 100px;" /></textarea>
+						<textarea type="text" class="form-control upload-chapter-content" style="border-radius: 0; resize: none; height: 100px;" /></textarea>
 					</div>
 				</div>
 			</div>
@@ -59,7 +59,7 @@ get_header(); ?>
 				</div>
 				<div class="row">
 					<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding: 0;">
-						<textarea type="text" class="form-control" style="border-radius: 0; resize: none; height: 70px;" /></textarea>
+						<textarea type="text" class="form-control upload-chapter-tagline" style="border-radius: 0; resize: none; height: 70px;" /></textarea>
 					</div>
 				</div>
 			</div>
@@ -75,14 +75,14 @@ get_header(); ?>
 				</div>
 				<div class="row">
 					<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding: 0;">
-						<input type="text" class="form-control" style="border-radius: 0; resize: none;" />
+						<input type="text" class="form-control upload-chapter-version" style="border-radius: 0; resize: none;" />
 					</div>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11" style="padding: 0;">
-					<button type="button" class="btn btn-info" style="width: 100%;">Upload Chapter</button>
+					<button type="button" class="btn btn-info upload-submit" style="width: 100%;">Upload Chapter</button>
 				</div>
 			</div>
 
@@ -90,3 +90,5 @@ get_header(); ?>
     <?php get_sidebar( get_post_type() ); ?>
   </main>
 </div>
+
+<?php get_footer(); ?>

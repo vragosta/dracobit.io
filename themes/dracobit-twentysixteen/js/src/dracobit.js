@@ -15,7 +15,7 @@ var Router = Backbone.Router.extend({
 		'chapter(/)': 'archiveChapters',
 		'chapter/:slug(/)': 'singleChapter',
 		// 'profile(/)': 'archiveChapters',
-		':slug(/)': 'singlePost'
+		// ':slug(/)': 'singlePost'
 	},
 
 	archivePosts: function() {
@@ -68,7 +68,6 @@ Backbone.history.start({
 });
 
 $(function() {
-
 	$( 'ul.nav li' ).click(function() {
 		if ( ! $( this ).hasClass( 'active' ) ) {
 			$( 'ul.nav li' ).removeClass( 'active' );
@@ -76,24 +75,32 @@ $(function() {
 		}
 	});
 
-	// console.log( Dracobit.options.nonce );
+	$( '.upload-submit' ).click(function() {
+		chapter_title = $( '.upload-chapter-title' ).val();
+		chapter_content = $( '.upload-chapter-content' ).val();
+		chapter_tagline = $( '.upload-chapter-tagline' ).val();
+		chapter_version = $( '.upload-chapter-version' ).val();
 
-	// $.ajax({
-	// 	type: 'get',
-	// 	url: Dracobit.options.apiUrl + '/chapter'
-	// }).then(function( response ) {
-	// 	console.log( response );
-	// });
+		content = {
+			title : chapter_title,
+			content_raw: chapter_content,
+			tagline: chapter_tagline,
+			version: chapter_version
+		};
 
-	// $.ajax({
-	// 	type: 'post',
-	// 	url: Dracobit.options.apiUrl + '/chapter/252',
-	// 	data: { tagline: 'testing' },
-	// 	headers: {
-	// 		'X-WP-Nonce': Dracobit.options.nonce
-	// 	},
-	// }).then(function( response ) {
-	// 	console.log( response );
-	// });
+		console.log( content );
+
+		$.ajax({
+			type: 'post',
+			url: Dracobit.options.apiUrl + '/chapter',
+			headers: {
+				'X-WP-Nonce': Dracobit.options.nonce
+			},
+			data: content
+		}).then( function( response ) {
+			console.log( response );
+		});
+
+	});
 
 });
