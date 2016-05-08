@@ -81,25 +81,30 @@ $(function() {
 		chapter_tagline = $( '.upload-chapter-tagline' ).val();
 		chapter_version = $( '.upload-chapter-version' ).val();
 
-		content = {
-			title : chapter_title,
-			content_raw: chapter_content,
-			tagline: chapter_tagline,
-			version: chapter_version
-		};
+		if ( chapter_title ) {
+			content = {
+				title : chapter_title,
+				content_raw: chapter_content,
+				tagline: chapter_tagline,
+				version: chapter_version
+			};
 
-		console.log( content );
+			console.log( content );
 
-		$.ajax({
-			type: 'post',
-			url: Dracobit.options.apiUrl + '/chapter',
-			headers: {
-				'X-WP-Nonce': Dracobit.options.nonce
-			},
-			data: content
-		}).then( function( response ) {
-			console.log( response );
-		});
+			$.ajax({
+				type: 'post',
+				url: Dracobit.options.apiUrl + '/chapter',
+				headers: {
+					'X-WP-Nonce': Dracobit.options.nonce
+				},
+				data: content
+			}).then( function( response ) {
+				console.log( response );
+			});
+		} else {
+			$( '.upload-message' ).html( 'There was a problem with the submission. Please enter a title.' );
+			$( '.upload-message-container' ).show();
+		}
 
 	});
 

@@ -16,6 +16,20 @@ get_header(); ?>
 					<a href="<?php echo home_url( 'profile' ); ?>" style="color: #ccc; text-decoration: none;">Back to profile</a>
 				</div>
 			</div>
+
+			<div class="row upload-message-container" style="display: none;">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<p class=" alert-danger upload-message" style="margin: 0; padding: 5px; border: 1px solid #ebccd1;">Uploading chapter... this may take a few minutes.</p>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-right: 0;">
+							<div class="progress progress-striped active" style="display: none;">
+								<div class="bar" style="width: 0%;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="row-fluid">
 				<div class="row" style="height: 50px;">
 					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="display: flex; align-items: center; height: 100%">
