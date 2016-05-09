@@ -369,6 +369,61 @@ input.autocomplete-fix {
 	justify-content: flex-end;
 }
 
+.upload-section-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 650px;
+}
+
+.upload-header-container {
+	height: 50px;
+}
+
+.upload-header-container > div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.upload-header-container > div h3 {
+	margin: 10px 0;
+}
+
+.upload-header-container > div a {
+	color: #ccc;
+	text-decoration: none;
+}
+
+.upload-message-container {
+	display: none;
+}
+
+.upload-message {
+	margin: 0;
+	padding: 5px;
+	border: 1px solid #ebccd1;
+}
+
+.upload-message-container .progress {
+	display: none;
+}
+.upload-message-container .progress .bar {
+	width: 0%;
+}
+
+.upload-chapter {
+	height: 50px;
+	width: 100%;
+	margin: 0;
+}
+
+.upload-step-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
 
 .upload-step {
 	background: #ccc;
@@ -381,6 +436,44 @@ input.autocomplete-fix {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.upload-content-text {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	padding: 0;
+}
+
+.upload-content {
+	width: 100%;
+	margin: 0;
+}
+
+.upload-content > div {
+	padding: 0;
+}
+
+.upload-content textarea {
+	border-radius: 0;
+	resize: none;
+	height: 70px;
+}
+.upload-content input {
+	border-radius: 0;
+	resize: none;
+}
+
+.upload-chapter-content {
+	height: 100px !important;
+}
+
+.upload-submit-container {
+	padding: 0;
+}
+
+.upload-submit-container button {
+	width: 100%;
 }
 
 /*
