@@ -40,6 +40,10 @@ class WP_JSON_Chapter {
 	 */
 	function data( $data, $post, $context ) {
 		if ( 'chapter' === $post['post_type'] ) {
+			$photo = get_attached_media( 'image', $data['ID'] );
+
+			// $photo_src = wp_get_attachment_image_src( $attachment->ID, 'medium' );
+
 			$output = array(
 				'ID'                    => $data['ID'],
 				'classes'               => implode( ' ', get_post_class( '', $post['ID'] ) ),
@@ -50,6 +54,7 @@ class WP_JSON_Chapter {
 				'featured_image'        => $data['featured_image'],
 				'link'                  => $data['link'],
 				'meta'                  => $data['meta'],
+				'photo'                 => $data['image'],
 				'tagline'               => get_post_meta( $post['ID'], 'tagline', true ),
 				'version'               => ( get_post_meta( $post['ID'], 'version', true ) ) ? get_post_meta( $post['ID'], 'version', true ) : '1.0',
 				'slug'                  => $data['slug'],

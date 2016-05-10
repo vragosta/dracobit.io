@@ -373,7 +373,7 @@ input.autocomplete-fix {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 650px;
+	height: 900px;
 }
 
 .upload-header-container {
@@ -474,6 +474,43 @@ input.autocomplete-fix {
 
 .upload-submit-container button {
 	width: 100%;
+}
+
+.sc_dropzone {
+  height: 150px;
+  width: 17.8% !important;
+  background: #e8e8e8;
+  border: 1px solid #ccc;
+  text-align: center;
+  padding-top: 27px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.sc_dropzone i {
+  opacity: 0.5;
+}
+
+.sc_dropzone .note {
+  padding: 5px 20px 0;
+  line-height: 1.2;
+  opacity: 0.7;
+}
+
+.sc_dropzone_preview {
+  display: none;
+  height: 150px;
+  width: 17.8%;
+  background: #e8e8e8;
+  border: 1px solid #ccc;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+  border: none;
+}
+
+#sc_dropzone_preview_1 {
+  margin: 0
 }
 
 /*

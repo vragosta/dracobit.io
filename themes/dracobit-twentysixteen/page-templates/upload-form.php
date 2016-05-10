@@ -36,6 +36,33 @@ get_header(); ?>
 						<div class="upload-step">1</div>
 					</div>
 					<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 upload-content-text">
+						<h4>Upload an image.</h4>
+					</div>
+				</div>
+				<div class="row upload-content">
+					<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11">
+						<div id="sc_dropzone_1" class="sc_dropzone span2">
+							<div id="sc_dropzone_1_contents">
+								<i class="fa fa-camera-retro fa-3x child-elements" data-id="1"></i>
+								<p class="note child-elements" data-id="1">Select a Photo or Drag & Drop</p>
+							</div>
+						</div>
+						<div id="sc_dropzone_preview_1" class="sc_dropzone_preview dropzone-previews" data-id="1"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11" id="remove-buttons">
+						<button class="sc_dropzone_delete" data-id="1">Remove</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="row upload-chapter">
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 upload-step-container">
+						<div class="upload-step">1</div>
+					</div>
+					<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 upload-content-text">
 						<h4>Enter Chapter title.</h4>
 					</div>
 				</div>
