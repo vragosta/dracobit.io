@@ -40,9 +40,18 @@ class WP_JSON_Chapter {
 	 */
 	function data( $data, $post, $context ) {
 		if ( 'chapter' === $post['post_type'] ) {
-			$photo = get_attached_media( 'image', $data['ID'] );
+			$photo = get_post( ( $post['ID'] - 1 ) );
 
-			// $photo_src = wp_get_attachment_image_src( $attachment->ID, 'medium' );
+			wp_update_post( array(
+				'ID'          => $photo->ID,
+				'post_parent' => $post['ID']
+			) );
+
+			$photo_attachments = get_attached_media( 'image', $post['ID'] );
+
+			foreach ( $photo_attachments as $attachment ) {
+				$photos[] = wp_get_attachment_image_src( $attachment->ID, 'medium' );
+			}
 
 			$output = array(
 				'ID'                    => $data['ID'],
@@ -54,7 +63,7 @@ class WP_JSON_Chapter {
 				'featured_image'        => $data['featured_image'],
 				'link'                  => $data['link'],
 				'meta'                  => $data['meta'],
-				'photo'                 => $data['image'],
+				'photo'                 => isset( $photos[0] ) ? $photos[0][0] : 'https://storycorpsme.s3.amazonaws.com/uploads/2015/03/storycorps.png',
 				'tagline'               => get_post_meta( $post['ID'], 'tagline', true ),
 				'version'               => ( get_post_meta( $post['ID'], 'version', true ) ) ? get_post_meta( $post['ID'], 'version', true ) : '1.0',
 				'slug'                  => $data['slug'],
@@ -130,6 +139,10 @@ class WP_JSON_Chapter {
 	}
 
 	function update_post_meta( $post, $data, $update ) {
+		if ( isset( $data['image'] ) ) {
+			update_post_meta( $post['ID'], 'photo', $data['image'] );
+		}
+
 		if ( $update == true ) {
 			if ( isset( $data['tagline'] ) ) {
 				update_post_meta( $post['ID'], 'tagline', $data['tagline'] );
