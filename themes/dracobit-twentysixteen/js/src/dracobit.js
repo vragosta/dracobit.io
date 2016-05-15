@@ -75,58 +75,59 @@ $(function() {
 		}
 	});
 
+	// require( 'inc/upload.js' );
 	if ( $( '.upload-section-container' ).length ) {
-		var image_dropzone_1 = new Dropzone( "#sc_dropzone_1", {
+		var image_dropzone_1 = new Dropzone( "#dracobit_dropzone_1", {
 			url: Dracobit.options.apiUrl + '/media',
 			maxFilesize: 500,
-			previewsContainer: '#sc_dropzone_preview_1',
+			previewsContainer: '#dracobit_dropzone_preview_1',
 			thumbnailWidth: 400,
 			thumbnailHeight: 400,
 			autoProcessQueue: false,
 			uploadMultiple: false,
-			clickable: ['#sc_dropzone_1', '#sc_dropzone_1 i', '#sc_dropzone_1 p', '#sc_dropzone_1_contents'],
+			clickable: ['#dracobit_dropzone_1', '#dracobit_dropzone_1 i', '#dracobit_dropzone_1 p', '#dracobit_dropzone_1_contents'],
 
 			init: function() {
 				this.on('addedfile', function( file ) {
-					$( '#sc_dropzone_1' ).hide();
-					$( '.sc_dropzone_preview[data-id=1]' ).show();
+					$( '#dracobit_dropzone_1' ).hide();
+					$( '.dracobit_dropzone_preview[data-id=1]' ).show();
 					$( '#remove-buttons' ).show();
 				});
 				this.on('removedfile', function( file ) {
 					$( '#remove-buttons' ).hide();
-					$( '.sc_dropzone_preview[data-id=1]' ).hide();
-					if ( $( '#sc_dropzone_1').hasClass( 'drag-hover' ) ) {
+					$( '.dracobit_dropzone_preview[data-id=1]' ).hide();
+					if ( $( '#dracobit_dropzone_1').hasClass( 'drag-hover' ) ) {
 						$( 'i[data-id=1]' ).css( 'display', 'block' );
 						$( 'p[data-id=1]' ).text( 'Add a Primary Photo' );
-						$( '#sc_dropzone_1' ).removeClass( 'drag-hover' );
+						$( '#dracobit_dropzone_1' ).removeClass( 'drag-hover' );
 					}
 					if ( image_dropzone_preview_1.files.length ) {
-						$( '#sc_dropzone_preview[data-id=1]' ).show();
+						$( '#dracobit_dropzone_preview[data-id=1]' ).show();
 					} else {
-						$( '#sc_dropzone_1' ).show();
+						$( '#dracobit_dropzone_1' ).show();
 					}
 				});
 				this.on('dragover', function( e ) {
-					if ( $( '#sc_dropzone_preview_1' ).css( 'display' ) === 'none' ) {
+					if ( $( '#dracobit_dropzone_preview_1' ).css( 'display' ) === 'none' ) {
 						$( 'i[data-id=1]' ).css( 'display', 'none' );
 						$( 'p[data-id=1]' ).text( 'Move Photo Here' );
-						$( '#sc_dropzone_1' ).addClass( 'drag-hover' );
+						$( '#dracobit_dropzone_1' ).addClass( 'drag-hover' );
 					}
 				});
 				this.on('dragleave', function( e ) {
-					if ( $( '#sc_dropzone_preview_1' ).css( 'display' ) === 'none' ) {
+					if ( $( '#dracobit_dropzone_preview_1' ).css( 'display' ) === 'none' ) {
 						$( 'i[data-id=1]' ).css( 'display', 'block' );
 						$( 'p[data-id=1]' ).text( 'Add a Primary Photo' );
-						$( '#sc_dropzone_1' ).removeClass( 'drag-hover' );
+						$( '#dracobit_dropzone_1' ).removeClass( 'drag-hover' );
 					}
 				});
 			}
 		});
 
-		var image_dropzone_preview_1 =  new Dropzone( "#sc_dropzone_preview_1", {
+		var image_dropzone_preview_1 =  new Dropzone( "#dracobit_dropzone_preview_1", {
 			url: Dracobit.options.apiUrl + '/media',
 			maxFilesize: 500,
-			previewsContainer: '#sc_dropzone_preview_1',
+			previewsContainer: '#dracobit_dropzone_preview_1',
 			thumbnailWidth: 400,
 			thumbnailHeight: 400,
 			autoProcessQueue: false,
@@ -135,23 +136,23 @@ $(function() {
 
 			init: function() {
 				this.on('addedfile', function( file ) {
-					$( '#sc_dropzone_1' ).hide();
-					$( '.sc_dropzone_preview[data-id=1]' ).show();
+					$( '#dracobit_dropzone_1' ).hide();
+					$( '.dracobit_dropzone_preview[data-id=1]' ).show();
 					$( '#remove-buttons' ).show();
 				});
 				this.on('removedfile', function( file ) {
 					$( '#remove-buttons' ).hide();
-					$( '.sc_dropzone_preview[data-id=1]' ).hide();
-					if ( $( '#sc_dropzone_1').hasClass( 'drag-hover' ) ) {
+					$( '.dracobit_dropzone_preview[data-id=1]' ).hide();
+					if ( $( '#dracobit_dropzone_1').hasClass( 'drag-hover' ) ) {
 						$( 'i[data-id=1]' ).css( 'display', 'block' );
 						$( 'p[data-id=1]' ).text( 'Add a Primary Photo' );
-						$( '#sc_dropzone_1' ).removeClass( 'drag-hover' );
+						$( '#dracobit_dropzone_1' ).removeClass( 'drag-hover' );
 					}
-					$( '#sc_dropzone_1' ).show();
+					$( '#dracobit_dropzone_1' ).show();
 				});
 				this.on('drop', function(e) {
-					if ( $( '#sc_dropzone_preview_1' ).data( 'type' ) == 'edit' ) {
-						$( '#sc_dropzone_preview_1 .dz-preview' ).remove();
+					if ( $( '#dracobit_dropzone_preview_1' ).data( 'type' ) == 'edit' ) {
+						$( '#dracobit_dropzone_preview_1 .dz-preview' ).remove();
 					} else {
 						if ( image_dropzone_1.files.length ) {
 							image_dropzone_1.removeAllFiles();
@@ -234,4 +235,24 @@ $(function() {
 			}
 		});
 	}
+
+	$( '#remove-buttons' ).on('click', '.dracobit_dropzone_delete', function() {
+		$data = $( this ).data( 'type' );
+
+		if ( $data == 'edit' ) {
+			$( '#dracobit_dropzone_preview_1 .dz-preview' ).remove();
+			$( '#edit-image').attr( 'src', '' );
+			$( '#dracobit_dropzone_preview_1' ).hide();
+			$( '#dracobit_dropzone_1' ).show();
+		} else {
+			if ( image_dropzone_1.files.length ) {
+				$dropzone = image_dropzone_1;
+			} else if ( image_dropzone_preview_1 ){
+				$dropzone = image_dropzone_preview_1;
+			} else {
+				alert('there is no image to delete');
+			}
+			$dropzone.removeAllFiles();
+		}
+	});
 });
