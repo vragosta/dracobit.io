@@ -5,6 +5,7 @@ var Tutorials = require( './views/tutorials' );
 var Tutorial = require( './views/tutorial' );
 var Chapters = require( './views/chapters' );
 var Chapter = require( './views/chapter' );
+var ChapterCollection = require( './collections/chapters' );
 
 var Router = Backbone.Router.extend({
 	routes: {
@@ -15,6 +16,7 @@ var Router = Backbone.Router.extend({
 		'chapter(/)': 'archiveChapters',
 		'chapter/:slug(/)': 'singleChapter',
 		// 'profile(/)': 'archiveChapters',
+		'profile(/)': 'profile',
 		// ':slug(/)': 'singlePost'
 	},
 
@@ -58,7 +60,17 @@ var Router = Backbone.Router.extend({
 			el: $( '.dracobit-section' )
 		});
 		this.view.render();
+	},
+
+	profile: function() {
+		this.view = new Chapters({
+			el: $( '.dracobit-section' ),
+		});
+		console.log( $( 'input[name=current-user-id]' ).val() );
+		this.view.collection.id = $( 'input[name=current-user-id]' ).val();
+		this.view.render();
 	}
+
 });
 
 window.router = new Router();
