@@ -15,7 +15,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="dracobit-section">
-						<?php get_template_part( 'content', 'chapter-profile' ); ?>
+						<?php get_template_part( 'content', 'chapter' ); ?>
 					</div>
 				</div>
 			</div>

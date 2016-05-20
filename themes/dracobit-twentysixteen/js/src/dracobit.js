@@ -15,7 +15,6 @@ var Router = Backbone.Router.extend({
 		'tutorial/:slug(/)': 'singleTutorial',
 		'chapter(/)': 'archiveChapters',
 		'chapter/:slug(/)': 'singleChapter',
-		// 'profile(/)': 'archiveChapters',
 		'profile(/)': 'profile',
 		// ':slug(/)': 'singlePost'
 	},
@@ -66,9 +65,8 @@ var Router = Backbone.Router.extend({
 		this.view = new Chapters({
 			el: $( '.dracobit-section' ),
 		});
-		// console.log( $( 'input[name=current-user-id]' ).val() );
 		this.view.collection.id = $( 'input[name=current-user-id]' ).val();
-		// this.view.collection.id = 2;
+		// this.view.collection.id = 1;
 		this.view.render();
 	}
 
