@@ -47,12 +47,7 @@
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 								<p class="list-group-item-text chapter-type">
-									<% if ( chapter.terms ) { %>
-										<%= ( chapter.terms.language[0].name ) ? chapter.terms.language[0].name : '' %>
-									<% } %>
-									<% if ( chapter.terms ) { %>
-										<%= ( chapter.terms.tutorial[0].name ) ? ' : ' + chapter.terms.tutorial[0].name : '' %>
-									<% } %>
+
 								</p>
 							</div>
 						</div>
