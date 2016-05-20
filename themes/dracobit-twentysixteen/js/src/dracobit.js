@@ -66,8 +66,9 @@ var Router = Backbone.Router.extend({
 		this.view = new Chapters({
 			el: $( '.dracobit-section' ),
 		});
-		console.log( $( 'input[name=current-user-id]' ).val() );
+		// console.log( $( 'input[name=current-user-id]' ).val() );
 		this.view.collection.id = $( 'input[name=current-user-id]' ).val();
+		// this.view.collection.id = 2;
 		this.view.render();
 	}
 
