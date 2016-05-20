@@ -230,7 +230,7 @@ function dracobit_signup() {
 					'first_name'      => $user_first,
 					'last_name'       => $user_last,
 					'user_registered' => date('Y-m-d H:i:s'),
-					'role'            => 'subscriber'
+					'role'            => 'author'
 				)
 			);
 
