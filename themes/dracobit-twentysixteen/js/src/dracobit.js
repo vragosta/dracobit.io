@@ -182,13 +182,15 @@ $(function() {
 			chapter_content = $( '.upload-chapter-content' ).val();
 			chapter_tagline = $( '.upload-chapter-tagline' ).val();
 			chapter_version = $( '.upload-chapter-version' ).val();
+			chapter_tutorial = $( 'select[name=upload-chapter-tutorial] option:selected' ).val();
 
 			if ( chapter_title ) {
 				content = {
 					title : chapter_title,
 					content_raw: chapter_content,
 					tagline: chapter_tagline,
-					version: chapter_version
+					version: chapter_version,
+					tutorial: chapter_tutorial
 				};
 
 				console.log( content );

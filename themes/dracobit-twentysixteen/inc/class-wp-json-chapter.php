@@ -65,8 +65,9 @@ class WP_JSON_Chapter {
 				'link'                  => $data['link'],
 				'meta'                  => $data['meta'],
 				'photo'                 => isset( $photos[0] ) ? $photos[0][0] : 'https://storycorpsme.s3.amazonaws.com/uploads/2015/03/storycorps.png',
-				'tagline'               => get_post_meta( $post['ID'], 'tagline', true ),
+				'tagline'               => get_post_meta( $post['ID'], 'tagline', true )
 				'version'               => ( get_post_meta( $post['ID'], 'version', true ) ) ? get_post_meta( $post['ID'], 'version', true ) : '1.0',
+				'tutorial'              => get_post_meta( $post['ID'], 'tutorial', true ),
 				'slug'                  => $data['slug'],
 				'terms'                 => $data['terms'],
 				'title'                 => $data['title'],
@@ -120,7 +121,6 @@ class WP_JSON_Chapter {
 		return $wp_json_posts->create_post( $data );
 	}
 
-
 	/**
 	 * Edit a chapter.
 	 *
@@ -147,6 +147,10 @@ class WP_JSON_Chapter {
 			update_post_meta( $post['ID'], 'version', $data['version'] );
 		}
 
+		if ( isset( $data['tutorial'] ) ) {
+			update_post_meta( $post['ID'], 'tutorial', $data['tutorial'] );
+		}
+
 		if ( $update == true ) {
 			if ( isset( $data['tagline'] ) ) {
 				update_post_meta( $post['ID'], 'tagline', $data['tagline'] );
@@ -154,6 +158,10 @@ class WP_JSON_Chapter {
 
 			if ( isset( $data['version'] ) ) {
 				update_post_meta( $post['ID'], 'version', $data['version'] );
+			}
+
+			if ( isset( $data['tutorial'] ) ) {
+				update_post_meta( $post['ID'], 'tutorial', $data['tutorial'] );
 			}
 		}
 	}
