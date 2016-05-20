@@ -55,6 +55,7 @@ class WP_JSON_Chapter {
 
 			$output = array(
 				'ID'                    => $data['ID'],
+				'author'                => $data['author'],
 				'classes'               => implode( ' ', get_post_class( '', $post['ID'] ) ),
 				'content'               => $data['content'],
 				'date'                  => date("F j, Y", strtotime($data['date'] ) ),
@@ -69,12 +70,7 @@ class WP_JSON_Chapter {
 				'slug'                  => $data['slug'],
 				'terms'                 => $data['terms'],
 				'title'                 => $data['title'],
-				'type'                  => $data['type'],
-				'credits'               => array(
-					'author'       => get_post_meta( $post['ID'], 'credit_author', true ),
-					'team'         => get_post_meta( $post['ID'], 'credit_team', true ),
-					'contributors' => get_post_meta( $post['ID'], 'credit_contributors', true ),
-				),
+				'type'                  => $data['type']
 			);
 
 			return $output;
@@ -107,22 +103,22 @@ class WP_JSON_Chapter {
 	}
 
 	/**
-		 * Create an interview.
-		 *
-		 * @param array $data
-		 * @return WP_JSON_Response
-		 */
-		function create_chapter( $data ) {
-			global $wp_json_posts;
-			$current_user_id = get_current_user_id();
-			if ( empty( $current_user_id ) ) {
-				return new WP_Error( 'json_not_logged_in', __( 'You are not currently logged in.' ), array( 'status' => 401 ) );
-			}
-			$data['type'] = 'chapter';
-			$data['author'] = $data['author'] ? $data['author'] : $current_user_id;
-			$data['status'] = 'publish';
-			return $wp_json_posts->create_post( $data );
+	 * Create an interview.
+	 *
+	 * @param array $data
+	 * @return WP_JSON_Response
+	 */
+	function create_chapter( $data ) {
+		global $wp_json_posts;
+		$current_user_id = get_current_user_id();
+		if ( empty( $current_user_id ) ) {
+			return new WP_Error( 'json_not_logged_in', __( 'You are not currently logged in.' ), array( 'status' => 401 ) );
 		}
+		$data['type']   = 'chapter';
+		$data['author'] = $data['author'] ? $data['author'] : $current_user_id;
+		$data['status'] = 'publish';
+		return $wp_json_posts->create_post( $data );
+	}
 
 
 	/**
@@ -141,6 +137,14 @@ class WP_JSON_Chapter {
 	function update_post_meta( $post, $data, $update ) {
 		if ( isset( $data['image'] ) ) {
 			update_post_meta( $post['ID'], 'photo', $data['image'] );
+		}
+
+		if ( isset( $data['tagline'] ) ) {
+			update_post_meta( $post['ID'], 'tagline', $data['tagline'] );
+		}
+
+		if ( isset( $data['version'] ) ) {
+			update_post_meta( $post['ID'], 'version', $data['version'] );
 		}
 
 		if ( $update == true ) {
