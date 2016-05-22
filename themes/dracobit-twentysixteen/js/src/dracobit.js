@@ -183,16 +183,22 @@ $(function() {
 			    chapter_tagline           = $( '.upload-chapter-tagline' ).val(),
 			    chapter_version           = $( '.upload-chapter-version' ).val(),
 			    chapter_tutorial          = $( 'select[name=upload-chapter-tutorial] option:selected' ).val(),
-			    chapter_short_description = $( '.upload-chapter-short-description' ).val();
+			    chapter_short_description = $( '.upload-chapter-short-description' ).val(),
+					chapter_keywords          = $( '.upload-chapter-keywords' ).val();
 
 			if ( chapter_title ) {
+				chapter_keywords = chapter_keywords.split( ',' ).map( function( str ) {
+					return str.trim();
+				});
+
 				content = {
 					title : chapter_title,
 					content_raw: chapter_content,
 					tagline: chapter_tagline,
 					version: chapter_version,
 					tutorial: chapter_tutorial,
-					short_description: chapter_short_description
+					short_description: chapter_short_description,
+					keywords: chapter_keywords
 				};
 
 				console.log( content );

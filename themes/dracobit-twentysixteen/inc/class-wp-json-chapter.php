@@ -31,6 +31,70 @@ class WP_JSON_Chapter {
 		return $routes;
 	}
 
+	function update_post_meta( $post, $data, $update ) {
+		if ( isset( $data['image'] ) ) {
+			update_post_meta( $post['ID'], 'photo', $data['image'] );
+		}
+
+		if ( isset( $data['short_description'] ) ) {
+			update_post_meta( $post['ID'], 'short_description', $data['short_description'] );
+		}
+
+		if ( isset( $data['tagline'] ) ) {
+			update_post_meta( $post['ID'], 'tagline', $data['tagline'] );
+		}
+
+		if ( isset( $data['version'] ) ) {
+			update_post_meta( $post['ID'], 'version', $data['version'] );
+		}
+
+		if ( isset( $data['tutorial'] ) ) {
+			update_post_meta( $post['ID'], 'tutorial', $data['tutorial'] );
+		}
+
+		if ( isset( $data['keywords'] ) ) {
+			if ( taxonomy_exists( 'keywords' ) ) {
+				if ( is_string( $data['keywords'] ) ) {
+					$keywords = sanitize_text_field( $data['keywords'] );
+					wp_set_object_terms( $post['ID'], $keywords, 'keywords' );
+				} elseif ( is_array( $data['keywords'] ) ) {
+					$keywords = array_map( 'sanitize_text_field', $data['keywords'] );
+					wp_set_object_terms( $post['ID'], $keywords, 'keywords' );
+				}
+			}
+		}
+
+		if ( $update == true ) {
+			if ( isset( $data['tagline'] ) ) {
+				update_post_meta( $post['ID'], 'tagline', $data['tagline'] );
+			}
+
+			if ( isset( $data['version'] ) ) {
+				update_post_meta( $post['ID'], 'version', $data['version'] );
+			}
+
+			if ( isset( $data['tutorial'] ) ) {
+				update_post_meta( $post['ID'], 'tutorial', $data['tutorial'] );
+			}
+
+			if ( isset( $data['short_description'] ) ) {
+				update_post_meta( $post['ID'], 'short_description', $data['short_description'] );
+			}
+
+			if ( isset( $data['keywords'] ) ) {
+				if ( taxonomy_exists( 'keywords' ) ) {
+					if ( is_string( $data['keywords'] ) ) {
+						$keywords = sanitize_text_field( $data['keywords'] );
+						wp_set_object_terms( $post['ID'], $keywords, 'keywords' );
+					} elseif ( is_array( $data['keywords'] ) ) {
+						$keywords = array_map( 'sanitize_text_field', $data['keywords'] );
+						wp_set_object_terms( $post['ID'], $keywords, 'keywords' );
+					}
+				}
+			}
+		}
+	}
+
 	/**
 	 *
 	 * @param  array  $data
@@ -69,6 +133,7 @@ class WP_JSON_Chapter {
 				'tagline'               => get_post_meta( $post['ID'], 'tagline', true ),
 				'version'               => ( get_post_meta( $post['ID'], 'version', true ) ) ? get_post_meta( $post['ID'], 'version', true ) : '1.0',
 				'tutorial'              => get_post_meta( $post['ID'], 'tutorial', true ),
+				'keywords'              => wp_get_post_terms( $post['ID'], 'keywords', array( 'fields' => 'names' ) ),
 				'slug'                  => $data['slug'],
 				'terms'                 => $data['terms'],
 				'title'                 => $data['title'],
@@ -134,45 +199,4 @@ class WP_JSON_Chapter {
 		global $wp_json_posts;
 		return $wp_json_posts->edit_post( $id, $data, $_headers );
 	}
-
-	function update_post_meta( $post, $data, $update ) {
-		if ( isset( $data['image'] ) ) {
-			update_post_meta( $post['ID'], 'photo', $data['image'] );
-		}
-
-		if ( isset( $data['short_description'] ) ) {
-			update_post_meta( $post['ID'], 'short_description', $data['short_description'] );
-		}
-
-		if ( isset( $data['tagline'] ) ) {
-			update_post_meta( $post['ID'], 'tagline', $data['tagline'] );
-		}
-
-		if ( isset( $data['version'] ) ) {
-			update_post_meta( $post['ID'], 'version', $data['version'] );
-		}
-
-		if ( isset( $data['tutorial'] ) ) {
-			update_post_meta( $post['ID'], 'tutorial', $data['tutorial'] );
-		}
-
-		if ( $update == true ) {
-			if ( isset( $data['tagline'] ) ) {
-				update_post_meta( $post['ID'], 'tagline', $data['tagline'] );
-			}
-
-			if ( isset( $data['version'] ) ) {
-				update_post_meta( $post['ID'], 'version', $data['version'] );
-			}
-
-			if ( isset( $data['tutorial'] ) ) {
-				update_post_meta( $post['ID'], 'tutorial', $data['tutorial'] );
-			}
-
-			if ( isset( $data['short_description'] ) ) {
-				update_post_meta( $post['ID'], 'short_description', $data['short_description'] );
-			}
-		}
-	}
-
 }

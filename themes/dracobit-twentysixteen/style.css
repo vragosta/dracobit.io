@@ -377,7 +377,7 @@ input.autocomplete-fix {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 900px;
+	height: 1200px;
 }
 
 .upload-header-container {

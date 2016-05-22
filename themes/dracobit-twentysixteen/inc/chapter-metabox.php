@@ -27,7 +27,8 @@ function dracobit_chapters_meta_box_callback( $post ) {
 	$tagline           = get_post_meta( $post->ID, 'tagline',           true );
 	$version           = get_post_meta( $post->ID, 'version',           true );
 	$tutorial          = get_post_meta( $post->ID, 'tutorial',          true );
-	$short_description = get_post_meta( $post->ID, 'short_description', true ); ?>
+	$short_description = get_post_meta( $post->ID, 'short_description', true );
+	$keywords          = get_post_meta( $post->ID, 'keywords',          true ); ?>
 
 	<table style="width: 100%;">
 		<tr>
@@ -60,6 +61,14 @@ function dracobit_chapters_meta_box_callback( $post ) {
 			</td>
 			<td>
 				<input type="text" id="short_description" name="short_description" value="<?php echo esc_attr( $short_description ); ?>" style="width: 100%;">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="keywords"><?php echo esc_html( __( 'Keywords:', 'dracobit' ) ); ?></label>
+			</td>
+			<td>
+				<input type="text" id="keywords" name="keywords" value="<?php echo esc_attr( $keywords ); ?>" style="width: 100%;">
 			</td>
 		</tr>
 	</table>
@@ -103,12 +112,14 @@ function dracobit_save_chapters_meta_box_data( $post_id ) {
 	$version           = sanitize_text_field( $_POST['version'] );
 	$tutorial          = sanitize_text_field( $_POST['tutorial'] );
 	$short_description = sanitize_text_field( $_POST['short_description'] );
+	$keywords          = sanitize_text_field( $_POST['keywords'] );
 
 	// Update the meta field in the database.
-	update_post_meta( $post_id, 'tagline', $tagline );
-	update_post_meta( $post_id, 'version', $version );
-	update_post_meta( $post_id, 'tutorial', $tutorial );
+	update_post_meta( $post_id, 'tagline',           $tagline );
+	update_post_meta( $post_id, 'version',           $version );
+	update_post_meta( $post_id, 'tutorial',          $tutorial );
 	update_post_meta( $post_id, 'short_description', $short_description );
+	update_post_meta( $post_id, 'keywords',          $keywords );
 
 }
 add_action( 'save_post', 'dracobit_save_chapters_meta_box_data' );
