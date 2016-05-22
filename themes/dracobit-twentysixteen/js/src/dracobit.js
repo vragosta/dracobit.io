@@ -178,11 +178,12 @@ $(function() {
 		});
 
 		$( '.upload-submit' ).click(function() {
-			chapter_title = $( '.upload-chapter-title' ).val();
-			chapter_content = $( '.upload-chapter-content' ).val();
-			chapter_tagline = $( '.upload-chapter-tagline' ).val();
-			chapter_version = $( '.upload-chapter-version' ).val();
-			chapter_tutorial = $( 'select[name=upload-chapter-tutorial] option:selected' ).val();
+			var chapter_title             = $( '.upload-chapter-title' ).val(),
+			    chapter_content           = $( '.upload-chapter-content' ).val(),
+			    chapter_tagline           = $( '.upload-chapter-tagline' ).val(),
+			    chapter_version           = $( '.upload-chapter-version' ).val(),
+			    chapter_tutorial          = $( 'select[name=upload-chapter-tutorial] option:selected' ).val(),
+			    chapter_short_description = $( '.upload-chapter-short-description' ).val();
 
 			if ( chapter_title ) {
 				content = {
@@ -190,7 +191,8 @@ $(function() {
 					content_raw: chapter_content,
 					tagline: chapter_tagline,
 					version: chapter_version,
-					tutorial: chapter_tutorial
+					tutorial: chapter_tutorial,
+					short_description: chapter_short_description
 				};
 
 				console.log( content );

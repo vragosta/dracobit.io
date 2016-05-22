@@ -58,6 +58,7 @@ class WP_JSON_Chapter {
 				'author'                => $data['author'],
 				'classes'               => implode( ' ', get_post_class( '', $post['ID'] ) ),
 				'content'               => $data['content'],
+				'short_description'     => get_post_meta( $post['ID'], 'short_description', true ),
 				'date'                  => date("F j, Y", strtotime($data['date'] ) ),
 				'date_gmt'              => $data['date_gmt'],
 				'date_tz'               => $data['date_tz'],
@@ -139,6 +140,10 @@ class WP_JSON_Chapter {
 			update_post_meta( $post['ID'], 'photo', $data['image'] );
 		}
 
+		if ( isset( $data['short_description'] ) ) {
+			update_post_meta( $post['ID'], 'short_description', $data['short_description'] );
+		}
+
 		if ( isset( $data['tagline'] ) ) {
 			update_post_meta( $post['ID'], 'tagline', $data['tagline'] );
 		}
@@ -162,6 +167,10 @@ class WP_JSON_Chapter {
 
 			if ( isset( $data['tutorial'] ) ) {
 				update_post_meta( $post['ID'], 'tutorial', $data['tutorial'] );
+			}
+
+			if ( isset( $data['short_description'] ) ) {
+				update_post_meta( $post['ID'], 'short_description', $data['short_description'] );
 			}
 		}
 	}

@@ -95,6 +95,22 @@ get_header(); ?>
 						<div class="upload-step">4</div>
 					</div>
 					<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 upload-content-text">
+						<h4>Enter Chapter Short Description</h4>
+					</div>
+				</div>
+				<div class="row upload-content">
+					<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11">
+						<textarea type="text" class="form-control upload-chapter-short-description" /></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="row upload-chapter">
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 upload-step-container">
+						<div class="upload-step">5</div>
+					</div>
+					<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 upload-content-text">
 						<h4>Enter Chapter Tagline.</h4>
 					</div>
 				</div>
@@ -108,7 +124,7 @@ get_header(); ?>
 			<div class="row">
 				<div class="row upload-chapter">
 					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 upload-step-container">
-						<div class="upload-step">5</div>
+						<div class="upload-step">6</div>
 					</div>
 					<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 upload-content-text">
 						<h4>Enter Chapter Version.</h4>
@@ -124,7 +140,7 @@ get_header(); ?>
 			<div class="row">
 				<div class="row upload-chapter">
 					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 upload-step-container">
-						<div class="upload-step">6</div>
+						<div class="upload-step">7</div>
 					</div>
 					<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 upload-content-text">
 						<h4>Enter Tutorial that this chapter belongs too.</h4>

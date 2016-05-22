@@ -24,9 +24,10 @@ function dracobit_chapters_meta_box_callback( $post ) {
 	 * Use get_post_meta() to retrieve an existing value
 	 * from the database and use the value for the form.
 	 */
-	$tagline  = get_post_meta( $post->ID, 'tagline',  true );
-	$version  = get_post_meta( $post->ID, 'version',  true );
-	$tutorial = get_post_meta( $post->ID, 'tutorial', true );?>
+	$tagline           = get_post_meta( $post->ID, 'tagline',           true );
+	$version           = get_post_meta( $post->ID, 'version',           true );
+	$tutorial          = get_post_meta( $post->ID, 'tutorial',          true );
+	$short_description = get_post_meta( $post->ID, 'short_description', true ); ?>
 
 	<table style="width: 100%;">
 		<tr>
@@ -51,6 +52,14 @@ function dracobit_chapters_meta_box_callback( $post ) {
 			</td>
 			<td>
 				<input type="text" id="tutorial" name="tutorial" value="<?php echo esc_attr( $tutorial ); ?>" style="width: 100%;">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="short_description"><?php echo esc_html( __( 'Short Description:', 'dracobit' ) ); ?></label>
+			</td>
+			<td>
+				<input type="text" id="short_description" name="short_description" value="<?php echo esc_attr( $short_description ); ?>" style="width: 100%;">
 			</td>
 		</tr>
 	</table>
@@ -90,14 +99,16 @@ function dracobit_save_chapters_meta_box_data( $post_id ) {
 	}
 
 	// Sanitize user input.
-	$tagline  = sanitize_text_field( $_POST['tagline'] );
-	$version  = sanitize_text_field( $_POST['version'] );
-	$tutorial = sanitize_text_field( $_POST['tutorial'] );
+	$tagline           = sanitize_text_field( $_POST['tagline'] );
+	$version           = sanitize_text_field( $_POST['version'] );
+	$tutorial          = sanitize_text_field( $_POST['tutorial'] );
+	$short_description = sanitize_text_field( $_POST['short_description'] );
 
 	// Update the meta field in the database.
 	update_post_meta( $post_id, 'tagline', $tagline );
 	update_post_meta( $post_id, 'version', $version );
 	update_post_meta( $post_id, 'tutorial', $tutorial );
+	update_post_meta( $post_id, 'short_description', $short_description );
 
 }
 add_action( 'save_post', 'dracobit_save_chapters_meta_box_data' );
