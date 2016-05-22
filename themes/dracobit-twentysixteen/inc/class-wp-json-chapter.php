@@ -65,7 +65,7 @@ class WP_JSON_Chapter {
 				'link'                  => $data['link'],
 				'meta'                  => $data['meta'],
 				'photo'                 => isset( $photos[0] ) ? $photos[0][0] : 'https://storycorpsme.s3.amazonaws.com/uploads/2015/03/storycorps.png',
-				'tagline'               => get_post_meta( $post['ID'], 'tagline', true )
+				'tagline'               => get_post_meta( $post['ID'], 'tagline', true ),
 				'version'               => ( get_post_meta( $post['ID'], 'version', true ) ) ? get_post_meta( $post['ID'], 'version', true ) : '1.0',
 				'tutorial'              => get_post_meta( $post['ID'], 'tutorial', true ),
 				'slug'                  => $data['slug'],
