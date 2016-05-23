@@ -376,7 +376,7 @@ input.autocomplete-fix {
 .upload-section-container {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	/*justify-content: space-between;*/
 	height: 1200px;
 }
 
@@ -406,14 +406,22 @@ input.autocomplete-fix {
 .upload-message {
 	margin: 0;
 	padding: 5px;
-	border: 1px solid #ebccd1;
+	/*border: 1px solid #ebccd1;*/
 }
 
-.upload-message-container .progress {
+/*.upload-message-container .progress {
 	display: none;
-}
+}*/
+
 .upload-message-container .progress .bar {
 	width: 0%;
+}
+
+.upload-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
 }
 
 .upload-chapter {
@@ -470,10 +478,6 @@ input.autocomplete-fix {
 
 .upload-chapter-content {
 	height: 100px !important;
-}
-
-.upload-submit-container {
-	padding: 0;
 }
 
 .upload-submit-container button {

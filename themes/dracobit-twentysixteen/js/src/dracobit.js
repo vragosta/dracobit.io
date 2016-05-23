@@ -178,6 +178,11 @@ $(function() {
 		});
 
 		$( '.upload-submit' ).click(function() {
+
+			$( window ).scrollTop( 0 );
+			$( '.upload-form' ).hide();
+			$( '.upload-message-container' ).show();
+
 			var chapter_title             = $( '.upload-chapter-title' ).val(),
 			    chapter_content           = $( '.upload-chapter-content' ).val(),
 			    chapter_tagline           = $( '.upload-chapter-tagline' ).val(),
@@ -219,7 +224,6 @@ $(function() {
 
 				// if filename does not equal null
 				if ( filename !== '' ) {
-					// THIRD AJAX CALL: hit the media endpoint
 					$.ajax({
 						url: Dracobit.options.apiUrl  + '/media',
 						type: 'post',
@@ -233,8 +237,8 @@ $(function() {
 						async: false,
 						processData: false,
 					}).then( function( response ) {
+						$( '.progress-bar-striped' ).css( 'width', '50%' );
 						content.image = response.ID;
-						console.log( content );
 						$.ajax({
 							type: 'post',
 							url: Dracobit.options.apiUrl + '/chapter',
@@ -243,7 +247,8 @@ $(function() {
 							},
 							data: content
 						}).then( function( response ) {
-							console.log( response );
+							$( '.progress-bar-striped' ).css( 'width', '100%' );
+							window.location.replace( '/profile' );
 						});
 					});
 				} else {
@@ -251,8 +256,13 @@ $(function() {
 					$( '.upload-message-container' ).show();
 				}
 			} else {
-				$( '.upload-message' ).html( 'There was a problem with the submission. Please enter a title.' );
+				$( '.upload-message' ).html( 'There was a problem with the submission. <span style="font-weight: 500; color: #d9534f;">Please enter a title.</span>' );
+				$( '.progress-bar-striped' ).css({
+					'width':'50%',
+					'background-color':'#d9534f'
+				});
 				$( '.upload-message-container' ).show();
+				$( '.upload-form' ).show();
 			}
 		});
 	}
