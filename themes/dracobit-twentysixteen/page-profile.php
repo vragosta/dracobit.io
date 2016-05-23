@@ -4,24 +4,22 @@
 	<main class="row">
     <section class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 			<legend>Profile</legend>
-			<div class="row comments-container">
+			<div class="row profile-upload-container">
+				<input type="hidden" name="current-user-id" value="<?php echo esc_attr( $current_user->ID ); ?>" />
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<?php $comments = get_comments( array( 'post_id' => $post->ID ) ); ?>
-					<?php wp_list_comments( array( 'callback' => 'dracobit_comment_template' ), $comments ); ?>
+					<!-- <div class="row-fluid add-tutorial-container">
+						<a href="<?php echo home_url( 'upload' ); ?>" class="btn btn-info">Add Tutorial <i class="fa fa-plus" aria-hidden="true"></i></a>
+					</div> -->
+					<div class="row-fluid add-chapter-container">
+						<a href="<?php echo home_url( 'upload' ); ?>" class="btn btn-info">Add Chapter <i class="fa fa-plus" aria-hidden="true"></i></a>
+					</div>
 				</div>
-				<div id="comment-form-hide">
-					<?php
-						$args = array(
-							'id_form'        => 'commentform-test',
-							'class_form'     => 'comment-form-test',
-							'title_reply_to' => '',
-							'title_reply'    => '',
-							'logged_in_as'   => '',
-							'comment_field'  => '<p class="comment-form-comment"><textarea id="comment" placeholder="Write something..." name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
-							'class_submit'   => 'btn btn-info'
-						);
-						comment_form( $args );
-					?>
+			</div>
+			<div class="row profile-chapters">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="dracobit-section">
+						<?php get_template_part( 'content', 'chapter' ); ?>
+					</div>
 				</div>
 			</div>
     </section>

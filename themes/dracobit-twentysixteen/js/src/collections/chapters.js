@@ -2,17 +2,24 @@ var Chapter = require( '../models/chapter' );
 
 module.exports = Backbone.Collection.extend({
 	model: Chapter,
-	page: 1,
-	order: 'asc',
+	id: '',
+	page: '',
+	order: 'desc',
 
 	url: function() {
 		var query = [];
 
-		if ( this.page ) {
-			query.push( 'page=' + this.page );
+		if ( this.id ) {
+			query.push( 'filter[author]=' + this.id );
 		}
 
-		query.push( 'filter[order]=' + this.order );
+		if ( this.page ) {
+			query.push( 'filter[page]=' + this.page );
+		}
+
+		if ( this.order ) {
+			query.push( 'filter[order]=' + this.order );
+		}
 
 		return Dracobit.options.apiUrl + '/chapter?' + query.join( '&' );
 	}
