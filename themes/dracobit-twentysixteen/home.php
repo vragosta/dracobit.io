@@ -6,6 +6,7 @@
 			<legend>News Feed</legend>
 			<div class="dracobit-section">
 				<?php get_template_part( 'content', get_post_type() ); ?>
+				<?php echo 'hello this is a test for deployments'; ?>
 			</div>
 		</section>
 		<?php get_sidebar( get_post_type() ); ?>
