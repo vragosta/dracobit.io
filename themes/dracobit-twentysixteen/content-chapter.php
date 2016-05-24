@@ -14,8 +14,7 @@
 <script class="chapters" type="html/template">
 	<% _.each( chapters, function( chapter ) { %>
 		<div class="list-group" style="height: 250px;">
-			<a href="/chapter/<%= chapter.slug %>" class="list-group-item archive-item" name="<%= chapter.slug %>" style="height: 100%;">
-				<div class="row" style="height: 100%;">
+				<div class="row list-group-item archive-item" style="height: 100%; border: 1px solid #ddd; margin: 0;">
 					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="height: 100%;">
 						<img src="<%= chapter.photo %>" style="width: 100%; height: 100%;" />
 					</div>
@@ -23,16 +22,17 @@
 						<div class="row chapter-top-row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 								<div class="row">
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 chapter-title" style="display: flex; justify-content: flex-start; font-size: 20px; color: #bf3939;">
-										<%= ( chapter.title ) ? chapter.title : '' %>
+									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 chapter-title" style="display: flex; justify-content: flex-start; font-size: 20px;">
+										<a href="/chapter/<%= ( chapter.slug ) ? chapter.slug : '' %>" title="<%= ( chapter.title ) ? chapter.title : '' %>" style="color: #bf3939;"><%= ( chapter.title ) ? chapter.title : '' %></a>
 									</div>
 									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 chapter-version" style="display: flex; justify-content: flex-end; font-size: 20px; font-weight: 100;">
-										<%= ( chapter.version ) ? 'v' + chapter.version : '' %>
+										<a href="#" style="color: #333; text-decoration: none; font-size: 16px; display: flex; align-items: center;">Edit</a>
+										<a href="#" style="color: #333;"><%= ( chapter.version ) ? 'v' + chapter.version : '' %></a>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-										<%= '<strong>Created By: </strong>' + chapter.author.first_name + ' ' + chapter.author.last_name  %>
+										<%= chapter.author.first_name + ' ' + chapter.author.last_name  + ' | ' + chapter.date %>
 									</div>
 								</div>
 							</div>
@@ -56,20 +56,18 @@
 						<div class="row chapter-bottom-row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 								<div class="row">
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chapter-keywords">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chapter-keywords" style="display: flex; justify-content: flex-start; align-items: center;">
 										<% if ( chapter.terms.keywords ) {
 											_.each( chapter.terms.keywords, function( keyword ) { %>
-												<div href="<%= keyword.link %>" value="<%= keyword.ID %>" style="float:left; margin-right: 20px;"><%= keyword.name %></div><%
+												<span class="badge"><a href="<%= keyword.link %>" value="<%= keyword.ID %>" style="color: #fff; font-weight: 400;"><%= keyword.name %></a></span><%
 											} );
 										} %>
 									</div>
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
-			</a>
 		</div>
 	<% } ); %>
 </script>
