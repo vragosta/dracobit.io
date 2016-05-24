@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source: /index.php
-    destination: /var/www/html/
+  - source: /
+    destination: /var/www/html/wp-content/
 # hooks:
 #   BeforeInstall:
 #     - location: scripts/install_dependencies
