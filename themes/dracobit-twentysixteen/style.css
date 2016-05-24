@@ -159,6 +159,10 @@ input.autocomplete-fix {
 	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
 }
 
+.archive-item:hover {
+	opacity: 0.8;
+}
+
 .archive-item-title {
 	margin-bottom: 0px;
 	font-size: 22px;
@@ -168,6 +172,10 @@ input.autocomplete-fix {
 .archive-item-date,
 .single-date {
 	font-weight: 500;
+}
+
+.chapter-version a:first-child {
+	margin-right: 10px;
 }
 
 /*
