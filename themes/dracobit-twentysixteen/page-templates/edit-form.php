@@ -1,13 +1,17 @@
 <?php
 
 /*
-Template Name: Upload Form
+Template Name: Edit Form
 */
+
+get_header();
 
 // blocks direct access to this file.
 defined( 'ABSPATH' ) || exit;
 
-get_header(); ?>
+$chapter = get_post( absint( $_GET['id'] ) );
+
+?>
 
 <div class="dracobit-container container">
 	<main class="row">
@@ -15,7 +19,7 @@ get_header(); ?>
 
 			<div class="row upload-header-container">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<h3>Add Chapter</h3>
+					<h3>Edit Chapter</h3>
 					<a href="<?php echo home_url( 'profile' ); ?>">Back to profile</a>
 				</div>
 			</div>
@@ -53,17 +57,25 @@ get_header(); ?>
 							</div>
 							<div class="row upload-content">
 								<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11">
-									<div id="dracobit_dropzone_1" class="dracobit_dropzone span2">
+									<div id="dracobit_dropzone_1" class="dracobit_dropzone span2" style="display: none;">
 										<div id="dracobit_dropzone_1_contents">
 											<i class="fa fa-camera-retro fa-3x child-elements" data-id="1"></i>
 											<p class="note child-elements" data-id="1">Select a Photo or Drag & Drop</p>
 										</div>
 									</div>
-									<div id="dracobit_dropzone_preview_1" class="dracobit_dropzone_preview dropzone-previews" data-id="1"></div>
+									<div id="dracobit_dropzone_preview_1" class="dracobit_dropzone_preview dropzone-previews" data-id="1" style="display: block; height: 150px;">
+										<div class="dz-preview dz-image-preview">
+											<?php
+												$photo_source = wp_get_attachment_image_src( get_post_meta( $chapter->ID, 'photo', true ) );
+												$photo = $photo_source[0];
+											?>
+											<div class="dz-image interview-edit-form" style="background-image: url( '<?php echo ( $photo ) ? $photo : '' ?>' ); background-size: 150px 150px; background-position: center; background-repeat: no-repeat; height: 100%;"></div>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11" id="remove-buttons">
+								<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11" id="remove-buttons" style="display: block;">
 									<button class="dracobit_dropzone_delete" data-id="1">Remove</button>
 								</div>
 							</div>
@@ -82,7 +94,7 @@ get_header(); ?>
 							</div>
 							<div class="row upload-content">
 								<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11">
-									<textarea type="text" class="form-control upload-chapter-title" maxlength="128" /></textarea>
+									<textarea type="text" class="form-control upload-chapter-title" maxlength="128" /><?php echo esc_textarea( $chapter->post_title ); ?></textarea>
 								</div>
 							</div>
 						</div>
@@ -100,7 +112,7 @@ get_header(); ?>
 							</div>
 							<div class="row upload-content">
 								<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11">
-									<textarea type="text" class="form-control upload-chapter-content" /></textarea>
+									<textarea type="text" class="form-control upload-chapter-content" /><?php echo esc_textarea( $chapter->post_content ); ?></textarea>
 								</div>
 							</div>
 						</div>
@@ -118,7 +130,7 @@ get_header(); ?>
 							</div>
 							<div class="row upload-content">
 								<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11">
-									<textarea type="text" class="form-control upload-chapter-short-description" maxlength="255"></textarea>
+									<textarea type="text" class="form-control upload-chapter-short-description" maxlength="255"><?php echo esc_textarea( get_post_meta( $chapter->ID, 'short_description', true ) ); ?></textarea>
 								</div>
 							</div>
 						</div>
@@ -136,7 +148,7 @@ get_header(); ?>
 							</div>
 							<div class="row upload-content">
 								<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11">
-									<textarea type="text" class="form-control upload-chapter-tagline" /></textarea>
+									<textarea type="text" class="form-control upload-chapter-tagline" /><?php echo esc_textarea( get_post_meta( $chapter->ID, 'tagline', true ) ); ?></textarea>
 								</div>
 							</div>
 						</div>
@@ -154,7 +166,7 @@ get_header(); ?>
 							</div>
 							<div class="row upload-content">
 								<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11">
-									<input type="text" class="form-control upload-chapter-version" />
+									<input type="text" class="form-control upload-chapter-version" value="<?php echo esc_attr( get_post_meta( $chapter->ID, 'version', true ) ); ?>" />
 								</div>
 							</div>
 						</div>
@@ -172,7 +184,8 @@ get_header(); ?>
 							</div>
 							<div class="row upload-content">
 								<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11">
-									<input type="text" class="form-control upload-chapter-keywords" />
+									<?php $keywords = implode( ', ', wp_get_post_terms( $chapter->ID, 'keywords', array( 'fields' => 'names' ) ) ); ?>
+									<input type="text" class="form-control upload-chapter-keywords" value="<?php echo esc_attr( $keywords ); ?>" />
 								</div>
 							</div>
 						</div>
