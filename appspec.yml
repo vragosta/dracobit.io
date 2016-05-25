@@ -1,12 +1,12 @@
 version: 0.0
 os: linux
 files:
-  - source: /mu-plugins/
+  - source: /
     destination: /var/www/html/wp-content/
-  - source: /plugins/
-  	destination:/var/www/html/wp-content/
-  - source: /themes/
-    destination: /var/www/html/wp-content/
+  # - source: /plugins/
+  # 	destination:/var/www/html/wp-content/
+  # - source: /themes/
+  #   destination: /var/www/html/wp-content/
 # hooks:
 #   BeforeInstall:
 #     - location: scripts/install_dependencies
