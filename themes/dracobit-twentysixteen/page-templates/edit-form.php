@@ -69,7 +69,7 @@ $chapter = get_post( absint( $_GET['id'] ) );
 												$photo_source = wp_get_attachment_image_src( get_post_meta( $chapter->ID, 'photo', true ) );
 												$photo = $photo_source[0];
 											?>
-											<div class="dz-image interview-edit-form" style="background-image: url( '<?php echo ( $photo ) ? $photo : '' ?>' ); background-size: 150px 150px; background-position: center; background-repeat: no-repeat; height: 100%;"></div>
+											<div class="dz-image chapter-edit-form" style="background-image: url( '<?php echo ( $photo ) ? $photo : '' ?>' ); background-size: 150px 150px; background-position: center; background-repeat: no-repeat; height: 100%;"></div>
 										</div>
 									</div>
 								</div>
@@ -206,9 +206,10 @@ $chapter = get_post( absint( $_GET['id'] ) );
 									<select name="upload-chapter-tutorial" class="form-control">
 										<option></option>
 										<?php
+											$tutorials_meta = json_decode( get_post_meta( $chapter->ID, 'tutorial', true ) );
 											$tutorials = new WP_Query( array( 'post_type' => 'tutorial' ) );
 											while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
-												<option value="<?php echo $post->ID; ?>"><?php echo $post->post_title; ?></option><?php
+												<option value="<?php echo $post->ID; ?>" <?php echo ( in_array( $post->ID, $tutorials_meta ) ) ? 'disabled' : '' ?>><?php echo $post->post_title; ?></option><?php
 											endwhile; wp_reset_postdata();
 										?>
 									</select>

@@ -29,8 +29,9 @@ a:hover {
 	opacity: 0.8;
 }
 
-a:focus {
+a:focus, button:focus {
 	text-decoration: none;
+	outline: none;
 }
 
 input.autocomplete-fix {
@@ -567,7 +568,8 @@ input.autocomplete-fix {
 }
 
 .dracobit_dropzone {
-	width: 17.8%;
+	/*width: 17.8%;*/
+	width: 150px;
 	height: 150px;
 	border: 1px solid #ccc;
 	margin: 0;
@@ -596,11 +598,13 @@ input.autocomplete-fix {
   text-align: center;
   line-height: 1.2;
   opacity: 0.7;
+	padding: 0 10px;
 }
 
 .dracobit_dropzone_preview {
   display: none;
-  width: 17.8%;
+  /*width: 17.8%;*/
+	width: 150px;
   background: #e8e8e8;
   border: 1px solid #ccc;
   text-align: center;
@@ -636,7 +640,8 @@ input.autocomplete-fix {
 
 #remove-buttons {
 	display: none;
-	width: 17.8%;
+	/*width: 17.8%;*/
+	width: 150px;
 	padding: 0;
 }
 

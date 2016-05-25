@@ -49,7 +49,17 @@ class WP_JSON_Chapter {
 		}
 
 		if ( isset( $data['tutorial'] ) ) {
-			update_post_meta( $post['ID'], 'tutorial', $data['tutorial'] );
+			$tutorial_array = get_post_meta( $post['ID'], 'tutorial', true );
+
+			if ( ! is_array( $tutorial_array ) ) {
+				$tutorial_array = array();
+			}
+
+			if ( ! in_array( $data['tutorial'], $tutorial_array ) ) {
+				array_push( $tutorial_array, absint( $data['tutorial'] ) );
+				$tutorial_array = json_encode( $tutorial_array );
+				update_post_meta( $post['ID'], 'tutorial', $tutorial_array );
+			}
 		}
 
 		if ( isset( $data['keywords'] ) ) {
@@ -74,7 +84,17 @@ class WP_JSON_Chapter {
 			}
 
 			if ( isset( $data['tutorial'] ) ) {
-				update_post_meta( $post['ID'], 'tutorial', $data['tutorial'] );
+				$tutorial_array = get_post_meta( $post['ID'], 'tutorial', true );
+
+				if ( ! is_array( $tutorial_array ) ) {
+					$tutorial_array = array();
+				}
+
+				if ( ! in_array( $data['tutorial'], $tutorial_array ) ) {
+					array_push( $tutorial_array, absint( $data['tutorial'] ) );
+					$tutorial_array = json_encode( $tutorial_array );
+					update_post_meta( $post['ID'], 'tutorial', $tutorial_array );
+				}
 			}
 
 			if ( isset( $data['short_description'] ) ) {

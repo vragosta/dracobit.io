@@ -206,8 +206,6 @@ $(function() {
 					keywords: chapter_keywords
 				};
 
-				console.log( content );
-
 				var imageData = new FormData(),
 						filename = '';
 
@@ -271,18 +269,25 @@ $(function() {
 		$data = $( this ).data( 'type' );
 
 		if ( $data == 'edit' ) {
-			$( '#dracobit_dropzone_preview_1 .dz-preview' ).remove();
-			$( '#edit-image').attr( 'src', '' );
+			$( '#dracobit_dropzone_preview_1 .dz-image-preview' ).remove();
+			$( '#edit-image' ).attr( 'src', '' );
 			$( '#dracobit_dropzone_preview_1' ).hide();
 			$( '#dracobit_dropzone_1' ).show();
 		} else {
 			if ( image_dropzone_1.files.length ) {
 				$dropzone = image_dropzone_1;
+				console.log( $dropzone );
 			} else if ( image_dropzone_preview_1 ){
 				$dropzone = image_dropzone_preview_1;
+				console.log( $dropzone );
 			} else {
 				alert('there is no image to delete');
 			}
+
+			$( '#dracobit_dropzone_preview_1 .dz-image-preview' ).remove();
+			$( '#edit-image' ).attr( 'src', '' );
+			$( '#dracobit_dropzone_preview_1' ).hide();
+			$( '#dracobit_dropzone_1' ).show();
 			$dropzone.removeAllFiles();
 		}
 	});
