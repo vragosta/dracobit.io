@@ -399,3 +399,30 @@ input.autocomplete-fix {
 		padding: 0 10px;
 	}
 }
+
+.settings-container {
+	margin-top:25px;
+}
+#settings-col-height{
+	height:500px;
+}
+#settings-row-pad{
+	padding-top:50px;
+}
+.settings-left-col-style{
+	text-align:center;
+}
+.sett-left-end{
+	text-align:center;
+	padding-bottom:5px;
+	border-bottom:1px solid #F1F1F1;
+}
+.settings-center-col-header{
+	text-align:center;
+	border-bottom:1px solid #F1F1F1;
+	padding-bottom:10px
+}
+.sett-ctr-p{
+	border-bottom:1px solid #F1F1F1;
+	padding-bottom:10px
+}

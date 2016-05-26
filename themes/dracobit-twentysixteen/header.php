@@ -29,6 +29,7 @@
 						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/blog/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">Home</a></li>
 						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/tutorial/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/tutorial' ) ); ?>">Tutorials</a></li>
 						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/chapter/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/chapter' ) ); ?>">Chapters</a></li>
+						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/settings/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/settings' ) ); ?>">Settings</a></li>
 						<?php
 							if ( current_user_can( 'edit_posts' ) ) { ?>
 								<li><a href="<?php echo admin_url(); ?>">WP-Admin</a></li><?php
@@ -48,6 +49,7 @@
 											</div>
 												<input type="hidden" name="dracobit-login-nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
 												<input id="dracobit-login-submit" class="btn btn-secondary" type="submit" value="Login"/>
+												<div>													
 										</fieldset>
 									</form>
 								</li>

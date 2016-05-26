@@ -14,7 +14,7 @@ var Router = Backbone.Router.extend({
 		'tutorial/:slug(/)': 'singleTutorial',
 		'chapter(/)': 'archiveChapters',
 		'chapter/:slug(/)': 'singleChapter',
-		':slug(/)': 'singlePost'
+	 	':slug(/)': 'singlePost'
 	},
 
 	archivePosts: function() {
@@ -25,6 +25,7 @@ var Router = Backbone.Router.extend({
 	},
 
 	singlePost: function() {
+		console.log( $( '.settings-gen' ) );
 		this.view = new Post({
 			el: $( '.dracobit-section' )
 		});
@@ -94,5 +95,7 @@ $(function() {
 	// }).then(function( response ) {
 	// 	console.log( response );
 	// });
+
+
 
 });
