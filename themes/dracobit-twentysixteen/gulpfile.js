@@ -89,7 +89,8 @@ gulp.task( 'vendors', function( done ) {
 		'vendors/js/jquery-2.1.4.min.js',
 		'vendors/js/bootstrap.min.js',
 		'vendors/js/jquery-ui.min.js',
-		'vendors/js/moment.js'
+		'vendors/js/moment.js',
+		'vendors/js/dropzone.js'
 	]).pipe( concat( 'vendors.js' ) )
 	  .pipe( rename({ suffix: '.min' }) )
 	  .pipe( gulp.dest( 'js' ) );

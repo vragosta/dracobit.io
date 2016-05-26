@@ -113,9 +113,9 @@ function dracobit_endpoints_init() {
 
 	add_filter( 'json_endpoints', array( $tutorial_endpoint, 'register_routes' ) );
 	add_filter( 'json_prepare_post', array( $tutorial_endpoint, 'data' ), 10, 3 );
-
 	add_filter( 'json_endpoints', array( $chapter_endpoint, 'register_routes' ) );
 	add_filter( 'json_prepare_post', array( $chapter_endpoint, 'data' ), 10, 3 );
+	add_action( 'json_insert_post', array( $chapter_endpoint, 'update_post_meta' ), 10, 3 );
 }
 add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
 
@@ -230,7 +230,7 @@ function dracobit_signup() {
 					'first_name'      => $user_first,
 					'last_name'       => $user_last,
 					'user_registered' => date('Y-m-d H:i:s'),
-					'role'            => 'subscriber'
+					'role'            => 'author'
 				)
 			);
 
