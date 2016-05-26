@@ -45,7 +45,7 @@
 											<input type="text" class="autocomplete-fix" />
 											<input name="dracobit-login-password" id="dracobit-login-password" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
 										</div>
-										<input type="hidden" name="dracobit-login-nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
+										<input type="hidden" name="dracobit-login-nonce" value="<?php echo wp_create_nonce( 'dracobit-login-nonce' ); ?>"/>
 										<button id="dracobit-login-submit" class="btn btn-secondary">Submit</button>
 									</fieldset>
 								</li>

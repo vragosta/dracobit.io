@@ -298,11 +298,53 @@ $(function() {
 			headers: {
 				'X-WP-Nonce': Dracobit.options.nonce
 			},
-			data: { dracobit_login_username: username, dracobit_login_password: password, dracobit_login_nonce: nonce }
+			data: {
+				dracobit_login_username : username,
+				dracobit_login_password : password,
+				dracobit_login_nonce    : nonce
+			}
 		}).then(function( response ) {
 			console.log( response );
 			if ( ! response.errors.length ) {
 				window.location.replace( '/profile' );
+			}
+		});
+	});
+
+	$( '#dracobit-signup-submit' ).click( function() {
+		var username         = $( '#dracobit-signup-username' ).val(),
+		    password         = $( '#dracobit-signup-password' ).val(),
+				email            = $( '#dracobit-signup-email' ).val(),
+				first_name       = $( '#dracobit-signup-firstname' ).val(),
+				last_name        = $( '#dracobit-signup-lastname' ).val(),
+				password_confirm = $( '#dracobit-signup-password-confirm' ).val(),
+				nonce            = $( 'input[name=dracobit-signup-nonce]' ).val();
+
+		$.ajax({
+			type: 'post',
+			url: Dracobit.options.apiUrl + '/signup',
+			headers: {
+				'X-WP-Nonce': Dracobit.options.nonce
+			},
+			data: {
+				dracobit_signup_username         : username,
+				dracobit_signup_password         : password,
+				dracobit_signup_email            : email,
+				dracobit_signup_firstname        : first_name,
+				dracobit_signup_lastname         : last_name,
+				dracobit_signup_password_confirm : password_confirm,
+				dracobit_signup_nonce            : nonce
+			}
+		}).then(function( response ) {
+			console.log( response );
+			if ( ! response.errors.length ) {
+				window.location.replace( '/profile' );
+			} else {
+				console.log( 'errors' );
+				$( '#dracobit-signup-errors' ).show();
+				$.each( response.errors, function( index, value ) {
+					$( '#dracobit-signup-errors' ).append( '<li>' + ( index + 1 ) + ' : ' + value + '</li>' );
+				});
 			}
 		});
 	});
