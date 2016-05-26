@@ -134,12 +134,9 @@ class WP_JSON_Options {
 					wp_setcookie( $user_login, $user_pass, true );
 					wp_set_current_user( $new_user_id, $user_login );
 					do_action( 'wp_login', $user_login );
-
-					// send the newly created user to the home page after logging them in
-					// wp_redirect( home_url() ); exit;
 				}
 			}
-			
+
 			$response = array(
 				'username'         => $_POST['dracobit_signup_username'],
 				'password'         => $_POST['dracobit_signup_password'],
