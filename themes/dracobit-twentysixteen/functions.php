@@ -144,40 +144,6 @@ function dracobit_widgets_init() {
 add_action( 'widgets_init', 'dracobit_widgets_init' );
 
 /**
- * Logs user in
- *
- * @since 1.0.0
- */
-function dracobit_login() {
-	if ( isset( $_POST['dracobit-login-username'] ) && wp_verify_nonce( $_POST['dracobit-login-nonce'], 'dracobit-login-nonce' ) ) {
-		$user = get_userdatabylogin( $_POST['dracobit-login-username'] );
-
-		if ( ! $user ) {
-			dracobit_errors()->add( 'empty_username', __( 'Invalid username' ) );
-		}
-
-		if ( ! isset( $_POST['dracobit-login-password'] ) || $_POST['dracobit-login-password'] == '' ) {
-			dracobit_errors()->add( 'empty_password', __( 'Please enter a password' ) );
-		}
-
-		if ( ! wp_check_password( $_POST['dracobit-login-password'], $user->user_pass, $user->ID ) ) {
-			dracobit_errors()->add( 'empty_password', __( 'Incorrect password' ) );
-		}
-
-		$errors = dracobit_errors()->get_error_messages();
-
-		if ( empty( $errors ) ) {
-			wp_setcookie( $_POST['dracobit-login-username'], $_POST['dracobit-login-password'], true );
-			wp_set_current_user( $user->ID, $_POST['dracobit-login-username'] );
-			do_action( 'wp_login', $_POST['dracobit-login-username'] );
-			wp_redirect( home_url( 'profile' ) );
-			exit;
-		}
-	}
-}
-add_action( 'init', 'dracobit_login' );
-
-/**
  * Register a new user
  *
  * @since 1.0.0

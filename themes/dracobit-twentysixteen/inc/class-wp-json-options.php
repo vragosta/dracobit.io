@@ -47,8 +47,6 @@ class WP_JSON_Options {
 				wp_setcookie( $_POST['dracobit_login_username'], $_POST['dracobit_login_password'], true );
 				wp_set_current_user( $user->ID, $_POST['dracobit_login_username'] );
 				do_action( 'wp_login', $_POST['dracobit_login_username'] );
-				// wp_redirect( home_url( 'profile' ) );
-				// exit;
 			}
 		}
 
