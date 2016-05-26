@@ -286,4 +286,24 @@ $(function() {
 			$dropzone.removeAllFiles();
 		}
 	});
+
+	$( '#dracobit-login-submit' ).click( function() {
+		var username = $( '#dracobit-login-username' ).val(),
+		    password = $( '#dracobit-login-password' ).val(),
+				nonce    = $( 'input[name=dracobit-login-nonce]' ).val();
+
+		$.ajax({
+			type: 'post',
+			url: Dracobit.options.apiUrl + '/login',
+			headers: {
+				'X-WP-Nonce': Dracobit.options.nonce
+			},
+			data: { dracobit_login_username: username, dracobit_login_password: password, dracobit_login_nonce: nonce }
+		}).then(function( response ) {
+			console.log( response );
+			if ( ! response.errors.length ) {
+				window.location.replace( '/profile' );
+			}
+		});
+	});
 });
