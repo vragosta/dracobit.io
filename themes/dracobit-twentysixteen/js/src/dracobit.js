@@ -15,12 +15,8 @@ var Router = Backbone.Router.extend({
 		'tutorial/:slug(/)': 'singleTutorial',
 		'chapter(/)': 'archiveChapters',
 		'chapter/:slug(/)': 'singleChapter',
-<<<<<<< HEAD
-	 	':slug(/)': 'singlePost'
-=======
 		'profile(/)': 'profile',
 		// ':slug(/)': 'singlePost'
->>>>>>> 8df9e0ed9a148558f16b60ea2d133716ac4d2d38
 	},
 
 	archivePosts: function() {
@@ -71,7 +67,6 @@ var Router = Backbone.Router.extend({
 			el: $( '.dracobit-section' ),
 		});
 		this.view.collection.id = $( 'input[name=current-user-id]' ).val();
-		// this.view.collection.id = 1;
 		this.view.render();
 	}
 
@@ -91,7 +86,6 @@ $(function() {
 		}
 	});
 
-	// require( 'inc/upload.js' );
 	if ( $( '.upload-section-container' ).length ) {
 		var image_dropzone_1 = new Dropzone( "#dracobit_dropzone_1", {
 			url: Dracobit.options.apiUrl + '/media',
@@ -183,11 +177,6 @@ $(function() {
 		});
 
 		$( '.upload-submit' ).click(function() {
-
-<<<<<<< HEAD
-
-
-=======
 			$( window ).scrollTop( 0 );
 			$( '.upload-form' ).hide();
 			$( '.upload-message-container' ).show();
@@ -295,5 +284,4 @@ $(function() {
 			$dropzone.removeAllFiles();
 		}
 	});
->>>>>>> 8df9e0ed9a148558f16b60ea2d133716ac4d2d38
 });

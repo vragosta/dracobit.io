@@ -3,6 +3,7 @@
 /*
 Template Name: Settings
 */
+
 //row, row-fluid, container, container-fluid
 //every row-fluid has a twelve column grid system (static)
 //col-xs-offset-8
@@ -65,3 +66,5 @@ get_header(); ?>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="settings-col-height">Text-Filler</div>
 </div>
+
+<?php get_footer(); ?>
