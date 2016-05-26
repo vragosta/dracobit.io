@@ -14,8 +14,9 @@ class WP_JSON_Chapter {
 	/**
 	 * Register custom endpoints.
 	 *
-	 * @param  array $routes
-	 * @return array
+	 * @since  1.0.0
+	 * @param  array $routes Existing routes
+	 * @return array $routes Existing routes with new additions
 	 */
 	public function register_routes( $routes ) {
 		$routes['/chapter'] = array(
@@ -31,6 +32,15 @@ class WP_JSON_Chapter {
 		return $routes;
 	}
 
+	/**
+	 * Update post meta when API is hit.
+	 *
+	 * @since  1.0.0
+	 * @param  WP_Post $post   WP_Post object
+	 * @param  array   $data   $_POST data from request
+	 * @param  boolean $update If request is update
+	 * @return void
+	 */
 	public function update_post_meta( $post, $data, $update ) {
 		if ( isset( $data['image'] ) ) {
 			update_post_meta( $post['ID'], 'photo', $data['image'] );
@@ -96,11 +106,13 @@ class WP_JSON_Chapter {
 	}
 
 	/**
+	 * Expose data on API.
 	 *
-	 * @param  array  $data
-	 * @param  array  $post
-	 * @param  string $context
-	 * @return array
+	 * @since  1.0.0
+	 * @param  array  $data         TODO
+	 * @param  array  $post         TODO
+	 * @param  string $context      TODO
+	 * @return array  $output/$data TODO
 	 */
 	public function data( $data, $post, $context ) {
 		if ( 'chapter' === $post['post_type'] ) {
@@ -147,10 +159,11 @@ class WP_JSON_Chapter {
 	}
 
 	/**
+	 * Get all the chapters.
 	 *
-	 * @param  array $filter
-	 * @param  int   $page
-	 * @return WP_JSON_Response
+	 * @param  array            $filter TODO
+	 * @param  int              $page   TODO
+	 * @return WP_JSON_Response $output TODO
 	 */
 	public function get_chapters( $filter = array(), $page = 1 ) {
 		global $wp_json_posts;
@@ -159,9 +172,11 @@ class WP_JSON_Chapter {
 	}
 
 	/**
+	 * Get a specific Chapter.
 	 *
-	 * @param  int $id
-	 * @return WP_JSON_Response
+	 * @since  1.0.0
+	 * @param  int              $id     TODO
+	 * @return WP_JSON_Response $output TODO
 	 */
 	public function get_chapter( $id ) {
 		global $wp_json_posts;
@@ -172,8 +187,9 @@ class WP_JSON_Chapter {
 	/**
 	 * Create an interview.
 	 *
-	 * @param array $data
-	 * @return WP_JSON_Response
+	 * @since  1.0.0
+	 * @param  array            $data TODO
+	 * @return WP_JSON_Response void  TODO
 	 */
 	public function create_chapter( $data ) {
 		global $wp_json_posts;
@@ -190,10 +206,11 @@ class WP_JSON_Chapter {
 	/**
 	 * Edit a chapter.
 	 *
-	 * @param int $id
-	 * @param array $data
-	 * @param array $_header
-	 * @return WP_JSON_Response
+	 * @since  1.0.0
+	 * @param  int              $id      TODO
+	 * @param  array            $data    TODO
+	 * @param  array            $_header TODO
+	 * @return WP_JSON_Response void     TODO
 	 */
 	public function edit_chapter( $id, $data, $_headers = array() ) {
 		global $wp_json_posts;

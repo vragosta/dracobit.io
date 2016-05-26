@@ -2,6 +2,10 @@
 
 /**
  * Register the widget into the theme
+ *
+ * @since  1.0.0
+ * @param  void
+ * @return void
  */
 function dracobit_add_tutorials_meta_box() {
 	add_meta_box(

@@ -1,7 +1,11 @@
 <?php
 
 /**
- * Register the widget into the theme
+ * Register the widget into the theme.
+ *
+ * @since  1.0.0
+ * @param  void
+ * @return void
  */
 function dracobit_add_chapters_meta_box() {
 	add_meta_box(
@@ -13,71 +17,81 @@ function dracobit_add_chapters_meta_box() {
 }
 add_action( 'add_meta_boxes', 'dracobit_add_chapters_meta_box' );
 
-/**
- * Callback when registering widget that displays content in backend
- */
-function dracobit_chapters_meta_box_callback( $post ) {
-	// Add a nonce field so we can check for it later.
-	wp_nonce_field( 'dracobit_save_chapters_meta_box_data', 'dracobit_meta_box_nonce' );
-
+if ( ! function_exists( 'dracobit_chapters_meta_box_callback' ) ) {
 	/**
-	 * Use get_post_meta() to retrieve an existing value
-	 * from the database and use the value for the form.
+	 * Callback when registering widget that displays content in backend.
+	 *
+	 * @since  1.0.0
+	 * @param  $post WP_Post Object
+	 * @return void
 	 */
-	$tagline           = get_post_meta( $post->ID, 'tagline',           true );
-	$version           = get_post_meta( $post->ID, 'version',           true );
-	$tutorial          = get_post_meta( $post->ID, 'tutorial',          true );
-	$short_description = get_post_meta( $post->ID, 'short_description', true );
-	$keywords          = get_post_meta( $post->ID, 'keywords',          true ); ?>
+	function dracobit_chapters_meta_box_callback( $post ) {
+		// Add a nonce field so we can check for it later.
+		wp_nonce_field( 'dracobit_save_chapters_meta_box_data', 'dracobit_meta_box_nonce' );
 
-	<table style="width: 100%;">
-		<tr>
-			<td>
-				<label for="tagline"><?php echo esc_html( __( 'Tagline:', 'dracobit' ) ); ?></label>
-			</td>
-			<td>
-				<input type="text" id="tagline" name="tagline" value="<?php echo esc_attr( $tagline ); ?>" style="width: 100%;">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label for="version"><?php echo esc_html( __( 'Version:', 'dracobit' ) ); ?></label>
-			</td>
-			<td>
-				<input type="text" id="version" name="version" value="<?php echo esc_attr( $version ); ?>" style="width: 100%;">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label for="tutorial"><?php echo esc_html( __( 'Tutorial:', 'dracobit' ) ); ?></label>
-			</td>
-			<td>
-				<input type="text" id="tutorial" name="tutorial" value="<?php echo esc_attr( $tutorial ); ?>" style="width: 100%;">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label for="short_description"><?php echo esc_html( __( 'Short Description:', 'dracobit' ) ); ?></label>
-			</td>
-			<td>
-				<input type="text" id="short_description" name="short_description" value="<?php echo esc_attr( $short_description ); ?>" style="width: 100%;">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label for="keywords"><?php echo esc_html( __( 'Keywords:', 'dracobit' ) ); ?></label>
-			</td>
-			<td>
-				<input type="text" id="keywords" name="keywords" value="<?php echo esc_attr( $keywords ); ?>" style="width: 100%;">
-			</td>
-		</tr>
-	</table>
+		/**
+		 * Use get_post_meta() to retrieve an existing value
+		 * from the database and use the value for the form.
+		 */
+		$tagline           = get_post_meta( $post->ID, 'tagline',           true );
+		$version           = get_post_meta( $post->ID, 'version',           true );
+		$tutorial          = get_post_meta( $post->ID, 'tutorial',          true );
+		$short_description = get_post_meta( $post->ID, 'short_description', true );
+		$keywords          = get_post_meta( $post->ID, 'keywords',          true ); ?>
 
-	<?php
+		<table style="width: 100%;">
+			<tr>
+				<td>
+					<label for="tagline"><?php echo esc_html( __( 'Tagline:', 'dracobit' ) ); ?></label>
+				</td>
+				<td>
+					<input type="text" id="tagline" name="tagline" value="<?php echo esc_attr( $tagline ); ?>" style="width: 100%;">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="version"><?php echo esc_html( __( 'Version:', 'dracobit' ) ); ?></label>
+				</td>
+				<td>
+					<input type="text" id="version" name="version" value="<?php echo esc_attr( $version ); ?>" style="width: 100%;">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="tutorial"><?php echo esc_html( __( 'Tutorial:', 'dracobit' ) ); ?></label>
+				</td>
+				<td>
+					<input type="text" id="tutorial" name="tutorial" value="<?php echo esc_attr( $tutorial ); ?>" style="width: 100%;">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="short_description"><?php echo esc_html( __( 'Short Description:', 'dracobit' ) ); ?></label>
+				</td>
+				<td>
+					<input type="text" id="short_description" name="short_description" value="<?php echo esc_attr( $short_description ); ?>" style="width: 100%;">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="keywords"><?php echo esc_html( __( 'Keywords:', 'dracobit' ) ); ?></label>
+				</td>
+				<td>
+					<input type="text" id="keywords" name="keywords" value="<?php echo esc_attr( $keywords ); ?>" style="width: 100%;">
+				</td>
+			</tr>
+		</table>
+
+		<?php
+	}
 }
 
 /**
- * Saves the meta box data for the chapter post type
+ * Saves the meta box data for the chapter post type.
+ *
+ * @since  1.0.0
+ * @param  $post_id WP_Post ID
+ * @return void
  */
 function dracobit_save_chapters_meta_box_data( $post_id ) {
 	/**
