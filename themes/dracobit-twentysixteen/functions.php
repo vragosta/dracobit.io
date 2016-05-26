@@ -28,6 +28,7 @@ include_once get_template_directory() . '/inc/tutorial-metabox.php';
 include_once get_template_directory() . '/inc/chapter-metabox.php';
 include_once get_template_directory() . '/inc/class-wp-json-tutorial.php';
 include_once get_template_directory() . '/inc/class-wp-json-chapter.php';
+include_once get_template_directory() . '/inc/class-wp-json-options.php';
 
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar( false );
@@ -109,13 +110,15 @@ add_action( 'wp_enqueue_scripts', 'dracobit_scripts' );
  */
 function dracobit_endpoints_init() {
 	$tutorial_endpoint = new WP_JSON_Tutorial();
-	$chapter_endpoint = new WP_JSON_Chapter();
+	$chapter_endpoint  = new WP_JSON_Chapter();
+	$options_endpoint  = new WP_JSON_Options();
 
 	add_filter( 'json_endpoints', array( $tutorial_endpoint, 'register_routes' ) );
 	add_filter( 'json_prepare_post', array( $tutorial_endpoint, 'data' ), 10, 3 );
 	add_filter( 'json_endpoints', array( $chapter_endpoint, 'register_routes' ) );
 	add_filter( 'json_prepare_post', array( $chapter_endpoint, 'data' ), 10, 3 );
 	add_action( 'json_insert_post', array( $chapter_endpoint, 'update_post_meta' ), 10, 3 );
+	add_filter( 'json_endpoints', array( $options_endpoint, 'register_routes' ) );
 }
 add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
 
@@ -139,40 +142,6 @@ function dracobit_widgets_init() {
 	}
 }
 add_action( 'widgets_init', 'dracobit_widgets_init' );
-
-/**
- * Logs user in
- *
- * @since 1.0.0
- */
-function dracobit_login() {
-	if ( isset( $_POST['dracobit-login-username'] ) && wp_verify_nonce( $_POST['dracobit-login-nonce'], 'dracobit-login-nonce' ) ) {
-		$user = get_userdatabylogin( $_POST['dracobit-login-username'] );
-
-		if ( ! $user ) {
-			dracobit_errors()->add( 'empty_username', __( 'Invalid username' ) );
-		}
-
-		if ( ! isset( $_POST['dracobit-login-password'] ) || $_POST['dracobit-login-password'] == '' ) {
-			dracobit_errors()->add( 'empty_password', __( 'Please enter a password' ) );
-		}
-
-		if ( ! wp_check_password( $_POST['dracobit-login-password'], $user->user_pass, $user->ID ) ) {
-			dracobit_errors()->add( 'empty_password', __( 'Incorrect password' ) );
-		}
-
-		$errors = dracobit_errors()->get_error_messages();
-
-		if ( empty( $errors ) ) {
-			wp_setcookie( $_POST['dracobit-login-username'], $_POST['dracobit-login-password'], true );
-			wp_set_current_user( $user->ID, $_POST['dracobit-login-username'] );
-			do_action( 'wp_login', $_POST['dracobit-login-username'] );
-			wp_redirect( home_url( 'profile' ) );
-			exit;
-		}
-	}
-}
-add_action( 'init', 'dracobit_login' );
 
 /**
  * Register a new user

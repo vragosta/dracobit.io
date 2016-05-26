@@ -31,7 +31,7 @@ class WP_JSON_Chapter {
 		return $routes;
 	}
 
-	function update_post_meta( $post, $data, $update ) {
+	public function update_post_meta( $post, $data, $update ) {
 		if ( isset( $data['image'] ) ) {
 			update_post_meta( $post['ID'], 'photo', $data['image'] );
 		}
@@ -102,7 +102,7 @@ class WP_JSON_Chapter {
 	 * @param  string $context
 	 * @return array
 	 */
-	function data( $data, $post, $context ) {
+	public function data( $data, $post, $context ) {
 		if ( 'chapter' === $post['post_type'] ) {
 			$photo = get_post( ( $post['ID'] - 1 ) );
 
@@ -175,7 +175,7 @@ class WP_JSON_Chapter {
 	 * @param array $data
 	 * @return WP_JSON_Response
 	 */
-	function create_chapter( $data ) {
+	public function create_chapter( $data ) {
 		global $wp_json_posts;
 		$current_user_id = get_current_user_id();
 		if ( empty( $current_user_id ) ) {
@@ -195,7 +195,7 @@ class WP_JSON_Chapter {
 	 * @param array $_header
 	 * @return WP_JSON_Response
 	 */
-	function edit_chapter( $id, $data, $_headers = array() ) {
+	public function edit_chapter( $id, $data, $_headers = array() ) {
 		global $wp_json_posts;
 		return $wp_json_posts->edit_post( $id, $data, $_headers );
 	}

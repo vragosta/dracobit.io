@@ -36,20 +36,18 @@
 
 							if ( ! is_user_logged_in() ) { ?>
 								<li class="dracobit-login">
-									<form id="dracobit-login-form" class="form-inline" action="" method="post">
-										<fieldset>
-											<div class="form-group">
-												<input type="text" class="autocomplete-fix" />
-												<input name="dracobit-login-username" id="dracobit-login-username" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
-											</div>
-											<div class="form-group">
-												<input type="text" class="autocomplete-fix" />
-												<input name="dracobit-login-password" id="dracobit-login-password" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
-											</div>
-												<input type="hidden" name="dracobit-login-nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
-												<input id="dracobit-login-submit" class="btn btn-secondary" type="submit" value="Login"/>
-										</fieldset>
-									</form>
+									<fieldset id="dracobit-login-form" class="form-inline">
+										<div class="form-group">
+											<input type="text" class="autocomplete-fix" />
+											<input name="dracobit-login-username" id="dracobit-login-username" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
+										</div>
+										<div class="form-group">
+											<input type="text" class="autocomplete-fix" />
+											<input name="dracobit-login-password" id="dracobit-login-password" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
+										</div>
+										<input type="hidden" name="dracobit-login-nonce" value="<?php echo wp_create_nonce('dracobit-login-nonce'); ?>"/>
+										<button id="dracobit-login-submit" class="btn btn-secondary">Submit</button>
+									</fieldset>
 								</li>
 							<?php }
 
