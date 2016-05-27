@@ -348,4 +348,16 @@ $(function() {
 			}
 		});
 	});
+
+	$( '#dracobit-logout-submit' ).click(function() {
+		$.ajax({
+			type: 'post',
+			url: Dracobit.options.apiUrl + '/logout',
+			headers: {
+				'X-WP-Nonce': Dracobit.options.nonce
+			},
+		}).then(function( response ) {
+				window.location.replace( '/' );
+		});
+	});
 });

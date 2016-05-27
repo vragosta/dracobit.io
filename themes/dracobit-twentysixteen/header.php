@@ -53,7 +53,8 @@
 
 							if ( is_user_logged_in() ) { ?>
 								<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/profile/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/profile' ) ); ?>"><?php echo esc_html( $current_user->display_name ); ?></a></li>
-								<li><?php wp_loginout( home_url( '/' ) ); ?></li><?php
+								<li><a id="dracobit-logout-submit" class="btn btn-default">Logout</a></li>
+								<?php
 							}
 						?>
 		      </ul>

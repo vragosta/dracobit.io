@@ -400,6 +400,17 @@ input.autocomplete-fix {
 }
 
 /*
+ * Header Template
+ */
+
+#dracobit-logout-submit {
+	outline: none;
+	border: none;
+	background: transparent;
+}
+
+
+/*
  * Front-page Templates
  */
 
