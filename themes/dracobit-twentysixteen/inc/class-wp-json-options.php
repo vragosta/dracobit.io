@@ -1,6 +1,6 @@
 <?php
 /**
- * TODO
+ * Wordpress Options endpoints.
  *
  * @package    WordPress
  * @subpackage Dracobit
@@ -14,8 +14,9 @@ class WP_JSON_Options {
 	/**
 	 * Register custom endpoints.
 	 *
-	 * @param  array $routes
-	 * @return array
+	 * @since  1.0.0
+	 * @param  array $routes Existing routes
+	 * @return array $routes Existing routes with new additions
 	 */
 	public function register_routes( $routes ) {
 		$routes['/login'] = array(
@@ -30,9 +31,11 @@ class WP_JSON_Options {
 	}
 
 	/**
-	 * TODO
+	 * Logs the user in or returns error message(s).
 	 *
-	 * @return array
+	 * @since  1.0.0
+	 * @param  void
+	 * @return array $resonse Error messages
 	 */
 	public function login() {
 		if ( isset( $_POST['dracobit_login_username'] ) && wp_verify_nonce( $_POST['dracobit_login_nonce'], 'dracobit-login-nonce' ) ) {
@@ -67,9 +70,11 @@ class WP_JSON_Options {
 	}
 
 	/**
-	 * TODO
+	 * Creates user in wp_users table or returns error message(s).
 	 *
-	 * @return array
+	 * @since  1.0.0
+	 * @param  void
+	 * @return array $response Error messages
 	 */
 	public function signup() {
 		if ( isset( $_POST['dracobit_signup_username'] ) && wp_verify_nonce( $_POST['dracobit_signup_nonce'], 'dracobit-signup-nonce' ) ) {
@@ -138,12 +143,6 @@ class WP_JSON_Options {
 			}
 
 			$response = array(
-				'username'         => $_POST['dracobit_signup_username'],
-				'password'         => $_POST['dracobit_signup_password'],
-				'first name'       => $_POST['dracobit_signup_firstname'],
-				'lastname'         => $_POST['dracobit_signup_lastname'],
-				'password confirm' => $_POST['dracobit_signup_password_confirm'],
-				'nonce'            => $_POST['dracobit_signup_nonce'],
 				'errors'           => $errors
 			);
 

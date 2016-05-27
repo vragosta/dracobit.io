@@ -1,6 +1,6 @@
 <?php
 /**
- * TODO
+ * Chapter post type endpoint and functions.
  *
  * @package    WordPress
  * @subpackage Dracobit
@@ -14,8 +14,9 @@ class WP_JSON_Chapter {
 	/**
 	 * Register custom endpoints.
 	 *
-	 * @param  array $routes
-	 * @return array
+	 * @since  1.0.0
+	 * @param  array $routes Existing routes
+	 * @return array $routes Existing routes with new additions
 	 */
 	public function register_routes( $routes ) {
 		$routes['/chapter'] = array(
@@ -31,6 +32,15 @@ class WP_JSON_Chapter {
 		return $routes;
 	}
 
+	/**
+	 * Update post meta when API is hit.
+	 *
+	 * @since  1.0.0
+	 * @param  array   $post   WP_Post object
+	 * @param  array   $data   Data from API
+	 * @param  boolean $update If request is to update post metadata or if its to create it
+	 * @return void
+	 */
 	public function update_post_meta( $post, $data, $update ) {
 		if ( isset( $data['image'] ) ) {
 			update_post_meta( $post['ID'], 'photo', $data['image'] );
@@ -96,13 +106,14 @@ class WP_JSON_Chapter {
 	}
 
 	/**
+	 * Expose data on API.
 	 *
-	 * @param  array  $data
-	 * @param  array  $post
-	 * @param  string $context
-	 * @return array
+	 * @since  1.0.0
+	 * @param  array  $data         Data from API
+	 * @param  array  $post         WP_Post object
+	 * @return array  $output/$data API data
 	 */
-	public function data( $data, $post, $context ) {
+	public function data( $data, $post ) {
 		if ( 'chapter' === $post['post_type'] ) {
 			$photo = get_post( ( $post['ID'] - 1 ) );
 
@@ -147,33 +158,36 @@ class WP_JSON_Chapter {
 	}
 
 	/**
+	 * Get all the chapters.
 	 *
-	 * @param  array $filter
-	 * @param  int   $page
-	 * @return WP_JSON_Response
+	 * @since  1.0.0
+	 * @param  array            $filter        Filters that were set on request
+	 * @param  int              $page          Pagination variable
+	 * @return WP_JSON_Response $wp_json_posts All chapters
 	 */
 	public function get_chapters( $filter = array(), $page = 1 ) {
 		global $wp_json_posts;
-			$output = $wp_json_posts->get_posts( $filter, 'view', 'chapter', $page );
-		return $output;
+		return $wp_json_posts->get_posts( $filter, 'view', 'chapter', $page );
 	}
 
 	/**
+	 * Get a specific Chapter.
 	 *
-	 * @param  int $id
-	 * @return WP_JSON_Response
+	 * @since  1.0.0
+	 * @param  int              $id            Chapter ID
+	 * @return WP_JSON_Response $wp_json_posts Specific chapter
 	 */
 	public function get_chapter( $id ) {
 		global $wp_json_posts;
-			$output = $wp_json_posts->get_post( $id, 'view' );
-		return $output;
+		return $wp_json_posts->get_post( $id, 'view' );
 	}
 
 	/**
 	 * Create an interview.
 	 *
-	 * @param array $data
-	 * @return WP_JSON_Response
+	 * @since  1.0.0
+	 * @param  array                     $data          Data from API
+	 * @return WP_JSON_Response/WP_Error $wp_json_posts Updated posts table with new chapter/Login error
 	 */
 	public function create_chapter( $data ) {
 		global $wp_json_posts;
@@ -190,10 +204,11 @@ class WP_JSON_Chapter {
 	/**
 	 * Edit a chapter.
 	 *
-	 * @param int $id
-	 * @param array $data
-	 * @param array $_header
-	 * @return WP_JSON_Response
+	 * @since  1.0.0
+	 * @param  int              $id            Chapter ID
+	 * @param  array            $data          Data from API
+	 * @param  array            $_header       Headers
+	 * @return WP_JSON_Response $wp_json_posts Updated posts table with edited chapter
 	 */
 	public function edit_chapter( $id, $data, $_headers = array() ) {
 		global $wp_json_posts;

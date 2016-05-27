@@ -1,6 +1,6 @@
 <?php
 /**
- * Dracobit functions and definitions
+ * Dracobit functions and definitions.
  *
  * Set up the theme and provide some helper functions, which are used in the
  * theme as custom template tags. Others are attached to action and filter
@@ -33,60 +33,64 @@ include_once get_template_directory() . '/inc/class-wp-json-options.php';
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar( false );
 
-if ( ! function_exists( 'dracobit_setup' ) ) {
+/**
+ * Dracobit setup.
+ *
+ * Set up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support post thumbnails.
+ *
+ * @since  1.0.0
+ * @param  void
+ * @return void
+ */
+function dracobit_setup() {
 	/**
-	 * Dracobit setup.
+	 * Make Dracobit available for translation.
 	 *
-	 * Set up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support post thumbnails.
-	 *
-	 * @since 1.0.0
+	 * Translations can be added to the /languages/ directory.
+	 * If you're building a theme based on Dracobit, use a find and
+	 * replace to change 'sc' to the name of your theme in all
+	 * template files.
 	 */
-	function dracobit_setup() {
-		/**
-		 * Make Dracobit available for translation.
-		 *
-		 * Translations can be added to the /languages/ directory.
-		 * If you're building a theme based on Dracobit, use a find and
-		 * replace to change 'sc' to the name of your theme in all
-		 * template files.
-		 */
-		load_theme_textdomain( 'dracobit', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'dracobit', get_template_directory() . '/languages' );
 
-		// Add RSS feed links to <head> for posts and comments.
-		add_theme_support( 'automatic-feed-links' );
+	// Add RSS feed links to <head> for posts and comments.
+	add_theme_support( 'automatic-feed-links' );
 
-		/**
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
+	/**
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a
+	 * hard-coded <title> tag in the document head, and expect WordPress to
+	 * provide it for us.
+	 */
+	add_theme_support( 'title-tag' );
 
-		// Removes the auto generator of the paragraph tags when using the wordpress function 'the_content()'
-		remove_filter( 'the_content', 'wpautop' );
+	// Removes the auto generator of the paragraph tags when using the wordpress function 'the_content()'.
+	remove_filter( 'the_content', 'wpautop' );
 
-		// Enable support for Post Thumbnails, and declare two sizes.
-		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 672, 372, true );
-	}
+	// Enable support for Post Thumbnails, and declare two sizes.
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 672, 372, true );
 }
 add_action( 'after_setup_theme', 'dracobit_setup' );
 
 /**
- * Allows for wordpress to recognize all the css/js files
+ * Allows for wordpress to recognize all the css/js files,
+ * and creates localized variable.
  *
- * @since 1.0.0
+ * @since  1.0.0
+ * @param  void
+ * @return void
  */
 function dracobit_scripts() {
 	global $post;
 
 	wp_enqueue_style( 'vendors', get_template_directory_uri() . '/css/vendors.min.css', array(), DRACOBIT_VERSION, 'all' );
 	wp_enqueue_style( 'dracobit', get_template_directory_uri() . '/style.min.css', array( 'vendors' ), DRACOBIT_VERSION, 'all' );
+
 	wp_enqueue_script( 'vendors', get_template_directory_uri() . '/js/vendors.min.js', array( 'jquery' ), DRACOBIT_VERSION, true );
 	wp_enqueue_script( 'dracobit', get_template_directory_uri() . '/js/dracobit.min.js', array( 'jquery', 'backbone', 'underscore', 'vendors' ), DRACOBIT_VERSION, true );
 
@@ -104,9 +108,11 @@ add_action( 'wp_enqueue_scripts', 'dracobit_scripts' );
 
 /**
  * Establishes the endpoints for each of the post types,
- * to be used by the backbone framework
+ * to be used by the backbone framework.
  *
- * @since 1.0.0
+ * @since  1.0.0
+ * @param  void
+ * @return void
  */
 function dracobit_endpoints_init() {
 	$tutorial_endpoint = new WP_JSON_Tutorial();
@@ -123,9 +129,11 @@ function dracobit_endpoints_init() {
 add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
 
 /**
- * Registers the various sidebars
+ * Registers the various post type sidebars.
  *
- * @since 1.0.0
+ * @since  1.0.0
+ * @param  void
+ * @return void
  */
 function dracobit_widgets_init() {
 	$sidebars = array( 'post', 'page', 'tutorial' );
@@ -143,31 +151,37 @@ function dracobit_widgets_init() {
 }
 add_action( 'widgets_init', 'dracobit_widgets_init' );
 
-/**
- * Used for tracking error messages
- *
- * @since 1.0.0
- */
 if ( ! function_exists( 'dracobit_errors' ) ) {
+	/**
+	 * Used for tracking error messages.
+	 *
+	 * @since  1.0.0
+	 * @param  void
+	 * @return array $wp_error WP_Error Object
+	 */
 	function dracobit_errors() {
 	  static $wp_error;
 	  return isset( $wp_error ) ? $wp_error : ( $wp_error = new WP_Error( null, null, null ) );
 	}
 }
 
-/**
- * Custom comment template
- *
- * @since 1.0.0
- */
 if ( ! function_exists( 'dracobit_comment_template' ) ) {
+	/**
+	 * Custom comment template.
+	 *
+	 * @since  1.0.0
+	 * @param  array $comment WP_Comment object
+	 * @param  array $args    Comment arguements
+	 * @param  int   $depth   Comment Depth level
+	 * @return void
+	 */
 	function dracobit_comment_template( $comment, $args, $depth ) {
 	  if ( 'div' === $args['style'] ) {
-	      $tag       = 'div';
-	      $add_below = 'comment';
+      $tag       = 'div';
+      $add_below = 'comment';
 	  } else {
-	      $tag       = 'li';
-	      $add_below = 'div-comment';
+      $tag       = 'li';
+      $add_below = 'div-comment';
 	  }
 	  ?>
 
