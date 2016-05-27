@@ -1,8 +1,12 @@
 <?php
 
-/*
-Template Name: Upload Form
-*/
+/**
+ * Template Name: Upload Form
+ *
+ * @package    WordPress
+ * @subpackage Dracobit
+ * @since      1.0.0
+ */
 
 get_header(); ?>
 
@@ -13,7 +17,7 @@ get_header(); ?>
 			<div class="row upload-header-container">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<h3>Add Chapter</h3>
-					<a href="<?php echo home_url( 'profile' ); ?>">Back to profile</a>
+					<a href="<?php echo esc_url( home_url( 'profile' ) ); ?>">Back to profile</a>
 				</div>
 			</div>
 
@@ -192,8 +196,9 @@ get_header(); ?>
 										<?php
 											$tutorials = new WP_Query( array( 'post_type' => 'tutorial' ) );
 											while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
-												<option value="<?php echo $post->ID; ?>"><?php echo $post->post_title; ?></option><?php
-											endwhile; wp_reset_postdata();
+												<option value="<?php echo esc_attr( $post->ID ); ?>"><?php echo esc_html( $post->post_title ); ?></option><?php
+											endwhile;
+											wp_reset_postdata();
 										?>
 									</select>
 								</div>

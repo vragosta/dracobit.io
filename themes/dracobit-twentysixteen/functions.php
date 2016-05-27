@@ -90,6 +90,7 @@ function dracobit_scripts() {
 
 	wp_enqueue_style( 'vendors', get_template_directory_uri() . '/css/vendors.min.css', array(), DRACOBIT_VERSION, 'all' );
 	wp_enqueue_style( 'dracobit', get_template_directory_uri() . '/style.min.css', array( 'vendors' ), DRACOBIT_VERSION, 'all' );
+
 	wp_enqueue_script( 'vendors', get_template_directory_uri() . '/js/vendors.min.js', array( 'jquery' ), DRACOBIT_VERSION, true );
 	wp_enqueue_script( 'dracobit', get_template_directory_uri() . '/js/dracobit.min.js', array( 'jquery', 'backbone', 'underscore', 'vendors' ), DRACOBIT_VERSION, true );
 
@@ -128,7 +129,7 @@ function dracobit_endpoints_init() {
 add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
 
 /**
- * Registers the various sidebars.
+ * Registers the various post type sidebars.
  *
  * @since  1.0.0
  * @param  void
@@ -156,7 +157,7 @@ if ( ! function_exists( 'dracobit_errors' ) ) {
 	 *
 	 * @since  1.0.0
 	 * @param  void
-	 * @return void
+	 * @return array $wp_error WP_Error Object
 	 */
 	function dracobit_errors() {
 	  static $wp_error;
@@ -169,9 +170,9 @@ if ( ! function_exists( 'dracobit_comment_template' ) ) {
 	 * Custom comment template.
 	 *
 	 * @since  1.0.0
-	 * @param  WP_Comment $comment WP_Comment object
-	 * @param  array      $args    Comment arguements
-	 * @param  int        $depth   Comment Depth level
+	 * @param  array $comment WP_Comment object
+	 * @param  array $args    Comment arguements
+	 * @param  int   $depth   Comment Depth level
 	 * @return void
 	 */
 	function dracobit_comment_template( $comment, $args, $depth ) {

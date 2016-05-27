@@ -21,7 +21,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="<?php echo home_url( '/' ); ?>">Dracobit.io</a>
+		      <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">Dracobit.io</a>
 		    </div>
 
 		    <div class="collapse navbar-collapse" id="dracobit-header">
@@ -31,7 +31,7 @@
 						<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/chapter/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/chapter' ) ); ?>">Chapters</a></li>
 						<?php
 							if ( current_user_can( 'edit_posts' ) ) { ?>
-								<li><a href="<?php echo admin_url(); ?>">WP-Admin</a></li><?php
+								<li><a href="<?php echo esc_url( admin_url() ); ?>">WP-Admin</a></li><?php
 							}
 
 							if ( ! is_user_logged_in() ) { ?>
@@ -52,7 +52,7 @@
 							<?php }
 
 							if ( is_user_logged_in() ) { ?>
-								<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/profile/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/profile' ) ); ?>"><?php echo $current_user->display_name; ?></a></li>
+								<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/profile/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/profile' ) ); ?>"><?php echo esc_html( $current_user->display_name ); ?></a></li>
 								<li><?php wp_loginout( home_url( '/' ) ); ?></li><?php
 							}
 						?>

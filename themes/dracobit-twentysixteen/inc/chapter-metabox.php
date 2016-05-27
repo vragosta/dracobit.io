@@ -22,17 +22,13 @@ if ( ! function_exists( 'dracobit_chapters_meta_box_callback' ) ) {
 	 * Callback when registering widget that displays content in backend.
 	 *
 	 * @since  1.0.0
-	 * @param  $post WP_Post Object
+	 * @param  array $post WP_Post object
 	 * @return void
 	 */
 	function dracobit_chapters_meta_box_callback( $post ) {
 		// Add a nonce field so we can check for it later.
 		wp_nonce_field( 'dracobit_save_chapters_meta_box_data', 'dracobit_meta_box_nonce' );
 
-		/**
-		 * Use get_post_meta() to retrieve an existing value
-		 * from the database and use the value for the form.
-		 */
 		$tagline           = get_post_meta( $post->ID, 'tagline',           true );
 		$version           = get_post_meta( $post->ID, 'version',           true );
 		$tutorial          = get_post_meta( $post->ID, 'tutorial',          true );
@@ -90,7 +86,7 @@ if ( ! function_exists( 'dracobit_chapters_meta_box_callback' ) ) {
  * Saves the meta box data for the chapter post type.
  *
  * @since  1.0.0
- * @param  $post_id WP_Post ID
+ * @param  int  $post_id WP_Post object ID
  * @return void
  */
 function dracobit_save_chapters_meta_box_data( $post_id ) {
@@ -129,11 +125,11 @@ function dracobit_save_chapters_meta_box_data( $post_id ) {
 	$keywords          = sanitize_text_field( $_POST['keywords'] );
 
 	// Update the meta field in the database.
-	update_post_meta( $post_id, 'tagline',           $tagline );
-	update_post_meta( $post_id, 'version',           $version );
-	update_post_meta( $post_id, 'tutorial',          $tutorial );
+	update_post_meta( $post_id, 'tagline', $tagline );
+	update_post_meta( $post_id, 'version', $version );
+	update_post_meta( $post_id, 'tutorial', $tutorial );
 	update_post_meta( $post_id, 'short_description', $short_description );
-	update_post_meta( $post_id, 'keywords',          $keywords );
+	update_post_meta( $post_id, 'keywords', $keywords );
 
 }
 add_action( 'save_post', 'dracobit_save_chapters_meta_box_data' );

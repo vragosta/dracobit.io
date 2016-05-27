@@ -1,6 +1,6 @@
 <?php
 /**
- * TODO
+ * Wordpress Options endpoints.
  *
  * @package    WordPress
  * @subpackage Dracobit
@@ -31,11 +31,11 @@ class WP_JSON_Options {
 	}
 
 	/**
-	 * TODO
+	 * Logs the user in or returns error message(s).
 	 *
 	 * @since  1.0.0
 	 * @param  void
-	 * @return array $resonse TODO
+	 * @return array $resonse Error messages
 	 */
 	public function login() {
 		if ( isset( $_POST['dracobit_login_username'] ) && wp_verify_nonce( $_POST['dracobit_login_nonce'], 'dracobit-login-nonce' ) ) {
@@ -70,10 +70,11 @@ class WP_JSON_Options {
 	}
 
 	/**
-	 * TODO
+	 * Creates user in wp_users table or returns error message(s).
 	 *
+	 * @since  1.0.0
 	 * @param  void
-	 * @return array $response TODO
+	 * @return array $response Error messages
 	 */
 	public function signup() {
 		if ( isset( $_POST['dracobit_signup_username'] ) && wp_verify_nonce( $_POST['dracobit_signup_nonce'], 'dracobit-signup-nonce' ) ) {
