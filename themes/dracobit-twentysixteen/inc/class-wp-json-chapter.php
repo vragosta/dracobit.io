@@ -49,16 +49,15 @@ class WP_JSON_Chapter {
 		}
 
 		if ( isset( $data['tutorial'] ) ) {
-			$tutorial_array = get_post_meta( $post['ID'], 'tutorial', true );
+			$tutorials = get_post_meta( $post['ID'], 'tutorial', true );
 
-			if ( ! is_array( $tutorial_array ) ) {
-				$tutorial_array = array();
+			if ( ! $tutorial_array ) {
+				$tutorials = array();
 			}
 
-			if ( ! in_array( $data['tutorial'], $tutorial_array ) ) {
-				array_push( $tutorial_array, absint( $data['tutorial'] ) );
-				$tutorial_array = json_encode( $tutorial_array );
-				update_post_meta( $post['ID'], 'tutorial', $tutorial_array );
+			if ( ! in_array( $data['tutorial'], $tutorials ) ) {
+				array_push( $tutorials, absint( $data['tutorial'] ) );
+				update_post_meta( $post['ID'], 'tutorial', $tutorials );
 			}
 		}
 

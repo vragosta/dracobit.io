@@ -206,7 +206,7 @@ $chapter = get_post( absint( $_GET['id'] ) );
 									<select name="upload-chapter-tutorial" class="form-control">
 										<option></option>
 										<?php
-											$tutorials_meta = json_decode( get_post_meta( $chapter->ID, 'tutorial', true ) );
+											$tutorials_meta = get_post_meta( $chapter->ID, 'tutorial', true );
 											$tutorials = new WP_Query( array( 'post_type' => 'tutorial' ) );
 											while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
 												<option value="<?php echo $post->ID; ?>" <?php echo ( in_array( $post->ID, $tutorials_meta ) ) ? 'disabled' : '' ?>><?php echo $post->post_title; ?></option><?php
