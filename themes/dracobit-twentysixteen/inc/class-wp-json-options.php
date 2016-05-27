@@ -27,6 +27,10 @@ class WP_JSON_Options {
 			array( array( $this, 'signup' ), WP_JSON_Server::CREATABLE | WP_JSON_Server::ACCEPT_JSON ),
 		);
 
+		$routes['/logout'] = array(
+			array( array( $this, 'logout' ), WP_JSON_Server::CREATABLE | WP_JSON_Server::ACCEPT_JSON ),
+		);
+
 		return $routes;
 	}
 
@@ -148,5 +152,16 @@ class WP_JSON_Options {
 
 			return $response;
 		}
+	}
+
+	/**
+	 * Logs the user out by destroying the current session.
+	 *
+	 * @since  1.0.0
+	 * @param  void
+	 * @return array $response Error messages
+	 */
+	public function logout() {
+		wp_logout();
 	}
 }
