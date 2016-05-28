@@ -1,3 +1,10 @@
+/**
+ * Main javascript file.
+ *
+ * @since      1.0.0
+ */
+
+// define global variables
 var $ = require( 'jquery' );
 var Post = require( './views/post' );
 var Posts = require( './views/posts' );
@@ -7,6 +14,11 @@ var Chapters = require( './views/chapters' );
 var Chapter = require( './views/chapter' );
 var ChapterCollection = require( './collections/chapters' );
 
+/**
+ * Sets functionality on specific endpoints.
+ *
+ * @since      1.0.0
+ */
 var Router = Backbone.Router.extend({
 	routes: {
 		'blog(/)': 'archivePosts',
@@ -66,7 +78,6 @@ var Router = Backbone.Router.extend({
 			el: $( '.dracobit-section' ),
 		});
 		this.view.collection.id = $( 'input[name=current-user-id]' ).val();
-		// this.view.collection.id = 1;
 		this.view.render();
 	}
 
@@ -78,6 +89,12 @@ Backbone.history.start({
 	pushState: true
 });
 
+/**
+ * All javascript/jQuery done inside this function,
+ * will get executed on page load.
+ *
+ * @since      1.0.0
+ */
 $(function() {
 	$( 'ul.nav li' ).click(function() {
 		if ( ! $( this ).hasClass( 'active' ) ) {
@@ -86,7 +103,6 @@ $(function() {
 		}
 	});
 
-	// require( 'inc/upload.js' );
 	if ( $( '.upload-section-container' ).length ) {
 		var image_dropzone_1 = new Dropzone( "#dracobit_dropzone_1", {
 			url: Dracobit.options.apiUrl + '/media',
@@ -177,6 +193,13 @@ $(function() {
 			}
 		});
 
+		/**
+		 * When upload button is clicked, store the
+		 * uploaded chapter data.
+		 *
+		 * @event Click
+		 * @since 1.0.0
+		 */
 		$( '.upload-submit' ).click(function() {
 
 			$( window ).scrollTop( 0 );
@@ -267,6 +290,13 @@ $(function() {
 		});
 	}
 
+	/**
+	 * When the user clicks the remove image button,
+	 * remove image data and show original panel.
+	 *
+	 * @event Click
+	 * @since 1.0.0
+	 */
 	$( '#remove-buttons' ).on('click', '.dracobit_dropzone_delete', function() {
 		$data = $( this ).data( 'type' );
 
@@ -287,6 +317,13 @@ $(function() {
 		}
 	});
 
+	/**
+	 * When login submit button is clicked, hit
+	 * the /login endpoint and validate user login.
+	 *
+	 * @event Click
+	 * @since 1.0.0
+	 */
 	$( '#dracobit-login-submit' ).click( function() {
 		var username = $( '#dracobit-login-username' ).val(),
 		    password = $( '#dracobit-login-password' ).val(),
@@ -311,6 +348,13 @@ $(function() {
 		});
 	});
 
+	/**
+	 * When signup submit button is clicked, hit
+	 * the /signup endpoint and validate user user creation.
+	 *
+	 * @event Click
+	 * @since 1.0.0
+	 */
 	$( '#dracobit-signup-submit' ).click( function() {
 		var username         = $( '#dracobit-signup-username' ).val(),
 		    password         = $( '#dracobit-signup-password' ).val(),
