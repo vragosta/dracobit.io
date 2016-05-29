@@ -39,7 +39,7 @@ get_header(); ?>
 				</div>
 			</div>
 
-			<div class="row upload-form">
+			<div class="row upload-form" data-type="create">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

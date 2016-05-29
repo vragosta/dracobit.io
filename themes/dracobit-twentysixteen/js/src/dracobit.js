@@ -66,7 +66,6 @@ var Router = Backbone.Router.extend({
 			el: $( '.dracobit-section' ),
 		});
 		this.view.collection.id = $( 'input[name=current-user-id]' ).val();
-		// this.view.collection.id = 1;
 		this.view.render();
 	}
 
@@ -86,7 +85,6 @@ $(function() {
 		}
 	});
 
-	// require( 'inc/upload.js' );
 	if ( $( '.upload-section-container' ).length ) {
 		var image_dropzone_1 = new Dropzone( "#dracobit_dropzone_1", {
 			url: Dracobit.options.apiUrl + '/media',
@@ -189,79 +187,141 @@ $(function() {
 			    chapter_version           = $( '.upload-chapter-version' ).val(),
 			    chapter_tutorial          = $( 'select[name=upload-chapter-tutorial] option:selected' ).val(),
 			    chapter_short_description = $( '.upload-chapter-short-description' ).val(),
-					chapter_keywords          = $( '.upload-chapter-keywords' ).val();
+					chapter_keywords          = $( '.upload-chapter-keywords' ).val(),
+					chapter_type              = $( '.upload-form' ).data( 'type' );
 
-			if ( chapter_title ) {
-				chapter_keywords = chapter_keywords.split( ',' ).map( function( str ) {
-					return str.trim();
-				});
 
-				content = {
-					title : chapter_title,
-					content_raw: chapter_content,
-					tagline: chapter_tagline,
-					version: chapter_version,
-					tutorial: chapter_tutorial,
-					short_description: chapter_short_description,
-					keywords: chapter_keywords
-				};
+			// if ( chapter_type == 'create' ) {
+				if ( chapter_title ) {
+					chapter_keywords = chapter_keywords.split( ',' ).map( function( str ) {
+						return str.trim();
+					});
 
-				var imageData = new FormData(),
-						filename = '';
+					content = {
+						title : chapter_title,
+						content_raw: chapter_content,
+						tagline: chapter_tagline,
+						version: chapter_version,
+						tutorial: chapter_tutorial,
+						short_description: chapter_short_description,
+						keywords: chapter_keywords
+					};
 
-				// if the image dropzone is populated
-				if ( image_dropzone_1.files.length ) {
-					imageData.append( 'file', image_dropzone_1.files[0] );
-					filename = image_dropzone_1.files[0].name;
+					var imageData = new FormData(),
+							filename = '';
 
-				// if the image dropzone is not populated, check if the image dropzone preview is populated
-				} else if ( image_dropzone_preview_1.files.length ) {
-					imageData.append( 'file', image_dropzone_preview_1.files[0] );
-					filename = image_dropzone_preview_1.files[0].name;
-				}
+					// if the image dropzone is populated
+					if ( image_dropzone_1.files.length ) {
+						imageData.append( 'file', image_dropzone_1.files[0] );
+						filename = image_dropzone_1.files[0].name;
 
-				// if filename does not equal null
-				if ( filename !== '' ) {
-					$.ajax({
-						url: Dracobit.options.apiUrl  + '/media',
-						type: 'post',
-						data: imageData,
-						headers: {
-							'Content-Disposition': 'attachment; filename=' + filename,
-							'X-WP-Nonce': Dracobit.options.nonce
-						},
-						cache: false,
-						contentType: false,
-						async: false,
-						processData: false,
-					}).then( function( response ) {
-						$( '.progress-bar-striped' ).css( 'width', '50%' );
-						content.image = response.ID;
+					// if the image dropzone is not populated, check if the image dropzone preview is populated
+					} else if ( image_dropzone_preview_1.files.length ) {
+						imageData.append( 'file', image_dropzone_preview_1.files[0] );
+						filename = image_dropzone_preview_1.files[0].name;
+					}
+
+					// if filename does not equal null
+					if ( filename !== '' ) {
 						$.ajax({
+							url: Dracobit.options.apiUrl  + '/media',
 							type: 'post',
-							url: Dracobit.options.apiUrl + '/chapter',
+							data: imageData,
 							headers: {
+								'Content-Disposition': 'attachment; filename=' + filename,
 								'X-WP-Nonce': Dracobit.options.nonce
 							},
-							data: content
+							cache: false,
+							contentType: false,
+							async: false,
+							processData: false,
 						}).then( function( response ) {
-							$( '.progress-bar-striped' ).css( 'width', '100%' );
-							window.location.replace( '/profile' );
+							$( '.progress-bar-striped' ).css( 'width', '50%' );
+							content.image = response.ID;
+							$.ajax({
+								type: 'post',
+								url: Dracobit.options.apiUrl + '/chapter',
+								headers: {
+									'X-WP-Nonce': Dracobit.options.nonce
+								},
+								data: content
+							}).then( function( response ) {
+								$( '.progress-bar-striped' ).css( 'width', '100%' );
+								window.location.replace( '/profile' );
+							});
 						});
-					});
+					} else {
+						$( '.upload-message' ).html( 'There was a problem with the submission. Please enter a title.' );
+						$( '.upload-message-container' ).show();
+					}
 				} else {
-					$( '.upload-message' ).html( 'There was a problem with the submission. Please enter a title.' );
+					$( '.upload-message' ).html( 'There was a problem with the submission. <span style="font-weight: 500; color: #d9534f;">Please enter a title.</span>' );
+					$( '.progress-bar-striped' ).css({
+						'width':'50%',
+						'background-color':'#d9534f'
+					});
 					$( '.upload-message-container' ).show();
+					$( '.upload-form' ).show();
 				}
-			} else {
-				$( '.upload-message' ).html( 'There was a problem with the submission. <span style="font-weight: 500; color: #d9534f;">Please enter a title.</span>' );
-				$( '.progress-bar-striped' ).css({
-					'width':'50%',
-					'background-color':'#d9534f'
-				});
-				$( '.upload-message-container' ).show();
-				$( '.upload-form' ).show();
-			}
+			// } else if ( chapter_type == 'edit' ) {
+			// 	content = {
+			// 		title: chapter_title,
+			// 		content_raw: chapter_content,
+			// 		tagline: chapter_tagline,
+			// 		version: chapter_version,
+			// 		tutorial: chapter_tutorial,
+			// 		short_description: chapter_short_description,
+			// 		keywords: chapter_keywords
+			// 	};
+			//
+			// 	console.log( content );
+			//
+			// 	var imageData = new FormData(),
+			// 			filename = '';
+			//
+			// 	// if the image dropzone is populated
+			// 	if ( image_dropzone_1.files.length ) {
+			// 		imageData.append( 'file', image_dropzone_1.files[0] );
+			// 		filename = image_dropzone_1.files[0].name;
+			//
+			// 	// if the image dropzone is not populated, check if the image dropzone preview is populated
+			// 	} else if ( image_dropzone_preview_1.files.length ) {
+			// 		imageData.append( 'file', image_dropzone_preview_1.files[0] );
+			// 		filename = image_dropzone_preview_1.files[0].name;
+			// 	}
+			//
+			// 	// if filename does not equal null
+			// 	if ( filename !== '' ) {
+			// 		$.ajax({
+			// 			url: Dracobit.options.apiUrl  + '/media',
+			// 			type: 'post',
+			// 			data: imageData,
+			// 			headers: {
+			// 				'Content-Disposition': 'attachment; filename=' + filename,
+			// 				'X-WP-Nonce': Dracobit.options.nonce
+			// 			},
+			// 			cache: false,
+			// 			contentType: false,
+			// 			async: false,
+			// 			processData: false,
+			// 		}).then( function( response ) {
+			// 			$( '.progress-bar-striped' ).css( 'width', '50%' );
+			// 			content.image = response.ID;
+			//
+			// 			$.ajax({
+			// 				type: 'post',
+			// 				url: Dracobit.options.apiUrl + '/chapter',
+			// 				headers: {
+			// 					'X-WP-Nonce': Dracobit.options.nonce
+			// 				},
+			// 				data: content
+			// 			}).then( function( response ) {
+			// 				$( '.progress-bar-striped' ).css( 'width', '100%' );
+			// 				window.location.replace( '/profile' );
+			// 			});
+			// 		});
+			// 	}
+			// }
 		});
 	}
 

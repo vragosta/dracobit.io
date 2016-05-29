@@ -43,7 +43,7 @@ $chapter = get_post( absint( $_GET['id'] ) );
 				</div>
 			</div>
 
-			<div class="row upload-form">
+			<div class="row upload-form" data-type="edit">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -204,12 +204,12 @@ $chapter = get_post( absint( $_GET['id'] ) );
 							<div class="row upload-content">
 								<div class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-11 col-sm-11 col-md-11 col-lg-11">
 									<select name="upload-chapter-tutorial" class="form-control">
-										<option></option>
+										<option>--</option>
 										<?php
 											$tutorials_meta = get_post_meta( $chapter->ID, 'tutorial', true );
 											$tutorials = new WP_Query( array( 'post_type' => 'tutorial' ) );
 											while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
-												<option value="<?php echo $post->ID; ?>" <?php echo ( in_array( $post->ID, $tutorials_meta ) ) ? 'disabled' : '' ?>><?php echo $post->post_title; ?></option><?php
+												<option value="<?php echo $post->ID; ?>" <?php echo ( in_array( $post->ID, $tutorials_meta ) ) ? 'disabled selected' : '' ?>><?php echo $post->post_title; ?></option><?php
 											endwhile; wp_reset_postdata();
 										?>
 									</select>
