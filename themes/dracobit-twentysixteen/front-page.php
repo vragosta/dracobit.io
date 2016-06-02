@@ -61,4 +61,10 @@
     </div>
   </div>
 
+  <main>
+    <div>
+      <p>Salamiboyz 4 lyfe. <a href="https://github.com">Click here for salamiboyzzzz</a></p>
+    </div>
+  </main>
+
 <?php get_footer(); ?>
