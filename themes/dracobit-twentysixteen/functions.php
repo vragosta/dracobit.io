@@ -1,6 +1,6 @@
 <?php
 /**
- * Dracobit functions and definitions
+ * Dracobit functions and definitions.
  *
  * Set up the theme and provide some helper functions, which are used in the
  * theme as custom template tags. Others are attached to action and filter
@@ -28,64 +28,69 @@ include_once get_template_directory() . '/inc/tutorial-metabox.php';
 include_once get_template_directory() . '/inc/chapter-metabox.php';
 include_once get_template_directory() . '/inc/class-wp-json-tutorial.php';
 include_once get_template_directory() . '/inc/class-wp-json-chapter.php';
+include_once get_template_directory() . '/inc/class-wp-json-options.php';
 
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar( false );
 
-if ( ! function_exists( 'dracobit_setup' ) ) {
+/**
+ * Dracobit setup.
+ *
+ * Set up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support post thumbnails.
+ *
+ * @since  1.0.0
+ * @param  void
+ * @return void
+ */
+function dracobit_setup() {
 	/**
-	 * Dracobit setup.
+	 * Make Dracobit available for translation.
 	 *
-	 * Set up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support post thumbnails.
-	 *
-	 * @since 1.0.0
+	 * Translations can be added to the /languages/ directory.
+	 * If you're building a theme based on Dracobit, use a find and
+	 * replace to change 'sc' to the name of your theme in all
+	 * template files.
 	 */
-	function dracobit_setup() {
-		/**
-		 * Make Dracobit available for translation.
-		 *
-		 * Translations can be added to the /languages/ directory.
-		 * If you're building a theme based on Dracobit, use a find and
-		 * replace to change 'sc' to the name of your theme in all
-		 * template files.
-		 */
-		load_theme_textdomain( 'dracobit', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'dracobit', get_template_directory() . '/languages' );
 
-		// Add RSS feed links to <head> for posts and comments.
-		add_theme_support( 'automatic-feed-links' );
+	// Add RSS feed links to <head> for posts and comments.
+	add_theme_support( 'automatic-feed-links' );
 
-		/**
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
+	/**
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a
+	 * hard-coded <title> tag in the document head, and expect WordPress to
+	 * provide it for us.
+	 */
+	add_theme_support( 'title-tag' );
 
-		// Removes the auto generator of the paragraph tags when using the wordpress function 'the_content()'
-		remove_filter( 'the_content', 'wpautop' );
+	// Removes the auto generator of the paragraph tags when using the wordpress function 'the_content()'.
+	remove_filter( 'the_content', 'wpautop' );
 
-		// Enable support for Post Thumbnails, and declare two sizes.
-		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 672, 372, true );
-	}
+	// Enable support for Post Thumbnails, and declare two sizes.
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 672, 372, true );
 }
 add_action( 'after_setup_theme', 'dracobit_setup' );
 
 /**
- * Allows for wordpress to recognize all the css/js files
+ * Allows for wordpress to recognize all the css/js files,
+ * and creates localized variable.
  *
- * @since 1.0.0
+ * @since  1.0.0
+ * @param  void
+ * @return void
  */
 function dracobit_scripts() {
 	global $post;
 
 	wp_enqueue_style( 'vendors', get_template_directory_uri() . '/css/vendors.min.css', array(), DRACOBIT_VERSION, 'all' );
 	wp_enqueue_style( 'dracobit', get_template_directory_uri() . '/style.min.css', array( 'vendors' ), DRACOBIT_VERSION, 'all' );
+
 	wp_enqueue_script( 'vendors', get_template_directory_uri() . '/js/vendors.min.js', array( 'jquery' ), DRACOBIT_VERSION, true );
 	wp_enqueue_script( 'dracobit', get_template_directory_uri() . '/js/dracobit.min.js', array( 'jquery', 'backbone', 'underscore', 'vendors' ), DRACOBIT_VERSION, true );
 
@@ -103,26 +108,32 @@ add_action( 'wp_enqueue_scripts', 'dracobit_scripts' );
 
 /**
  * Establishes the endpoints for each of the post types,
- * to be used by the backbone framework
+ * to be used by the backbone framework.
  *
- * @since 1.0.0
+ * @since  1.0.0
+ * @param  void
+ * @return void
  */
 function dracobit_endpoints_init() {
 	$tutorial_endpoint = new WP_JSON_Tutorial();
-	$chapter_endpoint = new WP_JSON_Chapter();
+	$chapter_endpoint  = new WP_JSON_Chapter();
+	$options_endpoint  = new WP_JSON_Options();
 
 	add_filter( 'json_endpoints', array( $tutorial_endpoint, 'register_routes' ) );
 	add_filter( 'json_prepare_post', array( $tutorial_endpoint, 'data' ), 10, 3 );
 	add_filter( 'json_endpoints', array( $chapter_endpoint, 'register_routes' ) );
 	add_filter( 'json_prepare_post', array( $chapter_endpoint, 'data' ), 10, 3 );
 	add_action( 'json_insert_post', array( $chapter_endpoint, 'update_post_meta' ), 10, 3 );
+	add_filter( 'json_endpoints', array( $options_endpoint, 'register_routes' ) );
 }
 add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
 
 /**
- * Registers the various sidebars
+ * Registers the various post type sidebars.
  *
- * @since 1.0.0
+ * @since  1.0.0
+ * @param  void
+ * @return void
  */
 function dracobit_widgets_init() {
 	$sidebars = array( 'post', 'page', 'tutorial' );
@@ -140,142 +151,37 @@ function dracobit_widgets_init() {
 }
 add_action( 'widgets_init', 'dracobit_widgets_init' );
 
-/**
- * Logs user in
- *
- * @since 1.0.0
- */
-function dracobit_login() {
-	if ( isset( $_POST['dracobit-login-username'] ) && wp_verify_nonce( $_POST['dracobit-login-nonce'], 'dracobit-login-nonce' ) ) {
-		$user = get_userdatabylogin( $_POST['dracobit-login-username'] );
-
-		if ( ! $user ) {
-			dracobit_errors()->add( 'empty_username', __( 'Invalid username' ) );
-		}
-
-		if ( ! isset( $_POST['dracobit-login-password'] ) || $_POST['dracobit-login-password'] == '' ) {
-			dracobit_errors()->add( 'empty_password', __( 'Please enter a password' ) );
-		}
-
-		if ( ! wp_check_password( $_POST['dracobit-login-password'], $user->user_pass, $user->ID ) ) {
-			dracobit_errors()->add( 'empty_password', __( 'Incorrect password' ) );
-		}
-
-		$errors = dracobit_errors()->get_error_messages();
-
-		if ( empty( $errors ) ) {
-			wp_setcookie( $_POST['dracobit-login-username'], $_POST['dracobit-login-password'], true );
-			wp_set_current_user( $user->ID, $_POST['dracobit-login-username'] );
-			do_action( 'wp_login', $_POST['dracobit-login-username'] );
-			wp_redirect( home_url( 'profile' ) );
-			exit;
-		}
-	}
-}
-add_action( 'init', 'dracobit_login' );
-
-/**
- * Register a new user
- *
- * @since 1.0.0
- */
-function dracobit_signup() {
-  if ( isset( $_POST['dracobit-signup-username'] ) && wp_verify_nonce( $_POST['dracobit-signup-nonce'], 'dracobit-signup-nonce' ) ) {
-		$user_login   = $_POST['dracobit-signup-username'];
-		$user_email   = $_POST['dracobit-signup-email'];
-		$user_first   = $_POST['dracobit-signup-firstname'];
-		$user_last    = $_POST['dracobit-signup-lastname'];
-		$user_pass    = $_POST['dracobit-signup-password'];
-		$pass_confirm = $_POST['dracobit-signup-password-confirm'];
-
-		// this is required for username checks
-		require_once( ABSPATH . WPINC . '/registration.php' );
-
-		if ( username_exists( $user_login ) ) {
-			dracobit_errors()->add( 'username_unavailable', __( 'Username already taken' ) );
-		}
-
-		if ( ! validate_username( $user_login ) ) {
-			dracobit_errors()->add( 'username_invalid', __( 'Invalid username' ) );
-		}
-
-		if ( $user_login == '' ) {
-			dracobit_errors()->add( 'username_empty', __( 'Please enter a username' ) );
-		}
-
-		if ( ! is_email( $user_email ) ) {
-			dracobit_errors()->add( 'email_invalid', __( 'Invalid email' ) );
-		}
-
-		if ( email_exists( $user_email ) ) {
-			dracobit_errors()->add( 'email_used', __( 'Email already registered' ) );
-		}
-
-		if( $user_pass == '' ) {
-			dracobit_errors()->add( 'password_empty', __( 'Please enter a password' ) );
-		}
-
-		if ( $user_pass != $pass_confirm ) {
-			dracobit_errors()->add( 'password_mismatch', __( 'Passwords do not match' ) );
-		}
-
-		$errors = dracobit_errors()->get_error_messages();
-
-		if( empty( $errors ) ) {
-
-			$new_user_id = wp_insert_user( array(
-					'user_login'      => $user_login,
-					'user_pass'       => $user_pass,
-					'user_email'      => $user_email,
-					'first_name'      => $user_first,
-					'last_name'       => $user_last,
-					'user_registered' => date('Y-m-d H:i:s'),
-					'role'            => 'author'
-				)
-			);
-
-			if ( $new_user_id ) {
-				// send an email to the admin alerting them of the signup
-				wp_new_user_notification( $new_user_id );
-
-				// log the new user in
-				wp_setcookie( $user_login, $user_pass, true );
-				wp_set_current_user( $new_user_id, $user_login );
-				do_action( 'wp_login', $user_login );
-
-				// send the newly created user to the home page after logging them in
-				wp_redirect( home_url() ); exit;
-			}
-		}
-	}
-}
-add_action( 'init', 'dracobit_signup' );
-
-/**
- * Used for tracking error messages
- *
- * @since 1.0.0
- */
 if ( ! function_exists( 'dracobit_errors' ) ) {
+	/**
+	 * Used for tracking error messages.
+	 *
+	 * @since  1.0.0
+	 * @param  void
+	 * @return array $wp_error WP_Error Object
+	 */
 	function dracobit_errors() {
 	  static $wp_error;
 	  return isset( $wp_error ) ? $wp_error : ( $wp_error = new WP_Error( null, null, null ) );
 	}
 }
 
-/**
- * Custom comment template
- *
- * @since 1.0.0
- */
 if ( ! function_exists( 'dracobit_comment_template' ) ) {
+	/**
+	 * Custom comment template.
+	 *
+	 * @since  1.0.0
+	 * @param  array $comment WP_Comment object
+	 * @param  array $args    Comment arguements
+	 * @param  int   $depth   Comment Depth level
+	 * @return void
+	 */
 	function dracobit_comment_template( $comment, $args, $depth ) {
 	  if ( 'div' === $args['style'] ) {
-	      $tag       = 'div';
-	      $add_below = 'comment';
+      $tag       = 'div';
+      $add_below = 'comment';
 	  } else {
-	      $tag       = 'li';
-	      $add_below = 'div-comment';
+      $tag       = 'li';
+      $add_below = 'div-comment';
 	  }
 	  ?>
 

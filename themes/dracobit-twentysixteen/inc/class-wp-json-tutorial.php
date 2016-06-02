@@ -14,8 +14,9 @@ class WP_JSON_Tutorial {
 	/**
 	 * Register custom endpoints.
 	 *
-	 * @param  array $routes
-	 * @return array
+	 * @since  1.0.0
+	 * @param  array $routes Existing routes
+	 * @return array $routes Existing routes with new additions
 	 */
 	public function register_routes( $routes ) {
 		$routes['/tutorial'] = array(
@@ -30,11 +31,13 @@ class WP_JSON_Tutorial {
 	}
 
 	/**
+	 * TODO
 	 *
-	 * @param  array  $data
-	 * @param  array  $post
-	 * @param  string $context
-	 * @return array
+	 * @since  1.0.0
+	 * @param  array  $data         TODO
+	 * @param  array  $post         TODO
+	 * @param  string $context      TODO
+	 * @return array  $output/$data TODO
 	 */
 	function data( $data, $post, $context ) {
 		if ( 'tutorial' === $post['post_type'] ) {
@@ -74,10 +77,12 @@ class WP_JSON_Tutorial {
 	}
 
 	/**
+	 * TODO
 	 *
-	 * @param  array $filter
-	 * @param  int   $page
-	 * @return WP_JSON_Response
+	 * @since  1.0.0
+	 * @param  array            $filter TODO
+	 * @param  int              $page   TODO
+	 * @return WP_JSON_Response $output TODO
 	 */
 	public function get_tutorials( $filter = array(), $page = 1 ) {
 		global $wp_json_posts;
@@ -86,9 +91,11 @@ class WP_JSON_Tutorial {
 	}
 
 	/**
+	 * TODO
 	 *
-	 * @param  int $id
-	 * @return WP_JSON_Response
+	 * @since  1.0.0
+	 * @param  int              $id     TODO
+	 * @return WP_JSON_Response $output TODO
 	 */
 	public function get_tutorial( $id ) {
 		global $wp_json_posts;

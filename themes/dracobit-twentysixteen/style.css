@@ -400,6 +400,17 @@ input.autocomplete-fix {
 }
 
 /*
+ * Header Template
+ */
+
+#dracobit-logout-submit {
+	outline: none;
+	border: none;
+	background: transparent;
+}
+
+
+/*
  * Front-page Templates
  */
 
@@ -425,6 +436,18 @@ input.autocomplete-fix {
 
 .dracobit-signup-form {
 	width: 250px;
+}
+
+#dracobit-signup-errors {
+	display: none;
+	background: #f2dede;
+	color: #a94442;
+	margin-bottom: 15px;
+	height: auto;
+}
+
+#dracobit-signup-errors li {
+	list-style: none;
 }
 
 .signup-form-container {

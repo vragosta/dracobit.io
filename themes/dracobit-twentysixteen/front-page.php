@@ -8,18 +8,11 @@
         <h1 class="dracobit-signup-header"><strong><?php _e( 'Sign Up' ); ?></strong></h1>
         <h4 class="dracobit-signup-subheader">There's a little Draco in everyone.</h4>
 
-        <?php
-          if ( $codes = dracobit_errors()->get_error_codes() ) {
-        		echo '<div class="dracobit_errors">';
-        		foreach( $codes as $code ) {
-        			$message = dracobit_errors()->get_error_message( $code );
-        			echo '<span class="error"><strong>' . __( 'Error' ) . '</strong>: ' . $message . '</span><br/>';
-        		}
-        		echo '</div>';
-        	}
-        ?>
+        <section id="dracobit-signup-errors" class="form-control">
+          <li>There were Errors with your submission:</li>
+        </section>
 
-        <form id="dracobit-signup-form" class="dracobit-signup-form" action="" method="POST">
+        <section id="dracobit-signup-form" class="dracobit-signup-form">
           <fieldset>
             <div class="form-group">
               <input type="text" class="autocomplete-fix" />
@@ -58,13 +51,11 @@
           </fieldset>
           <fieldset>
             <div class="form-group">
-              <input type="hidden" name="dracobit-signup-nonce" value="<?php echo wp_create_nonce('dracobit-signup-nonce'); ?>"/>
-              <input id="dracobit-signup-submit" class="btn btn-info" type="submit" value="<?php _e('Sign Up'); ?>"/>
+              <input type="hidden" name="dracobit-signup-nonce" value="<?php echo wp_create_nonce( 'dracobit-signup-nonce' ); ?>" />
+              <button id="dracobit-signup-submit" class="btn btn-info">Sign Up</button>
             </div>
           </fieldset>
-          <!-- Test 12 testing -->
-          <!-- More test comments -->
-        </form>
+        <section>
       </div>
       <?php } ?>
     </div>
