@@ -1,5 +1,6 @@
 <?php 
 	require_once realpath( dirname( __FILE__)) . '/../Slim/Slim.php';
+	require_once realpath( dirname( __FILE__)) . '/../themes/dracobit-twentysixteen/inc/database.php';
 
 	\Slim\Slim::registerAutoloader();
 
@@ -110,6 +111,19 @@
 		// if (validateAPIkey($app->request->headers->get('key'))){
 		// 	//TODO: check login status
 		// }
+
+	});
+
+	/**
+	 * Retreives the unique userKey based on the userID
+	 *
+	 * URL /get_user_key/
+	 * Method - POST
+	 * Headers - key
+	 * Params - userID
+	 */
+	$app->post('/get_user_key' function() use ($app){
+
 	});
 
 	$app->run();
