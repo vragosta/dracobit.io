@@ -49,6 +49,22 @@
 	}
 
 	/**
+	 * Checks API Key, if invalid, returns false
+	 * Passed as middleware for every endpoint expect init_check_key
+	 *
+	 * @param String - key
+	 * @return Boolean 
+	 */
+	function validateAPIkey(){
+		$global $FORBIDDEN;
+		$app = \Slim\Slim::getInstance();
+
+		//TODO: Check token
+	}
+
+
+
+	/**
 	 * Echoing json response to client
 	 * @param String $status_code Http response code
 	 * @param Int $response Json response
@@ -63,14 +79,39 @@
 	}
 
 	/**
-	 * Returns a request token based on version of app
-	 * URL /get_token/:key
+	 * Initial check of the API key
+	 * This will get called once in the very start of the app
+	 * 
+	 * URL /init_check_key/
 	 * Method - GET
-	 * Params :key
+	 * Params none
 	 */
-	$app->get('/get_token/:key', function ($key) {
-		// TODO
+	$app->get('/init_check_key/', function() use ($app) {
+		global $SUCCESS, $FORBIDDEN;
+
+		if (validateAPIkey($app->request->headers->get('key')))
+			echoResponse($SUCCESS, array('valid' => 'true'));
+		else
+			echoResponse($FORBIDDEN, array('valid' => 'false'));
 	});
 
+	/**
+	 * Checks if user is logged in, or if there password is changed
+	 * Returns array with true or false on login and password changed 
+	 * and user key (if both are true)
+	 *
+	 * URL /login_status/
+	 * Method - GET
+	 * Headers - key
+	 * Params - username
+	 * @return Array
+	 */
+	$app->post('/login_status', function() use ($app) {
+		// if (validateAPIkey($app->request->headers->get('key'))){
+		// 	//TODO: check login status
+		// }
+	});
+
+	$app->run();
 
  ?>
