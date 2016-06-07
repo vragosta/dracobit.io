@@ -26,8 +26,45 @@ function dracobit_get_milestones( $atts ) {
 function dracobit_get_issues( $atts, $milestone ) {
   $url = "https://api.github.com/repos/vragosta/dracobit.io/issues";
 
+  $query = array();
+
+  if ( ! empty( $milestone ) ) {
+    $query[] = 'milestone=' . $milestone;
+  }
+
+  if ( ! empty( $atts['state'] ) ) {
+    $query[] = 'state=' . $atts['state'];
+  }
+
+  if ( ! empty( $atts['assignee'] ) ) {
+    $query[] = 'assignee=' . $atts['assignee'];
+  }
+
+  if ( ! empty( $atts['creator'] ) ) {
+    $query[] = 'creator=' . $atts['creator'];
+  }
+
+  if ( ! empty( $atts['labels'] ) ) {
+    $query[] = 'labels=' . $atts['labels'];
+  }
+
+  if ( ! empty( $atts['sort'] ) ) {
+    $query[] = 'sort=' . $atts['sort'];
+  }
+
+  if ( ! empty( $atts['direction'] ) ) {
+    $query[] = 'direction=' . $atts['direction'];
+  }
+
+  if ( count( $query ) > 0 ) {
+    $filter = implode( '&', $query );
+    // var_dump( $filter );
+    $url = $url . '?' . $filter;
+    // var_dump( $url );
+  }
+
   $response = wp_remote_get( $url );
-  $issues = json_decode( wp_remote_retrieve_body( $url ) );
+  $issues = json_decode( wp_remote_retrieve_body( $response ) );
 
   return $issues;
 }
@@ -54,10 +91,12 @@ function dracobit_generate_shortcode( $atts ) {
   $milestones = dracobit_get_milestones( $atts );
 
   foreach( $milestones as $milestone ) {
-    $output .= $milestone->title . '<br>';
+    $issue_output = '';
+    $issues = dracobit_get_issues( $atts, $milestone->number );
+    // echo $issues;
   }
 
-  return $output;
+  return $issues;
 }
 add_shortcode( 'dracobit', 'dracobit_generate_shortcode' );
 
