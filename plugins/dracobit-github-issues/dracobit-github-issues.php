@@ -17,6 +17,7 @@ function dracobit_get_milestones( $atts ) {
   $url = "https://api.github.com/repos/vragosta/dracobit.io/milestones";
 
   $response = wp_remote_get( $url );
+
   $milestones = json_decode( wp_remote_retrieve_body ( $response ) );
 
   return $milestones;
@@ -34,7 +35,7 @@ function dracobit_get_issues( $atts, $milestone ) {
 function dracobit_generate_shortcode( $atts ) {
   $atts = shortcode_atts( array(
       'state'      => 'all',
-      'assignee'   => '',
+      'assignee'   => 'Frankie',
   		'creator'	   => '',
       'labels'     => '',
       'sort'     => 'updated',
@@ -50,8 +51,10 @@ function dracobit_generate_shortcode( $atts ) {
     return "Error: No repository found.";
   }
 
+  $milestones = dracobit_get_milestones( $atts );
+
   foreach( $milestones as $milestone ) {
-    $output .= $milestone->title;
+    $output .= $milestone->title . '<br>';
   }
 
   return $output;
