@@ -216,4 +216,31 @@ if ( ! function_exists( 'dracobit_comment_template' ) ) {
 	}
 }
 
+if ( ! function_exists( 'dracobit_login_redirect' ) ) {
+	/**
+	 * Redirects user to homepage if they are not logged in.
+	 *
+	 * @since  1.0.0
+	 * @return void
+	 */
+	function dracobit_login_redirect() {
+		if ( ! is_user_logged_in() ) {
+			wp_redirect( home_url( '' ) );
+			exit;
+		}
+	}
+}
+
+if ( ! function_exists( 'dracobit_login_check' ) ) {
+	/**
+	 * Determines if user is logged in or not.
+	 *
+	 * @since  1.0.0
+	 * @return void
+	 */
+	function dracobit_login_check() {
+		return ( ! is_user_logged_in() ) ? false : true;
+	}
+}
+
 ?>
