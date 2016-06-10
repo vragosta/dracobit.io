@@ -33,6 +33,14 @@ a:focus {
 	text-decoration: none;
 }
 
+button:focus,
+button:active,
+button.btn:focus,
+button.btn:active {
+	outline: none;
+	box-shadow: none;
+}
+
 input.autocomplete-fix {
 	display: none;
 }
@@ -402,11 +410,15 @@ input.autocomplete-fix {
 /*
  * Header Template
  */
+#dracobit-login-submit {
+	padding: 4px 12px;
+}
 
 #dracobit-logout-submit {
 	outline: none;
 	border: none;
 	background: transparent;
+	cursor: pointer;
 }
 
 
@@ -675,6 +687,12 @@ input.autocomplete-fix {
  * Media Queries
  */
 
+@media ( max-width: 1199px ) {
+	body .navbar .container-fluid {
+		width: 100%;
+	}
+}
+
 @media ( max-width: 1199px ) and ( min-width: 992px ) {
 
 }
@@ -691,12 +709,24 @@ input.autocomplete-fix {
 	.dracobit-login {
 		padding: 0 10px;
 	}
+
+	#dracobit-login-submit {
+		width: 100%;
+	}
 }
 
 @media ( min-width: 768px ) {
 	.navbar .container-fluid {
-		width: 1170px;
+		width: 1200px;
 		margin: 0 auto;
+	}
+
+	.navbar-nav {
+		float: right;
+	}
+
+	body.logged-in .navbar-nav {
+		float: left;
 	}
 
 	.dracobit-login {
