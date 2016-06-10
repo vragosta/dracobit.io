@@ -1,13 +1,11 @@
 <?php
 
 /*
-Template Name: Upload Form
+	Template Name: Upload Form
 */
 
-// blocks direct access to this file.
-defined( 'ABSPATH' ) || exit;
-
-get_header(); ?>
+get_header();
+dracobit_login_check(); ?>
 
 <div class="dracobit-container container">
 	<main class="row">

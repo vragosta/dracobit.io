@@ -310,4 +310,17 @@ if ( ! function_exists( 'dracobit_comment_template' ) ) {
 	}
 }
 
+/**
+ * If user is not logged in, redirect them back to homepage.
+ *
+ * @since  1.0.0
+ * @param  void
+ * @return void
+ */
+function dracobit_login_check() {
+	if ( ! is_user_logged_in() ) {
+		wp_redirect( home_url() );
+		exit;
+	}
+}
 ?>

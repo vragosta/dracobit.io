@@ -1,17 +1,13 @@
 <?php
 
 /*
-Template Name: Edit Form
+	Template Name: Edit Form
 */
 
 get_header();
 
-// blocks direct access to this file.
-defined( 'ABSPATH' ) || exit;
-
-$chapter = get_post( absint( $_GET['id'] ) );
-
-?>
+dracobit_login_check();
+$chapter = get_post( absint( $_GET['id'] ) ); ?>
 
 <div class="dracobit-container container">
 	<main class="row">
@@ -44,6 +40,7 @@ $chapter = get_post( absint( $_GET['id'] ) );
 			</div>
 
 			<div class="row upload-form" data-type="edit">
+				<input type="hidden" class="chapter-id" value="<?php echo $chapter->ID; ?>" />
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

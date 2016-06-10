@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+	get_header();
+	dracobit_login_check();
+?>
 
 <div class="dracobit-container container">
 	<main class="row">
@@ -7,9 +10,6 @@
 			<div class="row profile-upload-container">
 				<input type="hidden" name="current-user-id" value="<?php echo esc_attr( $current_user->ID ); ?>" />
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<!-- <div class="row-fluid add-tutorial-container">
-						<a href="<?php echo home_url( 'upload' ); ?>" class="btn btn-info">Add Tutorial <i class="fa fa-plus" aria-hidden="true"></i></a>
-					</div> -->
 					<div class="row-fluid add-chapter-container">
 						<a href="<?php echo home_url( 'upload' ); ?>" class="btn btn-info">Add Chapter <i class="fa fa-plus" aria-hidden="true"></i></a>
 					</div>
