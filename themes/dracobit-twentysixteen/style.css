@@ -410,6 +410,12 @@ input.autocomplete-fix {
 /*
  * Header Template
  */
+
+.navbar-default .navbar-nav > li > a:hover {
+	color: #555;
+	background-color: #e7e7e7;
+}
+
 #dracobit-login-submit {
 	padding: 4px 12px;
 }
@@ -417,10 +423,8 @@ input.autocomplete-fix {
 #dracobit-logout-submit {
 	outline: none;
 	border: none;
-	background: transparent;
 	cursor: pointer;
 }
-
 
 /*
  * Front-page Templates
