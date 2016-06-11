@@ -80,6 +80,40 @@ function dracobit_register_posttypes() {
 			)
 		)
 	);
+
+	register_post_type( 'community', array(
+	    'label' => 'Communities',
+	    'description' => '',
+	    'public' => true,
+	    'show_ui' => true,
+	    'show_in_menu' => true,
+	    'capability_type' => 'post',
+	    'map_meta_cap' => true,
+	    'hierarchical' => false,
+	    'rewrite' => array( 'slug' => 'community', 'with_front' => false ),
+	    'query_var' => true,
+	    'has_archive' => true,
+	    'menu_position' => 41,
+	    'menu_icon' => 'dashicons-edit',
+	    'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
+	    'labels' => array(
+	        'name' => 'Communities',
+	        'singular_name' => 'Community',
+	        'menu_name' => 'Communities',
+	        'add_new' => 'Add Community',
+	        'add_new_item' => 'Add New Community',
+	        'edit' => 'Edit',
+	        'edit_item' => 'Edit Community',
+	        'new_item' => 'New Community',
+	        'view' => 'View Community',
+	        'view_item' => 'View Community',
+	        'search_items' => 'Search Communities',
+	        'not_found' => 'No Communities Found',
+	        'not_found_in_trash' => 'No Communities Found in Trash',
+	        'parent' => 'Parent Community',
+	    )
+	  )
+	);
 }
 add_action( 'init', 'dracobit_register_posttypes' );
 
