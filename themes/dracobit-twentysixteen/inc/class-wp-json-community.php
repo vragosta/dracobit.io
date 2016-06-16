@@ -24,6 +24,11 @@ class WP_JSON_Community {
        array( array( $this, 'create_community' ), WP_JSON_Server::CREATABLE | WP_JSON_Server::ACCEPT_JSON ),
      );
 
+     $routes['/community/(?P<id>\d+)'] = array(
+       array( array( $this, 'get_community' ), WP_JSON_Server::READABLE ),
+       array( array( $this, 'edit_community' ), WP_JSON_Server::EDITABLE | WP_JSON_Server::ACCEPT_JSON ),
+     );
+
      return $routes;
    }
 
@@ -166,6 +171,18 @@ class WP_JSON_Community {
 	}
 
   /**
+	 * Get a specific Community.
+	 *
+	 * @since  1.0.0
+	 * @param  int              $id            Chapter ID
+	 * @return WP_JSON_Response $wp_json_posts Specific community
+	 */
+   public function get_community( $id ) {
+     global $wp_json_posts;
+     return $wp_json_posts->get_post( $id, 'view' );
+   }
+
+  /**
 	 * Create an community.
 	 *
 	 * @since  1.0.0
@@ -183,4 +200,18 @@ class WP_JSON_Community {
 		$data['status'] = 'publish';
 		return $wp_json_posts->create_post( $data );
 	}
+
+  /**
+	 * Edit a community.
+	 *
+	 * @since  1.0.0
+	 * @param  int              $id            Community ID
+	 * @param  array            $data          Data from API
+	 * @param  array            $_header       Headers
+	 * @return WP_JSON_Response $wp_json_posts Updated posts table with edited community
+	 */
+   public function edit_community( $id, $data, $_header ) {
+     global $wp_json_posts;
+     return $wp_json_posts->edit_post( $id, $data, $_header );
+   }
 }
