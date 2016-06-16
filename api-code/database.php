@@ -4,6 +4,21 @@
 	// PDO Constants
 	include ('define.php');
 
+	function does_user_exist($username){
+		$pdo = new PDO(DB_DSN, DB_UN, DB_PW);
+
+		$query = "SELECT ID FROM wp_users WHERE user_login = ?";
+		$stmt = $pdo->prepare($query);
+
+		$stmt->execute($username);
+
+		$temp = $stmt->fetch(PDO::FETCH_NUM);
+
+		// Not sure if this will work
+		if ($temp[0] == 0) return true;
+		else 			   return false;
+	}
+
 	function add_to_mobile_db($username){
 		$userID = get_user_id_from_name($username);
 

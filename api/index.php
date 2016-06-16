@@ -52,7 +52,6 @@
 
 	/**
 	 * Checks API Key, if invalid, returns false
-	 * Passed as middleware for every endpoint expect init_check_key
 	 *
 	 * @param String - key
 	 * @return Boolean 
@@ -105,9 +104,29 @@
 	 * @return Array
 	 */
 	$app->post('/login_status', function() use ($app) {
-		// if (validateAPIkey($app->request->headers->get('key'))){
-		// 	//TODO: check login status
-		// }
+		global $SUCCESS, $FORBIDDEN, $BAD_REQUEST;
+		// check API Key first
+		if (validateAPIkey($app->request->headers->get('key'))){
+			$username = $app->request->post('username');
+
+			// ensure user exists
+			if (DatabaseUtil\does_user_exist($username)){
+				$user_id = DatabaseUtil\get_user_id_from_name($username);
+
+				if(DatabaseUtil\is_logged_in($user_id)){
+					if(DatabaseUtil\is_password_changed($user_id)){
+						echoResponse($SUCCESS, array('login' => 'true', 'password' => 'same', 'userexists' => 'true'));
+					}
+					echoResponse($SUCCESS, array('login' => 'true', 'password' => 'changed', 'userexists' => 'true'));
+				}
+				
+				echoResponse($SUCCESS, array('login' => 'false', 'password' => 'N/A', 'userexists' => 'true'))	
+			}
+			echoResponse($SUCCESS, array('login' => 'false', 'password' => 'N/A', 'userexists' => 'false'));	
+		}
+		else{
+			echoResponse($FORBIDDEN, array('valid' => 'false'));
+		}
 	});
 
 
