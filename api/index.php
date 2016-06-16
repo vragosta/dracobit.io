@@ -2,6 +2,7 @@
 
 	require_once realpath( dirname( __FILE__)) . '/../Slim/Slim.php';
 	require_once realpath( dirname( __FILE__)) . '/../api-code/database.php';
+	require_once realpath( dirname( __FILE__)) . '/../api-code/keyVersions.php';
 	\Slim\Slim::registerAutoloader();
 
 	// Slim instance
@@ -56,10 +57,8 @@
 	 * @param String - key
 	 * @return Boolean 
 	 */
-	function validateAPIkey(){
-		$global $FORBIDDEN;
-		$app = \Slim\Slim::getInstance();
-		//TODO: Check token
+	function validateAPIkey($key){
+		return $key == API_KEY\getKey();
 	}
 
 

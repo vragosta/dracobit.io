@@ -10,7 +10,7 @@
 
 // Blocking direct access to this file.
 defined( 'ABSPATH' ) || exit;
-require_once realpath( dirname( __FILE__)) . '/../../api-code/database.php';
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/wp-content/api-code/database.php');
 
 class WP_JSON_Options {
 	/**
