@@ -145,7 +145,9 @@ class WP_JSON_Options {
 					wp_setcookie( $user_login, $user_pass, true );
 					wp_set_current_user( $new_user_id, $user_login );
 					do_action( 'wp_login', $user_login );
-					DatabaseUtil\add_to_mobile_db($user_login);
+					//DatabaseUtil\add_to_mobile_db($user_login);
+					// Holding off on this for now
+					
 				}
 			}
 
