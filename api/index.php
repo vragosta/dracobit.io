@@ -1,7 +1,7 @@
 <?php
- 
+
 	require_once realpath( dirname( __FILE__)) . '/../Slim/Slim.php';
-	require_once realpath( dirname( __FILE__)) . '/../themes/dracobit-twentysixteen/inc/database.php';
+	require_once realpath( dirname( __FILE__)) . '/../api-code/database.php';
 	\Slim\Slim::registerAutoloader();
 
 	// Slim instance
