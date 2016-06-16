@@ -104,27 +104,33 @@
 	 * @return Array
 	 */
 	$app->post('/login_status', function() use ($app) {
-		global $SUCCESS, $FORBIDDEN, $BAD_REQUEST;
+		global $SUCCESS, $FORBIDDEN;
 		// check API Key first
 		if (validateAPIkey($app->request->headers->get('key'))){
+			verifyRequiredParams(array('username'));
 			$username = $app->request->post('username');
 
 			// ensure user exists
 			if (DatabaseUtil\does_user_exist($username)){
 				$user_id = DatabaseUtil\get_user_id_from_name($username);
 
+				//check if theyre logged in
 				if(DatabaseUtil\is_logged_in($user_id)){
 					if(DatabaseUtil\is_password_changed($user_id)){
 						echoResponse($SUCCESS, array('login' => 'true', 'password' => 'same', 'userexists' => 'true'));
 					}
+					// logged in but password was changed
 					echoResponse($SUCCESS, array('login' => 'true', 'password' => 'changed', 'userexists' => 'true'));
 				}
 				
+				// not logged in
 				echoResponse($SUCCESS, array('login' => 'false', 'password' => 'N/A', 'userexists' => 'true'))	
 			}
+			// user doesnt exist
 			echoResponse($SUCCESS, array('login' => 'false', 'password' => 'N/A', 'userexists' => 'false'));	
 		}
 		else{
+			// invalid api key
 			echoResponse($FORBIDDEN, array('valid' => 'false'));
 		}
 	});
@@ -139,6 +145,15 @@
 	 * Params - userID
 	 */
 	$app->post('/get_user_key' function() use ($app){
+		global $SUCCESS, $FORBIDDEN;
+		// check API key first
+		if (validateAPIkey($app->request->headers->get('key'))){
+			verifyRequiredParams('user_id');
+			$user_id = $app->request->post('user_id');
+			$user_key = DatabaseUtil\get_user_key($user_id);
+			echoResponse($SUCCESS, array('user_key' => $user_key));
+		}
+		echoResponse($FORBIDDEN, array('valid' => 'false'));
 	});
 
 
