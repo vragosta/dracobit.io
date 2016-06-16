@@ -15,7 +15,7 @@ function dracobit_add_communities_meta_box() {
     'community'
   );
 }
-add_action( 'add_meta_box', 'dracobit_add_communities_meta_box' );
+add_action( 'add_meta_boxes', 'dracobit_add_communities_meta_box' );
 
 if ( ! function_exists( 'dracobit_communities_meta_box_callback' ) ) {
 	/**
@@ -39,7 +39,7 @@ if ( ! function_exists( 'dracobit_communities_meta_box_callback' ) ) {
     <table style="width: 100%;">
       <tr>
         <td>
-          <label for="members"><<?php echo esc_html( __( 'Members:', 'dracobit' ) ); ?></label>
+          <label for="members"><?php echo esc_html( __( 'Members:', 'dracobit' ) ); ?></label>
         </td>
         <td>
           <textarea id="members" name="members" style="width: 100%;"><?php echo esc_attr( $members ); ?></textarea>
@@ -48,7 +48,7 @@ if ( ! function_exists( 'dracobit_communities_meta_box_callback' ) ) {
 
       <tr>
         <td>
-          <label for="moderators"><<?php echo esc_html( __( 'Moderators:', 'dracobit' ) ); ?></label>
+          <label for="moderators"><?php echo esc_html( __( 'Moderators:', 'dracobit' ) ); ?></label>
         </td>
         <td>
           <textarea id="moderators" name="moderators" style="width: 100%;"><?php echo esc_attr( $moderators ); ?></textarea>
@@ -57,7 +57,7 @@ if ( ! function_exists( 'dracobit_communities_meta_box_callback' ) ) {
 
       <tr>
         <td>
-          <label for="owners"><<?php echo esc_html( __( 'owners:', 'dracobit' ) ); ?></label>
+          <label for="owners"><?php echo esc_html( __( 'Owners:', 'dracobit' ) ); ?></label>
         </td>
         <td>
           <textarea id="owners" name="owners" style="width: 100%;"><?php echo esc_attr( $owners ); ?></textarea>
@@ -66,7 +66,7 @@ if ( ! function_exists( 'dracobit_communities_meta_box_callback' ) ) {
 
       <tr>
         <td>
-          <label for="community_tier"><<?php echo esc_html( __( 'Community Tier:', 'dracobit' ) ); ?></label>
+          <label for="community_tier"><?php echo esc_html( __( 'Community Tier:', 'dracobit' ) ); ?></label>
         </td>
         <td>
           <textarea id="community_tier" name="community_tier" style="width: 100%;"><?php echo esc_attr( $community_tier ); ?></textarea>
@@ -75,7 +75,7 @@ if ( ! function_exists( 'dracobit_communities_meta_box_callback' ) ) {
 
       <tr>
         <td>
-          <label for="chapters"><<?php echo esc_html( __( 'Chapters:', 'dracobit' ) ); ?></label>
+          <label for="chapters"><?php echo esc_html( __( 'Chapters:', 'dracobit' ) ); ?></label>
         </td>
         <td>
           <textarea id="chapters" name="chapters" style="width: 100%;"><?php echo esc_attr( $chapters ); ?></textarea>
@@ -84,7 +84,7 @@ if ( ! function_exists( 'dracobit_communities_meta_box_callback' ) ) {
 
       <tr>
         <td>
-          <label for="tutorials"><<?php echo esc_html( __( 'Tutorials:', 'dracobit' ) ); ?></label>
+          <label for="tutorials"><?php echo esc_html( __( 'Tutorials:', 'dracobit' ) ); ?></label>
         </td>
         <td>
           <textarea id="tutorials" name="tutorials" style="width: 100%;"><?php echo esc_attr( $tutorials ); ?></textarea>
