@@ -5,7 +5,7 @@
 
     <?php if ( ! is_user_logged_in() ) { ?>
       <div class="signup-form-container">
-        <h1 class="dracobit-signup-header"><strong><?php _e( 'Sign Up' ); ?></strong></h1>
+        <h1 class="dracobit-signup-header"><strong>Sign Up</strong></h1>
         <h4 class="dracobit-signup-subheader">There's a little Draco in everyone.</h4>
 
         <section id="dracobit-signup-errors" class="form-control">

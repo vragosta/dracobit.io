@@ -94,6 +94,11 @@ input.autocomplete-fix {
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
 	background: #49A5FF;
+	border-color: #49A5FF
+}
+
+.navbar-default .navbar-toggle {
+	border-radius: 0
 }
 
 .navbar-default .navbar-toggle:hover {
@@ -108,11 +113,11 @@ input.autocomplete-fix {
 	color: #49A5FF;
 }
 
-#dracobit-login-submit {
+.dracobit-login-submit {
 	padding: 4px 12px;
 }
 
-#dracobit-logout-submit {
+.dracobit-logout-submit {
 	outline: none;
 	border: none;
 	cursor: pointer;
@@ -769,11 +774,11 @@ input.autocomplete-fix {
 		padding: 0 10px;
 	}
 
-	#dracobit-login-submit {
+	.dracobit-login-submit {
 		width: 100%;
 	}
 
-	#dracobit-login-form .input-group {
+	.dracobit-login-form .input-group {
 		width: 100%;
 		margin-bottom: 8px;
 	}

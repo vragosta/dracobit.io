@@ -324,9 +324,9 @@ $(function() {
 	 * @event Click
 	 * @since 1.0.0
 	 */
-	$( '#dracobit-login-submit' ).click( function() {
-		var username = $( '#dracobit-login-username' ).val(),
-		    password = $( '#dracobit-login-password' ).val(),
+	$( '.dracobit-login-submit' ).click( function() {
+		var username = $( 'input[name=dracobit-login-username]' ).val(),
+		    password = $( 'input[name=dracobit-login-password]' ).val(),
 				nonce    = $( 'input[name=dracobit-login-nonce]' ).val();
 
 		$.ajax({
