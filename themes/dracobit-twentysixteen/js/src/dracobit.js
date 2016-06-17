@@ -355,13 +355,13 @@ $(function() {
 	 * @event Click
 	 * @since 1.0.0
 	 */
-	$( '#dracobit-signup-submit' ).click( function() {
-		var username         = $( '#dracobit-signup-username' ).val(),
-		    password         = $( '#dracobit-signup-password' ).val(),
-				email            = $( '#dracobit-signup-email' ).val(),
-				first_name       = $( '#dracobit-signup-firstname' ).val(),
-				last_name        = $( '#dracobit-signup-lastname' ).val(),
-				password_confirm = $( '#dracobit-signup-password-confirm' ).val(),
+	$( '.dracobit-signup-submit' ).click( function() {
+		var username         = $( 'input[name=dracobit-signup-username]' ).val(),
+		    password         = $( 'input[name=dracobit-signup-password]' ).val(),
+				email            = $( 'input[name=dracobit-signup-email]' ).val(),
+				first_name       = $( 'input[name=dracobit-signup-firstname]' ).val(),
+				last_name        = $( 'input[name=dracobit-signup-lastname]' ).val(),
+				password_confirm = $( 'input[name=dracobit-signup-password-confirm]' ).val(),
 				nonce            = $( 'input[name=dracobit-signup-nonce]' ).val();
 
 		$.ajax({
@@ -380,20 +380,18 @@ $(function() {
 				dracobit_signup_nonce            : nonce
 			}
 		}).then(function( response ) {
-			console.log( response );
 			if ( ! response.errors.length ) {
 				window.location.replace( '/profile' );
 			} else {
-				console.log( 'errors' );
-				$( '#dracobit-signup-errors' ).show();
+				$( '.dracobit-signup-errors' ).show();
 				$.each( response.errors, function( index, value ) {
-					$( '#dracobit-signup-errors' ).append( '<li>' + ( index + 1 ) + ' : ' + value + '</li>' );
+					$( '.dracobit-signup-errors' ).append( '<li>' + ( index + 1 ) + ' : ' + value + '</li>' );
 				});
 			}
 		});
 	});
 
-	$( '#dracobit-logout-submit' ).click(function() {
+	$( '.dracobit-logout-submit' ).click(function() {
 		$.ajax({
 			type: 'post',
 			url: Dracobit.options.apiUrl + '/logout',

@@ -8,15 +8,15 @@ Tags:
 Text Domain: dracobit
 */
 
-/*
- * Imports
- */
+/***********
+ * Imports *
+ ***********/
 
 @import url( https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700 );
 
-/*
- * General DOM Elements
- */
+/************************
+ * General DOM Elements *
+ ************************/
 
 body {
 	font-family: 'Ubuntu', sans-serif;
@@ -57,9 +57,9 @@ input.autocomplete-fix {
 	display: none;
 }
 
-/*
- * Bootstrap Helper Classes
- */
+/****************************
+ * Bootstrap Helper Classes *
+ ****************************/
 
 .btn-info {
 	background: #49A5FF;
@@ -71,9 +71,9 @@ input.autocomplete-fix {
 	border-color: #49A5FF;
 }
 
-/*
- * Header Template
- */
+/*******************
+ * Header Template *
+ *******************/
 
 .navbar-default {
 	background: #333;
@@ -123,49 +123,22 @@ input.autocomplete-fix {
 	cursor: pointer;
 }
 
-/*
- * Front-page Templates
- */
+/***********************
+ * Front-page Template *
+ ***********************/
 
-#fp-container {
+.dracobit-front-page-container {
 	display: flex;
 	align-items: center;
 	height: 800px;
 }
 
-.fp-left,
-.fp-right {
+.dracobit-front-page-container > div {
 	display: flex;
 	justify-content: center;
 }
 
-.dracobit-signup-header {
-	margin: 0;
-	color: #fff;
-}
-
-.dracobit-signup-subheader {
-	font-size: 12px;
-	color: #fff;
-}
-
-.dracobit-signup-form {
-	width: 250px;
-}
-
-#dracobit-signup-errors {
-	display: none;
-	background: #f2dede;
-	color: #a94442;
-	margin-bottom: 15px;
-	height: auto;
-}
-
-#dracobit-signup-errors li {
-	list-style: none;
-}
-
-.signup-form-container {
+.dracobit-signup-form-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -175,7 +148,39 @@ input.autocomplete-fix {
 	background: #333;
 }
 
-#dracobit-signup-submit {
+.dracobit-signup-form-container h1 {
+	margin: 0;
+	color: #fff;
+}
+
+.dracobit-signup-form-container h4 {
+	font-size: 12px;
+	color: #fff;
+}
+
+.dracobit-signup-form {
+	width: 250px;
+}
+
+.dracobit-signup-form fieldset:last-child .form-group {
+	margin-bottom: 5px;
+}
+
+.dracobit-signup-errors {
+	display: none;
+	background: #f2dede;
+	color: #a94442;
+	margin-bottom: 15px;
+	height: auto;
+	border-radius: 0;
+	width: 250px;
+}
+
+.dracobit-signup-errors li {
+	list-style: none;
+}
+
+.dracobit-signup-submit {
 	width: 100%;
 }
 
