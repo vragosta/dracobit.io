@@ -21,7 +21,6 @@ Text Domain: dracobit
 body {
 	font-family: 'Ubuntu', sans-serif;
 	min-height: 1200px;
-	background: #333;
 }
 
 a:hover {
@@ -109,6 +108,10 @@ input.autocomplete-fix {
 	background: #fff;
 }
 
+.navbar-header .navbar-brand {
+	font-size: 40px;
+}
+
 .navbar-header .navbar-brand:hover {
 	color: #49A5FF;
 }
@@ -145,17 +148,16 @@ input.autocomplete-fix {
 	border: 1px solid #ddd;
 	padding: 25px 50px;
 	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
-	background: #333;
 }
 
 .dracobit-signup-form-container h1 {
 	margin: 0;
-	color: #fff;
+	color: #bf3d3d;
 }
 
 .dracobit-signup-form-container h4 {
 	font-size: 12px;
-	color: #fff;
+	color: #191818;
 }
 
 .dracobit-signup-form {
@@ -184,9 +186,22 @@ input.autocomplete-fix {
 	width: 100%;
 }
 
-/*
- * Backbone Templates
- */
+/***********
+ * Profile *
+ ***********/
+
+.profile-upload-container {
+	margin-bottom: 25px;
+}
+
+.add-chapter-container {
+	display: flex;
+	justify-content: flex-start;
+}
+
+/**********************
+ * Backbone Templates *
+ **********************/
 
 .dracobit-container {
 	margin-top: 60px;
@@ -278,9 +293,9 @@ input.autocomplete-fix {
 	cursor: pointer;
 }
 
-/*
- * Sidebar/Widgets
- */
+/*******************
+ * Sidebar/Widgets *
+ *******************/
 
 .dracobit-sidebar {
 	margin-top: 60px;
@@ -303,9 +318,9 @@ input.autocomplete-fix {
 	list-style: none;
 }
 
-/*
- * Archive Template
- */
+/********************
+ * Archive Template *
+ ********************/
 
 .archive-item {
 	border-radius: 0 !important;
@@ -365,18 +380,9 @@ input.autocomplete-fix {
 	margin-right: 10px;
 }
 
-/*.chapter-edit-button:hover {
-	opacity: 0.8;
-}*/
-
 .chapter-version {
 	color: #333;
 }
-
-/*.chapter-version:hover {
-	color: #333;
-	opacity: 0.8;
-}*/
 
 .chapter-tagline {
 	font-weight: 500;
@@ -394,14 +400,9 @@ input.autocomplete-fix {
 	font-weight: 400;
 }
 
-/*.chapter-keyword:hover {
-	color: #fff;
-	opacity: 0.8;
-}*/
-
-/*
- * Single Templates
- */
+/********************
+ * Single Templates *
+ ********************/
 
 .single-container {
 	margin-top: 60px;
@@ -546,23 +547,9 @@ input.autocomplete-fix {
 	display: none;
 }
 
-/*
- * Profile
- */
-
-.profile-upload-container {
-	margin-bottom: 25px;
-}
-
-.add-chapter-container {
-	display: flex;
-	justify-content: flex-start;
-}
-
 .upload-section-container {
 	display: flex;
 	flex-direction: column;
-	/*justify-content: space-between;*/
 	height: 1200px;
 }
 
