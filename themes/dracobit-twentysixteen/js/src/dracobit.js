@@ -6,13 +6,15 @@
 
 // define global variables
 var $ = require( 'jquery' );
-var Post = require( './views/post' );
 var Posts = require( './views/posts' );
+var Post = require( './views/post' );
 var Tutorials = require( './views/tutorials' );
 var Tutorial = require( './views/tutorial' );
 var Chapters = require( './views/chapters' );
 var Chapter = require( './views/chapter' );
 var ChapterCollection = require( './collections/chapters' );
+var Communities = require( './views/communities' );
+var Community = require( './views/community' );
 
 /**
  * Sets functionality on specific endpoints.
@@ -28,7 +30,8 @@ var Router = Backbone.Router.extend({
 		'chapter(/)': 'archiveChapters',
 		'chapter/:slug(/)': 'singleChapter',
 		'profile(/)': 'profile',
-		// ':slug(/)': 'singlePost'
+		'community(/)': 'archiveCommunities',
+		'community/:slug(/)': 'singleCommunity',
 	},
 
 	archivePosts: function() {
@@ -78,6 +81,20 @@ var Router = Backbone.Router.extend({
 			el: $( '.dracobit-section' ),
 		});
 		this.view.collection.id = $( 'input[name=current-user-id]' ).val();
+		this.view.render();
+	},
+
+	archiveCommunities: function() {
+		this.view = new Communities({
+			el: $( '.dracobit-section' )
+		});
+		this.view.render();
+	},
+
+	singleCommunity: function() {
+		this.view = new Community({
+			el: $( '.dracobit-section' )
+		});
 		this.view.render();
 	}
 

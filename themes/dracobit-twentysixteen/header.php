@@ -25,8 +25,13 @@
 		      <ul class="nav navbar-nav"><?php
 						if ( dracobit_login_check() ) { ?>
 							<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/blog/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">Home</a></li>
+
 							<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/tutorial/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/tutorial' ) ); ?>">Tutorials</a></li>
-							<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/chapter/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/chapter' ) ); ?>">Chapters</a></li><?php
+
+							<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/chapter/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/chapter' ) ); ?>">Chapters</a></li>
+
+							<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/community/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/community' ) ); ?>">Communities</a></li><?php
+
 							if ( current_user_can( 'edit_posts' ) ) { ?>
 								<li><a href="<?php echo esc_url( admin_url() ); ?>">WP-Admin</a></li><?php
 							} ?>
