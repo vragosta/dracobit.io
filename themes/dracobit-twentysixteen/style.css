@@ -21,6 +21,7 @@ Text Domain: dracobit
 body {
 	font-family: 'Ubuntu', sans-serif;
 	min-height: 1200px;
+	background: #b9b8b1;
 }
 
 a:hover {
@@ -33,6 +34,8 @@ a:focus {
 	text-decoration: none;
 }
 
+a,
+a.btn,
 button,
 button.btn {
 	border-radius: 0;
@@ -148,6 +151,7 @@ input.autocomplete-fix {
 	border: 1px solid #ddd;
 	padding: 25px 50px;
 	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
+	background: #fff;
 }
 
 .dracobit-signup-form-container h1 {
@@ -196,7 +200,7 @@ input.autocomplete-fix {
 
 .add-chapter-container {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: flex-end;
 }
 
 /**********************
