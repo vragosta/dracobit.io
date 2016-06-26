@@ -8,19 +8,20 @@ Tags:
 Text Domain: dracobit
 */
 
-/*
- * Imports
- */
+/***********
+ * Imports *
+ ***********/
 
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700);
+@import url( https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700 );
 
-/*
- * General DOM Elements
- */
+/************************
+ * General DOM Elements *
+ ************************/
 
 body {
 	font-family: 'Ubuntu', sans-serif;
 	min-height: 1200px;
+	background: #b9b8b1;
 }
 
 a:hover {
@@ -33,6 +34,13 @@ a:focus {
 	text-decoration: none;
 }
 
+a,
+a.btn,
+button,
+button.btn {
+	border-radius: 0;
+}
+
 button:focus,
 button:active,
 button.btn:focus,
@@ -41,13 +49,163 @@ button.btn:active {
 	box-shadow: none;
 }
 
+input,
+input.form-control {
+	height: 30px;
+	border-radius: 0;
+}
+
 input.autocomplete-fix {
 	display: none;
 }
 
-/*
- * Backbone Templates
- */
+/****************************
+ * Bootstrap Helper Classes *
+ ****************************/
+
+.btn-info {
+	background: #49A5FF;
+}
+
+.btn-info:focus,
+.btn-info:active {
+	background: #49A5FF;
+	border-color: #49A5FF;
+}
+
+/*******************
+ * Header Template *
+ *******************/
+
+.navbar-default {
+	background: #333;
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-header .navbar-brand {
+	color: #fff;
+	opacity: 1.0;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover {
+	color: #fff;
+	background: #49A5FF;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+	background: #49A5FF;
+	border-color: #49A5FF
+}
+
+.navbar-default .navbar-toggle {
+	border-radius: 0
+}
+
+.navbar-default .navbar-toggle:hover {
+	border-color: #49A5FF;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background: #fff;
+}
+
+.navbar-header .navbar-brand {
+	font-size: 40px;
+}
+
+.navbar-header .navbar-brand:hover {
+	color: #49A5FF;
+}
+
+.dracobit-login-submit {
+	padding: 4px 12px;
+}
+
+.dracobit-logout-submit {
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+/***********************
+ * Front-page Template *
+ ***********************/
+
+.dracobit-front-page-container {
+	display: flex;
+	align-items: center;
+	height: 800px;
+}
+
+.dracobit-front-page-container > div {
+	display: flex;
+	justify-content: center;
+}
+
+.dracobit-signup-form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid #ddd;
+	padding: 25px 50px;
+	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
+	background: #fff;
+}
+
+.dracobit-signup-form-container h1 {
+	margin: 0;
+	color: #bf3d3d;
+}
+
+.dracobit-signup-form-container h4 {
+	font-size: 12px;
+	color: #191818;
+}
+
+.dracobit-signup-form {
+	width: 250px;
+}
+
+.dracobit-signup-form fieldset:last-child .form-group {
+	margin-bottom: 5px;
+}
+
+.dracobit-signup-errors {
+	display: none;
+	background: #f2dede;
+	color: #a94442;
+	margin-bottom: 15px;
+	height: auto;
+	border-radius: 0;
+	width: 250px;
+}
+
+.dracobit-signup-errors li {
+	list-style: none;
+}
+
+.dracobit-signup-submit {
+	width: 100%;
+}
+
+/***********
+ * Profile *
+ ***********/
+
+.profile-upload-container {
+	margin-bottom: 25px;
+}
+
+.add-chapter-container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+/**********************
+ * Backbone Templates *
+ **********************/
 
 .dracobit-container {
 	margin-top: 60px;
@@ -139,9 +297,9 @@ input.autocomplete-fix {
 	cursor: pointer;
 }
 
-/*
- * Sidebar/Widgets
- */
+/*******************
+ * Sidebar/Widgets *
+ *******************/
 
 .dracobit-sidebar {
 	margin-top: 60px;
@@ -164,9 +322,9 @@ input.autocomplete-fix {
 	list-style: none;
 }
 
-/*
- * Archive Template
- */
+/********************
+ * Archive Template *
+ ********************/
 
 .archive-item {
 	border-radius: 0 !important;
@@ -226,18 +384,9 @@ input.autocomplete-fix {
 	margin-right: 10px;
 }
 
-/*.chapter-edit-button:hover {
-	opacity: 0.8;
-}*/
-
 .chapter-version {
 	color: #333;
 }
-
-/*.chapter-version:hover {
-	color: #333;
-	opacity: 0.8;
-}*/
 
 .chapter-tagline {
 	font-weight: 500;
@@ -255,14 +404,9 @@ input.autocomplete-fix {
 	font-weight: 400;
 }
 
-/*.chapter-keyword:hover {
-	color: #fff;
-	opacity: 0.8;
-}*/
-
-/*
- * Single Templates
- */
+/********************
+ * Single Templates *
+ ********************/
 
 .single-container {
 	margin-top: 60px;
@@ -407,97 +551,9 @@ input.autocomplete-fix {
 	display: none;
 }
 
-/*
- * Header Template
- */
-
-.navbar-default .navbar-nav > li > a:hover {
-	color: #555;
-	background-color: #e7e7e7;
-}
-
-#dracobit-login-submit {
-	padding: 4px 12px;
-}
-
-#dracobit-logout-submit {
-	outline: none;
-	border: none;
-	cursor: pointer;
-}
-
-/*
- * Front-page Templates
- */
-
-#fp-container {
-	display: flex;
-	align-items: center;
-	height: 800px;
-}
-
-.fp-left,
-.fp-right {
-	display: flex;
-	justify-content: center;
-}
-
-.dracobit-signup-header {
-	margin: 0;
-}
-
-.dracobit-signup-subheader {
-	font-size: 12px;
-}
-
-.dracobit-signup-form {
-	width: 250px;
-}
-
-#dracobit-signup-errors {
-	display: none;
-	background: #f2dede;
-	color: #a94442;
-	margin-bottom: 15px;
-	height: auto;
-}
-
-#dracobit-signup-errors li {
-	list-style: none;
-}
-
-.signup-form-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	border: 1px solid #ddd;
-	border-radius: 10px;
-	padding: 25px 50px;
-	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
-	background: #fff;
-}
-
-#dracobit-signup-submit {
-	width: 100%;
-}
-
-/*
- * Profile
- */
-
-.profile-upload-container {
-	margin-bottom: 25px;
-}
-
-.add-chapter-container {
-	display: flex;
-	justify-content: flex-start;
-}
-
 .upload-section-container {
 	display: flex;
 	flex-direction: column;
-	/*justify-content: space-between;*/
 	height: 1200px;
 }
 
@@ -714,9 +770,15 @@ input.autocomplete-fix {
 		padding: 0 10px;
 	}
 
-	#dracobit-login-submit {
+	.dracobit-login-submit {
 		width: 100%;
 	}
+
+	.dracobit-login-form .input-group {
+		width: 100%;
+		margin-bottom: 8px;
+	}
+
 }
 
 @media ( min-width: 768px ) {
@@ -737,11 +799,6 @@ input.autocomplete-fix {
 		height: 50px;
 		display: flex !important;
 		align-items: center;
-	}
-
-	.dracobit-login .form-group input {
-		width: 150px;
-		height: 30px;
 	}
 
 	#dracobit_login_submit {

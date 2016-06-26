@@ -8,7 +8,7 @@
 				<input type="hidden" name="current-user-id" value="<?php echo esc_attr( $current_user->ID ); ?>" />
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="row-fluid add-chapter-container">
-						<a href="<?php echo esc_url( home_url( 'upload' ) ); ?>" class="btn btn-info">Add Chapter <i class="fa fa-plus" aria-hidden="true"></i></a>
+						<a href="<?php echo esc_url( home_url( 'upload' ) ); ?>" class="btn btn-default">Add Chapter <i class="fa fa-plus" aria-hidden="true"></i></a>
 					</div>
 				</div>
 			</div>
