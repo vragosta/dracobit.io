@@ -10,7 +10,7 @@
 
 // Blocking direct access to this file.
 defined( 'ABSPATH' ) || exit;
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/wp-content/api-code/database.php');
+require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-content/app/api-code/database.php' );
 
 class WP_JSON_Options {
 	/**
@@ -69,7 +69,7 @@ class WP_JSON_Options {
 		}
 
 		$response = array(
-			'errors'   => $errors
+			'errors' => $errors
 		);
 
 		return $response;
@@ -125,14 +125,13 @@ class WP_JSON_Options {
 			$errors = dracobit_errors()->get_error_messages();
 
 			if ( empty( $errors ) ) {
-
 				$new_user_id = wp_insert_user( array(
 						'user_login'      => $user_login,
 						'user_pass'       => $user_pass,
 						'user_email'      => $user_email,
 						'first_name'      => $user_first,
 						'last_name'       => $user_last,
-						'user_registered' => date('Y-m-d H:i:s'),
+						'user_registered' => date( 'Y-m-d H:i:s' ),
 						'role'            => 'author'
 					)
 				);
@@ -145,14 +144,14 @@ class WP_JSON_Options {
 					wp_setcookie( $user_login, $user_pass, true );
 					wp_set_current_user( $new_user_id, $user_login );
 					do_action( 'wp_login', $user_login );
+
 					//DatabaseUtil\add_to_mobile_db($user_login);
 					// Holding off on this for now
-					
 				}
 			}
 
 			$response = array(
-				'errors'           => $errors
+				'errors' => $errors
 			);
 
 			return $response;
