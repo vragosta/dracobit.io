@@ -572,7 +572,7 @@ input.autocomplete-fix {
 }
 
 .upload-header-container > div a {
-	color: #ccc;
+	color: #333;
 	text-decoration: none;
 }
 
@@ -615,7 +615,7 @@ input.autocomplete-fix {
 }
 
 .upload-step {
-	background: #ccc;
+	background: #333;
 	height: 30px;
 	width: 30px;
 	border-radius: 50%;
