@@ -10,7 +10,6 @@
 				);
 				$chapters = new WP_Query( $args );
 				while ( $chapters->have_posts() ) : $chapters->the_post();
-				// echo '<pre>'; var_dump( $post ); echo '<pre>';
 				( get_post_meta( $post->ID, 'version', true ) ) ? $version = get_post_meta( $post->ID, 'version', true ) : $version = '1.0';
 				( get_post_meta( $post->ID, 'tagline', true ) ) ? $tagline = get_post_meta( $post->ID, 'tagline', true ) : $tagline = '';
 				( get_post_meta( $post->ID, 'short_description', true ) ) ? $short_description = get_post_meta( $post->ID, 'short_description', true ) : $short_description = '';
@@ -60,8 +59,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					<?php
+					</div><?php
 				endwhile;
 				wp_reset_postdata(); ?>
 			</div>

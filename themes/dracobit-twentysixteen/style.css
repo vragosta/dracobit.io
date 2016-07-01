@@ -326,6 +326,32 @@ input.autocomplete-fix {
  * Archive Template *
  ********************/
 
+.archive-tutorial-container {
+	padding: 10px;
+	height: 250px;
+}
+
+.archive-tutorial-container .top-row {
+	height: 60%;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.archive-tutorial-container .top-row img {
+	height: 75px;
+	width: 75px;
+}
+
+.archive-tutorial-container .bottom-row {
+	height: 40%;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .archive-item {
 	border-radius: 0 !important;
 	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
@@ -340,6 +366,7 @@ input.autocomplete-fix {
 
 .chapter-photo {
 	height: 100%;
+	padding: 0;
 }
 
 .chapter-photo img {
@@ -436,9 +463,9 @@ input.autocomplete-fix {
 	color: #bf3939;
 }
 
-/*
- * Comment Templates
- */
+/*********************
+ * Comment Templates *
+ ********************/
 
 .post-comment {
 	border: 1px solid #ccc;
@@ -551,6 +578,10 @@ input.autocomplete-fix {
 	display: none;
 }
 
+/*
+ * Upload Template
+ */
+
 .upload-section-container {
 	display: flex;
 	flex-direction: column;
@@ -583,12 +614,7 @@ input.autocomplete-fix {
 .upload-message {
 	margin: 0;
 	padding: 5px;
-	/*border: 1px solid #ebccd1;*/
 }
-
-/*.upload-message-container .progress {
-	display: none;
-}*/
 
 .upload-message-container .progress .bar {
 	width: 0%;
