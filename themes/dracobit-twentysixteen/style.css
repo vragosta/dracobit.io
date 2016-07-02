@@ -329,6 +329,11 @@ input.autocomplete-fix {
 .archive-tutorial-container {
 	padding: 10px;
 	height: 250px;
+	/*box-shadow: -5px 5px 0 0 rgba(0,0,0,.05);*/
+}
+
+.archive-tutorial-container:hover {
+	opacity: 0.7;
 }
 
 .archive-tutorial-container .top-row {
@@ -337,6 +342,8 @@ input.autocomplete-fix {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	box-shadow: -5px 5px 0 0 rgba(0,0,0,.05);
+	cursor: pointer;
 }
 
 .archive-tutorial-container .top-row img {
@@ -350,6 +357,16 @@ input.autocomplete-fix {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+	box-shadow: -5px 5px 0 0 rgba(0,0,0,.05);
+	cursor: pointer;
+}
+
+.archive-tutorial-container .bottom-row .tutorial-title,
+.archive-tutorial-container .bottom-row .tutorial-chapters {
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 .archive-item {
