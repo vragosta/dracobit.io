@@ -13,13 +13,22 @@
 
           <div class="list-group" style="height: 250px;">
             <div class="row list-group-item archive-item">
-              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+								<h2><a href="/community/<?php echo $post->post_name; ?>"><?php echo esc_html( $post->post_title ); ?></a></h2>
+
+								<div class="community-archive-content">
+									<p>Owner: <a href="/user/<?php the_author(); ?>" class="chapter-author"><?php the_author(); ?></a></p>
+									<p><?php echo the_content(); ?></p>
+								</div>
+
               </div>
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                 <a href="<?php the_permalink(); ?>" style="">
-                  <img src="<?php echo ( has_post_thumbnail() ) ? the_post_thumbnail_url( 'small' ) : ''?>" style="width: 100%; height: 100%;"/>
+                  <img src="<?php echo ( has_post_thumbnail() ) ? the_post_thumbnail_url( 'small' ) : ''?>" style="margin-top: 10px; width: 100%; height: 100%;"/>
                 </a>
               </div>
+							<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+							</div>
             </div>
           </div>
 
