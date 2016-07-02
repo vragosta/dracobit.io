@@ -5,7 +5,11 @@
 		<section class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 			<legend>Tutorials</legend>
 			<div class="row-fluid dracobit-section"><?php
-				$tutorials = new WP_Query( array( 'post_type' => 'tutorial' ) );
+				$args = array(
+					'post_type'      => 'tutorial',
+					'posts_per_page' => -1
+				);
+				$tutorials = new WP_Query( $args );
 				while ( $tutorials->have_posts() ) : $tutorials->the_post();
 
 					// Create static variables.
