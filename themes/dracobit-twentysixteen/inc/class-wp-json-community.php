@@ -37,6 +37,10 @@ class WP_JSON_Community {
     //    update_post_meta( $post['ID'], 'photo', $data['image'] );
     //  }
 
+		 if ( isset( $data['tagline'] ) ) {
+			 update_post_meta( $post['ID'], 'tagline', $data['tagline'] );
+		 }
+
      if ( isset( $data['members'] ) ) {
        update_post_meta( $post['ID'], 'members', $data['members'] );
      }
@@ -70,6 +74,10 @@ class WP_JSON_Community {
      }
 
      if ( $update == true ) {
+			 if ( isset( $data['tagline'] ) ) {
+ 				 update_post_meta( $post['ID'], 'tagline', $data['tagline'] );
+ 			 }
+
        if ( isset( $data['members'] ) ) {
          update_post_meta( $post['ID'], 'members', $data['members'] );
        }
@@ -140,6 +148,7 @@ class WP_JSON_Community {
  				'link'                  => $data['link'],
  				'meta'                  => $data['meta'],
  			// 	'photo'                 => isset( $photos[0] ) ? $photos[0][0] : 'https://storycorpsme.s3.amazonaws.com/uploads/2015/03/storycorps.png',
+			  'tagline'               => get_post_meta( $post['ID'], 'tagline', true ),
  				'members'               => get_post_meta( $post['ID'], 'members', true ),
  				'moderators'            => get_post_meta( $post['ID'], 'moderators', true ),
  				'owners'                => get_post_meta( $post['ID'], 'owners', true ),

@@ -29,6 +29,7 @@ if ( ! function_exists( 'dracobit_communities_meta_box_callback' ) ) {
     // Add a nonce field so we can check for it later.
     wp_nonce_field( 'dracobit_save_communities_meta_box_data', 'dracobit_meta_box_nonce' );
 
+    $tagline        = get_post_meta( $post->ID, 'tagline', true );
     $members        = get_post_meta( $post->ID, 'members', true );
     $moderators     = get_post_meta( $post->ID, 'moderators', true );
     $owners         = get_post_meta( $post->ID, 'owners', true );
@@ -37,6 +38,14 @@ if ( ! function_exists( 'dracobit_communities_meta_box_callback' ) ) {
     $tutorials      = get_post_meta( $post->ID, 'tutorials', true ); ?>
 
     <table style="width: 100%;">
+      <tr>
+        <td>
+          <label for="tagline"><?php echo esc_html( __( 'Tagline:', 'dracobit' ) ); ?></label>
+        </td>
+        <td>
+          <textarea id="tagline" name="tagline" style="width: 100%;"><?php echo esc_attr( $tagline ); ?></textarea>
+        </td>
+      </tr>
       <tr>
         <td>
           <label for="members"><?php echo esc_html( __( 'Members:', 'dracobit' ) ); ?></label>
@@ -132,6 +141,7 @@ function dracobit_save_communities_meta_box_data( $post_id ) {
 	}
 
   // Sanitize user input.
+  $tagline         = sanitize_text_field( $_POST['tagline'] );
   $members         = sanitize_text_field( $_POST['members'] );
 	$moderators      = sanitize_text_field( $_POST['moderators'] );
 	$owners          = sanitize_text_field( $_POST['owners'] );
@@ -140,6 +150,7 @@ function dracobit_save_communities_meta_box_data( $post_id ) {
   $tutorials       = sanitize_text_field( $_POST['tutorials'] );
 
   // Update the meta field in the database.
+  update_post_meta( $post_id, 'tagline', $tagline );
   update_post_meta( $post_id, 'members', $members );
   update_post_meta( $post_id, 'moderators', $moderators );
   update_post_meta( $post_id, 'owners', $owners );

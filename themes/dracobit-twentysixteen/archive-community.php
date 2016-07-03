@@ -9,7 +9,9 @@
 					'post_type' => 'community',
 				);
 				$communities = new WP_Query( $args );
-				while ( $communities->have_posts() ) : $communities->the_post(); ?>
+				while ( $communities->have_posts() ) : $communities->the_post();
+
+				( get_post_meta( $post->ID, 'tagline', true ) ) ? $tagline = get_post_meta( $post->ID, 'tagline', true ) : $tagline = ''; ?>
 
           <div class="list-group" style="height: 250px;">
             <div class="row list-group-item archive-item">
@@ -17,8 +19,8 @@
 								<h2><a href="/community/<?php echo $post->post_name; ?>"><?php echo esc_html( $post->post_title ); ?></a></h2>
 
 								<div class="community-archive-content">
-									<p>Owner: <a href="/user/<?php the_author(); ?>" class="chapter-author"><?php the_author(); ?></a></p>
-									<p><?php echo the_content(); ?></p>
+									<p style="margin-bottom: 40px; font-size: 16px;">Created by <a href="/user/<?php the_author(); ?>" class=""><?php the_author(); ?></a></p>
+									<p style="font-size: 16px;"><?php echo $tagline; ?></p>
 								</div>
 
               </div>
@@ -27,7 +29,14 @@
                   <img src="<?php echo ( has_post_thumbnail() ) ? the_post_thumbnail_url( 'small' ) : ''?>" style="margin-top: 10px; width: 100%; height: 100%;"/>
                 </a>
               </div>
-							<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="display: flex; justify-content: center;">
+								<p style="margin-top: 20px;">
+									<select name="">
+									  <option value="">Select...</option>
+									  <option value="">View Members</option>
+									  <option value="">View Chapters</option>
+									</select>
+								</p>
 							</div>
             </div>
           </div>
