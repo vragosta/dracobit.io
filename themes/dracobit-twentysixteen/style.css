@@ -214,6 +214,7 @@ input.autocomplete-fix {
 
 .dracobit-container legend {
 	font-size: 28px;
+	margin-bottom: 10px;
 }
 
 .dracobit-section {
@@ -333,7 +334,7 @@ input.autocomplete-fix {
 }
 
 .archive-tutorial-container:hover {
-	opacity: 0.7;
+	opacity: 0.9;
 }
 
 .archive-tutorial-container .top-row {
@@ -379,6 +380,11 @@ input.autocomplete-fix {
 	display: flex;
 	justify-content: center;
 	width: 100%;
+}
+
+.archive-tutorial-container .bottom-row .tutorial-chapters,
+.archive-tutorial-container .bottom-row .tutorial-contributors {
+	color: #333;
 }
 
 .archive-item {
