@@ -26,10 +26,7 @@
 						if ( dracobit_login_check() ) { ?>
 							<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/blog/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">Home</a></li>
 							<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/tutorial/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/tutorial' ) ); ?>">Tutorials</a></li>
-							<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/chapter/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/chapter' ) ); ?>">Chapters</a></li><?php
-							if ( current_user_can( 'edit_posts' ) ) { ?>
-								<li><a href="<?php echo esc_url( admin_url() ); ?>">WP-Admin</a></li><?php
-							} ?>
+							<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/chapter/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/chapter' ) ); ?>">Chapters</a></li>
 							<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/profile/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/profile' ) ); ?>"><?php echo esc_html( $current_user->display_name ); ?></a></li>
 							<li><a class="dracobit-logout-submit">Logout</a></li><?php
 						} else { ?>

@@ -329,25 +329,41 @@ input.autocomplete-fix {
 
 .archive-tutorial-container {
 	padding: 10px;
-	height: 250px;
-	/*box-shadow: -5px 5px 0 0 rgba(0,0,0,.05);*/
+	/*height: 250px;*/
 }
 
 .archive-tutorial-container:hover {
 	opacity: 0.9;
 }
 
-.archive-tutorial-container .top-row {
+
+.archive-tutorial-container a {
+	height: 100%;
+}
+
+.archive-tutorial-container.featured .archive-tutorial {
+	height: 268px;
+}
+
+.archive-tutorial-container .archive-tutorial {
+	border: 1px solid #333;
+	box-shadow: -5px 5px 0 0 rgba(0,0,0,.05);
+}
+
+.archive-tutorial-container.featured .top-row {
 	height: 60%;
+}
+
+.archive-tutorial-container .top-row {
 	background: #fff;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	box-shadow: -5px 5px 0 0 rgba(0,0,0,.05);
-	cursor: pointer;
-	border-top: solid 1px #333;
-  border-left: 1px solid #333;
-  border-right: 1px solid #333;
+}
+
+.archive-tutorial-container.featured .top-row img {
+	height: 125px;
+	width: 125px;
 }
 
 .archive-tutorial-container .top-row img {
@@ -362,17 +378,18 @@ input.autocomplete-fix {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	box-shadow: -5px 5px 0 0 rgba(0,0,0,.05);
-	cursor: pointer;
-	border-bottom: solid 1px #333;
-  border-left: 1px solid #333;
-  border-right: 1px solid #333;
+	/*box-shadow: -5px 5px 0 0 rgba(0,0,0,.05);*/
+	/*cursor: pointer;*/
+	/*border-bottom: solid 1px #333;*/
+  /*border-left: 1px solid #333;*/
+  /*border-right: 1px solid #333;*/
 }
 
 .archive-tutorial-container .bottom-row .tutorial-title {
 	background: #333;
   color: #fff;
-	font-size: 20px;
+	/*font-size: 20px;*/
+	font-size: 16px;
 }
 
 .archive-tutorial-container .bottom-row .tutorial-title,

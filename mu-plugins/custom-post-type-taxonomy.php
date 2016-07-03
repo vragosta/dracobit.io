@@ -147,7 +147,7 @@ function dracobit_register_taxonomies() {
 		)
 	);
 
-	register_taxonomy( 'keywords', array( 'chapter' ),
+	register_taxonomy( 'keywords', array( 'tutorial', 'chapter' ),
 		array( 'hierarchical' => true,
 			'label' => 'Keywords',
 			'show_ui' => true,
