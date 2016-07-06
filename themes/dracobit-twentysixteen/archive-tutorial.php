@@ -39,6 +39,7 @@ $featured_array = array(); ?>
 				<div class="col-xs-12 col-sm-5 col-md-4 col-lg-6 archive-tutorial-container featured">
 					<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
 						<div class="row-fluid archive-tutorial">
+							<p class="featured-text">Featured</p>
 							<div class="row-fluid top-row"><?php
 								the_post_thumbnail( 'medium' ); ?>
 							</div>
