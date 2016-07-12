@@ -40,7 +40,7 @@ if ( ! function_exists( 'dracobit_chapters_meta_box_callback' ) ) {
 					<label for="version"><?php echo esc_html( __( 'Version:', 'dracobit' ) ); ?></label>
 				</td>
 				<td>
-					<input type="text" id="version" name="version" value="<?php echo esc_attr( $version ); ?>" style="width: 100%;">
+					<textarea type="text" id="version" name="version" style="width: 100%;"><?php echo esc_textarea( $version ); ?></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -48,7 +48,7 @@ if ( ! function_exists( 'dracobit_chapters_meta_box_callback' ) ) {
 					<label for="tutorial"><?php echo esc_html( __( 'Tutorial:', 'dracobit' ) ); ?></label>
 				</td>
 				<td>
-					<input type="text" id="tutorial" name="tutorial" value="<?php echo esc_attr( $tutorial ); ?>" style="width: 100%;">
+					<textarea type="text" id="tutorial" name="tutorial" style="width: 100%;"><?php echo esc_textarea( $tutorial ); ?></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -56,7 +56,7 @@ if ( ! function_exists( 'dracobit_chapters_meta_box_callback' ) ) {
 					<label for="short_description"><?php echo esc_html( __( 'Short Description:', 'dracobit' ) ); ?></label>
 				</td>
 				<td>
-					<input type="text" id="short_description" name="short_description" value="<?php echo esc_attr( $short_description ); ?>" style="width: 100%;">
+					<textarea type="text" id="short_description" name="short_description" style="width: 100%;"><?php echo esc_textarea( $short_description ); ?></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -64,7 +64,7 @@ if ( ! function_exists( 'dracobit_chapters_meta_box_callback' ) ) {
 					<label for="keywords"><?php echo esc_html( __( 'Keywords:', 'dracobit' ) ); ?></label>
 				</td>
 				<td>
-					<input type="text" id="keywords" name="keywords" value="<?php echo esc_attr( $keywords ); ?>" style="width: 100%;">
+					<textarea type="text" id="keywords" name="keywords" style="width: 100%;"><?php echo esc_textarea( $keywords ); ?></textarea>
 				</td>
 			</tr>
 		</table>
