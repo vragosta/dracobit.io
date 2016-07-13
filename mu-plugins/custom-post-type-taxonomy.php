@@ -26,7 +26,7 @@ function dracobit_register_posttypes() {
 			'query_var' => true,
 			'has_archive' => true,
 			'menu_position' => 41,
-			'menu_icon' => 'dashicons-edit',
+			'menu_icon' => 'dashicons-slides',
 			'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
 			'labels' => array(
 					'name' => 'Tutorials',
@@ -45,6 +45,40 @@ function dracobit_register_posttypes() {
 					'parent' => 'Parent Tutorial',
 			)
 		)
+	);
+
+	register_post_type( 'article', array(
+	    'label' => 'Article',
+	    'description' => '',
+	    'public' => true,
+	    'show_ui' => true,
+	    'show_in_menu' => true,
+	    'capability_type' => 'post',
+	    'map_meta_cap' => true,
+	    'hierarchical' => false,
+	    'rewrite' => array( 'slug' => 'article', 'with_front' => false ),
+	    'query_var' => true,
+	    'has_archive' => true,
+	    'menu_position' => 41,
+	    'menu_icon' => 'dashicons-format-aside',
+	    'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
+	    'labels' => array(
+	        'name' => 'Articles',
+	        'singular_name' => 'Article',
+	        'menu_name' => 'Articles',
+	        'add_new' => 'Add Article',
+	        'add_new_item' => 'Add New Article',
+	        'edit' => 'Edit',
+	        'edit_item' => 'Edit Article',
+	        'new_item' => 'New Article',
+	        'view' => 'View Article',
+	        'view_item' => 'View Article',
+	        'search_items' => 'Search Articles',
+	        'not_found' => 'No Articles Found',
+	        'not_found_in_trash' => 'No Articles Found in Trash',
+	        'parent' => 'Parent Article',
+	    )
+	  )
 	);
 
 	register_post_type( 'chapter', array(
@@ -94,7 +128,7 @@ function dracobit_register_posttypes() {
 	    'query_var' => true,
 	    'has_archive' => true,
 	    'menu_position' => 41,
-	    'menu_icon' => 'dashicons-edit',
+	    'menu_icon' => 'dashicons-groups',
 	    'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
 	    'labels' => array(
 	        'name' => 'Communities',
