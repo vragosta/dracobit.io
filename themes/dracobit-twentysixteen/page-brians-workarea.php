@@ -45,9 +45,9 @@ crossorigin="anonymous">
 	<div class="col-xs-4 col-sm-3 col-md-2 col-lg-1" style="height: 150px; background-color: #ccc">.span1 </div>
 	<div class="col-xs-4 col-sm-3 col-md-2 col-lg-1" style="height: 150px; background-color: #333">.span1 </div>
 	<div class="col-xs-4 col-sm-3 col-md-2 col-lg-1" style="height: 150px; background-color: #ccc">.span1 </div>
-</section>
+</section>-->
 
-	<section class="row-fluid">
+	<!-- <section class="row-fluid">
 		<div class="col-xs-12 col-sm-1 col-md-6 col-lg-3" style="height: 150px; background-color: #133">.span1 </div>
 		<div class="col-xs-12 col-sm-1 col-md-6 col-lg-3" style="height: 150px; background-color: #ccc">.span1 </div>
 		<div class="col-xs-12 col-sm-1 col-md-6 col-lg-3" style="height: 150px; background-color: #133">.span1 </div>
@@ -60,23 +60,15 @@ crossorigin="anonymous">
 		<div class="col-xs-12 col-sm-1 col-md-6 col-lg-3" style="height: 150px; background-color: #ccc">.span1 </div>
 		<div class="col-xs-12 col-sm-1 col-md-6 col-lg-3" style="height: 150px; background-color: #133">.span1 </div>
 		<div class="col-xs-12 col-sm-1 col-md-6 col-lg-3" style="height: 150px; background-color: #ccc">.span1 </div>
-	</section>-->
+	</section> -->
 
 <!-- TASK 5 -->
 
-<div class="col-xs-4 col-sm-4 col-md-1 col-lg-1" style="height: 150px; background-color: red">.span1 </div>
-<div class="col-xs-4 col-sm-4 col-md-1 col-lg-1" style="height: 150px; background-color: red">.span1 </div>
-<div class="col-xs-4 col-sm-4 col-md-5 col-lg-1" style="height: 150px; background-color: red">.span1 </div>
-<div class="col-xs-1 col-sm-3 col-md-0 col-lg-1" style="height: 150px; background-color: black">.span1 </div>
-<div class="col-xs-1 col-sm-3 col-md-0 col-lg-1" style="height: 150px; background-color: black">.span1 </div>
-<div class="col-xs-1 col-sm-3 col-md-0 col-lg-1" style="height: 150px; background-color: black">.span1 </div>
-<div class="col-xs-1 col-sm-3 col-md-1 col-lg-1" style="height: 150px; background-color: black">.span1 </div>
-<div class="col-xs-1 col-sm-3 col-md-1 col-lg-1" style="height: 150px; background-color: black">.span1 </div>
-<div class="col-xs-1 col-sm-3 col-md-1 col-lg-1" style="height: 150px; background-color: black">.span1 </div>
-<div class="col-xs-4 col-sm-3 col-md-0 col-lg-1" style="height: 150px; background-color: blue">.span1 </div>
-<div class="col-xs-4 col-sm-3 col-md-1 col-lg-1" style="height: 150px; background-color: blue">.span1 </div>
-<div class="col-xs-4 col-sm-3 col-md-1 col-lg-1" style="height: 150px; background-color: blue">.span1 </div>
-
+	<section class="row-fluid">
+		<div class="col-xs-2 col-sm-8 col-md-2 col-lg-7" style="height: 150px; background-color: red">.span1 </div>
+		<div class="col-xs-1 col-sm-2 col-md-8 col-lg-3" style="height: 150px; background-color: black">.span1 </div>
+		<div class="col-xs-9 col-sm-2 col-md-2 col-lg-2" style="height: 150px; background-color: blue">.span1 </div>
+	</section>
 
 
 <?php get_footer(); ?>
