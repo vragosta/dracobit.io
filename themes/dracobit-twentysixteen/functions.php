@@ -24,6 +24,7 @@ if ( function_exists( 'json_url' ) ) {
 	define( 'DRACOBIT_API_URL', json_url() );
 }
 
+include_once get_template_directory() . '/inc/language-metabox.php';
 include_once get_template_directory() . '/inc/tutorial-metabox.php';
 include_once get_template_directory() . '/inc/chapter-metabox.php';
 include_once get_template_directory() . '/inc/class-wp-json-tutorial.php';
