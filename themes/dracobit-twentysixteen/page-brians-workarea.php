@@ -1,7 +1,7 @@
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
 crossorigin="anonymous">
-
 
 
  <!--<style> @media ( max-width: 1199px ) and ( min-width: 992px ) {
@@ -92,16 +92,63 @@ crossorigin="anonymous">
 	</section>  -->
 
 
-
-
 	<!-- Intern Task Two - Bootstrap Grid -->
 
 
 	<section class="container" style="margin-top: 150px">
-		<div class="col-lg-12" style="height: 150px; background-color: #000; border: 1px solid #333"></div>
-		<div class="col-lg-6" style="height: 450px; background-color: #fff; border: 1px solid #333"></div>
-		<div class="col-lg-6" style="height: 450px; background-color: #fff; border: 1px solid #333"></div>
-		<div class="col-lg-12" style="height: 150px; background-color: #000; border: 1px solid #333"></div>
+
+		<div class="col-lg-12" style="height: 150px; background-color: #000; border: 1px solid #333;
+		 display: flex; justify-content: center; align-items: center">
+			<h1 style="color: white; font-size: 70px; margin: 0">Fermentum Justo</h1>
+		</div>
+
+		<div class="col-lg-6" style="height: 450px; background-color: #fff; border: 1px solid #333;
+		display: flex; flex-direction: column; justify-content: center; align-items: center">
+			<legend>Fermentum Justo</legend>
+			<br>
+			<ol type="1">
+				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus
+					  mollis interdum. Aenean lacinia bibendum nulla sed consectetur.</li>
+				<br>
+				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus
+						mollis interdum. Aenean lacinia bibendum nulla sed consectetur.</li>
+				<br>
+				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus
+						mollis interdum. Aenean lacinia bibendum nulla sed consectetur.</li>
+				<br>
+				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus
+						mollis interdum. Aenean lacinia bibendum nulla sed consectetur.</li>
+				<br>
+				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus
+						mollis interdum. Aenean lacinia bibendum nulla sed consectetur.</li>
+			</ol>
+		</div>
+
+		<div class="col-lg-6" style="height: 450px; background-color: #fff; border: 1px solid #333;
+		display: flex; flex-direction: column; justify-content: center; align-items: center">
+			<legend>Fermentum Justo</legend>
+			<br>
+			<ul type="list-style-type:circle">
+				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus
+					  mollis interdum. Aenean lacinia bibendum nulla sed consectetur.</li>
+				<br>
+				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus
+						mollis interdum. Aenean lacinia bibendum nulla sed consectetur.</li>
+				<br>
+				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus
+						mollis interdum. Aenean lacinia bibendum nulla sed consectetur.</li>
+				<br>
+				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus
+						mollis interdum. Aenean lacinia bibendum nulla sed consectetur.</li>
+				<br>
+				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus
+						mollis interdum. Aenean lacinia bibendum nulla sed consectetur.</li>
+			</ul>
+		</div>
+
+		<div class="col-lg-12" style="height: 150px; background-color: #000; border: 1px solid #333">
+		</div>
+
 	</section>
 
 
