@@ -119,6 +119,32 @@ input.autocomplete-fix {
 	color: #49A5FF;
 }
 
+.btn.dropdown:focus,
+.btn.dropdown:active,
+.btn.dropdown-toggle:focus,
+.btn.dropdown-toggle:active {
+	outline: none;
+	box-shadow: none;
+}
+
+.dropdown-menu {
+	margin: 8px 0 0 0;
+	background: #333;
+	border-radius: 0;
+}
+
+.dropdown-menu > li > a {
+	color: #fff;
+}
+
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:hover {
+	color: #fff;
+	text-decoration: none;
+	background-color: #49A5FF;
+	opacity: 1.0;
+}
+
 .dracobit-login {
 	width: 100%;
 }
@@ -897,23 +923,4 @@ input.autocomplete-fix {
 		height: 30px;
 		padding: 0 10px;
 	}
-}
-
-/* Test */
-.btn.dropdown:focus,
-.btn.dropdown:active,
-.btn.dropdown-toggle:focus,
-.btn.dropdown-toggle:active {
-	outline: none;
-	box-shadow: none;
-}
-
-.dropdown-menu {
-	margin: 8px 0 0 0;
-	background: #333;
-	border-radius: 0;
-}
-
-.dropdown-menu > li > a {
-	color: #fff;
 }

@@ -28,16 +28,17 @@ function dracobit_tutorials_meta_box_callback( $post ) {
 	 * Use get_post_meta() to retrieve an existing value
 	 * from the database and use the value for the form.
 	 */
-	$contributors = get_post_meta( $post->ID, 'contributors', true );
-	$chapters     = get_post_meta( $post->ID, 'chapters', true ); ?>
+	$topics       = get_post_meta( $post->ID, 'tutorials', true );
+	$chapters     = get_post_meta( $post->ID, 'chapters', true );
+	$contributors = get_post_meta( $post->ID, 'contributors', true ); ?>
 
 	<table style="width: 100%;">
 		<tr>
 			<td>
-				<label for="contributors"><?php echo esc_html( __( 'Contributors:', 'dracobit' ) ); ?></label>
+				<label for="topics"><?php echo esc_html( __( 'Topics:', 'dracobit' ) ); ?></label>
 			</td>
 			<td>
-				<textarea type="text" name="contributors" style="width: 100%;"><?php echo esc_textarea( $contributors ); ?></textarea>
+				<textarea type="text" name="topics" style="width: 100%;"><?php echo esc_textarea( $topics ); ?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -46,6 +47,14 @@ function dracobit_tutorials_meta_box_callback( $post ) {
 			</td>
 			<td>
 				<textarea type="text" name="chapters" style="width: 100%;"><?php echo esc_textarea( $chapters ); ?></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="contributors"><?php echo esc_html( __( 'Contributors:', 'dracobit' ) ); ?></label>
+			</td>
+			<td>
+				<textarea type="text" name="contributors" style="width: 100%;"><?php echo esc_textarea( $contributors ); ?></textarea>
 			</td>
 		</tr>
 	</table>
@@ -85,12 +94,14 @@ function dracobit_save_tutorials_meta_box_data( $post_id ) {
 	}
 
 	// Sanitize user input.
-	$contributors = sanitize_text_field( $_POST['contributors'] );
+	$topics       = sanitize_text_field( $_POST['topics'] );
 	$chapters     = sanitize_text_field( $_POST['chapters'] );
+	$contributors = sanitize_text_field( $_POST['contributors'] );
 
 	// Update the meta field in the database.
-	update_post_meta( $post_id, 'contributors', $contributors );
+	update_post_meta( $post_id, 'topics', $topics );
 	update_post_meta( $post_id, 'chapters', $chapters );
+	update_post_meta( $post_id, 'contributors', $contributors );
 
 }
 add_action( 'save_post', 'dracobit_save_tutorials_meta_box_data' );

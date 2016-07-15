@@ -13,8 +13,8 @@ Author URI: http://www.dracobit.io *
  * @since 1.0.0
  */
 function dracobit_register_posttypes() {
-	register_post_type( 'language', array(
-	    'label' => 'Language',
+	register_post_type( 'topic', array(
+	    'label' => 'Topic',
 	    'description' => '',
 	    'public' => true,
 	    'show_ui' => true,
@@ -22,27 +22,27 @@ function dracobit_register_posttypes() {
 	    'capability_type' => 'post',
 	    'map_meta_cap' => true,
 	    'hierarchical' => false,
-	    'rewrite' => array( 'slug' => 'language', 'with_front' => false ),
+	    'rewrite' => array( 'slug' => 'topic', 'with_front' => false ),
 	    'query_var' => true,
 	    'has_archive' => true,
 	    'menu_position' => 41,
 	    'menu_icon' => 'dashicons-format-aside',
 	    'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
 	    'labels' => array(
-	        'name' => 'Languages',
-	        'singular_name' => 'Language',
-	        'menu_name' => 'Languages',
-	        'add_new' => 'Add Language',
-	        'add_new_item' => 'Add New Language',
+	        'name' => 'Topics',
+	        'singular_name' => 'Topic',
+	        'menu_name' => 'Topics',
+	        'add_new' => 'Add Topic',
+	        'add_new_item' => 'Add New Topic',
 	        'edit' => 'Edit',
-	        'edit_item' => 'Edit Language',
-	        'new_item' => 'New Language',
-	        'view' => 'View Language',
-	        'view_item' => 'View Language',
-	        'search_items' => 'Search Languages',
-	        'not_found' => 'No Languages Found',
-	        'not_found_in_trash' => 'No Languages Found in Trash',
-	        'parent' => 'Parent Language',
+	        'edit_item' => 'Edit Topic',
+	        'new_item' => 'New Topic',
+	        'view' => 'View Topic',
+	        'view_item' => 'View Topic',
+	        'search_items' => 'Search Topics',
+	        'not_found' => 'No Topics Found',
+	        'not_found_in_trash' => 'No Topics Found in Trash',
+	        'parent' => 'Parent Topic',
 	    )
 	  )
 	);
@@ -157,7 +157,7 @@ add_action( 'init', 'dracobit_register_posttypes' );
  * @since 1.0.0
  */
 function dracobit_register_taxonomies() {
-	register_taxonomy( 'keywords', array( 'tutorial', 'chapter' ),
+	register_taxonomy( 'keywords', array( 'topic', 'tutorial', 'chapter' ),
 		array( 'hierarchical' => true,
 			'label' => 'Keywords',
 			'show_ui' => true,

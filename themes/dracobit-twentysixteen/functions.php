@@ -24,9 +24,10 @@ if ( function_exists( 'json_url' ) ) {
 	define( 'DRACOBIT_API_URL', json_url() );
 }
 
-include_once get_template_directory() . '/inc/language-metabox.php';
+include_once get_template_directory() . '/inc/topic-metabox.php';
 include_once get_template_directory() . '/inc/tutorial-metabox.php';
 include_once get_template_directory() . '/inc/chapter-metabox.php';
+include_once get_template_directory() . '/inc/class-wp-json-topic.php';
 include_once get_template_directory() . '/inc/class-wp-json-tutorial.php';
 include_once get_template_directory() . '/inc/class-wp-json-chapter.php';
 include_once get_template_directory() . '/inc/class-wp-json-options.php';
