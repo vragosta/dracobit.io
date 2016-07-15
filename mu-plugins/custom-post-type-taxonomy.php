@@ -13,6 +13,40 @@ Author URI: http://www.dracobit.io *
  * @since 1.0.0
  */
 function dracobit_register_posttypes() {
+	register_post_type( 'topic', array(
+	    'label' => 'Topic',
+	    'description' => '',
+	    'public' => true,
+	    'show_ui' => true,
+	    'show_in_menu' => true,
+	    'capability_type' => 'post',
+	    'map_meta_cap' => true,
+	    'hierarchical' => false,
+	    'rewrite' => array( 'slug' => 'topic', 'with_front' => false ),
+	    'query_var' => true,
+	    'has_archive' => true,
+	    'menu_position' => 41,
+	    'menu_icon' => 'dashicons-format-aside',
+	    'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
+	    'labels' => array(
+	        'name' => 'Topics',
+	        'singular_name' => 'Topic',
+	        'menu_name' => 'Topics',
+	        'add_new' => 'Add Topic',
+	        'add_new_item' => 'Add New Topic',
+	        'edit' => 'Edit',
+	        'edit_item' => 'Edit Topic',
+	        'new_item' => 'New Topic',
+	        'view' => 'View Topic',
+	        'view_item' => 'View Topic',
+	        'search_items' => 'Search Topics',
+	        'not_found' => 'No Topics Found',
+	        'not_found_in_trash' => 'No Topics Found in Trash',
+	        'parent' => 'Parent Topic',
+	    )
+	  )
+	);
+
 	register_post_type( 'tutorial', array(
 			'label' => 'Tutorials',
 			'description' => '',
@@ -26,7 +60,7 @@ function dracobit_register_posttypes() {
 			'query_var' => true,
 			'has_archive' => true,
 			'menu_position' => 41,
-			'menu_icon' => 'dashicons-edit',
+			'menu_icon' => 'dashicons-slides',
 			'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
 			'labels' => array(
 					'name' => 'Tutorials',
@@ -94,7 +128,7 @@ function dracobit_register_posttypes() {
 	    'query_var' => true,
 	    'has_archive' => true,
 	    'menu_position' => 41,
-	    'menu_icon' => 'dashicons-edit',
+	    'menu_icon' => 'dashicons-groups',
 	    'supports' => array( 'title','editor', 'comments', 'excerpt','custom-fields','revisions','thumbnail','author' ),
 	    'labels' => array(
 	        'name' => 'Communities',
@@ -123,31 +157,7 @@ add_action( 'init', 'dracobit_register_posttypes' );
  * @since 1.0.0
  */
 function dracobit_register_taxonomies() {
-	register_taxonomy( 'language', array ( 'chapter' ),
-		array( 'hierarchical' => true,
-			'label' => 'Languages',
-			'show_ui' => true,
-			'query_var' => true,
-			'show_admin_column' => false,
-			'rewrite' => array( 'slug' => 'language', 'with_front' => false ),
-			'labels' => array (
-				  'search_items' => 'Language',
-				  'popular_items' => '',
-				  'all_items' => 'All',
-				  'parent_item' => '',
-				  'parent_item_colon' => '',
-				  'edit_item' => '',
-				  'update_item' => '',
-				  'add_new_item' => 'Add New Langauge',
-				  'new_item_name' => '',
-				  'separate_items_with_commas' => '',
-				  'add_or_remove_items' => '',
-				  'choose_from_most_used' => '',
-			)
-		)
-	);
-
-	register_taxonomy( 'keywords', array( 'chapter' ),
+	register_taxonomy( 'keywords', array( 'topic', 'tutorial', 'chapter' ),
 		array( 'hierarchical' => true,
 			'label' => 'Keywords',
 			'show_ui' => true,
