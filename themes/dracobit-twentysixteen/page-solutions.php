@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <!-- Intern Task One -->
 <section class="container" style="margin-top: 100px;">
+	<legend>Task One</legend>
 	<div class="row-fluid">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border: 1px solid #333; height: 150px; background: #000;"></div>
 	</div>
