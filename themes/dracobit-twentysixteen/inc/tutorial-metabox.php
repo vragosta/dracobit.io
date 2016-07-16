@@ -28,7 +28,7 @@ function dracobit_tutorials_meta_box_callback( $post ) {
 	 * Use get_post_meta() to retrieve an existing value
 	 * from the database and use the value for the form.
 	 */
-	$topics       = get_post_meta( $post->ID, 'tutorials', true );
+	$topics       = get_post_meta( $post->ID, 'topics', true );
 	$chapters     = get_post_meta( $post->ID, 'chapters', true );
 	$contributors = get_post_meta( $post->ID, 'contributors', true ); ?>
 
