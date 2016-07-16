@@ -28,7 +28,7 @@
 							<div class="dropdown">
 							  <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="background: transparent; color: #fff;">Browse</button>
 							  <ul class="dropdown-menu">
-									<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/language/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/topic' ) ); ?>">Topics</a></li>
+									<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/topic/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/topic' ) ); ?>">Topics</a></li>
 							    <li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/tutorial/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/tutorial' ) ); ?>">Tutorials</a></li>
 							    <li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/chapter/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/chapter' ) ); ?>">Chapters</a></li>
 							    <li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/profile/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/profile' ) ); ?>">View Profile</a></li>
