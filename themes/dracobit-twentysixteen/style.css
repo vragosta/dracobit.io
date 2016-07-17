@@ -24,6 +24,10 @@ body {
 	background: #b9b8b1;
 }
 
+a {
+	color: #333;
+}
+
 a:hover {
 	text-decoration: none;
 	color: #333;
@@ -254,9 +258,9 @@ input.autocomplete-fix {
 	width: 100%;
 }
 
-/***********
- * Profile *
- ***********/
+/*******************
+ * Profile Template*
+ ******************/
 
 .profile-upload-container {
 	margin-bottom: 25px;
@@ -268,7 +272,7 @@ input.autocomplete-fix {
 }
 
 /**********************
- * Backbone Templates *
+ * Browse Templates *
  **********************/
 
 .dracobit-container {
@@ -281,110 +285,18 @@ input.autocomplete-fix {
 	margin-bottom: 10px;
 }
 
-.dracobit-section {
-	margin-bottom: 25px;
-}
-
-#tutorial-container {
-	margin-bottom: 20px;
-}
-
-.tutorial-version,
-.chapter-version {
-	margin: 0;
-	float: right;
-}
-
-.tutorial-container .tutorial-tagline,
-.chapter-container .chapter-tagline {
-	font-size: 18px;
-	margin-bottom: 10px;
-}
-
-.tutorial-type,
-.chapter-type {
-	color: #bf3939;
-	font-weight: 500;
-	float: right;
-	text-transform: uppercase;
-}
-
-.tutorial-likes-container {
+.dracobit-browse-content {
 	display: flex;
-	justify-content: flex-end;
 }
 
-.tutorial-likes-container i {
-	float: left;
-  font-size: 18px;
-  margin-right: 5px;
-}
-
-.tutorial-container:first-child {
-	display: block;
-}
-
-.tutorial-container legend {
-	color: #333;
-	font-size: 22px
-}
-
-.tutorial-container h4 {
-	font-weight: 500;
-}
-
-.tutorial-container code {
-	color: #00aeff;
-}
-
-.tutorial-container p.key {
-	margin-top: 10px;
-	font-weight: 500;
-}
-
-#tutorial-sidebar {
-	padding-top: 20px;
-}
-
-.tutorial-content section {
-	border: 1px solid #ddd;
-	padding: 10px;
-	display: none;
-}
-
-#tutorial-overview-container {
-	display: block;
-	margin-bottom: 20px;
-}
-
-.chapter-anchor-container a {
-	color: #333;
-	cursor: pointer;
-}
-
-/*******************
- * Sidebar/Widgets *
- *******************/
-
-.dracobit-sidebar {
-	margin-top: 60px;
-	border-left: 1px solid #ddd;
-	min-height: 500px;
-}
-
-.widget {
-	border: 1px solid #ddd;
-	border-radius: 0 !important;
-	cursor: pointer;
-}
-
-.widget-title {
-	margin: 0;
-	color: #bf3939;
-}
-
-.widget-tutorial {
+.dracobit-browse-content li {
 	list-style: none;
+	font-size: 20px;
+	margin-right: 15px;
+}
+
+.dracobit-browse-content li.active {
+	border-bottom: 2px solid #333;
 }
 
 /********************
@@ -462,7 +374,6 @@ input.autocomplete-fix {
 .archive-tutorial-container .bottom-row .tutorial-title {
 	background: #333;
   color: #fff;
-	/*font-size: 20px;*/
 	font-size: 16px;
 }
 
@@ -589,6 +500,31 @@ input.autocomplete-fix {
 	color: #bf3939;
 }
 
+/*******************
+ * Sidebar/Widgets *
+ *******************/
+
+.dracobit-sidebar {
+	margin-top: 60px;
+	border-left: 1px solid #ddd;
+	min-height: 500px;
+}
+
+.widget {
+	border: 1px solid #ddd;
+	border-radius: 0 !important;
+	cursor: pointer;
+}
+
+.widget-title {
+	margin: 0;
+	color: #bf3939;
+}
+
+.widget-tutorial {
+	list-style: none;
+}
+
 /*********************
  * Comment Templates *
  ********************/
@@ -704,9 +640,9 @@ input.autocomplete-fix {
 	display: none;
 }
 
-/*
- * Upload Template
- */
+/*******************
+ * Upload Template *
+ ******************/
 
 .upload-section-container {
 	display: flex;
@@ -895,9 +831,10 @@ input.autocomplete-fix {
   float: right;
   padding: 0;
 }
-/*
- * Media Queries
- */
+
+/*****************
+ * Media Queries *
+ ****************/
 
 @media ( max-width: 1199px ) {
 	body .navbar .container-fluid {
