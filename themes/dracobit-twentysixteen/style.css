@@ -73,12 +73,25 @@ input.autocomplete-fix {
 	border-color: #49A5FF;
 }
 
+/****************************
+ * Custom Helper Classes *
+ ****************************/
+
+.nav.navbar-nav .toggle-display {
+	display: none;
+}
+
 /*******************
  * Header Template *
  *******************/
 
 .navbar-default {
 	background: #333;
+}
+
+.navbar-nav {
+	display: flex;
+	align-items: center;
 }
 
 .navbar-default .navbar-nav > li > a,
@@ -90,7 +103,7 @@ input.autocomplete-fix {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
-.dropdown:hover {
+.btn.dropdown-toggle:hover {
 	color: #fff;
 	background: #49A5FF;
 }
@@ -123,6 +136,12 @@ input.autocomplete-fix {
 .dropdown {
 	height: 50px;
 	display: flex;
+	justify-content: flex-end;
+}
+
+.btn.dropdown-toggle {
+	background: transparent;
+	color: #fff;
 }
 
 .btn.dropdown:focus,
@@ -138,6 +157,8 @@ input.autocomplete-fix {
 	background: #333;
 	border-radius: 0;
 	border-top: none;
+	right: 0;
+	left: auto;
 }
 
 .dropdown-menu > li > a {
@@ -910,6 +931,14 @@ input.autocomplete-fix {
 		margin-bottom: 8px;
 	}
 
+	.nav.navbar-nav .toggle-display {
+		display: block;
+	}
+
+	.dropdown {
+		display: none;
+	}
+
 }
 
 @media ( min-width: 768px ) {
@@ -935,5 +964,11 @@ input.autocomplete-fix {
 	#dracobit_login_submit {
 		height: 30px;
 		padding: 0 10px;
+	}
+}
+
+@media ( max-width: 530px ) {
+	.navbar-nav {
+		flex-direction: column;
 	}
 }

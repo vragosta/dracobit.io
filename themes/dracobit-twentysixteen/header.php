@@ -21,33 +21,41 @@
 		      <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">Dracobit.io</a>
 		    </div>
 
-		    <div class="collapse navbar-collapse dracobit-header">
-		      <ul class="nav navbar-nav" style="display: flex; align-items: center;"><?php
+		    <div class="collapse navbar-collapse dracobit-header"><?php
 						if ( dracobit_login_check() ) { ?>
-							<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/blog/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">Home</a></li>
-							<div class="dropdown">
-							  <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="background: transparent; color: #fff;">Browse</button>
-							  <ul class="dropdown-menu">
-									<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/topic/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/topic' ) ); ?>">Topics</a></li>
-							    <li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/tutorial/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/tutorial' ) ); ?>">Tutorials</a></li>
-							    <li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/chapter/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/chapter' ) ); ?>">Chapters</a></li>
-							    <li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/profile/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/profile' ) ); ?>">View Profile</a></li>
-							  </ul>
-							</div>
-							<li><a class="dracobit-logout-submit">Logout</a></li><?php
+							<ul class="nav navbar-nav">
+								<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/blog/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">Home</a></li>
+								<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/browse/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/browse' ) ); ?>">Browse</a></li>
+								<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/about/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/about' ) ); ?>">About</a></li>
+								<li class="toggle-display <?php echo ( $_SERVER['REQUEST_URI'] == '/upload/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/upload' ) ); ?>">Add Content</a></li>
+								<li class="toggle-display <?php echo ( $_SERVER['REQUEST_URI'] == '/profile/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/profile' ) ); ?>">View Profile</a></li>
+								<li class="toggle-display"><a class="dracobit-logout-submit">Logout</a></li>
+							</ul>
+							<div class="row-fluid">
+								<div class="dropdown">
+									<button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><?php echo esc_html( $current_user->display_name ); ?></button>
+									<ul class="dropdown-menu">
+										<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/upload/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/upload' ) ); ?>">Add Content</a></li>
+										<li class="<?php echo ( $_SERVER['REQUEST_URI'] == '/profile/' ) ? 'active' : '' ; ?>"><a href="<?php echo esc_url( home_url( '/profile' ) ); ?>">View Profile</a></li>
+										<li><a class="dracobit-logout-submit">Logout</a></li>
+									</ul>
+								</div>
+							</div><?php
 						} else { ?>
-							<li class="dracobit-login">
-								<fieldset class="form-inline dracobit-login-form">
-									<div class="input-group">
-										<input name="dracobit-login-username" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
-									</div>
-									<div class="input-group">
-										<input name="dracobit-login-password" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
-									</div>
-									<input type="hidden" name="dracobit-login-nonce" value="<?php echo wp_create_nonce( 'dracobit-login-nonce' ); ?>"/>
-									<button class="btn btn-info dracobit-login-submit">Submit</button>
-								</fieldset>
-							</li><?php
+							<ul class="nav navbar-nav">
+								<li class="dracobit-login">
+									<fieldset class="form-inline dracobit-login-form">
+										<div class="input-group">
+											<input name="dracobit-login-username" class="form-control" placeholder="Username" type="text" aria-describedby="login-username-icon" required />
+										</div>
+										<div class="input-group">
+											<input name="dracobit-login-password" class="form-control" placeholder="Password" type="password" aria-describedby="login-password-icon" required />
+										</div>
+										<input type="hidden" name="dracobit-login-nonce" value="<?php echo wp_create_nonce( 'dracobit-login-nonce' ); ?>"/>
+										<button class="btn btn-info dracobit-login-submit">Submit</button>
+									</fieldset>
+								</li>
+							</ul><?php
 						} ?>
 		      </ul>
 		    </div>
