@@ -3,22 +3,22 @@
 <div class="dracobit-container container">
 	<main class="row">
 		<section class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-			<legend>Communities</legend>
+			<legend>Teams</legend>
 			<div class="dracobit-section"><?php
 				$args = array(
-					'post_type' => 'community',
+					'post_type' => 'team',
 				);
-				$communities = new WP_Query( $args );
-				while ( $communities->have_posts() ) : $communities->the_post();
+				$teams = new WP_Query( $args );
+				while ( $teams->have_posts() ) : $teams->the_post();
 
 				( get_post_meta( $post->ID, 'tagline', true ) ) ? $tagline = get_post_meta( $post->ID, 'tagline', true ) : $tagline = ''; ?>
 
           <div class="list-group" style="height: 250px;">
             <div class="row list-group-item archive-item">
               <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-								<h2><a href="/community/<?php echo $post->post_name; ?>"><?php echo esc_html( $post->post_title ); ?></a></h2>
+								<h2><a href="/team/<?php echo $post->post_name; ?>"><?php echo esc_html( $post->post_title ); ?></a></h2>
 
-								<div class="community-archive-content">
+								<div class="team-archive-content">
 									<p style="margin-bottom: 40px; font-size: 16px;">Created by <a href="/user/<?php the_author(); ?>" class=""><?php the_author(); ?></a></p>
 									<p style="font-size: 16px;"><?php echo $tagline; ?></p>
 								</div>
