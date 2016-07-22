@@ -9,8 +9,8 @@
  */
 
 ( ! $_GET['view'] ) ? $_GET['view'] = 'topic' : '';
-$featured_topic= array();
 
+$featured_topic = array();
 get_header(); ?>
 
 <div class="dracobit-container container">
@@ -29,7 +29,7 @@ get_header(); ?>
 				</div>
 			</div>
 			<div class="dracobit-browse-archive row"><?php
-				if ( $_GET['view'] == 'topic' ) :
+				if ( $_GET['view'] == 'topic' ) {
 					$args = array(
 						'post_type' => 'topic',
 						'tax_query' => array(
@@ -105,9 +105,59 @@ get_header(); ?>
 							</div>
 						</a>
 					</div><?php
-					endwhile; wp_reset_postdata(); ?>
-				</div><?php
-			endif; ?>
+					endwhile; wp_reset_postdata();
+				} else if ( $_GET['view'] === 'tutorial' ) {
+					$args = array(
+						'post_type'      => 'tutorial',
+						'posts_per_page' => -1,
+						'orderby'        => 'title',
+						'order'          => 'ASC'
+					);
+
+					$tutorials = new WP_Query( $args );
+					while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
+					<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 archive-tutorial-container">
+						<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
+							<div class="row-fluid archive-tutorial">
+								<div class="row-fluid top-row"><?php
+									the_post_thumbnail( 'medium' ); ?>
+								</div>
+								<div class="row-fluid bottom-row">
+									<div class="tutorial-title"><?php
+										echo esc_html( $post->post_title ); ?>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div><?php
+					endwhile; wp_reset_postdata();
+				} else if ( $_GET['view'] === 'chapter' ) {
+					$args = array(
+						'post_type'      => 'chapter',
+						'posts_per_page' => -1,
+						'orderby'        => 'title',
+						'order'          => 'ASC'
+					);
+
+					$tutorials = new WP_Query( $args );
+					while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
+					<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 archive-tutorial-container">
+						<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
+							<div class="row-fluid archive-tutorial">
+								<div class="row-fluid top-row"><?php
+									the_post_thumbnail( 'medium' ); ?>
+								</div>
+								<div class="row-fluid bottom-row" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+									<div class="tutorial-title"><?php
+										echo esc_html( $post->post_title ); ?>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div><?php
+					endwhile; wp_reset_postdata();
+				} ?>
+			</div>
 		</section>
 	</main>
 </div>
