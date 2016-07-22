@@ -7,7 +7,7 @@ files:
   # 	destination:/var/www/html/wp-content/
   # - source: /themes/
   #   destination: /var/www/html/wp-content/
-# hooks:
+  hooks:
 #   BeforeInstall:
 #     - location: scripts/install_dependencies
 #       timeout: 300
@@ -15,8 +15,8 @@ files:
 #     - location: scripts/start_server
 #       timeout: 300
 #       runas: root
-#   ApplicationStop:
-#     - location: scripts/stop_server
-#       timeout: 300
-#       runas: root
+   ValidateService:
+     - location: scripts/restart_mysql.sh
+       timeout: 300
+       runas: root
 
