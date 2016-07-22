@@ -918,3 +918,11 @@ input.autocomplete-fix {
 		justify-content: center;
 	}
 }
+
+
+/*****TEST****/
+
+.top-row img {
+	width: 80%;
+	height: 80%;
+}

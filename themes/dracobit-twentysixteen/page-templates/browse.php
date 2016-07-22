@@ -8,9 +8,6 @@
  * @since      1.0.0
  */
 
-// $view = $_GET['view'];
-// ( ! isset( $view ) ) ? $view = 'topic' : $view = '';
-
 get_header(); ?>
 
 <div class="dracobit-container container">
@@ -26,42 +23,38 @@ get_header(); ?>
 					<li class="<?php echo ( $_GET['view'] === 'chapter' ) ? 'active' : ''; ?>"><a href="<?php echo home_url( '/browse?view=chapter' ); ?>">Chapters</a></li>
 				</div>
 			</div>
-			<div class="dracobit-browse-archive"><?php
-			$args = array(
-				'post_type'      => 'topic',
-				'post__not_in'   => $featured_array,
-				'posts_per_page' => -1,
-				'orderby'        => 'title',
-				'order'          => 'ASC'
-			);
+			<div class="dracobit-browse-archive row" style="padding: 10px 0;"><?php
+				$args = array(
+					'post_type'      => 'topic',
+					'post__not_in'   => $featured_array,
+					'posts_per_page' => -1,
+					'orderby'        => 'title',
+					'order'          => 'ASC'
+				);
 
-			$tutorials = new WP_Query( $args );
-			while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
-			<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 archive-tutorial-container">
-				<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
-					<div class="row-fluid archive-tutorial">
-						<div class="row-fluid top-row" style="height: 100px;"><?php
-							the_post_thumbnail( 'medium' ); ?>
-						</div>
-						<div class="row-fluid bottom-row">
-							<div class="tutorial-title"><?php
-								echo esc_html( $post->post_title ); ?>
+				$tutorials = new WP_Query( $args );
+				while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
+					<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3" style="height: 150px; background: #fff; border: 1px solid #333;">
+						<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>" style="height: 100%;">
+							<div class="row" style="height: 100%;">
+								<div class="top-row col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background: #fff; height: 85%; display: flex; justify-content: center; align-items: center;"><?php
+									the_post_thumbnail( 'medium' ); ?>
+								</div>
+								<div class="bottom-row col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background: #333; height: 15%; color: #fff; display: flex; justify-content: center; align-items: center;"><?php
+									echo esc_html( $post->post_title ); ?>
+								</div>
+								<!-- <div class="row-fluid" style="height: 100px;"><?php
+									the_post_thumbnail( 'medium' ); ?>
+								</div> -->
+								<!-- <div class="row-fluid bottom-row">
+									<div class="tutorial-title"><?php
+										echo esc_html( $post->post_title ); ?>
+									</div>
+								</div> -->
 							</div>
-						</div>
-					</div>
-				</a>
-			</div>
-				<!-- <article class="row" style="margin: 10px -15px;">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background: #fff; height: 150px;">
-						<div class="row-fluid" style="display: flex; flex-direction: row; align-items: center; height: 100%;">
-							<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" style="height: 90%; background: red;">
-
-							</div>
-						</div>
-					</div>
-				</article> -->
-				<?php
-			endwhile; wp_reset_postdata(); ?>
+						</a>
+					</div><?php
+				endwhile; wp_reset_postdata(); ?>
 			</div>
 		</section>
 	</main>
