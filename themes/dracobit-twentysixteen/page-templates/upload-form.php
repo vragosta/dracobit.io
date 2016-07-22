@@ -12,7 +12,7 @@ get_header(); ?>
 
 <div class="dracobit-container container">
 	<main class="row">
-    <section class="col-xs-12 col-sm-8 col-md-8 col-lg-8 upload-section-container">
+    <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12 upload-section-container">
 
 			<div class="row upload-header-container">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

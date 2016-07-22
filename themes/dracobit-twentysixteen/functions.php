@@ -24,10 +24,14 @@ if ( function_exists( 'json_url' ) ) {
 	define( 'DRACOBIT_API_URL', json_url() );
 }
 
+include_once get_template_directory() . '/inc/topic-metabox.php';
 include_once get_template_directory() . '/inc/tutorial-metabox.php';
 include_once get_template_directory() . '/inc/chapter-metabox.php';
+include_once get_template_directory() . '/inc/community-metabox.php';
+include_once get_template_directory() . '/inc/class-wp-json-topic.php';
 include_once get_template_directory() . '/inc/class-wp-json-tutorial.php';
 include_once get_template_directory() . '/inc/class-wp-json-chapter.php';
+include_once get_template_directory() . '/inc/class-wp-json-community.php';
 include_once get_template_directory() . '/inc/class-wp-json-options.php';
 
 /* Disable WordPress Admin Bar for all users but admins. */
@@ -117,13 +121,20 @@ add_action( 'wp_enqueue_scripts', 'dracobit_scripts' );
 function dracobit_endpoints_init() {
 	$tutorial_endpoint = new WP_JSON_Tutorial();
 	$chapter_endpoint  = new WP_JSON_Chapter();
+	$community_endpoint = new WP_JSON_Community();
 	$options_endpoint  = new WP_JSON_Options();
 
 	add_filter( 'json_endpoints', array( $tutorial_endpoint, 'register_routes' ) );
 	add_filter( 'json_prepare_post', array( $tutorial_endpoint, 'data' ), 10, 3 );
+
 	add_filter( 'json_endpoints', array( $chapter_endpoint, 'register_routes' ) );
 	add_filter( 'json_prepare_post', array( $chapter_endpoint, 'data' ), 10, 3 );
 	add_action( 'json_insert_post', array( $chapter_endpoint, 'update_post_meta' ), 10, 3 );
+
+	add_filter( 'json_endpoints', array( $community_endpoint, 'register_routes' ) );
+	add_filter( 'json_prepare_post', array( $community_endpoint, 'data' ), 10, 3 );
+	add_action( 'json_insert_post', array( $community_endpoint, 'update_post_meta' ), 10, 3 );
+
 	add_filter( 'json_endpoints', array( $options_endpoint, 'register_routes' ) );
 }
 add_action( 'wp_json_server_before_serve', 'dracobit_endpoints_init' );
@@ -213,6 +224,33 @@ if ( ! function_exists( 'dracobit_comment_template' ) ) {
 	  </div>
 	  <?php endif; ?>
 	  <?php
+	}
+}
+
+if ( ! function_exists( 'dracobit_login_redirect' ) ) {
+	/**
+	 * Redirects user to homepage if they are not logged in.
+	 *
+	 * @since  1.0.0
+	 * @return void
+	 */
+	function dracobit_login_redirect() {
+		if ( ! is_user_logged_in() ) {
+			wp_redirect( home_url( '' ) );
+			exit;
+		}
+	}
+}
+
+if ( ! function_exists( 'dracobit_login_check' ) ) {
+	/**
+	 * Determines if user is logged in or not.
+	 *
+	 * @since  1.0.0
+	 * @return void
+	 */
+	function dracobit_login_check() {
+		return ( ! is_user_logged_in() ) ? false : true;
 	}
 }
 

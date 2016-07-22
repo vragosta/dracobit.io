@@ -6,88 +6,6 @@
 
 // define global variables
 var $ = require( 'jquery' );
-var Post = require( './views/post' );
-var Posts = require( './views/posts' );
-var Tutorials = require( './views/tutorials' );
-var Tutorial = require( './views/tutorial' );
-var Chapters = require( './views/chapters' );
-var Chapter = require( './views/chapter' );
-var ChapterCollection = require( './collections/chapters' );
-
-/**
- * Sets functionality on specific endpoints.
- *
- * @since      1.0.0
- */
-var Router = Backbone.Router.extend({
-	routes: {
-		'blog(/)': 'archivePosts',
-		'blog/:slug(/)': 'singlePost',
-		'tutorial(/)': 'archiveTutorials',
-		'tutorial/:slug(/)': 'singleTutorial',
-		'chapter(/)': 'archiveChapters',
-		'chapter/:slug(/)': 'singleChapter',
-		'profile(/)': 'profile',
-		// ':slug(/)': 'singlePost'
-	},
-
-	archivePosts: function() {
-		this.view = new Posts({
-			el: $( '.dracobit-section' )
-		});
-		this.view.render();
-	},
-
-	singlePost: function() {
-		this.view = new Post({
-			el: $( '.dracobit-section' )
-		});
-		this.view.render();
-	},
-
-	archiveTutorials: function() {
-		this.view = new Tutorials({
-			el: $( '.dracobit-section' )
-		});
-		this.view.render();
-	},
-
-	singleTutorial: function() {
-		this.view = new Tutorial({
-			el: $( '.dracobit-section' )
-		});
-		this.view.render();
-	},
-
-	archiveChapters: function() {
-		this.view = new Chapters({
-			el: $( '.dracobit-section' )
-		});
-		this.view.render();
-	},
-
-	singleChapter: function() {
-		this.view = new Chapter({
-			el: $( '.dracobit-section' )
-		});
-		this.view.render();
-	},
-
-	profile: function() {
-		this.view = new Chapters({
-			el: $( '.dracobit-section' ),
-		});
-		this.view.collection.id = $( 'input[name=current-user-id]' ).val();
-		this.view.render();
-	}
-
-});
-
-window.router = new Router();
-
-Backbone.history.start({
-	pushState: true
-});
 
 /**
  * All javascript/jQuery done inside this function,
@@ -324,9 +242,9 @@ $(function() {
 	 * @event Click
 	 * @since 1.0.0
 	 */
-	$( '#dracobit-login-submit' ).click( function() {
-		var username = $( '#dracobit-login-username' ).val(),
-		    password = $( '#dracobit-login-password' ).val(),
+	$( '.dracobit-login-submit' ).click( function() {
+		var username = $( 'input[name=dracobit-login-username]' ).val(),
+		    password = $( 'input[name=dracobit-login-password]' ).val(),
 				nonce    = $( 'input[name=dracobit-login-nonce]' ).val();
 
 		$.ajax({
@@ -355,13 +273,13 @@ $(function() {
 	 * @event Click
 	 * @since 1.0.0
 	 */
-	$( '#dracobit-signup-submit' ).click( function() {
-		var username         = $( '#dracobit-signup-username' ).val(),
-		    password         = $( '#dracobit-signup-password' ).val(),
-				email            = $( '#dracobit-signup-email' ).val(),
-				first_name       = $( '#dracobit-signup-firstname' ).val(),
-				last_name        = $( '#dracobit-signup-lastname' ).val(),
-				password_confirm = $( '#dracobit-signup-password-confirm' ).val(),
+	$( '.dracobit-signup-submit' ).click( function() {
+		var username         = $( 'input[name=dracobit-signup-username]' ).val(),
+		    password         = $( 'input[name=dracobit-signup-password]' ).val(),
+				email            = $( 'input[name=dracobit-signup-email]' ).val(),
+				first_name       = $( 'input[name=dracobit-signup-firstname]' ).val(),
+				last_name        = $( 'input[name=dracobit-signup-lastname]' ).val(),
+				password_confirm = $( 'input[name=dracobit-signup-password-confirm]' ).val(),
 				nonce            = $( 'input[name=dracobit-signup-nonce]' ).val();
 
 		$.ajax({
@@ -380,20 +298,18 @@ $(function() {
 				dracobit_signup_nonce            : nonce
 			}
 		}).then(function( response ) {
-			console.log( response );
 			if ( ! response.errors.length ) {
 				window.location.replace( '/profile' );
 			} else {
-				console.log( 'errors' );
-				$( '#dracobit-signup-errors' ).show();
+				$( '.dracobit-signup-errors' ).show();
 				$.each( response.errors, function( index, value ) {
-					$( '#dracobit-signup-errors' ).append( '<li>' + ( index + 1 ) + ' : ' + value + '</li>' );
+					$( '.dracobit-signup-errors' ).append( '<li>' + ( index + 1 ) + ' : ' + value + '</li>' );
 				});
 			}
 		});
 	});
 
-	$( '#dracobit-logout-submit' ).click(function() {
+	$( '.dracobit-logout-submit' ).click(function() {
 		$.ajax({
 			type: 'post',
 			url: Dracobit.options.apiUrl + '/logout',
