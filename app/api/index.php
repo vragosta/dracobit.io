@@ -1,6 +1,6 @@
 <?php
 
-	require_once realpath( dirname( __FILE__)) . '/../Slim/Slim.php';
+	require_once realpath( dirname( __FILE__)) . '/app/Slim/Slim.php';
 	require_once realpath( dirname( __FILE__)) . '/../api-code/database.php';
 	require_once realpath( dirname( __FILE__)) . '/../api-code/keyVersions.php';
 	\Slim\Slim::registerAutoloader();
