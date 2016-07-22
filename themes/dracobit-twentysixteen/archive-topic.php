@@ -56,8 +56,7 @@ $featured_array = array(); ?>
 							</div>
 						</div>
 					</a>
-				</div>
-				<?php
+				</div><?php
 				endwhile; wp_reset_postdata();
 
 				$args = array(

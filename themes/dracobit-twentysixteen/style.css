@@ -280,9 +280,31 @@ input.autocomplete-fix {
 	margin-bottom: 25px;
 }
 
-.dracobit-container legend {
-	font-size: 28px;
-	margin-bottom: 10px;
+.dracobit-browse {
+	background: #fff;
+	border: 1px solid #333;
+}
+
+.dracobit-browse-header {
+	height: 200px;
+}
+
+.dracobit-browse-title-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
+.dracobit-browse-title {
+	height: 58%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.dracobit-browse-title span {
+	font-size: 32px;
 }
 
 .dracobit-browse-content {
@@ -299,6 +321,11 @@ input.autocomplete-fix {
 	border-bottom: 2px solid #333;
 }
 
+.dracobit-browse-archive {
+	padding: 10px 0;
+	background: #ddd;
+	border-top: 1px solid #333;
+}
 /********************
  * Archive Template *
  ********************/
@@ -350,6 +377,7 @@ input.autocomplete-fix {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	height: 100px;
 }
 
 .archive-tutorial-container.featured .top-row img {
@@ -389,7 +417,9 @@ input.autocomplete-fix {
 	color: #333;
 }
 
-.archive-item {
+
+
+/*.archive-item {
 	border-radius: 0 !important;
 	box-shadow: -10px 10px 0px 0px rgba( 0,0,0,0.05 );
 	height: 100%;
@@ -399,9 +429,9 @@ input.autocomplete-fix {
 
 .archive-item:hover img {
 	opacity: 0.8;
-}
+}*/
 
-.chapter-photo {
+/*.chapter-photo {
 	height: 100%;
 	padding: 0;
 }
@@ -466,7 +496,7 @@ input.autocomplete-fix {
 .chapter-keyword {
 	color: #fff;
 	font-weight: 400;
-}
+}*/
 
 /********************
  * Single Templates *
@@ -917,12 +947,4 @@ input.autocomplete-fix {
 		display: flex;
 		justify-content: center;
 	}
-}
-
-
-/*****TEST****/
-
-.top-row img {
-	width: 80%;
-	height: 80%;
 }
