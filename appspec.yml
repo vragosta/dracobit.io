@@ -12,7 +12,7 @@ hooks:
 #       timeout: 300
 #       runas: root
    ValidateService:
-     - location: ./home/ec2-user/restart_mysql.sh
+     - location: /home/ec2-user/restart_mysql.sh
        timeout: 300
        runas: root
 
