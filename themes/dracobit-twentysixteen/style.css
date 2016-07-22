@@ -908,4 +908,13 @@ input.autocomplete-fix {
 	.navbar-nav {
 		flex-direction: column;
 	}
+
+	.navbar-nav li {
+		width: 100%;
+	}
+
+	.navbar-nav li a {
+		display: flex;
+		justify-content: center;
+	}
 }
