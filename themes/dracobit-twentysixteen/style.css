@@ -322,7 +322,6 @@ input.autocomplete-fix {
 }
 
 .dracobit-browse-archive {
-	padding: 10px 0;
 	background: #ddd;
 	border-top: 1px solid #333;
 }
@@ -330,24 +329,24 @@ input.autocomplete-fix {
  * Archive Template *
  ********************/
 
-.archive-tutorial-container {
+.archive-custom-container {
 	padding: 10px;
 }
 
-.archive-tutorial-container:hover {
+.archive-custom-container:hover {
 	opacity: 0.9;
 }
 
 
-.archive-tutorial-container a {
+.archive-custom-container a {
 	height: 100%;
 }
 
-.archive-tutorial-container.featured .archive-tutorial {
+.archive-custom-container.featured .archive-custom {
 	height: 268px;
 }
 
-.archive-tutorial-container.featured .featured-text {
+.archive-custom-container.featured .featured-text {
 	margin: 0;
 	position: absolute;
 	font-size: 18px;
@@ -358,21 +357,21 @@ input.autocomplete-fix {
 	padding: 5px 0 0 10px;
 }
 
-.archive-tutorial-container .archive-tutorial {
+.archive-custom-container .archive-custom {
 	border: 1px solid #333;
 	box-shadow: -5px 5px 0 0 rgba(0,0,0,.05);
 }
 
-.archive-tutorial-container.featured .top-row {
+.archive-custom-container.featured .top-row {
 	height: 70%;
 }
 
-.archive-tutorial-container.featured .bottom-row {
+.archive-custom-container.featured .bottom-row {
 	height: 30%;
 	justify-content: flex-start;
 }
 
-.archive-tutorial-container .top-row {
+.archive-custom-container .top-row {
 	background: #fff;
 	display: flex;
 	justify-content: center;
@@ -380,17 +379,27 @@ input.autocomplete-fix {
 	height: 100px;
 }
 
-.archive-tutorial-container.featured .top-row img {
+.archive-custom-container .top-row-chapter {
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	height: 100px;
+	padding: 0px 5px;
+	color: #bf3939;
+	font-weight: 500;
+}
+
+.archive-custom-container.featured .top-row img {
 	height: 125px;
 	width: 125px;
 }
 
-.archive-tutorial-container .top-row img {
+.archive-custom-container .top-row img {
 	height: 75px;
 	width: 75px;
 }
 
-.archive-tutorial-container .bottom-row {
+.archive-custom-container .bottom-row {
 	height: 40%;
 	background: #fff;
 	display: flex;
@@ -399,25 +408,25 @@ input.autocomplete-fix {
 	flex-direction: column;
 }
 
-.archive-tutorial-container .bottom-row .tutorial-title {
+.archive-custom-container .bottom-row .archive-title {
 	background: #333;
   color: #fff;
 	font-size: 16px;
 }
 
-.archive-tutorial-container .bottom-row .tutorial-title,
-.archive-tutorial-container .bottom-row .tutorial-chapters {
+.archive-custom-container .bottom-row .archive-title,
+.archive-custom-container .bottom-row .archive-tutorials,
+.archive-custom-container .bottom-row .archive-chapters {
 	display: flex;
 	justify-content: center;
 	width: 100%;
 }
 
-.archive-tutorial-container .bottom-row .tutorial-chapters,
-.archive-tutorial-container .bottom-row .tutorial-contributors {
+.archive-custom-container .bottom-row .archive-tutorials,
+.archive-custom-container .bottom-row .archive-chapters,
+.archive-custom-container .bottom-row .archive-contributors {
 	color: #333;
 }
-
-
 
 /*.archive-item {
 	border-radius: 0 !important;

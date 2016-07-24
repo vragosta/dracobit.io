@@ -29,6 +29,7 @@ function dracobit_topics_meta_box_callback( $post ) {
 	 * from the database and use the value for the form.
 	 */
 	$tutorials    = get_post_meta( $post->ID, 'tutorials', true );
+	$chapters     = get_post_meta( $post->ID, 'chapters', true );
 	$contributors = get_post_meta( $post->ID, 'contributors', true );
 	$teams        = get_post_meta( $post->ID, 'teams', true ); ?>
 
@@ -39,6 +40,14 @@ function dracobit_topics_meta_box_callback( $post ) {
 			</td>
 			<td>
 				<textarea type="text" name="tutorials" style="width: 100%;"><?php echo esc_textarea( $tutorials ); ?></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="chapters"><?php echo esc_html( __( 'Chapters:', 'dracobit' ) ); ?></label>
+			</td>
+			<td>
+				<textarea type="text" name="chapters" style="width: 100%;"><?php echo esc_textarea( $chapters ); ?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -96,11 +105,13 @@ function dracobit_save_topics_meta_box_data( $post_id ) {
 
 	// Sanitize user input.
 	$tutorials    = sanitize_text_field( $_POST['tutorials'] );
+	$chapters     = sanitize_text_field( $_POST['chapters'] );
 	$contributors = sanitize_text_field( $_POST['contributors'] );
 	$teams        = sanitize_text_field( $_POST['teams'] );
 
 	// Update the meta field in the database.
 	update_post_meta( $post_id, 'tutorials', $tutorials );
+	update_post_meta( $post_id, 'chapters', $chapters );
 	update_post_meta( $post_id, 'contributors', $contributors );
 	update_post_meta( $post_id, 'teams', $teams );
 

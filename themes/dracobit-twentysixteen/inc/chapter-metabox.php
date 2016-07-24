@@ -29,10 +29,11 @@ if ( ! function_exists( 'dracobit_chapters_meta_box_callback' ) ) {
 		// Add a nonce field so we can check for it later.
 		wp_nonce_field( 'dracobit_save_chapters_meta_box_data', 'dracobit_meta_box_nonce' );
 
-		$version           = get_post_meta( $post->ID, 'version',           true );
-		$tutorial          = get_post_meta( $post->ID, 'tutorial',          true );
+		$version           = get_post_meta( $post->ID, 'version', true );
+		$topic             = get_post_meta( $post->ID, 'topic', true );
+		$tutorial          = get_post_meta( $post->ID, 'tutorial', true );
 		$short_description = get_post_meta( $post->ID, 'short_description', true );
-		$keywords          = get_post_meta( $post->ID, 'keywords',          true ); ?>
+		$keywords          = get_post_meta( $post->ID, 'keywords', true ); ?>
 
 		<table style="width: 100%;">
 			<tr>
@@ -41,6 +42,14 @@ if ( ! function_exists( 'dracobit_chapters_meta_box_callback' ) ) {
 				</td>
 				<td>
 					<textarea type="text" id="version" name="version" style="width: 100%;"><?php echo esc_textarea( $version ); ?></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="topic"><?php echo esc_html( __( 'Topic:', 'dracobit' ) ); ?></label>
+				</td>
+				<td>
+					<textarea type="text" id="topic" name="topic" style="width: 100%;"><?php echo esc_textarea( $topic ); ?></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -110,12 +119,14 @@ function dracobit_save_chapters_meta_box_data( $post_id ) {
 
 	// Sanitize user input.
 	$version           = sanitize_text_field( $_POST['version'] );
+	$topic             = sanitize_text_field( $_POST['topic'] );
 	$tutorial          = sanitize_text_field( $_POST['tutorial'] );
 	$short_description = sanitize_text_field( $_POST['short_description'] );
 	$keywords          = sanitize_text_field( $_POST['keywords'] );
 
 	// Update the meta field in the database.
 	update_post_meta( $post_id, 'version', $version );
+	update_post_meta( $post_id, 'topic', $topic );
 	update_post_meta( $post_id, 'tutorial', $tutorial );
 	update_post_meta( $post_id, 'short_description', $short_description );
 	update_post_meta( $post_id, 'keywords', $keywords );
