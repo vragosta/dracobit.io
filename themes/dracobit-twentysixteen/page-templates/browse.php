@@ -99,7 +99,7 @@ get_header(); ?>
 
 					$tutorials = new WP_Query( $args );
 					while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
-					<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 archive-custom-container">
+					<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 archive-custom-container topic">
 						<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
 							<div class="row-fluid archive-custom">
 								<div class="row-fluid top-row"><?php
@@ -124,7 +124,7 @@ get_header(); ?>
 
 					$tutorials = new WP_Query( $args );
 					while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
-					<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 archive-custom-container">
+					<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 archive-custom-container tutorial">
 						<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
 							<div class="row-fluid archive-custom">
 								<div class="row-fluid top-row"><?php
@@ -151,12 +151,18 @@ get_header(); ?>
 						( get_post_meta( $post->ID, 'topic', true ) ) ? $topic_meta = json_decode( get_post_meta( $post->ID, 'topic', true ) ) : $topic_meta = array();
 						( get_post_meta( $post->ID, 'tutorial', true ) ) ? $tutorial_meta = get_post_meta( $post->ID, 'tutorial', true ) : $tutorial_meta = array();
 						( isset( $topic_meta ) && ! empty( $topic_meta ) ) ? $topic = get_post( $topic_meta ) : $topic = '';
-						( isset( $tutorial_meta ) && ! empty( $tutorial_meta ) ) ? $tutorial = get_post( $tutorial_meta ) : $tutorial = ''; ?>
-						<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 archive-custom-container">
+						( isset( $tutorial_meta ) && ! empty( $tutorial_meta ) ) ? $tutorial = get_post( $tutorial_meta ) : '';
+						$topic_image = wp_get_attachment_image_src( get_post_thumbnail_id( $topic->ID ), 'single-post-thumbnail' )[0]; ?>
+						<div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 archive-custom-container chapter">
 							<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
 								<div class="row-fluid archive-custom">
-									<div class="row-fluid top-row-chapter"><?php
-										echo esc_html( $post->post_title ); ?>
+									<div class="row-fluid top-row" style="background-image: url( '<?php echo esc_url( $topic_image ); ?>' );">
+										<div class=""><?php
+											echo esc_html( $post->post_title ); ?>
+										</div>
+										<div class="" style="color: #333; font-size: 10px; font-weight: 500;">
+											Created By Team
+										</div>
 									</div>
 									<div class="row-fluid bottom-row">
 										<div class="archive-title"><?php

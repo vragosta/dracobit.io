@@ -379,7 +379,13 @@ input.autocomplete-fix {
 	height: 100px;
 }
 
-.archive-custom-container .top-row-chapter {
+/*.archive-custom-container.chapter .archive-custom {
+	background-size: 40px 40px;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}*/
+
+.archive-custom-container.chapter .top-row {
 	background: #fff;
 	display: flex;
 	flex-direction: column;
@@ -387,6 +393,11 @@ input.autocomplete-fix {
 	padding: 0px 5px;
 	color: #bf3939;
 	font-weight: 500;
+	justify-content: flex-start;
+	align-items: flex-start;
+	background-size: 40px 40px;
+	background-repeat: no-repeat;
+	background-position: bottom right;
 }
 
 .archive-custom-container.featured .top-row img {
