@@ -174,33 +174,62 @@ crossorigin="anonymous">
 
 <!-- Intern Task Four - CSS Bootstrap Exercise #191 -->
 
-<section class="container" style="margin-top: 100px; border: 2px solid black">
+<!-- <section class="row-fluid" style="margin-top: 100px; border: 2px solid black; background-color: white">
+<div class="span2" style= "background-color: #EBEBEB; margin-top: 20px; display:flex; flex-direction:column">
+<div>
+<h4><strong>Some Favorites</strong></h4>
+<ul type="disk">
+<li> Tortor Ultricies </li>
+<li> Tellus Vestibulum </li>
+<li> Consectetur Porta </li>
+</ul>
 
-	<div class="col-lg-2" style= "background-color: #EBEBEB; margin-top: 20px">
-		<h4><strong>Some Favorites</strong></h4>
-		<ul type="disk">
-			<li> Tortor Ultricies </li>
-			<li> Tellus Vestibulum </li>
-			<li> Consectetur Porta </li>
-		</ul>
+<form> <input type="text" required> <input class="button-search" type="button" value="Search" > </form>
+</div>
 
-		<form> <input type="text" required> <input class="button-search" type="button" value="Search" > </form>
+<div class="span6;">
+<h2>Egestas Fermentum Vehicula Venenatis</h2>
+<p> Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam
+eget risus varius blandit sit amet non magna. Donec id elit non mi porta
+gravida at eget metus. Sed posuere consectetur est at lobortis. Donec
+ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum
+nulla sed consectetur. Sed posuere consectetur est at lobortis.</p>
+<p> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam
+id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante
+venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus
+commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+risus.</p>
+</div>
+
+</section> -->
+
+
+<section class="row-fluid" style="margin-top: 110px">
+	<div class="row-fluid span6" style="">
+		<h3 style="color:black"><strong> Amet Vehicula Ridiculus Quam </strong></h3>
+		<p> Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget
+			  risus varius blandit sit amet non magna. Maecenas faucibus mollis interdum.</p>
+		<p> Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec
+			  ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit
+			  amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Donec
+			  ullamcorper nulla non metus auctor fringilla.</p>
 	</div>
-
-	<div class="col-lg-10">
-		<h2>Egestas Fermentum Vehicula Venenatis</h2>
-		<p> Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam
-		 eget risus varius blandit sit amet non magna. Donec id elit non mi porta
-		 gravida at eget metus. Sed posuere consectetur est at lobortis. Donec
-		 ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum
-		 nulla sed consectetur. Sed posuere consectetur est at lobortis.</p>
-		 <p> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam
-		 id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante
-		 venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus
-		 commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
-		 risus.</p>
-	 </div>
-
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php get_footer(); ?>
