@@ -156,13 +156,15 @@ get_header(); ?>
 						<div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 archive-custom-container chapter">
 							<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
 								<div class="row-fluid archive-custom">
-									<div class="row-fluid top-row" style="background-image: url( '<?php echo esc_url( $topic_image ); ?>' );">
+									<!-- <div class="row-fluid top-row" style="background-image: url( '<?php echo esc_url( $topic_image ); ?>' );"> -->
+									<div class="row-fluid top-row">
 										<div class=""><?php
 											echo esc_html( $post->post_title ); ?>
 										</div>
 										<div class="" style="color: #333; font-size: 10px; font-weight: 500;">
 											Created By Team
 										</div>
+										<img src="<?php echo esc_url( $topic_image ); ?>" class="archive-topic-image" />
 									</div>
 									<div class="row-fluid bottom-row">
 										<div class="archive-title"><?php

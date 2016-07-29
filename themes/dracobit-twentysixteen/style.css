@@ -410,6 +410,14 @@ input.autocomplete-fix {
 	width: 75px;
 }
 
+.archive-custom-container .top-row .archive-topic-image {
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
 .archive-custom-container .bottom-row {
 	height: 40%;
 	background: #fff;
