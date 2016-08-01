@@ -204,16 +204,83 @@ risus.</p>
 </section> -->
 
 
-<section class="row-fluid" style="margin-top: 110px">
-	<div class="row-fluid span6" style="">
-		<h3 style="color:black"><strong> Amet Vehicula Ridiculus Quam </strong></h3>
-		<p> Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget
-			  risus varius blandit sit amet non magna. Maecenas faucibus mollis interdum.</p>
-		<p> Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec
-			  ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit
-			  amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Donec
-			  ullamcorper nulla non metus auctor fringilla.</p>
+<section class="container" style="margin-top: 110px; background-color:white; border: 2px solid black; display:flex; align-items: baseline">
+
+	<div class="row-fluid col-xs-2 col-sm-2 col-md-2 col-lg-2" style="background-color: #DEDDDD;
+	border-radius: 3px">
+		<h4><strong>Some Favorites</strong></h4>
+		<ul type="disk">
+			<li> Tortor Ultricies </li>
+			<li> Tellus Vestibulum </li>
+			<li> Consectetur Porta </li>
+		</ul>
+		<form> <input type="text" required style="border-radius: 3px;"> <input class="button-search" type="button"
+			value="Search Recepies" style="background-color: #0E58A2; color:white; border-radius: 5px; border:none;
+			font-size: 12" > </form>
 	</div>
+
+	<div class="row-fluid col-xs-10 col-sm-10 col-md-10 col-lg-10">
+
+		<div>
+			<h2><strong>Wild and Wacky Vegetables</strong></h2>
+			<blockquote> Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam
+			eget risus varius blandit sit amet non magna. Donec id elit non mi porta
+			gravida at eget metus. Sed posuere consectetur est at lobortis. Donec
+			ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum
+			nulla sed consectetur. Sed posuere consectetur est at lobortis. <BR> <cite style="color:#B8B8B8">- Tom Robbins</cite> </blockquote>
+		</div>
+
+		<div>
+			<h3><strong> Some Diseases</strong></h3>
+			<table border="1" width="100%" style="border-collapse:colapse; border-radius:3px;
+			border-style:hidden; box-shadow: 0 0 0 1px;">
+				<tr height="35px" >
+					<td style="padding-left:10px"><strong> Veggie </strong></td>
+					<td style="padding-left:10px"><strong> Disease </strong></td>
+				</tr>
+				<tr height="35px">
+					<td style="padding-left:10px"> Beets </td>
+					<td style="padding-left:10px"> Beeturia </td>
+				</tr>
+				<tr height="35px">
+					<td style="padding-left:10px"> Carrots </td>
+					<td style="padding-left:10px"> Carotenosis </td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<h3><strong> Really Informative Info</strong></h3>
+			<p> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam
+			id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante
+			venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus
+			commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+			risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam
+			id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante
+			venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus
+			commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+			risus.</p>
+			<p> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam
+			id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante
+			venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus
+			commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+			risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam
+			id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante
+			venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus
+			commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+			risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam
+			id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante
+			venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus
+			commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+			risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam
+			id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante
+			venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus
+			commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+			risus.</p>
+		</div>
+
+	</div>
+
 </section>
 
 
