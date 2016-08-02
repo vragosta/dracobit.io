@@ -844,6 +844,51 @@ input.autocomplete-fix {
 	margin-top: 550px
 }*/
 
-.button-search{
+/*.button-search{
 	background-color: blue;
+}*/
+
+.main-box{
+	margin-top: 110px;
+	background-color:white;
+	border: 2px solid black;
+	display:flex;
+	align-items: baseline
+}
+
+.favorite-box{
+	border-radius: 3px;
+	background-color: #D8D8D8;
+}
+
+.search-bar{
+	border-radius: 3px;
+}
+
+.button-search{
+	background-color: #0E58A2;
+	color:white;
+	border-radius: 5px;
+	border:none;
+	font-size: 12
+}
+
+.quote{
+	color:#B8B8B8;
+}
+
+.disease-table{
+	border-collapse:colapse;
+	border-radius:3px;
+	border-style:hidden;
+	box-shadow: 0 0 0 1px;
+	width:100%;
+}
+
+tr{
+	height:35px
+}
+
+td{
+	padding-left:10px
 }
