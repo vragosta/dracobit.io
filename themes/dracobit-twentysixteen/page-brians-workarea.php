@@ -174,8 +174,7 @@ crossorigin="anonymous">
 
 <!-- Intern Task Four - CSS Bootstrap Exercise #191 -->
 
-
- <section class="container main-box">
+ <!-- <section class="container main-box">
 
 	<div class="favorite-box col-xs-6 col-sm-3 col-md-3 col-lg-2">
 		<h4><strong>Some Favorites</strong></h4>
@@ -246,11 +245,17 @@ crossorigin="anonymous">
 		</div>
 	</div>
 
+</section> -->
+
+<!-- Inter Task Five - Browse Template Mockup #196 -->
+
+<section class="container" style="margin-top:100px">
+  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="background-color:white">
+    <h1 style="color:black"> Browse </div>
+  </div>
+
+
 </section>
-
-
-
-
 
 
 <?php get_footer(); ?>
