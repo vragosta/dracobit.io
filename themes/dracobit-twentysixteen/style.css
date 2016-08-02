@@ -806,3 +806,89 @@ input.autocomplete-fix {
 		padding: 0 10px;
 	}
 }
+
+
+
+
+
+/******************
+ * Brian Workarea *
+ ******************/
+
+/*.box-black {
+	 height: 150px;
+	 background-color: #000;
+	 border: 1px solid #333;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	}
+
+.box-white {
+	 height: 450px;
+   background-color: blue;
+	 border: 1px solid #333;
+	 display: flex;
+	 flex-direction: column;
+	 justify-content: center;
+	 align-items: center
+	}
+
+.title-main {
+	color: white;
+	font-size: 70px;
+	margin: 0
+}
+
+.container-main {
+	margin-top: 550px
+}*/
+
+/*.button-search{
+	background-color: blue;
+}*/
+
+.main-box{
+	margin-top: 110px;
+	background-color:white;
+	border: 2px solid black;
+	display:flex;
+	align-items: baseline
+}
+
+.favorite-box{
+	border-radius: 3px;
+	background-color: #D8D8D8;
+}
+
+.search-bar{
+	border-radius: 3px;
+}
+
+.button-search{
+	background-color: #0E58A2;
+	color:white;
+	border-radius: 5px;
+	border:none;
+	font-size: 12
+}
+
+.quote{
+	color:#B8B8B8;
+}
+
+.disease-table{
+	border-collapse:colapse;
+	border-radius:3px;
+	border-style:hidden;
+	box-shadow: 0 0 0 1px;
+	width:100%;
+}
+
+tr{
+	height:35px
+}
+
+td{
+	padding-left:10px
+}
