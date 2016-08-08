@@ -905,11 +905,15 @@ input.autocomplete-fix {
 }
 
 @media ( max-width: 991px ) and ( min-width: 768px ) {
-
+	.archive-custom-container {
+		width: 50%;
+	}
 }
 
 @media ( max-width: 767px ) and ( min-width: 480px ) {
-
+	.archive-custom-container {
+		width: 50%;
+	}
 }
 
 @media ( max-width: 767px ) {

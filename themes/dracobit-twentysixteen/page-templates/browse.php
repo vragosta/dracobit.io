@@ -49,9 +49,9 @@ get_header(); ?>
 						array_push( $featured_topic, $post->ID );
 
 						// Create static meta variables.
-						( get_post_meta( $post->ID, 'tutorials', true ) ) ? $tutorials = json_decode( get_post_meta( $post->ID, 'tutorials', true ) ) : $tutorials = array();
-						( get_post_meta( $post->ID, 'chapters', true ) ) ? $chapters = json_decode( get_post_meta( $post->ID, 'chapters', true ) ) : $chapters = array();
-						( get_post_meta( $post->ID, 'contributors', true ) ) ? $contributors = json_decode( get_post_meta( $post->ID, 'contributors', true ) ) : $contributors = array();
+						$tutorials    = ( get_post_meta( $post->ID, 'tutorials', true ) ) ? json_decode( get_post_meta( $post->ID, 'tutorials', true ) ) : array();
+						$chapters     = ( get_post_meta( $post->ID, 'chapters', true ) ) ? json_decode( get_post_meta( $post->ID, 'chapters', true ) ) : array();
+						$contributors = ( get_post_meta( $post->ID, 'contributors', true ) ) ? json_decode( get_post_meta( $post->ID, 'contributors', true ) ) : array();
 
 						// Create meta count variables.
 						$tutorials_count    = count( $tutorials );
@@ -59,9 +59,9 @@ get_header(); ?>
 						$contributors_count = count( $contributors );
 
 						// Create meta display variables.
-						( $tutorials_count > 0 ) ? $tutorials_display = $tutorials_count . ' tutorials' : $tutorials_display = '';
-						( $chapters_count > 0 ) ? $chapters_display = $chapters_count . ' chapters' : $chapters_display = '';
-						( $contributors_count > 0 ) ? $contributors_display = $contributors_count . ' contributors' : $contributors_display = ''; ?>
+						$tutorials_display    = ( $tutorials_count > 0 ) ? $tutorials_count . ' tutorials' : '';
+						$chapters_display     = ( $chapters_count > 0 ) ? $chapters_count . ' chapters' : '';
+						$contributors_display = ( $contributors_count > 0 ) ?  $contributors_count . ' contributors' : ''; ?>
 
 						<div class="col-xs-12 col-sm-5 col-md-4 col-lg-6 archive-custom-container featured">
 							<a href="<?php echo esc_url( '/topic/' . $post->post_name ); ?>">
@@ -97,22 +97,22 @@ get_header(); ?>
 						'order'          => 'ASC'
 					);
 
-					$tutorials = new WP_Query( $args );
-					while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
-					<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 archive-custom-container topic">
-						<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
-							<div class="row-fluid archive-custom">
-								<div class="row-fluid top-row"><?php
-									the_post_thumbnail( 'medium' ); ?>
-								</div>
-								<div class="row-fluid bottom-row">
-									<div class="archive-title"><?php
-										echo esc_html( $post->post_title ); ?>
+					$topics = new WP_Query( $args );
+					while ( $topics->have_posts() ) : $topics->the_post(); ?>
+						<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 archive-custom-container topic">
+							<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
+								<div class="row-fluid archive-custom">
+									<div class="row-fluid top-row"><?php
+										the_post_thumbnail( 'medium' ); ?>
+									</div>
+									<div class="row-fluid bottom-row">
+										<div class="archive-title"><?php
+											echo esc_html( $post->post_title ); ?>
+										</div>
 									</div>
 								</div>
-							</div>
-						</a>
-					</div><?php
+							</a>
+						</div><?php
 					endwhile; wp_reset_postdata();
 				} else if ( $_GET['view'] === 'tutorial' ) {
 					$args = array(
@@ -123,21 +123,32 @@ get_header(); ?>
 					);
 
 					$tutorials = new WP_Query( $args );
-					while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>
-					<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 archive-custom-container tutorial">
-						<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
-							<div class="row-fluid archive-custom">
-								<div class="row-fluid top-row"><?php
-									the_post_thumbnail( 'medium' ); ?>
-								</div>
-								<div class="row-fluid bottom-row">
-									<div class="archive-title"><?php
-										echo esc_html( $post->post_title ); ?>
+					while ( $tutorials->have_posts() ) : $tutorials->the_post();
+
+						// Get topic meta from tutorial.
+						$topic_meta = ( get_post_meta( $post->ID, 'topic', true ) ) ? json_decode( get_post_meta( $post->ID, 'topic', true ) ) : array();
+
+						// Create topic from tutorial meta.
+						$topic = ( isset( $topic_meta ) && ! empty( $topic_meta ) ) ? get_post( $topic_meta ) : '';
+
+						// Get featured image source from tutorial.
+						$topic_image = wp_get_attachment_image_src( get_post_thumbnail_id( $topic->ID ), 'single-post-thumbnail' )[0]; ?>
+
+						<div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 archive-custom-container tutorial">
+							<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
+								<div class="row-fluid archive-custom">
+									<div class="row-fluid top-row"><?php
+										the_post_thumbnail( 'medium' ); ?>
+										<img src="<?php echo esc_url( $topic_image ); ?>" class="archive-topic-image" />
+									</div>
+									<div class="row-fluid bottom-row">
+										<div class="archive-title"><?php
+											echo esc_html( $post->post_title ); ?>
+										</div>
 									</div>
 								</div>
-							</div>
-						</a>
-					</div><?php
+							</a>
+						</div><?php
 					endwhile; wp_reset_postdata();
 				} else if ( $_GET['view'] === 'chapter' ) {
 					$args = array(
@@ -148,20 +159,26 @@ get_header(); ?>
 
 					$chapters = new WP_Query( $args );
 					while ( $chapters->have_posts() ) : $chapters->the_post();
-						( get_post_meta( $post->ID, 'topic', true ) ) ? $topic_meta = json_decode( get_post_meta( $post->ID, 'topic', true ) ) : $topic_meta = array();
-						( get_post_meta( $post->ID, 'tutorial', true ) ) ? $tutorial_meta = get_post_meta( $post->ID, 'tutorial', true ) : $tutorial_meta = array();
-						( isset( $topic_meta ) && ! empty( $topic_meta ) ) ? $topic = get_post( $topic_meta ) : $topic = '';
-						( isset( $tutorial_meta ) && ! empty( $tutorial_meta ) ) ? $tutorial = get_post( $tutorial_meta ) : '';
+
+						// Get topic and tutorial meta from chapter.
+						$topic_meta    = ( get_post_meta( $post->ID, 'topic', true ) ) ? json_decode( get_post_meta( $post->ID, 'topic', true ) ) : array();
+						$tutorial_meta = ( get_post_meta( $post->ID, 'tutorial', true ) ) ? $tutorial_meta = get_post_meta( $post->ID, 'tutorial', true ) : $tutorial_meta = array();
+
+						// Create topic/tutorial from chapter meta.
+						$topic    = ( isset( $topic_meta ) && ! empty( $topic_meta ) ) ? get_post( $topic_meta ) : '';
+						$tutorial = ( isset( $tutorial_meta ) && ! empty( $tutorial_meta ) ) ? get_post( $tutorial_meta ) : '';
+
+						// Get featured image source from chapter.
 						$topic_image = wp_get_attachment_image_src( get_post_thumbnail_id( $topic->ID ), 'single-post-thumbnail' )[0]; ?>
+
 						<div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 archive-custom-container chapter">
 							<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
 								<div class="row-fluid archive-custom">
-									<!-- <div class="row-fluid top-row" style="background-image: url( '<?php echo esc_url( $topic_image ); ?>' );"> -->
 									<div class="row-fluid top-row">
-										<div class=""><?php
+										<div><?php
 											echo esc_html( $post->post_title ); ?>
 										</div>
-										<div class="" style="color: #333; font-size: 10px; font-weight: 500;">
+										<div style="color: #333; font-size: 10px; font-weight: 500;">
 											Created By Team
 										</div>
 										<img src="<?php echo esc_url( $topic_image ); ?>" class="archive-topic-image" />
