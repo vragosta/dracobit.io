@@ -249,13 +249,205 @@ crossorigin="anonymous">
 
 <!-- Inter Task Five - Browse Template Mockup #196 -->
 
-<section class="container" style="margin-top:100px">
-  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="background-color:white">
-    <h1 style="color:black"> Browse </div>
+<div class="row-fluid" style="margin-top:60px;">
+
+  <div class="container" style="background-color: white; border: 1px solid black">
+
+    <h1 style="margin: 65px 0px;">Browse</h1>
+
+    <div class="row-fluid">
+      <ul class="col-xs-5 col-sm-4 col-md-4 col-lg-3" style="margin:0; padding:0;
+      list-style-type:none; display: flex; justify-content:space-between">
+        <li style="display:inline; font-size: 20px;">Topics</li>
+        <li style="display:inline; font-size: 20px;">Tutorials</li>
+        <li style="display:inline; font-size: 20px; border-bottom: 2px solid black">Chapters</li>
+      </ul>
+    </div>
+
   </div>
 
 
-</section>
+
+
+  <div class="container" style="background-color: #D9D9D9;
+   border: 1px solid black; border-top:none; padding-top:11px;
+    padding-bottom: 10px; font-size: 11px;">
+
+    <!-- Row 1 -->
+    <div class="row-fluid" style="display:flex; justify-content:space-between; padding-bottom:20px">
+     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+      border: 1px solid black; padding-bottom:40px; margin-right: 20px;">
+        <h4 style="color:#BC4242">Preparing and Installing Ubuntu on Virtualbox</h4>
+        <p>Created By Team</p>
+     </div>
+     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+      border: 1px solid black; padding-bottom:40px; margin-right: 20px;">
+        <h4 style="color:#BC4242">Installing Guest Additions</h4>
+        <p>Created By Team</p>
+     </div>
+     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+      border: 1px solid black; padding-bottom:40px;">
+        <h4 style="color:#BC4242">Getting Connected</h4>
+        <p>Created By Team</p>
+     </div>
+   </div>
+
+   <!-- Row 1 -->
+   <div class="row-fluid" style="display:flex; justify-content:space-between; padding-bottom:20px">
+
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px; margin-right: 20px;">
+       <h4 style="color:#BC4242">The Linux Directory Structure</h4>
+       <p>Created By Team</p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px; margin-right: 20px;">
+       <h4 style="color:#BC4242">Welcome to Shell</h4>
+       <p>Created By Team</p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px;">
+       <h4 style="color:#BC4242">Basic Linux Commands</h4>
+       <p>Created By Team</p>
+    </div>
+  </div>
+
+
+   <!-- Row 1 -->
+   <div class="row-fluid" style="display:flex; justify-content:space-between; padding-bottom:20px">
+
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px; margin-right: 20px;">
+       <h4 style="color:#BC4242">Working with Directories</h4>
+       <p>Created By Team</p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px; margin-right: 20px;">
+       <h4 style="color:#BC4242">Listing Files and Understanding ls Output</h4>
+       <p>Created By Team</p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px;">
+       <h4 style="color:#BC4242">File and Directory Permissions Explained</h4>
+       <p>Created By Team</p>
+    </div>
+  </div>
+
+   <!-- Row 1 -->
+   <div class="row-fluid" style="display:flex; justify-content:space-between; padding-bottom:20px">
+
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px; margin-right: 20px;">
+       <h4 style="color:#BC4242">Finding Files and Directories</h4>
+       <p>Created By Team</p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px; margin-right: 20px;">
+       <h4 style="color:#BC4242">Deleting, Coping, Moving and Renaming Files</h4>
+       <p>Created By Team</p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px;">
+       <h4 style="color:#BC4242">Wildcards</h4>
+       <p>Created By Team</p>
+    </div>
+  </div>
+
+   <!-- Row 1 -->
+   <div class="row-fluid" style="display:flex; justify-content:space-between; padding-bottom:20px">
+
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px; margin-right: 20px;">
+       <h4 style="color:#BC4242">Input, Output, and Redirection</h4>
+       <p>Created By Team</p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px; margin-right: 20px;">
+       <h4 style="color:#BC4242">Comparing Files</h4>
+       <p>Created By Team</p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px;">
+       <h4 style="color:#BC4242">Searching in Files and Using Pipes</h4>
+       <p>Created By Team</p>
+    </div>
+  </div>
+
+   <!-- Row 1 -->
+   <div class="row-fluid" style="display:flex; justify-content:space-between; padding-bottom:20px">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:white;
+     border: 1px solid black; padding-bottom:40px; margin-right: 20px;">
+       <h4 style="color:#BC4242">Transferring and Copying Files Over the Network</h4>
+       <p>Created By Team</p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding-bottom:30px; margin-right: 20px;">
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding-bottom:30px;">
+    </div>
+  </div>
+
+
+
+  </div>
+</div>
+
+
+
+
+   <!-- <div class="container" style="background-color: #E1E1E1; border:1px solid black;
+  display:flex; justify-content: space-between; flex-wrap:wrap; color:red">
+
+    <div class="row-fluid"
+
+      <div class="row-fluid col-xs-4 col-sm-4 col-md-4 col-lg-4"
+      style="background-color: white; border:1px solid black;">
+        <p> hello world</p>
+      </div>
+
+      <div class="row-fluid col-xs-4 col-sm-4 col-md-4 col-lg-4"
+      style="background-color: white; border:1px solid black;">
+        <p> hello world</p>
+      </div>
+
+      <div class="row-fluid col-xs-4 col-sm-4 col-md-4 col-lg-4"
+      style="background-color: white; border:1px solid black;">
+        <p> hello world</p>
+      </div>
+
+    </div>
+
+  </div> -->
+
+
+
+
+
+
+<!--
+<div class="container" style="background-color: #E1E1E1; border:1px solid black;
+    padding-top:10px; padding-bottom:10px; color:red">
+
+    <div class="container" style="display:flex; justify-content: space-between;
+    padding-top:10px; padding-bottom:5px">
+      <div class="container col-xs-3 col-sm-3 col-md-3 col-lg-3"
+      style="background-color:white; border: 1px solid black; padding:20px">
+        <p>Peparing</p>
+      </div>
+      <div class="container col-xs-3 col-sm-3 col-md-3 col-lg-3"
+      style="background-color:white; border: 1px solid black; padding:20px">
+        <p>Peparing</p>
+      </div>
+      <div class="container col-xs-3 col-sm-3 col-md-3 col-lg-3"
+      style="background-color:white; border: 1px solid black; padding:20px">
+        <p>Peparing</p>
+      </div>
+    </div>
+
+  </div> -->
+
+
+
+
 
 
 <?php get_footer(); ?>
