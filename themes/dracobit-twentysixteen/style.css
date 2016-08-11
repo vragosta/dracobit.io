@@ -385,7 +385,8 @@ input.autocomplete-fix {
 	background-position: bottom right;
 }*/
 
-.archive-custom-container.chapter .top-row {
+.archive-custom-container.chapter .top-row,
+.archive-custom-container.tutorial .top-row {
 	background: #fff;
 	display: flex;
 	flex-direction: column;

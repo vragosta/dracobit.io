@@ -137,13 +137,18 @@ get_header(); ?>
 						<div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 archive-custom-container tutorial">
 							<a href="<?php echo esc_url( '/tutorial/' . $post->post_name ); ?>">
 								<div class="row-fluid archive-custom">
-									<div class="row-fluid top-row"><?php
-										the_post_thumbnail( 'medium' ); ?>
+									<div class="row-fluid top-row">
+										<div><?php
+											echo esc_html( $post->post_title ); ?>
+										</div>
+										<div style="color: #333; font-size: 10px; font-weight: 500;">
+											Created By Team
+										</div>
 										<img src="<?php echo esc_url( $topic_image ); ?>" class="archive-topic-image" />
 									</div>
 									<div class="row-fluid bottom-row">
 										<div class="archive-title"><?php
-											echo esc_html( $post->post_title ); ?>
+											echo esc_html( $topic->post_title ); ?>
 										</div>
 									</div>
 								</div>
@@ -161,8 +166,8 @@ get_header(); ?>
 					while ( $chapters->have_posts() ) : $chapters->the_post();
 
 						// Get topic and tutorial meta from chapter.
-						$topic_meta    = ( get_post_meta( $post->ID, 'topic', true ) ) ? json_decode( get_post_meta( $post->ID, 'topic', true ) ) : array();
-						$tutorial_meta = ( get_post_meta( $post->ID, 'tutorial', true ) ) ? $tutorial_meta = get_post_meta( $post->ID, 'tutorial', true ) : $tutorial_meta = array();
+						$topic_meta    = ( get_post_meta( $post->ID, 'topic', true ) ) ? get_post_meta( $post->ID, 'topic', true ) : array();
+						$tutorial_meta = ( get_post_meta( $post->ID, 'tutorial', true ) ) ? get_post_meta( $post->ID, 'tutorial', true ) : array();
 
 						// Create topic/tutorial from chapter meta.
 						$topic    = ( isset( $topic_meta ) && ! empty( $topic_meta ) ) ? get_post( $topic_meta ) : '';
